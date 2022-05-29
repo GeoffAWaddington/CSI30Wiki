@@ -10,8 +10,6 @@ If you find something out of date, either comment to let us know, or even better
 * [[Installation]]
   * [[Updating CSI|Installation#Installing CSI Updates]]
   * [[CSI.INI]]
-* [[CSI Version 1.1 Changes|CSI-Version-1.1-Changes]]
-  * [[Mandatory Changes if Upgrading from CSI v1.0|CSI-Version-1.1-Changes#mandatory-changes-if-upgrading-from-csi-v10]]
 * [[Defining Control Surface Capabilities]]
   * [[Message Generators]]
   * [[Feedback Processors]]
@@ -25,7 +23,6 @@ If you find something out of date, either comment to let us know, or even better
   * [[FX Zones]]
   * [[Action Reference]]
   * [[Modifiers]]
-  * [[Navigators]]
   * [[Invoking Multiple Actions]]
 * [[Tips and Tricks|Tips-and-Tricks]]
 * Step By Step Guides
