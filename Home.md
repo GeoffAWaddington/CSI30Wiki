@@ -6,7 +6,7 @@ This started out as a wiki project by Malcolm Groves, but several people are now
  
 If you find something out of date, either comment to let us know, or even better, edit the page and fix it. Comments, corrections, additions are very welcome. 
 
-* [[Conceptual Overview]]
+* [[Overview]]
 * [[Installation]]
   * [[Updating CSI|Installation#Installing CSI Updates]]
   * [[CSI.INI]]
