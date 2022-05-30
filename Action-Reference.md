@@ -71,6 +71,8 @@
 * [[FocusedFXParamValueDisplay|FocusedFXParam#focusedfxparamnamedisplay-and-focusedfxparamvaluedisplay]]
 * [[GoFXSlot|MapSelectedTrackFXToMenu]]
 * [[FXGainReductionMeter]]
+* [[ToggleEnableFocusedFXMapping]]
+* [[ToggleEnableFocusedFXParamMapping]]
 * [[ToggleFXBypass]]
 * [[FXBypassedDisplay]]
 
