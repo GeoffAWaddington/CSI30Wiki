@@ -111,7 +111,7 @@ OnInitialization Receive Home SelectedTrackSend SelectedTrackReceive SelectedTra
 ZoneEnd
 ```
 
-## Revised Rewind and FastForward actions
+## Rewind and FastForward improvements
 Big improvements have been made to the Rewind and FastForward actions. They will now latch and seek the play/edit cursor. The first press of either button will result in a slower rewind/forward speed. If you press the button again, you get a second, faster speed. 
 
 ## SubZones are for more than just FX now
