@@ -54,7 +54,7 @@ Fixed zone names mean we no longer need the GoZone action. Instead, users can ac
 * [GoSelectedTrackReceive](https://github.com/GeoffAWaddington/CSIWiki/wiki/GoSelectedTrackReceive)
 * [GoSelectedTrack](https://github.com/GeoffAWaddington/CSIWiki/wiki/GoSelectedTrack)
 
-## Zone Feedback
+## Zone feedback
 Now, active zones will send feedback to surfaces that support this like the Behringer X-Touch, X-Touch One, etc. Example: if the Home zone is active, the button dedicated to this zone on these types of surfaces will light up. Same for the Send/Receive/FXMenu type zones. 
 
 ## Broadcast and Receive syntax improved
@@ -135,8 +135,8 @@ Version 2.0 introduces changes to the file CSI.ini file format. Additionally, no
 ## Native Apple Silicon (ARM) support, universal binary
 Mac users with M1 [or more recent] can now use CSI natively in the Reaper ARM version. The .dylib is now a universal binary that includes ARM and Intel versions. You will need to allow the CSI .dylib to have access within Security and Privacy settings in Mac OS, then restart Reaper.
 
-## Catalina or greater required for Mac OS
-The minimum version of Mac OS supported is 10.15. This was changed in order to support new processors.
+## Catalina or greater required for MacOS
+The minimum version of MacOS supported is 10.15. This was changed in order to support new processors.
 
 ## No more 32-bit CSI builds
 CSI no longer includes 32-bit builds on Windows and Mac. This was dropped in order to support new processors. 
