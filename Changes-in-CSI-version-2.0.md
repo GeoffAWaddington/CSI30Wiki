@@ -85,6 +85,11 @@ The minimum version of Mac OS supported is 10.14. This was dropped in order to s
 ## No more 32-bit CSI builds
 CSI no longer includes 32-bit builds. This was dropped in order to support new processors. 
 
+## New Wiki location
+If you found this page via the CSI thread in the Reaper forums, you may not realize that the CSI Wiki link has changed. Please update your bookmarks. The new Wiki page is:
+
+https://github.com/GeoffAWaddington/CSIWiki/wiki
+
 ## New actions
 Here’s a list of new actions introduced in CSI v2:
 
