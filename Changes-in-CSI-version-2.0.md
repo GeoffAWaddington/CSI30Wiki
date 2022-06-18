@@ -54,6 +54,8 @@ Fixed zone names mean we no longer need the GoZone action. Instead, users can ac
 * [GoSelectedTrackReceive](https://github.com/GeoffAWaddington/CSIWiki/wiki/GoSelectedTrackReceive)
 * [GoSelectedTrack](https://github.com/GeoffAWaddington/CSIWiki/wiki/GoSelectedTrack)
 
+## ZoneFeedback
+Now, active zones will send feedback to surfaces that support this like the Behringer X-Touch, X-Touch One, etc. Example: if the Home zone is active, the button dedicated to this zone on these types of surfaces will light up. Same for the Send/Receive/FXMenu type zones. 
 
 ## Revised Rewind and FastForward actions
 Improvements have been made to the Rewind and FastForward actions. They will now latch and seek the play/edit cursor. Multiple presses will change the speed similar to rewind/fast forward buttons found on cable boxes, DVR’s, and streaming services, providing a familiar experience. 
