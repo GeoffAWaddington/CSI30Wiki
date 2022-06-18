@@ -70,6 +70,12 @@ In CSI v1.1, Send, Receive and FX Menu banking actions needed to exist in those 
 ## Track Pin features have been removed
 Track pinning has been removed [as of now] from CSI v2 in order to clean up and simplify the code behind the scenes.
 
+## CSI Preferences: removed the FX Menu and Send/Receive channel count fields
+In the CSI Device Preferences, you'll no longer see the Send/Receive channel count fields. They inherit the count from the channel count.
+
+## New CSI.ini format, new file error handling
+Version 2.0 introduces changes to the file CSI.ini file format. Additionally, now CSI will check for an incorrectly formatted CSI.ini and warn users when Reaper starts, notifying users of the version mismatch (rather than crashing Reaper). In general, CSI will warn users if there's a missing folder or incorrectly formated CSI.ini and should not crash Reaper.
+
 ## Native Apple Silicon (ARM) support, universal binary
 Mac users with M1 [or more recent] can now use CSI natively in the Reaper ARM version. The .dylib is now a universal binary that includes ARM and Intel versions. You will need to allow the CSI .dylib to have access within Security and Privacy settings in Mac OS, then restart Reaper.
 
