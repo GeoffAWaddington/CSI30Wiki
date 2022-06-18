@@ -180,7 +180,7 @@ Here’s a list of new actions introduced in CSI v2:
 * FXBypassedDisplay
 
 ## Depreciated actions
-Here’s a list of legacy actions that have been depreciated. Many of these actions had to do with how zones were activated.
+Here’s a list of legacy actions that have been removed. Many of these actions had to do with how zones were activated.
 
 * TimeDisplay (still exists - was renamed to MCUTimeDisplay)
 * MapSelectedTrackSendsToWidgets
