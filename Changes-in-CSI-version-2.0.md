@@ -54,14 +54,45 @@ Fixed zone names mean we no longer need the GoZone action. Instead, users can ac
 * [GoSelectedTrackReceive](https://github.com/GeoffAWaddington/CSIWiki/wiki/GoSelectedTrackReceive)
 * [GoSelectedTrack](https://github.com/GeoffAWaddington/CSIWiki/wiki/GoSelectedTrack)
 
-## ZoneFeedback
+## Zone Feedback
 Now, active zones will send feedback to surfaces that support this like the Behringer X-Touch, X-Touch One, etc. Example: if the Home zone is active, the button dedicated to this zone on these types of surfaces will light up. Same for the Send/Receive/FXMenu type zones. 
 
-## Broadcast and Receive Syntax Improved
-In CSI, you can instruct one surface to "broadcast" zone changes to another surface to keep them in sync, as long as that other surface is set to "receive" and listen to those broadcast changes. This is not new functionality, however, rather than having a bunch of separate actions for this behavior, you can now list all your broadcast message types on a single row in the Home.zon, and same for Receive messages. You simply add the zone fixed zone name as shown in the example below:
+## Broadcast and Receive syntax improved
+In CSI, you can instruct one surface to "broadcast" zone changes to another surface to keep them in sync, as long as that other surface is set to "receive" and listen to those broadcast changes. This is not new functionality, however, rather than having a bunch of separate actions for this behavior, you can now list all your broadcast message types on a single row in the Home.zon, and same for Receive messages. 
 
+Broadcast/Receive only works for "Home" and "Associated Zones". If you have SelectedTrackFXMenu or FXMenu set to broadcast/receive, that includes the GoFXSlot messages that activates those zones.
+
+The below example shows what Broadcast/Receive would look like with all currently supported options:
 ```
 Zone Home
+OnInitialization Broadcast Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
+OnInitialization Receive Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
+    IncludedZones
+        "Buttons"
+        "Track"
+        "MasterTrack"
+    IncludedZonesEnd
+    AssociatedZones
+       "SelectedTrackFXMenu"
+       "SelectedTrackSend"
+       "SelectedTrackReceive"
+       "TrackFXMenu"
+       "TrackSend"
+       "TrackReceive"
+    AssociatedZonesEnd
+ZoneEnd
+```
+
+## FocusedFX Changes
+The elimination of navigators mentioned above applies to FX.zon files too! By default, CSI version 2 will have FocusedFX mapping enabled. This means if you have a fx.zon file for a particular FX/instrument plugin, and open the GUI in Reaper, that mapping will become activated by default. You can this off by assigning a button to the ToggleFocusedFXMapping action as shown below:
+```
+   SomeButton     ToggleFocusedFXMapping
+```
+
+But what if you don't want FocusedFXMapping on by default?  Since the default toggle state is "on", you can add "OnInitialization ToggleFocusedFXMapping" to flip it to off when CSI starts up as shown below:
+```
+Zone Home
+OnInitialization ToggleFocusedFXMapping
 OnInitialization Broadcast Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
 OnInitialization Receive Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
     IncludedZones
