@@ -58,7 +58,7 @@ Fixed zone names mean we no longer need the GoZone action. Instead, users can ac
 Now, active zones will send feedback to surfaces that support this like the Behringer X-Touch, X-Touch One, etc. Example: if the Home zone is active, the button dedicated to this zone on these types of surfaces will light up. Same for the Send/Receive/FXMenu type zones. 
 
 ## Revised Rewind and FastForward actions
-Improvements have been made to the Rewind and FastForward actions. They will now latch and seek the play/edit cursor. Multiple presses will change the speed similar to rewind/fast forward buttons found on cable boxes, DVR’s, and streaming services, providing a familiar experience. 
+Big improvements have been made to the Rewind and FastForward actions. They will now latch and seek the play/edit cursor. The first press of either button will result in a slower rewind/forward speed. If you press the button again, you get a second, faster speed. 
 
 ## SubZones are for more than just FX now
 SubZones are custom zones (i.e. they don’t have a fixed, pre-defined name) that can be called up from other zones. Common use-cases for SubZones would be create a custom Zoom zone, or a custom Marker zone that can re-purpose some widget assignments and change the functionality of the surface. They are also commonly used FX SubZones, which existed in CSI version 1.1. Think of an example of a Mastering Suite that may have more parameters than you have controls for on your surface. With FX SubZones, you could create one zone for the compressor section, another for the limiter section, then activate those different surfaces via button presses.
