@@ -57,6 +57,29 @@ Fixed zone names mean we no longer need the GoZone action. Instead, users can ac
 ## ZoneFeedback
 Now, active zones will send feedback to surfaces that support this like the Behringer X-Touch, X-Touch One, etc. Example: if the Home zone is active, the button dedicated to this zone on these types of surfaces will light up. Same for the Send/Receive/FXMenu type zones. 
 
+## Broadcast and Receive Syntax Improved
+In CSI, you can instruct one surface to "broadcast" zone changes to another surface to keep them in sync, as long as that other surface is set to "receive" and listen to those broadcast changes. This is not new functionality, however, rather than having a bunch of separate actions for this behavior, you can now list all your broadcast message types on a single row in the Home.zon, and same for Receive messages. You simply add the zone fixed zone name as shown in the example below:
+
+```
+Zone Home
+OnInitialization Broadcast Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
+OnInitialization Receive Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
+    IncludedZones
+        "Buttons"
+        "Track"
+        "MasterTrack"
+    IncludedZonesEnd
+    AssociatedZones
+       "SelectedTrackFXMenu"
+       "SelectedTrackSend"
+       "SelectedTrackReceive"
+       "TrackFXMenu"
+       "TrackSend"
+       "TrackReceive"
+    AssociatedZonesEnd
+ZoneEnd
+```
+
 ## Revised Rewind and FastForward actions
 Big improvements have been made to the Rewind and FastForward actions. They will now latch and seek the play/edit cursor. The first press of either button will result in a slower rewind/forward speed. If you press the button again, you get a second, faster speed. 
 
