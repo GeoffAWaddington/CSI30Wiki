@@ -83,7 +83,7 @@ OnInitialization Receive Home SelectedTrackSend SelectedTrackReceive SelectedTra
 ZoneEnd
 ```
 
-## FocusedFX Changes
+## FocusedFX changes
 The elimination of navigators mentioned above applies to FX.zon files too! By default, CSI version 2 will have FocusedFX mapping enabled. This means if you have a fx.zon file for a particular FX/instrument plugin, and open the GUI in Reaper, that mapping will become activated by default. You can this off by assigning a button to the ToggleFocusedFXMapping action as shown below:
 ```
    SomeButton     ToggleFocusedFXMapping
