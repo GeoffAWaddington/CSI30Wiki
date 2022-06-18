@@ -105,10 +105,10 @@ Version 2.0 introduces changes to the file CSI.ini file format. Additionally, no
 Mac users with M1 [or more recent] can now use CSI natively in the Reaper ARM version. The .dylib is now a universal binary that includes ARM and Intel versions. You will need to allow the CSI .dylib to have access within Security and Privacy settings in Mac OS, then restart Reaper.
 
 ## Catalina or greater required for Mac OS
-The minimum version of Mac OS supported is 10.15. This was dropped in order to support new processors.
+The minimum version of Mac OS supported is 10.15. This was changed in order to support new processors.
 
 ## No more 32-bit CSI builds
-CSI no longer includes 32-bit builds. This was dropped in order to support new processors. 
+CSI no longer includes 32-bit builds on Windows and Mac. This was dropped in order to support new processors. 
 
 ## New Wiki location
 If you're reading this, you've already found the new Wiki, but if you found this page via the CSI thread in the Reaper forums, you may not realize that the CSI Wiki link has changed. Please update your bookmarks to reference this new page. The new CSI Wiki page is:
