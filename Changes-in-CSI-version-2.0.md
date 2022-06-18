@@ -1,4 +1,3 @@
-# Changes in CSI version 2.0
 CSI version 2.0 made a number of under-the-hood changes to zone loading to improve results and simplify some processes. This page is designed towards users with familiarity with how CSI v1/1.1 authoring and is meant to assist in migration to version 2.0 by summarizing and consolidating the changes. 
 
 ## No more navigators and fixed zone names
