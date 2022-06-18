@@ -10,6 +10,7 @@ If you find something out of date, either comment to let us know, or even better
 * [[Installation]]
   * [[Updating CSI|Installation#Installing CSI Updates]]
   * [[CSI.INI]]
+* [[Changes in CSI version 2.0]]
 * [[Defining Control Surface Capabilities]]
   * [[Message Generators]]
   * [[Feedback Processors]]
