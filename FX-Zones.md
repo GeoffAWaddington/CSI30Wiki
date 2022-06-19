@@ -11,7 +11,6 @@ You'll need to create an "[plugin name].zon" file for each plugin you map. These
 And here's an example of the contents of the following zon file: 
 ````
 Zone "VST: ReaEQ (Cockos)" ReaEQ 
-    FocusedFXNavigator
     RotaryG11 FXParam 0 "Freq-Band 1"
     Fader1 FXParam 1 "Gain-Band 1"
     Shift+RotaryG11 FXParam 2 "Q-Band 1"
@@ -44,8 +43,6 @@ Let's walk through the key pieces:
 
 * Note: If you rename a plugin in Reaper, your FX zone will need to be updated to match exactly. Anyone you share the FX .zon file with would either also have to rename their plugin in Reaper to match, or edit the .zon file to go back to the original name.
 
-* Don't worry about the second line above ("FocusedFXNavigator"), we'll deal with that below in the [[How to activate an FX Zone|FX-Zones#how-to-activate-an-fx-zone]] section.
-
 * We then have one line for each widget/plugin parameter mapping we want to create. As an example, the first one looks like this ``RotaryG11 FXParam 0 "Freq-Band 1"`` and breaks down as:
   * ``RotaryG11`` - the name of the widget
   * ``FX Param 0`` - the index of the plugin's parameter (I'll show you how to find that in a second)
@@ -71,7 +68,6 @@ Result: if you navigate to your CSI\Zones\ZoneRawFXFiles folder, you should now 
 
 ```
 Zone "VST: ReaEQ (Cockos)"
-	SelectedTrackNavigator
 	FXParam 0 "Freq-Low Shelf"
 	FXParam 1 "Gain-Low Shelf"
 	FXParam 2 "Q-Low Shelf"
