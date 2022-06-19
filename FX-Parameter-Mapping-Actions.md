@@ -5,7 +5,6 @@ Is the CSI action to control a plugin parameter. Let's say we've generated the [
 
 ```
 Zone "VST: ReaComp"
-	SelectedTrackNavigator
 	FXParam 0 "Thresh"
 	FXParam 1 "Ratio"
 	FXParam 2 "Attack"
