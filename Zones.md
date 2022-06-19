@@ -26,11 +26,11 @@ Provided our [[CSI.INI]] and Widget definitions are setup correctly, this should
 
 
 ## One Zone Per File (CSI 1.1 and Up)
-CSI version 1.1 introduced a major change in that now you can only have one zone per file. In the past, a surface.zon file was usually comprised of multiple zones like: Home, Channel, Button, Mastertrack, Jogwheel, SelectedTrackSends. Starting with CSI 1.1, these now need to be separate files. A similar CSI 1.1 surface would now be comprised of multiple files like:
+CSI version 1.1 introduced a major change in that now you can only have one zone per file. In the past, a surface.zon file was usually comprised of multiple zones like: Home, Track, Button, Mastertrack, Jogwheel, SelectedTrackSends. Starting with CSI 1.1, these now need to be separate files. A similar CSI 1.1 surface would now be comprised of multiple files like:
 
 ```
 Home.zon
-Channel.zon
+Track.zon
 Button.zon
 MasterTrack.zon
 JogWheel.zon
@@ -42,55 +42,103 @@ This change immensely improves performance when you have a large number of FX.zo
 **Tip:** within each **\CSI\Zones\[Surface]** folder, it's probably a best practice to create an "FX Zones" sub-folder if you plan on mapping FX. This way, your surface zone files can all live together in the root of the folder, and all of your fx zones can exist in the **\CSI\Zones\[Surface]\FX Zones** folder, away from the surface files. Not a requirement, but will help keep things tidy.
 
 ## Naming Zones
-Some zones in CSI are "special zones" and require an exact name in order to work. Example: if you're controlling the faders/pans/etc. on multiple tracks across an 8-channel surface, that zone must be called "Channel" or it won't work. See the section on [Navigators](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/Navigators) for more details on that.
+Starting in CSI v2.0, Zones and AssociatedZones must have a fixed name. These zone types are:
 
-For zones where you do have have some flexibility in the naming convention, like a "Buttons" zone, there are some rules you'll have to follow. If your Zone name has a space in it, you'll need to wrap all references to that zone in quotes (Example: if you wanted a zone called "Zoom Buttons"), otherwise, the quotes are technically not required. That said, it's probably a good idea to wrap them all in quotes, spaces or not, just so you don't have to think about it. 
+```
+Home
+Buttons
+Track
+SelectedTrack
+MasterTrack
+SelectedTrackFXMenu
+SelectedTrackSend
+SelectedTrackReceive
+TrackFXMenu
+TrackReceive
+TrackSend
+```
 
-Every CSI surface must have a Home zone (i.e. home.zon if using CSI v1.1 and above).
+If you need to create a custom zone, like a "Zoom" zone, or a "FocusedFXParam" zone, these must be created as SubZones and called by the action GoSubZone. Example:
+
+```
+Zone "Buttons"
+    Zoom        GoSubZone "Zoom"
+ZoneEnd
+```
+
+```
+SubZone "Zoom"
+     Up                      Reaper "40111"     // Zoom in vertical
+     Down                    Reaper "40112"     // Zoom out vertical
+     Left                    Reaper "1011"      // Zoom out horizontal
+     Right                   Reaper "1012"      // Zoom in horizontal
+     
+     Shift+Up                Reaper "40113"     // View: Toggle track zoom to maximum height
+     Shift+Down              Reaper "40110"     // View: Toggle track zoom to minimum height
+     Shift+Left              Reaper "40295"     // View: Zoom out project
+     Shift+Right             Reaper "41190"     // View: Set horizontal zoom to default project setting
+
+     Zoom LeaveSubZone
+SubZoneEnd
+```
 
 FX zone file names can be whatever you'd like them to, but the FX zone name in the .zon file itself must match the plugin name in Reaper exactly. See [FX Zones](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/FX-Zones) for more information on how to create an FX.zon.
 
 
 ## A Slightly More Useful Example
 
-As great as it is to get that first action happening when you press a Surface button, let’s look at a slightly more interesting example. I might group a bunch of widgets together into a zone called Buttons, because the actions I am assigning to them are conceptually related:
+As great as it is to get that first action happening when you press a Surface button, let’s look at a slightly more interesting example. A common surface setup might include a Buttons.zon that has various CSI and Reaper actions that can be called up from the surface. Some of these buttons may even call other zones. Here's an excerpt of a buttons.zon:
 
 ````
 Zone "Buttons"
-	Track ToggleMapSelectedTrackFXMenu
-	Send ToggleMapSelectedTrackSends
-	Pan ToggleMapSelectedTrackFX
-	Shift+Pan GoZone Home
-	Plugin ToggleScrollLink
-        ChannelLeft TrackBank "-1"
-	ChannelRight TrackBank "1"
-	BankLeft TrackBank "-20"
-	BankRight TrackBank "20"
-	Rewind Rewind
-	FastForward FastForward
-	Stop Stop
-	Play Play
-	Record Record
-	F1 NextPage
+    Track                       Reaper 1156	// Toggle item grouping override
+    Pan                         Reaper 1155	// Cycle ripple editing mode
+    EQ                          Reaper 40070	// Move envelope points with media items
+    Send                        Reaper 40145 	// Toggle Grid Lines
+    Hold+Send                   Reaper 40071	// Show snap/grid settings
+    Plugin                      Reaper 1157	// Toggle snapping
+    Hold+Plugin			Reaper 40071	// Show snap/grid settings
+    Instrument                  Reaper 1135	// Toggle locking
+    Hold+Instrument		Reaper 40277	// Show lock settings
+    BankLeft                    TrackBank -8
+    BankRight                   TrackBank 8
+    ChannelLeft                 TrackBank -1
+    ChannelRight                TrackBank 1
+    Flip                        Flip
+    GlobalView                  GoHome
+    GlobalView                  Reaper _S&M_WNCLS3        	// Close all floating FX windows
+    GlobalView                  Reaper _S&M_WNCLS4        	// Close all FX chain windows
+    GlobalView                  Reaper _S&M_TOGLFXCHAIN   	// Toggle FX Chain for selected tracks     
+    nameValue                   NoAction   
+    smpteBeats                  CycleTimeDisplayModes
+    MidiTracks                  GoSelectedTrackSend
+    Inputs                      GoSelectedTrackReceive
+    AudioTracks                 GoSelectedTrackFXMenu
+    AudioInstrument             GoTrackSend
+    Aux                         GoTrackReceive
+    Busses                      GoTrackFXMenu
+    Outputs                     ToggleEnableFocusedFXMapping 
+    User                        ToggleEnableFocusedFXParamMapping
 ZoneEnd
 ````
 
-As another example, I might define a zone called Channels which collects all my track faders and related widgets into a single group, again because for me they are all related to controlling my tracks. 
+As another example, I might define a zone called Track which collects all my track faders and related widgets into a single group, again because for me they are all related to controlling my tracks. 
 ````
-Zone "Channel"
-	TrackNavigator
-	DisplayUpper|  TrackNameDisplay
-	TrackTouch+DisplayUpper|  TrackVolumeDisplay
-	Rotary| MCUTrackPan
-	RecordArm|  TrackRecordArm
-	Solo|  TrackSolo
-	Mute| TrackMute
-	Select|  TrackUniqueSelect
-	Shift+Select|  TrackRangeSelect
-	Control+Select|  TrackSelect
-	Shift+Control+Select| TogglePin
-	Fader|  TrackVolume
-	FaderTouch|  TrackTouch
+Zone "Track"
+    DisplayUpper|               TrackNameDisplay
+    Fader|Touch+DisplayLower|   TrackVolumeDisplay
+    DisplayLower|               MCUTrackPanDisplay
+    VUMeter|                    TrackOutputMeterMaxPeakLR
+    Fader|                      TrackVolume 
+    Flip+Fader|                 TrackPan 
+    Rotary|                     MCUTrackPan
+    RotaryPush|                 ToggleMCUTrackPanWidth
+    RecordArm|                  TrackRecordArm
+    Solo|                       TrackSolo
+    Mute|                       TrackMute
+    Select|                     TrackUniqueSelect
+    Shift+Select|               TrackRangeSelect
+    Control+Select|             TrackSelect
 ZoneEnd
 ````
 
@@ -98,7 +146,7 @@ Note the | character after the name of the widgets. These will get replaced with
 
 Fader|  TrackVolume
 
-will cause this to be generated automatically by CSI
+will cause this to be generated automatically by CSI...
 
 Fader1  TrackVolume
 
@@ -134,18 +182,14 @@ When triggering custom actions or using actions whose meanings may otherwise not
 1. / Lines that begin with a forward slash are completely ignored by CSI and are good for commenting sections of code. **Hint:** these also work in .mst files.
 2. // Trailing comments are preceeded by two forward slashes and can be used after an action in a .zon file
 
-Here is an example from a .zon file that uses both types of comments. First, the entire section is preceded by a comment using a single forward slash. Then, each of the automation modes is followed by a trailing comment identifying which mode is which.
+Here is an example from a .zon file that uses both types of comments.
 
 ````
-/To make MCU Std mode work like MCU Cubase mode, I'm using F1-F5 on the X-Touch One for the automation modes.
+Zone "Buttons"
 
-Zone "SelChannelButtons|"
-	SelectedTrackNavigator
-	F1 				TrackAutoMode 1 	//Read
-	F2 				TrackAutoMode 3 	//Write
-	F3 				TrackAutoMode 0 	//Trim
-	F4 				TrackAutoMode 2 	//Touch
-	F5				TrackAutoMode 4 	//Latch
-
-ZoneEnd
+/ Using the GlobalView button to activate the Home zone and then run the actions to close the floating FX windows.
+    GlobalView                  GoHome
+    GlobalView                  Reaper _S&M_WNCLS3        	// Close all floating FX windows
+    GlobalView                  Reaper _S&M_WNCLS4        	// Close all FX chain windows
+    GlobalView                  Reaper _S&M_TOGLFXCHAIN   	// Toggle FX Chain for selected tracks     
 ````
