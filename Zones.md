@@ -41,23 +41,51 @@ This change immensely improves performance when you have a large number of FX.zo
 
 **Tip:** within each **\CSI\Zones\[Surface]** folder, it's probably a best practice to create an "FX Zones" sub-folder if you plan on mapping FX. This way, your surface zone files can all live together in the root of the folder, and all of your fx zones can exist in the **\CSI\Zones\[Surface]\FX Zones** folder, away from the surface files. Not a requirement, but will help keep things tidy.
 
-## Naming Zones
+## Naming Zones / Fixed Zone Types
 Starting in CSI v2.0, Zones and AssociatedZones must have a fixed name. These zone types are:
 
 ```
-Home
-Buttons
-Track
-SelectedTrack
-MasterTrack
-SelectedTrackFXMenu
-SelectedTrackSend
-SelectedTrackReceive
-TrackFXMenu
-TrackReceive
-TrackSend
+Home                        // This zone is required and is the 'starting state' for CSI
+Buttons                     // This zone is generally used for assigning buttons to CSI and Reaper actions
+Track                       // Used when you want to control multiple channels across multiple widgets (e.g. 8 faders assigned to 8 channels)
+SelectedTrack               // Used for controlling the selected track in Reaper (commonly used for 1 fader surfaces)
+MasterTrack                 // This is for assigning the master track fader to your surface
+SelectedTrackFXMenu         // Used for activating FX.zon files - shows the FX slots of the selected channel
+SelectedTrackSend           // Used for controlling the various sends on the selected channel
+SelectedTrackReceive        // Used for controlling the various Receives (if any) on the selected channel
+TrackFXMenu                 // Used for activating FX.zon files - shows the same FX Slot across multiple channels
+TrackSend                   // Used for controlling the same Send slot across multiple channels
+TrackReceive                // Used for controlling the same Receive slot across multiple channels  
 ```
 
+## Activating Zones
+Depending on the type of zone you want to activate, there are few methods to accomplish this task. If you're looking to activate one of the zone types with a fixed name, there are dedicated CSI actions for each type...
+
+```
+Zone you want to activiate...   ActionName...
+Home                            GoHome
+SelectedTrackFXMenu             GoSelectedTrackFXMenu
+SelectedTrackSend               GoSelectedTrackSend
+SelectedTrackReceive            GoSelectedTrackReceive
+TrackFXMenu                     GoTrackFXmenu
+TrackReceive                    GoTrackReceive
+TrackSend                       GoTrackSend
+```
+
+Here's what that looks like in a Buttons.zon
+````
+    MidiTracks                  GoSelectedTrackSend
+    Inputs                      GoSelectedTrackReceive
+    AudioTracks                 GoSelectedTrackFXMenu
+    AudioInstrument             GoTrackSend
+    Aux                         GoTrackReceive
+    Busses                      GoTrackFXMenu
+````
+
+## FX Zones
+FX zone file names can be whatever you'd like them to, but the FX zone name in the .zon file itself must match the plugin name in Reaper exactly. See [FX Zones](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/FX-Zones) for more information on how to create an FX.zon.
+
+## SubZones
 If you need to create a custom zone, like a "Zoom" zone, or a "FocusedFXParam" zone, these must be created as SubZones and called by the action GoSubZone. Example:
 
 ```
@@ -82,12 +110,11 @@ SubZone "Zoom"
 SubZoneEnd
 ```
 
-FX zone file names can be whatever you'd like them to, but the FX zone name in the .zon file itself must match the plugin name in Reaper exactly. See [FX Zones](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/FX-Zones) for more information on how to create an FX.zon.
-
+SubZones are also commonly used in FX, for example, where a mastering suite plugin may have lots of different sections and more automation than you have on your surface. In those instances, you could create a "compressor" SubZone, and a "limiter" SubZone, etc.
 
 ## A Slightly More Useful Example
 
-As great as it is to get that first action happening when you press a Surface button, let’s look at a slightly more interesting example. A common surface setup might include a Buttons.zon that has various CSI and Reaper actions that can be called up from the surface. Some of these buttons may even call other zones. Here's an excerpt of a buttons.zon:
+As great as it is to get that first action happening when you press a Surface button, let’s look at a slightly more interesting example. A common surface setup might include a Buttons.zon that has various CSI and Reaper actions that can be called up from the surface. Some of these buttons may even call other zones. Here's an excerpt of a Buttons.zon:
 
 ````
 Zone "Buttons"
@@ -164,17 +191,6 @@ Fader7  TrackVolume
 
 Fader8  TrackVolume
 
-
-## Changing Zones
-We can also change which zones are active at the moment using an Action called GoZone:
-
-`SomeButton GoZone "AnotherZone"`
-
-That is telling CSI to "overlay" that zone over the currently active zones. Any widgets used in AnotherZone that were previously mapped in the currently active zones  will now trigger the actions defined in the anotherZone. Any that aren't used in AnotherZone will keep performing the actions they were before we triggered [[GoZone|Zone Actions]]. 
-
-This results in a very flexible system where can temporarily change certain control's behavior in response to whatever widgets and/or [[Virtual Widgets]] we like.
-
-**Note:**  If a zone name contains a space, like "Selected Channel Buttons" for example, then any GoZone actions must have the zone name in quotes. As a best practice, if you always include the zone name in quotes (even when not technically required), you'll never have to worry. 
 
 ## Adding Comments to Zones
 When triggering custom actions or using actions whose meanings may otherwise not be obvious, it's a good idea to add comments to your in your .zon files. CSI allows for two types of comments:
