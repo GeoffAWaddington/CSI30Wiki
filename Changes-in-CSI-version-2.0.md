@@ -1,4 +1,4 @@
-CSI version 2.0 made a number of under-the-hood changes to zone loading to improve results and simplify some processes. This page is designed towards users with familiarity with CSI v1/1.1 authoring and is meant to assist in migration to version 2.0 by summarizing and consolidating the changes. 
+CSI version 2.0 made a number of under-the-hood changes to zone loading to improve results and simplify some processes, while also expanding capabilities and improving features in various areas. This page is designed towards users with familiarity with CSI v1/1.1 authoring and is meant to assist in migration to version 2.0 by summarizing and consolidating the changes. 
 
 ## No more Navigators and fixed Zone names
 In order to simplify .zon creation, the concept of Navigators have been removed (at least from the .zon files), and CSI inherits the Zone type based on a fixed set of Zone names. The fixed Zone names are:
