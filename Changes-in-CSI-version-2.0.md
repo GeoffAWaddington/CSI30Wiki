@@ -114,6 +114,36 @@ ZoneEnd
 ## Rewind and FastForward improvements
 Big improvements have been made to the Rewind and FastForward actions. They will now latch and seek the play/edit cursor. The first press of either button will result in a slower rewind/forward speed. If you press the button again, you get a second, faster speed. 
 
+## New "Flip" Modifier
+A new modifier called "Flip" has been introduced with the intention of being assigned to the Flip button on MCU-style control surfaces. A common use-case for this would be to temporarily put track pans onto the faders for quick panning adjustments. And because it's a modifier, a quick press of the button this is assigned to will allow for latching.
+
+Here's how you'd define the modifier in a Buttons zone.
+```
+Zone "Buttons"
+    Flip      Flip
+ZoneEnd
+```
+
+And an example of the intended use-case can be seen here where Flip gets used as a modifier to put TrackPan on the faders....
+```
+Zone "Track"
+    DisplayUpper|               TrackNameDisplay
+    Fader|Touch+DisplayLower|   TrackVolumeDisplay
+    DisplayLower|               MCUTrackPanDisplay
+    VUMeter|                    TrackOutputMeterMaxPeakLR
+    Fader|                      TrackVolume 
+    Flip+Fader|                 TrackPan 
+    Rotary|                     MCUTrackPan
+    RotaryPush|                 ToggleMCUTrackPanWidth
+    RecordArm|                  TrackRecordArm
+    Solo|                       TrackSolo
+    Mute|                       TrackMute
+    Select|                     TrackUniqueSelect
+    Shift+Select|               TrackRangeSelect
+    Control+Select|             TrackSelect
+ZoneEnd
+```
+
 ## SubZones are for more than just FX now
 SubZones are custom zones (i.e. they don’t have a fixed, pre-defined name) that can be called up from other zones. Common use-cases for SubZones would be create a custom Zoom zone, or a custom Marker zone that can re-purpose some widget assignments and change the functionality of the surface. They are also commonly used FX SubZones, which existed in CSI version 1.1. Think of an example of a Mastering Suite that may have more parameters than you have controls for on your surface. With FX SubZones, you could create one zone for the compressor section, another for the limiter section, then activate those different surfaces via button presses.
 
