@@ -71,10 +71,10 @@
 * [[FocusedFXParamValueDisplay|FocusedFXParam#focusedfxparamnamedisplay-and-focusedfxparamvaluedisplay]]
 * [[GoFXSlot|MapSelectedTrackFXToMenu]]
 * [[FXGainReductionMeter]]
-* [[ToggleEnableFocusedFXMapping]]
-* [[ToggleEnableFocusedFXParamMapping]]
-* [[ToggleFXBypass]]
-* [[FXBypassedDisplay]]
+* [[ToggleEnableFocusedFXMapping|FX Parameter Mapping Actions#ToggleEnableFocusedFXMapping]]
+* [[ToggleEnableFocusedFXParamMapping|FX Parameter Mapping Actions#ToggleEnableFocusedFXParamMapping]]
+* [[ToggleFXBypass|FX Parameter Mapping Actions#ToggleFXBypass]]
+* [[FXBypassedDisplay|FX Parameter Mapping Actions#FXBypassedDisplay]]
 
 ### Navigation
 * [[TrackBank]]
