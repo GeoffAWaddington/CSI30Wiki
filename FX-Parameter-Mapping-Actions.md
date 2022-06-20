@@ -83,3 +83,78 @@ Which would display on your surface (continuing the example from above with ReaC
 ```
 VST: ReaComp (Cockos)
 ```
+
+## ToggleFXBypass
+Use this action in a SelectedTrackFXMenu or TrackFXMenu zone to assign toggling the FX Slot to a button.
+```
+Zone "TrackFXMenu"
+        DisplayUpper|       	FXMenuNameDisplay
+        Rotary|             	NoAction
+        RotaryPush|         	GoFXSlot
+	Mute| 			ToggleFXBypass
+        Left	            	TrackFXMenuBank -1
+        Right	           	TrackFXMenuBank 1
+ZoneEnd
+```
+
+## FXBypassedDisplay
+If you want to add the FX state ("Enabled" or "Bypass") to the SelectedTrackFXMenu or TrackFXMenu you would utilize the FXBypassedDisplay action as shown below:
+```
+Zone "TrackFXMenu"
+        DisplayUpper|       	FXMenuNameDisplay
+        DisplayLower|           FXBypassedDisplay
+        Rotary|             	NoAction
+        RotaryPush|         	GoFXSlot
+	Mute| 			ToggleFXBypass
+        Left	            	TrackFXMenuBank -1
+        Right	           	TrackFXMenuBank 1
+ZoneEnd
+```
+
+## ToggleEnableFocusedFXMapping
+CSI version 2 will have FocusedFX mapping enabled by default. This means if you have a fx.zon file for a particular FX/instrument plugin, and open the GUI in Reaper, that mapping will become activated on your surface by default. You can toggle this behavior off and on by assigning a button to the ToggleEnableFocusedFXMapping action as shown below:
+```
+   SomeButton     ToggleEnableFocusedFXMapping
+```
+
+But what if you don't want FocusedFXMapping on by default?  Since the default toggle state is "on", you can add "OnInitialization ToggleFocusedFXMapping" to flip it to off when CSI starts up as shown below:
+```
+Zone Home
+OnInitialization ToggleEnableFocusedFXMapping
+OnInitialization Broadcast Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
+OnInitialization Receive Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
+    IncludedZones
+        "Buttons"
+        "Track"
+        "MasterTrack"
+    IncludedZonesEnd
+    AssociatedZones
+       "SelectedTrackFXMenu"
+       "SelectedTrackSend"
+       "SelectedTrackReceive"
+       "TrackFXMenu"
+       "TrackSend"
+       "TrackReceive"
+    AssociatedZonesEnd
+ZoneEnd
+```
+
+## ToggleEnableFocusedFXParamMapping
+Another feature of CSI is the ability to have the last touched (or "focused") FX parameter automatically mapped to a widget. This behavior can be toggled off and on using the ToggleEnableFocusedFXParamMapping action.
+
+Example: you may have this assigned to a button such as:
+```
+Zone "Buttons"
+    User                        ToggleEnableFocusedFXParamMapping
+ZoneEnd
+```
+
+Then have a fader or widget or even a whole SubZone assigned to the Focused FX Param.
+```
+Zone "FocusedFXParam"
+     Fader1                             FocusedFXParam
+     DisplayUpper1                      FocusedFXParamNameDisplay
+     DisplayLower1                      FocusedFXParamValueDisplay
+     F2                                 LeaveSubZone
+ZoneEnd
+```
