@@ -112,7 +112,7 @@ FXParamValueDisplay
 
 FXParam is used to control the parameter and map it to a widget. FXParamNameDisplay can be used on a surface with displays to show the name of the parameter. Note: if the parameter name is too long, you may want to use FixedTextDisplay followed by an alias in quotes. You'll see that used throughout this example. FXParamValueDisplay shows the value of the parameter.
 
-### Returning to Our Example
+### Returning to Our Basic FX.zon Example
 We then see...
 ```
      RotaryPush1         NoAction     
