@@ -8,8 +8,8 @@ At a high level, first you create the fx.zon file for each plugin, then you dete
 
 ## Creating FX/Instrument Zone Files
 
-###Understanding FX.zon Files
-Each plugin you map will require it’s own unique .zon file which needs to be placed inside your CSI\Zones\[SurfaceName]\ folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. 
+### Understanding FX.zon Files
+Each plugin you map will require its own unique .zon file which needs to be placed inside your **CSI\Zones\[SurfaceName]\** folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. 
 
 When CSI is initialized, it reads all .zon files in your CSI surface folders. This is important to understand because when you create an FX.zon file with Reaper open, you will need to re-initialize CSI by either running the Reaper action “Refresh all surfaces”, or opening the CSI preferences in Reaper and clicking OK, or by restarting Reaper.  
 
