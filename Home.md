@@ -21,7 +21,7 @@ If you find something out of date, either comment to let us know, or even better
   * [[Send Zones]]
   * [[Receive Zones|Receive-Zones]]
   * [[FX Menu Zones|FXMenu-Zones]]
-  * [[FX Zones]]
+  * [[FX and Instrument Zones|FX-and-Instrument-Mapping]]
   * [[Action Reference]]
   * [[Modifiers]]
   * [[Invoking Multiple Actions]]
