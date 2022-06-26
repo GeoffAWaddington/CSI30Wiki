@@ -155,7 +155,7 @@ The final thing I want to call out in this FX.zon is that I've used NoAction for
      DisplayLower6       NoAction
 ```
 
-Those are the basics to creating an fx.zon file. 
+Those are the basics to creating an fx.zon file. See the [[FX Parameter Mapping Actions|FX-Parameter-Mapping-Actions]] page for details on all the pertinent mapping actions.
 
 ## FX SubZones
 CSI version 1.1 introduced FX Sub Zones. These are useful when you are trying to map an FX that has more parameters than your surface has controls for, or maybe the plugin has multiple FX types or modes and you'd like to put them into different zones you can switch between. This could even be useful for mapping instruments if you wanted to have filter controls on one zone, oscillator controls in another, envelopes and LFO's in another, etc. The sky is the limit with FX sub zones.
