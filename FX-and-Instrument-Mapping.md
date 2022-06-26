@@ -170,7 +170,7 @@ For FX Sub Zones to work you basically need a few key elements:
 
 4. GoSubZone actions in all of the .zon files so CSI knows how to move from zone to zone.
 
-## Example
+## FX SubZone Example
 In this example, I've mapped Limiter 6 GE from Tokyo Dawn Labs across 3 different zones. The primary [plugin].zon has the Compressor controls, the first Sub Zone has the Peak Limiter controls, and the second Sub Zone has the High Frequency Limiter, Clip and Output controls.
 
 I have dedicated banking buttons on my surface (BankA, BankB, and BankC) that I will use to switch between each zone. You can see that each zone includes the GoSubZone  action to jump to the other Banks. You could of course assign different buttons to switch between zones.
@@ -178,7 +178,6 @@ I have dedicated banking buttons on my surface (BankA, BankB, and BankC) that I 
 First file: **VST__TDR_Limiter_6_GE__Tokyo_Dawn_Labs_.zon**
 ```
 Zone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)" "Limiter6 GE"
-SelectedTrackNavigator
      SubZones
           "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-1"
 	  "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-2"
