@@ -158,7 +158,163 @@ The final thing I want to call out in this FX.zon is that I've used NoAction for
 Those are the basics to creating an fx.zon file. 
 
 ### FX SubZones
+CSI version 1.1 introduced FX Sub Zones. These are useful when you are trying to map an FX that has more parameters than your surface has controls for, or maybe the plugin has multiple FX types or modes and you'd like to put them into different zones you can switch between. This could even be useful for mapping instruments if you wanted to have filter controls on one zone, oscillator controls in another, envelopes and LFO's in another, etc. The sky is the limit with FX sub zones.
+
+For FX Sub Zones to work you basically need a few key elements:
+
+1. Your initial fx.zon file. This should include the parameter mapping you want to see when the plugin is mapped just like any other fx.zon. It should also have a name that matches the plugin, just like any typical fx.zon file. Example: [plugin].zon
+
+2. One or more separate files for each sub zone. Remember: in CSI version 1.1, each zone must be in a separate .zon file (it's one per). The sub zones should not include a navigator. It is recommended you number these Sub Zone FX files using the same plugin name, but appending a number to the end of the file in ascending order for each Sub Zone. Example: [plugin]-1.zon and [plugin]-2.zon
+
+3. Instructions in the initial fx.zon file about which SubZones are to be included. See the "SubZones" and "SubZonesEnd" section in the example below.
+
+4. GoSubZone actions in all of the .zon files so CSI knows how to move from zone to zone.
+
+## Example
+In this example, I've mapped Limiter 6 GE from Tokyo Dawn Labs across 3 different zones. The primary [plugin].zon has the Compressor controls, the first Sub Zone has the Peak Limiter controls, and the second Sub Zone has the High Frequency Limiter, Clip and Output controls.
+
+I have dedicated banking buttons on my surface (BankA, BankB, and BankC) that I will use to switch between each zone. You can see that each zone includes the GoSubZone  action to jump to the other Banks. You could of course assign different buttons to switch between zones.
+
+First file: **VST__TDR_Limiter_6_GE__Tokyo_Dawn_Labs_.zon**
+```
+Zone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)" "Limiter6 GE"
+SelectedTrackNavigator
+     SubZones
+          "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-1"
+	  "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-2"
+     SubZonesEnd
+/
+BankA         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)" "Compressor"
+BankB         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-1" "Peak Lim"
+BankC         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-2" "HF Lim+Clip"
+/ 
+RotaryA1 FXParam 6 "Comp Thresh"
+RotaryA2 FXParam 8 "Comp Ratio" 
+RotaryA3 FXParam 9 "Comp Attack"
+RotaryA4 FXParam 10 "Comp Release"
+/
+ZoneEnd
+```
+
+First Sub Zone file: **VST__TDR_Limiter_6_GE__Tokyo_Dawn_Labs_-1.zon**
+```
+Zone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-1" "Peak Lim"
+/
+BankA         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)" "Compressor"
+BankB         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-1" "Peak Lim"
+BankC         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-2" "HF Lim+Clip"
+/  
+RotaryA1 FXParam 18 "Peak Lim Gain"
+RotaryA2 FXParam 20 "Peak Lim Thresh"
+RotaryA3 FXParam 25 "Peak Lim Focus"
+RotaryA4 FXParam 26 "Peak Lim Release"
+/
+ZoneEnd
+```
+**Note:** Only the initial [plugin].zon should include a navigator. Do not include a navigator in any Sub Zones.
+
+Second Sub Zone file: **VST__TDR_Limiter_6_GE__Tokyo_Dawn_Labs_-2.zon**
+```
+Zone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-2" "HF Lim+Clip"
+/
+BankA         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)"   "Compressor"
+BankB         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-1" "Peak Limiter"
+BankC         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-2" "HF Lim+Clip"
+/  
+RotaryA1 FXParam 34  "HF Lim Threshold"
+RotaryA2 FXParam 38 "HF Lim Frequency"
+RotaryA3 FXParam 36 "HF Lim Range"
+RotaryA4 FXParam 41 "HF Lim Dry Amt"
+/
+ZoneEnd
+```
 
 ## FX Mapping Actions
+CSI allows you to map plugin parameters to your control surface. See [[FX Zones]] for details on how to create a .zon file for your effect or instrument (they're called FX zones, but work equally well for instruments). You'll also want to see [[Generating a Raw FX Zon File|FX Zones#Generating a Raw FX zon file]] for a quick and easy to way to get the FX Param # that you'll need for the mapping. 
+
+## # FXParam
+Is the CSI action to control a plugin parameter. Let's say we've generated the [[Raw FX Zon File|FX Zones#Generating a Raw FX zon file]] for ReaComp, which looks like this...
+
+```
+Zone "VST: ReaComp"
+	SelectedTrackNavigator
+	FXParam 0 "Thresh"
+	FXParam 1 "Ratio"
+	FXParam 2 "Attack"
+	FXParam 4 "Release"
+...
+ZoneEnd
+```
+
+If you want to map these first four parameters to the first four rotary knobs on your surface, you'd use the following syntax (in this case my widget names are RotaryA1 through A4, yours may vary):
+```
+RotaryA1 FXParam 0
+RotaryA2 FXParam 1
+RotaryA3 FXParam 2
+RotaryA3 FXParam 4
+```
+
+Alternatively, if you wanted to include the names (not as displays, that's coming in the next section, but just for easy reference) this is also acceptable...
+```
+RotaryA1 FXParam 0 "Thresh"
+RotaryA2 FXParam 1 "Ratio"
+RotaryA3 FXParam 2 "Attack"
+RotaryA3 FXParam 4 "Release"
+```
+
+...as is this (using trailing comments)...
+```
+RotaryA1 FXParam 0 //Thresh
+RotaryA2 FXParam 1 // Ratio
+RotaryA3 FXParam 2 // Attack
+RotaryA3 FXParam 4 // Release
+```
+
+## FXParamNameDisplay
+If you wanted to add in the name of the the Parameter to the corresponding display, that would look like this...
+```
+DisplayUpperA1 FXParamNameDisplay 0 "Thresh"
+RotaryA1 FXParam 0
+DisplayUpperA2 FXParamNameDisplay 1 "Ratio"
+RotaryA2 FXParam 1
+DisplayUpperA3 FXParamNameDisplay 2 "Attack"
+RotaryA3 FXParam 2
+DisplayUpperA3 FXParamNameDisplay 3 "Release"
+RotaryA3 FXParam 4
+```
+
+## FXParamValueDisplay
+And if you wanted to use one of your displays to show the actual parameter value (e.g. "32ms" or "220hz") on your displays, there is a CSI action for that as well. Combining all three examples together you'd end up with the following:
+
+``` 
+DisplayUpperA1 FXParamNameDisplay 0 "Thresh"
+DisplayLowerA1 FXParamValueDisplay 0 
+RotaryA1 FXParam 0
+/
+DisplayUpperA2 FXParamNameDisplay 1 "Ratio"
+DisplayLowerA2 FXParamValueDisplay 1 
+RotaryA2 FXParam 1
+/
+DisplayUpperA3 FXParamNameDisplay 2 "Attack"
+DisplayLowerA3 FXParamValueDisplay 2 
+RotaryA3 FXParam 2
+/
+DisplayUpperA4 FXParamNameDisplay 3 "Release"
+DisplayLowerA4 FXParamValueDisplay 3 
+RotaryA4 FXParam 4
+```
+
+You may notice in the above example I broke up each set of widgets with an empty row with a single / character. This essentially "comments out" the empty line, but will make your .zon file easier to read and troubleshoot later on, so I recommend this as a best practice when grouping together multiple widgets for a single FX parameter. 
+
+## FXNameDisplay
+If you want your display to show the FX Name, you could simply add a line to one of your display widgets such as:
+```
+DisplayUpperA1 FXNameDisplay
+```
+
+Which would display on your surface (continuing the example from above with ReaComp):
+```
+VST: ReaComp (Cockos)
+```
 
 ## Activating FX Zones (FocusedFX, TrackFXMenu, SelectedTrackFXMenu, SelectedTrack)
