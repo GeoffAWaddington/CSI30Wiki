@@ -7,11 +7,11 @@ At a high level, first you create the fx.zon file for each plugin, then you dete
 ## Creating FX/Instrument Zone Files
 
 ### Understanding FX.zon Files
-Each plugin you map will require its own unique .zon file which needs to be placed inside your CSI\Zones\[SurfaceName]\ folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. 
+Each plugin you map will require its own unique .zon file which needs to be placed inside your **CSI/Zones/[SurfaceName]/** folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. 
 
 When CSI is initialized, it reads all .zon files in your CSI surface folders. This is important to understand because when you create an FX.zon file with Reaper open, you will need to re-initialize CSI by either running the Reaper action “Refresh all surfaces”, or opening the CSI preferences in Reaper and clicking OK, or by restarting Reaper.  
 
-It is highly recommended, but not required, that you create an FXZones subfolder to keep things tidy. So CSI\Zones\[SurfaceName]\FXZones\. If you create a large number of fx zones, you can even further break them down by manufacturer such as CSI\Zones\[SurfaceName]\FXZones\Universal Audio\. 
+It is highly recommended, but not required, that you create an FXZones subfolder to keep things tidy. So **CSI/Zones/[SurfaceName]/FXZones/**. If you create a large number of fx zones, you can even further break them down by manufacturer such as **CSI/Zones/[SurfaceName]/FXZones/Universal Audio/**. 
 
 
 ### An Example FX.Zon
@@ -82,7 +82,7 @@ Next we see:
 
 ```
 
-If your surface has displays, you probably want to label which controls are tied to which FX parameters. So DisplayUpper1 will show the word “Thresh” when this zone is active. This is useful if you have limited character displays and FX Params may have long names. Otherwise, you could alternately have used the FXParamNameDIsplay action as shown below:
+If your surface has displays, you probably want to label which controls are tied to which FX parameters. So DisplayUpper1 will show the word “Thresh” when this zone is active. This is useful if you have limited character displays and FX Params may have long names. Alternately, you could have used the FXParamNameDIsplay action as shown below:
 
 ```
 
