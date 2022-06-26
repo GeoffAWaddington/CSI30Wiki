@@ -4,7 +4,7 @@ This section of the Wiki will first focus on how to create FX zone files (I may 
 
 At a high level, first you create the fx.zon file for each plugin, then you determine how you’d like to activate that fx.zon using CSI. We’ll cover all elements of that process here.
 
-## Creating FX/Instrument Zone Files
+## Creating FX and Instrument Zone Files
 
 ### Understanding FX.zon Files
 Each plugin you map will require its own unique .zon file which needs to be placed inside your **CSI/Zones/[SurfaceName]/** folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. 
