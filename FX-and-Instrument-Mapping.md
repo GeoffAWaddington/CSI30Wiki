@@ -1,5 +1,3 @@
-
-
 CSI allows users to create custom FX and instrument mappings which can be used across one or more surfaces. FX Zones are similar to normal [[Zones]] in that we are mapping [[Widgets defined in our mst files|Defining Control Surface Capabilities]] to behaviour we want to occur. The major difference is about what that behaviour is. In a [[normal Zone|Zones]] we're binding the widgets to some sort of action in Reaper, whereas for FX Zones, we're binding them to a parameter value in an FX plugin (eg.  VST, VSTi, VST3, VST3i, AU, AUi, etc.)
 
 This section of the Wiki will first focus on how to create FX zone files (I may refer to them as fx.zon files as shorthand) and how to activate those fx.zon files. Note: There is no distinction in CSI or Reaper between instruments or FX so the same principals apply to both.
@@ -9,11 +7,11 @@ At a high level, first you create the fx.zon file for each plugin, then you dete
 ## Creating FX/Instrument Zone Files
 
 ### Understanding FX.zon Files
-Each plugin you map will require its own unique .zon file which needs to be placed inside your **CSI\Zones\[SurfaceName]\** folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. 
+Each plugin you map will require its own unique .zon file which needs to be placed inside your CSI\Zones\[SurfaceName]\ folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. 
 
 When CSI is initialized, it reads all .zon files in your CSI surface folders. This is important to understand because when you create an FX.zon file with Reaper open, you will need to re-initialize CSI by either running the Reaper action “Refresh all surfaces”, or opening the CSI preferences in Reaper and clicking OK, or by restarting Reaper.  
 
-It is highly recommended, but not required, that you create an FXZones subfolder to keep things tidy. So **CSI\Zones\[SurfaceName]\FXZones\**. If you create a large number of fx zones, you can even further break them down by manufacturer such as **CSI\Zones\[SurfaceName]\FXZones\Universal Audio\**. 
+It is highly recommended, but not required, that you create an FXZones subfolder to keep things tidy. So CSI\Zones\[SurfaceName]\FXZones\. If you create a large number of fx zones, you can even further break them down by manufacturer such as CSI\Zones\[SurfaceName]\FXZones\Universal Audio\. 
 
 
 ### An Example FX.Zon
