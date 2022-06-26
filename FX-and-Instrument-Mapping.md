@@ -1,4 +1,4 @@
-CSI allows users to create custom FX and instrument mappings which can be used across one or more surfaces. FX Zones are similar to normal [[Zones]] in that we are mapping [[Widgets defined in our mst files|Defining Control Surface Capabilities]] to behaviour we want to occur. The major difference is about what that behaviour is. In a [[normal Zone|Zones]] we're binding the widgets to some sort of action in Reaper, whereas for FX Zones, we're binding them to a parameter value in an FX plugin (eg.  VST, VSTi, VST3, VST3i, AU, AUi, etc.)
+CSI allows users to create custom FX and instrument mappings which can be used across one or more surfaces. FX Zones are similar to normal [[Zones]] in that we are mapping [[Widgets defined in our mst files|Defining Control Surface Capabilities]] to behaviour we want to occur. The major difference is about what that behaviour is. In a [[normal Zone|Zones]] we're binding the widgets to some sort of action in Reaper, whereas for FX Zones, we're binding them to a parameter value in an FX plugin (eg.  VST, VSTi, VST3, VST3i, AU, AUi, etc.). 
 
 This section of the Wiki will first focus on how to create FX zone files (I may refer to them as fx.zon files as shorthand) and how to activate those fx.zon files. Note: There is no distinction in CSI or Reaper between instruments or FX so the same principals apply to both.
 
@@ -63,12 +63,13 @@ ZoneEnd
 ```
 
 The first row shows…
-
 ```
 Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)" "LA2ASlv"
 ```
 
-The word Zone is required, followed by the EXACT plugin name as it appears in Reaper. A typo in the plugin name will prevent your map from working. Following the full plugin name, you’ll see “LA2ASlv”: this is the plugin alias and can be whatever you want. This will be read as the FXMenuNameDisplay action in CSI, and can be seen on the FXMenu zone files, which we will get into later on. As a best practice, it’s recommended you create a short alias, but it’s not required. However, if you do not have an alias in your FX zone, you may only see something like “VST: UAD” on your surface, which wouldn’t tell you which UAD plugin was loaded in that slot.
+The word Zone is required, followed by the EXACT plugin name as it appears in Reaper - this will include the plugin format (VST, VST3, etc.). A typo anywhere in the plugin name will prevent your map from working. If you have both VST2 and VST3 versions of the same plugin installed, you will need a .zon file for each. Be careful, sometimes the mappings are not identical between formats so it's not always as easy as renaming the files and changing the file name in the first row of the .zon file.
+
+Following the full plugin name, you’ll see “LA2ASlv”: this is the plugin alias and can be whatever you want. This will be read as the FXMenuNameDisplay action in CSI, and can be seen on the FXMenu zone files, which we will get into later on. As a best practice, it’s recommended you create a short alias, but it’s not required. However, if you do not have an alias in your FX zone, you may only see something like “VST: UAD” on your surface, which wouldn’t tell you which UAD plugin was loaded in that slot.
 
 I’ll also jump ahead to the very last row of the .zon file which is ZoneEnd. This is required at the end of every CSI zone file, whether an FX or otherwise.
 
