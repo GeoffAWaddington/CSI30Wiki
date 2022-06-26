@@ -1,6 +1,6 @@
 CSI allows you to map plugin parameters to your control surface. See [[FX Zones]] for details on how to create a .zon file for your effect or instrument (they're called FX zones, but work equally well for instruments). You'll also want to see [[Generating a Raw FX Zon File|FX Zones#Generating a Raw FX zon file]] for a quick and easy to way to get the FX Param # that you'll need for the mapping. 
 
-## # FXParam
+## FXParam
 Is the CSI action to control a plugin parameter. Let's say we've generated the [[Raw FX Zon File|FX Zones#Generating a Raw FX zon file]] for ReaComp, which looks like this...
 
 ```
@@ -157,4 +157,11 @@ Zone "FocusedFXParam"
      DisplayLower1                      FocusedFXParamValueDisplay
      F2                                 LeaveSubZone
 ZoneEnd
+```
+
+## FXParamRelative
+FXParamRelative uses the value from the controller as a delta and adds it to the current parameter value. If the value is negative, that amounts to subtracting it from the current parameter value.
+
+```
+SomeWidget    FXParamRelative 4
 ```
