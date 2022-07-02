@@ -81,7 +81,7 @@ Next we see:
 
 FXParam is a CSI action, and the number 0 is telling CSI which plugin parameter to assign to the widget. Each plugin parameter that can be controlled by CSI will have a unique FX Param index #. 
 
-### Finding FXParam Numbers
+## Finding FXParam Numbers
 So how do you find the correct FXParam numbers? There are a few options. 
 
 First, you can run the Reaper action **"CSI Toggle Show Params when FX inserted"**, then insert the FX. This will open a ReaConsole window that looks like this...
