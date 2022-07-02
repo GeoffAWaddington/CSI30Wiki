@@ -111,6 +111,62 @@ Zone "TrackFXMenu"
 ZoneEnd
 ```
 
+## FocusedFXParam
+FocusedFXParam is a CSI action that allows you to assign a control on your surface to the last touched plugin parameter. This can be a very fast way to assign plugin parameters to your surface without having to create an fx.zon in advance. This is very useful for quickly writing automation or tweaking a plugin parameter.
+
+For instance, let's say you already have Fader1 on your surface mapped to track volume of the Selected track, and you want to map Shift+Fader1 the last-touched FX parameter. Your .zon file might look like this...
+
+```` 
+Zone "Channel"
+        Fader1                  TrackVolume
+	Shift+Fader1 		FocusedFXParam
+ZoneEnd
+````
+
+Now, when you enable the Shift modifier, Fader1 will control the last touched plugin parameter. If you want to change the parameter you're controlling, just use your mouse and move the next plugin parameter. Your surface will update to control the new parameter as long as you're still in Shift mode (or when you next hold down the shift modifier). **Tip:** a quick tap of Shift latches the shift modifier - very handy in this example.
+
+Taking this a step furter, we can also use [[Zone changing|Zones#changing-zones]] to alternate between Fader 1 as controlling track volume in the Home zone (Shift+F1) or the FocusedFXParam in that zone (Shift+F2). Note: I'm using the Shift modifer plus the F1 and F2 widgets in the below example, but you could use any combination of modifiers and/or widgets. You'll also notice that a  [[Navigator|Navigators]]  is not required for FocusedFXParam to work.
+```` 
+Zone "GlobalButtons|"
+	Shift+F1			GoZone Home
+	Shift+F2			GoZone ZoneThatMapsFocusedFXParamsTowidgets
+ZonEnd
+
+Zone "Channel|"
+	TrackNavigator
+	Fader|  			TrackVolume
+ZoneEnd
+
+Zone "ZoneThatMapsFocusedFXParamsTowidgets"
+         Fader1 FocusedFXParam
+ZoneEnd
+```` 
+
+## FocusedFXParamNameDisplay and FocusedFXParamValueDisplay
+Now, building off the GoZone example above, let's say our surface has displays and we want the upper display to show the Parameter Name and lower display to show the parameter value whenever the FocusedFXParam zone is active. The FocusedFXParamNameDisplay and FocusedFXParamValueDisplay actions are designed to do just that. 
+
+```` 
+Zone "ZoneThatMapsFocusedFXParamsTowidgets"
+        Fader1 FocusedFXParam
+	DisplayUpper1 FocusedFXParamNameDisplay
+	DisplayLower1 FocusedFXParamValueDisplay
+ZoneEnd
+```` 
+
+## FXParamRelative
+FXParamRelative uses the value from the controller as a delta and adds it to the current parameter value. If the value is negative, that amounts to subtracting it from the current parameter value.
+
+```
+SomeWidget    FXParamRelative 4
+```
+
+## FXGainReductionMeter
+A small handful of plugins (I believe VST3) will report Gain Reduction values to the host, allowing you to see how much compression (for example) is taking place. If the plugin supports this, you can assign this to a widget in CSI.
+
+```
+VUMeter        FXGainReductionMeter   
+```
+
 ## ToggleEnableFocusedFXMapping
 CSI version 2 will have FocusedFX mapping enabled by default. This means if you have a fx.zon file for a particular FX/instrument plugin, and open the GUI in Reaper, that mapping will become activated on your surface by default. You can toggle this behavior off and on by assigning a button to the ToggleEnableFocusedFXMapping action as shown below:
 ```
@@ -157,60 +213,4 @@ Zone "FocusedFXParam"
      DisplayLower1                      FocusedFXParamValueDisplay
      F2                                 LeaveSubZone
 ZoneEnd
-```
-
-## FXParamRelative
-FXParamRelative uses the value from the controller as a delta and adds it to the current parameter value. If the value is negative, that amounts to subtracting it from the current parameter value.
-
-```
-SomeWidget    FXParamRelative 4
-```
-
-## FocusedFXParam
-FocusedFXParam is a CSI action that allows you to assign a control on your surface to the last touched plugin parameter. This can be a very fast way to assign plugin parameters to your surface without having to create an fx.zon in advance. This is very useful for quickly writing automation or tweaking a plugin parameter.
-
-For instance, let's say you already have Fader1 on your surface mapped to track volume of the Selected track, and you want to map Shift+Fader1 the last-touched FX parameter. Your .zon file might look like this...
-
-```` 
-Zone "Channel"
-        Fader1                  TrackVolume
-	Shift+Fader1 		FocusedFXParam
-ZoneEnd
-````
-
-Now, when you enable the Shift modifier, Fader1 will control the last touched plugin parameter. If you want to change the parameter you're controlling, just use your mouse and move the next plugin parameter. Your surface will update to control the new parameter as long as you're still in Shift mode (or when you next hold down the shift modifier). **Tip:** a quick tap of Shift latches the shift modifier - very handy in this example.
-
-Taking this a step furter, we can also use [[Zone changing|Zones#changing-zones]] to alternate between Fader 1 as controlling track volume in the Home zone (Shift+F1) or the FocusedFXParam in that zone (Shift+F2). Note: I'm using the Shift modifer plus the F1 and F2 widgets in the below example, but you could use any combination of modifiers and/or widgets. You'll also notice that a  [[Navigator|Navigators]]  is not required for FocusedFXParam to work.
-```` 
-Zone "GlobalButtons|"
-	Shift+F1			GoZone Home
-	Shift+F2			GoZone ZoneThatMapsFocusedFXParamsTowidgets
-ZonEnd
-
-Zone "Channel|"
-	TrackNavigator
-	Fader|  			TrackVolume
-ZoneEnd
-
-Zone "ZoneThatMapsFocusedFXParamsTowidgets"
-         Fader1 FocusedFXParam
-ZoneEnd
-```` 
-
-## FocusedFXParamNameDisplay and FocusedFXParamValueDisplay
-Now, building off the GoZone example above, let's say our surface has displays and we want the upper display to show the Parameter Name and lower display to show the parameter value whenever the FocusedFXParam zone is active. The FocusedFXParamNameDisplay and FocusedFXParamValueDisplay actions are designed to do just that. 
-
-```` 
-Zone "ZoneThatMapsFocusedFXParamsTowidgets"
-        Fader1 FocusedFXParam
-	DisplayUpper1 FocusedFXParamNameDisplay
-	DisplayLower1 FocusedFXParamValueDisplay
-ZoneEnd
-```` 
-
-## FXGainReductionMeter
-A small handful of plugins (I believe VST3) will report Gain Reduction values to the host, allowing you to see how much compression (for example) is taking place. If the plugin supports this, you can assign this to a widget in CSI.
-
-```
-VUMeter        FXGainReductionMeter   
 ```
