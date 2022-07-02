@@ -143,13 +143,14 @@ ZoneEnd
 ````
 
 ## FocusedFXParamNameDisplay and FocusedFXParamValueDisplay
-Now, building off the GoZone example above, let's say our surface has displays and we want the upper display to show the Parameter Name and lower display to show the parameter value whenever the FocusedFXParam zone is active. The FocusedFXParamNameDisplay and FocusedFXParamValueDisplay actions are designed to do just that. 
+As shown in the FocusedFXParam.zon above, let's say our surface has displays and we want the upper display to show the Parameter Name and lower display to show the parameter value whenever the FocusedFXParam zone is active. The FocusedFXParamNameDisplay and FocusedFXParamValueDisplay actions are designed to do just that. 
 
 ```` 
-Zone "ZoneThatMapsFocusedFXParamsTowidgets"
-        Fader1 FocusedFXParam
-	DisplayUpper1 FocusedFXParamNameDisplay
-	DisplayLower1 FocusedFXParamValueDisplay
+Zone "FocusedFXParam"
+     Fader1                             FocusedFXParam
+     DisplayUpper1                      FocusedFXParamNameDisplay
+     DisplayLower1                      FocusedFXParamValueDisplay
+     F2                                 LeaveSubZone
 ZoneEnd
 ```` 
 
