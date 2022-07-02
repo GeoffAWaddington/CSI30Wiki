@@ -1,7 +1,7 @@
 CSI allows you to map plugin parameters to your control surface. See [[FX-and-Instrument-Mapping]] for details on how to create a .zon file for your effect or instrument (they're called FX zones, but work equally well for instruments). You'll also want to see [[Finding FXParam Numbers|FX-and-Instrument-Mapping#finding-fxparam-numbers]] for a quick and easy to way to get the FX Param # that you'll need for the mapping. 
 
 ## FXParam
-Is the CSI action to control a plugin parameter. Let's say we've generated the [[Raw FX Zon File|FX Zones#Generating a Raw FX zon file]] for ReaComp, which looks like this...
+FXParam is the CSI action to control a plugin parameter. Let's say we've followed the steps in  [[Finding FXParam Numbers|FX-and-Instrument-Mapping#finding-fxparam-numbers]] and we can see that ReaComp's parameter list looks something like this...
 
 ```
 Zone "VST: ReaComp"
@@ -15,10 +15,12 @@ ZoneEnd
 
 If you want to map these first four parameters to the first four rotary knobs on your surface, you'd use the following syntax (in this case my widget names are RotaryA1 through A4, yours may vary):
 ```
-RotaryA1 FXParam 0
-RotaryA2 FXParam 1
-RotaryA3 FXParam 2
-RotaryA3 FXParam 4
+Zone "VST: ReaComp"
+RotaryA1      FXParam 0
+RotaryA2      FXParam 1
+RotaryA3      FXParam 2
+RotaryA3      FXParam 4
+ZoneEnd
 ```
 
 Alternatively, if you wanted to include the names (not as displays, that's coming in the next section, but just for easy reference) this is also acceptable...
@@ -29,7 +31,7 @@ RotaryA3 FXParam 2 "Attack"
 RotaryA3 FXParam 4 "Release"
 ```
 
-...as is this (using trailing comments)...
+...as is this method (using trailing comments)...
 ```
 RotaryA1 FXParam 0 //Thresh
 RotaryA2 FXParam 1 // Ratio
