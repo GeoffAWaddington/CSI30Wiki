@@ -5,11 +5,13 @@ This section of the Wiki will first focus on how to create FX zone files (I may 
 At a high level, first you create the fx.zon file for each plugin, then you determine how you’d like to activate that fx.zon using CSI. We’ll cover all elements of that process here.
 
 ## Understanding FX.zon Files
-Each plugin you map will require its own unique .zon file which needs to be placed inside your **CSI/Zones/[SurfaceName]/** folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. 
+Each plugin you map will require its own unique .zon file which needs to be placed inside your **CSI/Zones/[SurfaceName]/** folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. Chances are, you'll need to create this fx.zon file on your own, unless someone with the same plugin and surface already created a mapping that you can use.
 
 When CSI is initialized, it reads all .zon files in your CSI surface folders. This is important to understand because when you create an FX.zon file with Reaper open, you will need to re-initialize CSI by either running the Reaper action “Refresh all surfaces”, or opening the CSI preferences in Reaper and clicking OK, or by restarting Reaper.  
 
 It is highly recommended, but not required, that you create an FXZones subfolder to keep things tidy. So **CSI/Zones/[SurfaceName]/FXZones/**. If you create a large number of fx zones, you can even further break them down by manufacturer such as **CSI/Zones/[SurfaceName]/FXZones/Universal Audio/**. 
+
+**Tip:** Many CSI users have created custom Excel documents or even just simple text files that they can use to help speed up the process of creating fx.zon files. You would basically list out all the widgets on your surface you'd use for FX, set up a document that included all of those as a template, then just copy paste the FXParam #'s or other actions to the create the mapping, and export as a .txt file.
 
 ## Finding FXParam Numbers
 The first step to actually creating your first fx.zon is locating the FXParam # that CSI will utilize to map FX parameters to control surface widgets. There are 3 methods you can use to accomplish this task.
@@ -49,7 +51,7 @@ FXParam is used to control the parameter and map it to a widget. FXParamNameDisp
 ## Creating FX and Instrument Zone Files
 
 ### An Example FX.Zon
-Let’s begin by reviewing a simple fx.zon file and breaking it down to its component parts, then working backwards as to how we got there. I’m using the UAD Teletronix LA-2A Silver plugin here, mapped to the widgets on a MCU/X-Touch Universal-style device.
+Let’s begin by reviewing a simple fx.zon file and breaking it down to its component parts, then working backwards as to how we got there. I’m using the UAD Teletronix LA-2A Silver plugin here, mapped to the widgets on a MCU/X-Touch Universal-style device. This example may look a little scary at first, but you'll see that it's actually pretty easy to understand when you break it down line by line.
 
 ```
 Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)" "LA2ASlv"
