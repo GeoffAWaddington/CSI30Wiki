@@ -207,3 +207,10 @@ Zone "ZoneThatMapsFocusedFXParamsTowidgets"
 	DisplayLower1 FocusedFXParamValueDisplay
 ZoneEnd
 ```` 
+
+## FXGainReductionMeter
+A small handful of plugins (I believe VST3) will report Gain Reduction values to the host, allowing you to see how much compression (for example) is taking place. If the plugin supports this, you can assign this to a widget in CSI.
+
+```
+VUMeter        FXGainReductionMeter   
+```
