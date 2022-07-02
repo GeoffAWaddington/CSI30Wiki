@@ -4,15 +4,49 @@ This section of the Wiki will first focus on how to create FX zone files (I may 
 
 At a high level, first you create the fx.zon file for each plugin, then you determine how you’d like to activate that fx.zon using CSI. We’ll cover all elements of that process here.
 
-## Creating FX and Instrument Zone Files
-
-### Understanding FX.zon Files
+## Understanding FX.zon Files
 Each plugin you map will require its own unique .zon file which needs to be placed inside your **CSI/Zones/[SurfaceName]/** folder. The name of the .zon file itself can be whatever you’d like, but as a best practice you may want to include the plugin format, plugin name, and manufacturer name. 
 
 When CSI is initialized, it reads all .zon files in your CSI surface folders. This is important to understand because when you create an FX.zon file with Reaper open, you will need to re-initialize CSI by either running the Reaper action “Refresh all surfaces”, or opening the CSI preferences in Reaper and clicking OK, or by restarting Reaper.  
 
 It is highly recommended, but not required, that you create an FXZones subfolder to keep things tidy. So **CSI/Zones/[SurfaceName]/FXZones/**. If you create a large number of fx zones, you can even further break them down by manufacturer such as **CSI/Zones/[SurfaceName]/FXZones/Universal Audio/**. 
 
+## Finding FXParam Numbers
+The first step to actually creating your first fx.zon is locating the FXParam # that CSI will utilize to map FX parameters to control surface widgets. There are 3 methods you can use to accomplish this task.
+
+### Method 1: CSI Toggle Show Params when FX inserted
+First, you can run the Reaper action **"CSI Toggle Show Params when FX inserted"**, then insert the FX. This will open a ReaConsole window that looks like this...
+```
+Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)"
+	FXParam 0 "Peak Reduct"
+	FXParam 1 "Gain"
+	FXParam 2 "Comp/Limit"
+	FXParam 3 "Emphasis"
+	FXParam 4 "Meter"
+	FXParam 5 "Mix"
+	FXParam 6 "Power"
+	FXParam 7 "Bypass"
+	FXParam 8 "Wet"
+	FXParam 9 "Delta"
+ZoneEnd
+```
+
+### Method 2: CSI Toggle Write Params to /CSI/Zones/ZoneRawFXFiles when FX inserted
+You can also run the Reaper action **"CSI Toggle Write Params to /CSI/Zones/ZoneRawFXFiles when FX inserted"** then insert the FX. That will create a .txt file that looks identical the ReaConsole window shown above. The .txt file can be located in the **CSI/Zones/ZoneRawFXFiles** folder.
+
+### Method 3: Turn off the plugin UI and count!
+The third method is that you can toggle the plugin UI in Reaper by clicking the "UI" button in the plugin menu. This hides the plugin graphics and replaces them with a series of horizontal sliders. The first slider is FXParam 0, and then you would count up from there. 
+
+You will need to append the FXParam # for the following actions to work:
+```
+FXParam
+FXParamNameDisplay
+FXParamValueDisplay
+```
+
+FXParam is used to control the parameter and map it to a widget. FXParamNameDisplay can be used on a surface with displays to show the name of the parameter. Note: if the parameter name is too long, you may want to use FixedTextDisplay followed by an alias in quotes. You'll see that used throughout this example. FXParamValueDisplay shows the value of the parameter.
+
+## Creating FX and Instrument Zone Files
 
 ### An Example FX.Zon
 Let’s begin by reviewing a simple fx.zon file and breaking it down to its component parts, then working backwards as to how we got there. I’m using the UAD Teletronix LA-2A Silver plugin here, mapped to the widgets on a MCU/X-Touch Universal-style device.
@@ -80,38 +114,6 @@ Next we see:
 ```
 
 FXParam is a CSI action, and the number 0 is telling CSI which plugin parameter to assign to the widget. Each plugin parameter that can be controlled by CSI will have a unique FX Param index #. 
-
-## Finding FXParam Numbers
-So how do you find the correct FXParam numbers? There are a few options. 
-
-First, you can run the Reaper action **"CSI Toggle Show Params when FX inserted"**, then insert the FX. This will open a ReaConsole window that looks like this...
-```
-Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)"
-	FXParam 0 "Peak Reduct"
-	FXParam 1 "Gain"
-	FXParam 2 "Comp/Limit"
-	FXParam 3 "Emphasis"
-	FXParam 4 "Meter"
-	FXParam 5 "Mix"
-	FXParam 6 "Power"
-	FXParam 7 "Bypass"
-	FXParam 8 "Wet"
-	FXParam 9 "Delta"
-ZoneEnd
-```
-
-You can also run the Reaper action **"CSI Toggle Write Params to /CSI/Zones/ZoneRawFXFiles when FX inserted"** then insert the FX. That will create a .txt file that looks identical the ReaConsole window shown above. The .txt file can be located in the **CSI/Zones/ZoneRawFXFiles** folder.
-
-The third method is that you can toggle the plugin UI in Reaper by clicking the "UI" button in the plugin menu. This hides the plugin graphics and replaces them with a series of horizontal sliders. The first slider is FXParam 0, and then you would count up from there. 
-
-You will need to append the FXParam # for the following actions to work:
-```
-FXParam
-FXParamNameDisplay
-FXParamValueDisplay
-```
-
-FXParam is used to control the parameter and map it to a widget. FXParamNameDisplay can be used on a surface with displays to show the name of the parameter. Note: if the parameter name is too long, you may want to use FixedTextDisplay followed by an alias in quotes. You'll see that used throughout this example. FXParamValueDisplay shows the value of the parameter.
 
 ### Returning to Our Basic FX.zon Example
 We then see...
