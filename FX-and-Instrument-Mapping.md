@@ -98,26 +98,29 @@ ZoneEnd
 
 ```
 
-The first row shows…
+### The first row and last row of an fx.zon 
+The first row of an FX zone file must show the plugin name exactly as it appears in Reaper. You can optionally add a plugin "alias" (or shortname) that will appear in FX lists. 
+
+In this FX zone, we have:
 ```
 Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)" "LA2ASlv"
 ```
 
-The word Zone is required, followed by the EXACT plugin name as it appears in Reaper - this will include the plugin format (VST, VST3, etc.). A typo anywhere in the plugin name will prevent your map from working. If you have both VST2 and VST3 versions of the same plugin installed, you will need a .zon file for each. Be careful, sometimes the mappings are not identical between formats so it's not always as easy as renaming the files and changing the file name in the first row of the .zon file.
+The word Zone is required, followed by the EXACT plugin name as it appears in Reaper - this will include the plugin format (VST, VST3, etc.). A typo anywhere in the plugin name will prevent your map from working. If you have both VST2 and VST3 versions of the same plugin installed, you will need a .zon file for each. **Tip:** be careful, sometimes the mappings are not identical between formats so it's not always as easy as renaming the files and changing the file name in the first row of the .zon file.
 
 Following the full plugin name, you’ll see “LA2ASlv”: this is the plugin alias and can be whatever you want. This will be read as the FXMenuNameDisplay action in CSI, and can be seen on the FXMenu zone files, which we will get into later on. As a best practice, it’s recommended you create a short alias, but it’s not required. However, if you do not have an alias in your FX zone, you may only see something like “VST: UAD” on your surface, which wouldn’t tell you which UAD plugin was loaded in that slot.
 
-I’ll also jump ahead to the very last row of the .zon file which is ZoneEnd. This is required at the end of every CSI zone file, whether an FX or otherwise.
+I’ll also jump ahead to the very last row of the .zon file which is simply the word ZoneEnd. This is required at the end of every CSI zone file, whether an FX or otherwise.
 
-
-Next we see:
+### Mapping our first action
+The first FX parameter that has been mapped to a widget in CSI, is FX Param 0 (which happens to be the Threshold control in this plugin) and that's mapped to Rotary1. See [[FX-and-Instrument-Mapping]] for the full list of mapping actions.
 ```
      Rotary1             FXParam 0 
 ```
 
 FXParam is a CSI action, and the number 0 is telling CSI which plugin parameter to assign to the widget. Each plugin parameter that can be controlled by CSI will have a unique FX Param index #. 
 
-### Returning to Our Basic FX.zon Example
+### Adding some displays for parameter name and value
 We then see...
 ```
      RotaryPush1         NoAction     
@@ -142,6 +145,7 @@ The next line shows
 
 This will display the value of the FX Parmeter being controlled.
 
+### Our first "toggle" action and using NoAction to reserve params
 Jumping further ahead you see...
 ```
      Rotary4             NoAction
