@@ -119,12 +119,12 @@ ZoneEnd
 ```
 
 ### Mapping our first action
-The first FX parameter that has been mapped to a widget in CSI, is FX Param 0 (which happens to be the Threshold control in this plugin) and that's mapped to the Rotary1 widget. So we add the widget name, followed by the FXParam CSI action and the FXParam # for the parameter we want to control. See [[FX-and-Instrument-Mapping]] for the full list of available FX mapping actions.
+The first FX parameter that has been mapped to a widget in CSI, is FX Param 0 (which happens to be the Threshold control in this plugin) and that's mapped to the Rotary1 widget. So we add the widget name (Rotary1), followed by the CSI action FXParam and the number 0, which represents the plugin parameter to assign to the widget. Reminder: we identified the FXParam # by using the methods outlined in [[Finding FXParam Numbers|FX-and-Instrument-Mapping#finding-fxparam-numbers]]. 
 ```
      Rotary1             FXParam 0 
 ```
 
-FXParam is a CSI action, and the number 0 is telling CSI which plugin parameter to assign to the widget. Each plugin parameter that can be controlled by CSI will have a unique FX Param index #. 
+See [[FX-and-Instrument-Mapping]] for the full list of available FX mapping actions.
 
 ### Adding some displays for parameter name and value
 We then see...
