@@ -205,10 +205,10 @@ BankA         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)" "Compressor"
 BankB         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-1" "Peak Lim"
 BankC         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-2" "HF Lim+Clip"
 / 
-RotaryA1 FXParam 6 "Comp Thresh"
-RotaryA2 FXParam 8 "Comp Ratio" 
-RotaryA3 FXParam 9 "Comp Attack"
-RotaryA4 FXParam 10 "Comp Release"
+RotaryA1      FXParam 6 "Comp Thresh"
+RotaryA2      FXParam 8 "Comp Ratio" 
+RotaryA3      FXParam 9 "Comp Attack"
+RotaryA4      FXParam 10 "Comp Release"
 /
 ZoneEnd
 ```
@@ -221,10 +221,10 @@ BankA         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)" "Compressor"
 BankB         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-1" "Peak Lim"
 BankC         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-2" "HF Lim+Clip"
 /  
-RotaryA1 FXParam 18 "Peak Lim Gain"
-RotaryA2 FXParam 20 "Peak Lim Thresh"
-RotaryA3 FXParam 25 "Peak Lim Focus"
-RotaryA4 FXParam 26 "Peak Lim Release"
+RotaryA1      FXParam 18 "Peak Lim Gain"
+RotaryA2      FXParam 20 "Peak Lim Thresh"
+RotaryA3      FXParam 25 "Peak Lim Focus"
+RotaryA4      FXParam 26 "Peak Lim Release"
 /
 ZoneEnd
 ```
@@ -237,10 +237,10 @@ BankA         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)"   "Compressor"
 BankB         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-1" "Peak Limiter"
 BankC         GoSubZone "VST: TDR Limiter 6 GE (Tokyo Dawn Labs)-2" "HF Lim+Clip"
 /  
-RotaryA1 FXParam 34  "HF Lim Threshold"
-RotaryA2 FXParam 38 "HF Lim Frequency"
-RotaryA3 FXParam 36 "HF Lim Range"
-RotaryA4 FXParam 41 "HF Lim Dry Amt"
+RotaryA1      FXParam 34  "HF Lim Threshold"
+RotaryA2      FXParam 38 "HF Lim Frequency"
+RotaryA3      FXParam 36 "HF Lim Range"
+RotaryA4      FXParam 41 "HF Lim Dry Amt"
 /
 ZoneEnd
 ```
