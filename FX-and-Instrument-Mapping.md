@@ -33,6 +33,8 @@ Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)"
 ZoneEnd
 ```
 
+Note: the last 3 parameters in any such list will be assigned to the Reaper parameters for plugin Bypass, Wet, and Delta solo. This will be in addition to any bypass and/or wet-dry mix parameters that may already exist in the plugin.
+
 ### Method 2: CSI Toggle Write Params to /CSI/Zones/ZoneRawFXFiles when FX inserted
 You can also run the Reaper action **"CSI Toggle Write Params to /CSI/Zones/ZoneRawFXFiles when FX inserted"** then insert the FX. That will create a .txt file that looks identical the ReaConsole window shown above. The .txt file can be located in the **CSI/Zones/ZoneRawFXFiles** folder.
 
