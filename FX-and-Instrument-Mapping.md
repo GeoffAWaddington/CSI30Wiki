@@ -186,7 +186,7 @@ For FX Sub Zones to work you basically need a few key elements:
 
 1. Your initial fx.zon file. This should include the parameter mapping you want to see when the plugin is mapped just like any other fx.zon. It should also have a name that matches the plugin, just like any typical fx.zon file. Example: [plugin].zon
 
-2. One or more separate files for each sub zone. Remember: in CSI version 1.1, each zone must be in a separate .zon file (it's one per). It is recommended you number these Sub Zone FX files using the same plugin name but appending a number to the end of the file in ascending order for each Sub Zone. Example: [plugin]-1.zon and [plugin]-2.zon
+2. One or more separate files for each sub zone. Remember: each zone must be in a separate .zon file. It is recommended you number these Sub Zone FX files using the same plugin name but appending a number to the end of the file in ascending order for each Sub Zone. Example: [plugin]-1.zon and [plugin]-2.zon
 
 3. Instructions in the initial fx.zon file about which SubZones are to be included. See the "SubZones" and "SubZonesEnd" section in the example below.
 
