@@ -101,6 +101,8 @@ ZoneEnd
 ### Open up a plain Text Editor
 As mentioned earlier, fx.zon files are just plain text files so to create the fx.zon, the first thing we'll need to do is open a text editor application. **Tip:** if your fx.zon isn't being read by CSI, make sure you're not using "Rich Text" or any similar encoding features in your text editor. 
 
+Not a requirement, but a best practice, fx.zon files are much more legible and easier to troubleshoot when you use spaces in the .txt file to align the FX parameter and other CSI actions as shown in the example above. See how clean that looks? A little upfront work in the zone authoring process will save you headaches later on. I personally prefer spacebar avoid the Tab key because this will translate inconsistently by different applications.
+
 ### The first and last lines of an fx.zon 
 The first line of an FX zone file must show the plugin name exactly as it appears in Reaper. You can optionally add a plugin "alias" (or short name) that will appear in FX lists. 
 
