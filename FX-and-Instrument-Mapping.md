@@ -98,6 +98,9 @@ ZoneEnd
 
 ```
 
+### Open up a plain Text Editor
+As mentioned earlier, fx.zon files are just plain text files so to create the fx.zon, the first thing we'll need to do is open a text editor application. **Tip:** if your fx.zon isn't being read by CSI, make sure you're not using "Rich Text" or any similar encoding features in your text editor. 
+
 ### The first row and last row of an fx.zon 
 The first row of an FX zone file must show the plugin name exactly as it appears in Reaper. You can optionally add a plugin "alias" (or short name) that will appear in FX lists. 
 
@@ -116,7 +119,7 @@ ZoneEnd
 ```
 
 ### Mapping our first action
-The first FX parameter that has been mapped to a widget in CSI, is FX Param 0 (which happens to be the Threshold control in this plugin) and that's mapped to Rotary1. See [[FX-and-Instrument-Mapping]] for the full list of mapping actions.
+The first FX parameter that has been mapped to a widget in CSI, is FX Param 0 (which happens to be the Threshold control in this plugin) and that's mapped to the Rotary1 widget. So we add the widget name, followed by the FXParam CSI action and the FXParam # for the parameter we want to control. See [[FX-and-Instrument-Mapping]] for the full list of available FX mapping actions.
 ```
      Rotary1             FXParam 0 
 ```
@@ -157,7 +160,7 @@ Jumping further ahead you see...
      DisplayLower4       FXParamValueDisplay 2
 ```
 
-Here, the turning the Rotary encoder does nothing due to the NoAction line, but the RotaryPush4 will toggle the Comp/Limiter parameter when pressed. That's what the [ 0.0 1.0 ] means when it follows an FX Param. It's essentially saying, "each press should toggle between the minimum and maximum values". See the [Stepped Params and Toggles](https://github.com/GeoffAWaddington/CSIWiki/wiki/Stepped-Parameters-and-Toggles) page for more details.
+Here, the turning the Rotary encoder does nothing due to the NoAction line, but the RotaryPush4 will toggle the Comp/Limiter parameter when pressed. That's what the [ 0.0 1.0 ] means when it follows an FX Param. It's essentially saying, "each press should toggle between the minimum and maximum values". You'll also notice similar syntax used to step between 3 parameters on the rotary encoder with the "Meter" parameter in this .zon example. See the [Stepped Params and Toggles](https://github.com/GeoffAWaddington/CSIWiki/wiki/Stepped-Parameters-and-Toggles) page for more details. 
 
 The final thing I want to call out in this FX.zon is that I've used NoAction for any controls on my surface that don't have an action in the FX.zon. Why? This is a best-practice recommendation to make sure that you're not inadvertently changing parameters on your track or elsewhere that you don't intend to when the fx.zon is active. This will also ensure the displays clear out.
 ```
@@ -166,6 +169,9 @@ The final thing I want to call out in this FX.zon is that I've used NoAction for
      DisplayUpper6       NoAction
      DisplayLower6       NoAction
 ```
+
+### Save the .zon file
+The last step of course is to save the .zon file. Remember, these are just plain .txt files where you will rename the file extension .zon. See the [[Understandig FX and Instrument Mapping|FX-and-Instrument-Mapping#understanding-fxzon-files]] section of this page for details and tips about how to name and where to save these files.
 
 Those are the basics to creating an fx.zon file. See the [[FX Parameter Mapping Actions|FX-Parameter-Mapping-Actions]] page for details on all the pertinent mapping actions.
 
