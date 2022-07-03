@@ -99,9 +99,9 @@ ZoneEnd
 ```
 
 ### The first row and last row of an fx.zon 
-The first row of an FX zone file must show the plugin name exactly as it appears in Reaper. You can optionally add a plugin "alias" (or shortname) that will appear in FX lists. 
+The first row of an FX zone file must show the plugin name exactly as it appears in Reaper. You can optionally add a plugin "alias" (or short name) that will appear in FX lists. 
 
-In this FX zone, we have:
+In this FX zone, the first line is:
 ```
 Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)" "LA2ASlv"
 ```
@@ -111,6 +111,9 @@ The word Zone is required, followed by the EXACT plugin name as it appears in Re
 Following the full plugin name, you’ll see “LA2ASlv”: this is the plugin alias and can be whatever you want. This will be read as the FXMenuNameDisplay action in CSI, and can be seen on the FXMenu zone files, which we will get into later on. As a best practice, it’s recommended you create a short alias, but it’s not required. However, if you do not have an alias in your FX zone, you may only see something like “VST: UAD” on your surface, which wouldn’t tell you which UAD plugin was loaded in that slot.
 
 I’ll also jump ahead to the very last row of the .zon file which is simply the word ZoneEnd. This is required at the end of every CSI zone file, whether an FX or otherwise.
+```
+ZoneEnd
+```
 
 ### Mapping our first action
 The first FX parameter that has been mapped to a widget in CSI, is FX Param 0 (which happens to be the Threshold control in this plugin) and that's mapped to Rotary1. See [[FX-and-Instrument-Mapping]] for the full list of mapping actions.
@@ -143,9 +146,9 @@ The next line shows
      DisplayLower1       FXParamValueDisplay 0
 ```
 
-This will display the value of the FX Parmeter being controlled.
+This will display the value of the FX Parameter being controlled.
 
-### Our first "toggle" action and using NoAction to reserve params
+### Our first "toggle" action and using NoAction to reserve parameters
 Jumping further ahead you see...
 ```
      Rotary4             NoAction
@@ -167,13 +170,13 @@ The final thing I want to call out in this FX.zon is that I've used NoAction for
 Those are the basics to creating an fx.zon file. See the [[FX Parameter Mapping Actions|FX-Parameter-Mapping-Actions]] page for details on all the pertinent mapping actions.
 
 ## FX SubZones
-CSI version 1.1 introduced FX Sub Zones. These are useful when you are trying to map an FX that has more parameters than your surface has controls for, or maybe the plugin has multiple FX types or modes and you'd like to put them into different zones you can switch between. This could even be useful for mapping instruments if you wanted to have filter controls on one zone, oscillator controls in another, envelopes and LFO's in another, etc. The sky is the limit with FX sub zones.
+FX Sub Zones are useful when you are trying to map an FX that has more parameters than your surface has controls for, or maybe the plugin has multiple FX types or modes and you'd like to put them into different zones you can switch between. This could even be useful for mapping instruments if you wanted to have filter controls on one zone, oscillator controls in another, envelopes and LFO's in another, etc. The sky is the limit with FX sub zones.
 
 For FX Sub Zones to work you basically need a few key elements:
 
 1. Your initial fx.zon file. This should include the parameter mapping you want to see when the plugin is mapped just like any other fx.zon. It should also have a name that matches the plugin, just like any typical fx.zon file. Example: [plugin].zon
 
-2. One or more separate files for each sub zone. Remember: in CSI version 1.1, each zone must be in a separate .zon file (it's one per). It is recommended you number these Sub Zone FX files using the same plugin name, but appending a number to the end of the file in ascending order for each Sub Zone. Example: [plugin]-1.zon and [plugin]-2.zon
+2. One or more separate files for each sub zone. Remember: in CSI version 1.1, each zone must be in a separate .zon file (it's one per). It is recommended you number these Sub Zone FX files using the same plugin name but appending a number to the end of the file in ascending order for each Sub Zone. Example: [plugin]-1.zon and [plugin]-2.zon
 
 3. Instructions in the initial fx.zon file about which SubZones are to be included. See the "SubZones" and "SubZonesEnd" section in the example below.
 
