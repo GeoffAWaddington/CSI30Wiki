@@ -171,7 +171,7 @@ The final thing I want to call out in this FX.zon is that I've used NoAction for
 ```
 
 ### Save the .zon file
-The last step of course is to save the .zon file. Remember, these are just plain .txt files where you will rename the file extension .zon. See the [[Understandig FX and Instrument Mapping|FX-and-Instrument-Mapping#understanding-fxzon-files]] section of this page for details and tips about how to name and where to save these files.
+The last step of course is to save the .zon file. Remember, these are just plain .txt files where you will rename the file extension .zon. In this example, I'd recommend a name like **VST2_UAD_LA2A_Silver.zon**. Do not use spaces in the file name. See the [[Understandig FX and Instrument Mapping|FX-and-Instrument-Mapping#understanding-fxzon-files]] section of this page for details and tips about how to name and where to save these files.
 
 Those are the basics to creating an fx.zon file. See the [[FX Parameter Mapping Actions|FX-Parameter-Mapping-Actions]] page for details on all the pertinent mapping actions.
 
