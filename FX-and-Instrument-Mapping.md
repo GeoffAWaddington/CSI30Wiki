@@ -90,9 +90,9 @@ Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)" "LA2ASlv"
      DisplayUpper7       NoAction 
      DisplayLower7       NoAction 
 
-     Rotary8             NoAction
+     Rotary8             FXParam 8
      RotaryPush8         ToggleFXBypass
-     DisplayUpper8       NoAction
+     DisplayUpper8       FixedTextDisplay "Wet"
      DisplayLower8       FXBypassedDisplay
 ZoneEnd
 
