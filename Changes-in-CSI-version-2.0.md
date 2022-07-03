@@ -112,7 +112,7 @@ ZoneEnd
 ```
 
 ## Rewind and FastForward improvements
-Big improvements have been made to the Rewind and FastForward actions. They will now latch and seek the play/edit cursor. The first press of either button will result in a slower rewind/forward speed. If you press the button again, you get a second, faster speed. 
+Big improvements have been made to the Rewind and FastForward actions. They will now latch and seek the play/edit cursor. The first press of either button will result in a slower rewind/forward speed. If you press the button again, you get a second, faster speed. In addition, feedback has been added to these actions for use in OSC surfaces or any MIDI surfaces that can provide rewind/fastforward feedback.
 
 ## New "Flip" Modifier
 A new modifier called "Flip" has been introduced with the intention of being assigned to the Flip button on MCU-style control surfaces. A common use-case for this would be to temporarily put track pans onto the faders for quick panning adjustments. And because it's a modifier, a quick press of the button this is assigned to will allow for latching.
