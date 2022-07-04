@@ -3,9 +3,9 @@ Once you’ve created some fx.zon files, the next step is determining how you wa
 
 * **FocusedFX:** Opening the GUI in Reaper will cause the plugin to map on your surface. This mode is enabled by default. **Mapping action: ToggleEnableFocusedFXMapping**
 
-* **TrackFXMenu:** You select the plugin you want to activate from a menu on your control surface. TrackFXMenu splays the FX slots out vertically, so imagine an 8-fader surface with displays showing FX Slot 1 on Track 1, FX Slot 1 on Track 2, FX Slot 1 on Track 3, etc. You change FX slots by banking vertically. **Mapping action: GoTrackFXMenu**
+* **TrackFXMenu:** You select the plugin you want to activate from a menu on your control surface. TrackFXMenu splays the FX slots out vertically, so imagine an 8-fader surface with displays showing FX Slot 1 on Track 1, FX Slot 1 on Track 2, FX Slot 1 on Track 3, etc. You change FX slots by banking vertically. **Mapping action: GoTrackFXMenu** to activate the zone, **GoFXSlot** to activate the FX mapping.
 
-* **SelectedTrackFXMenu:** Like TrackFXMenu, you select the plugin you want to activate from a menu on your control surface. SelectedTrackFXMenu splays the FX slots of the selected track horizontally. Here, imagine an 8-fader surface with displays showing FX Slot 1 on Track 3, FX Slot 2 on Track 3, FX Slot 3 on Track 3, etc. If you have more FX on the selected track than you have control surface channels for, you can change FX slots by banking horizontally. **Mapping action: GoSelectedTrackFXMenu**
+* **SelectedTrackFXMenu:** Like TrackFXMenu, you select the plugin you want to activate from a menu on your control surface. SelectedTrackFXMenu splays the FX slots of the selected track horizontally. Here, imagine an 8-fader surface with displays showing FX Slot 1 on Track 3, FX Slot 2 on Track 3, FX Slot 3 on Track 3, etc. If you have more FX on the selected track than you have control surface channels for, you can change FX slots by banking horizontally. **Mapping action: GoSelectedTrackFXMenu**, **GoFXSlot** to activate the FX mapping.
 
 * **SelectedTrack:** When this mode is enabled, simply selecting a track in Reaper will activate any FX maps on that track. This is particularly handy for control surfaces with pre-defined layouts like the Softube Console One. With this mode, because multiple FX can be activated at once (example: an EQ and a compressor), users would have to be careful when mapping their fx.zon files as to avoid conflicts. **Mapping action: GoSelectedTrack**
 
@@ -55,6 +55,7 @@ Zone "TrackFXMenu"
     Select|               NoAction
 ZoneEnd
 ```
+The key things to call out here is that we are using the **FXMenuNameDisplay** action to show the name of the plugin (or the alias if one exists) on the control surface and the **GoFXSlot **action is assigned to the corresponding RotaryPush to actually activate the FX.
 
 Next you need to decide if you want the TrackFXMenu to be called up as needed, and therefore as part of an Associated Zone, or if you want to include it directly in your Home.zon. If you're using a MCU-style device, the most common usage will be to call it up as-needed as part of an AssociatedZone. If you're using more of a Mackie C4-style device, you may want to include the FXMenu in your Home zone. I will show how to setup both options below.
 
@@ -113,6 +114,7 @@ Zone "SelectedTrackFXMenu"
      Select|          NoAction
 ZoneEnd
 ```
+The key things to call out here is that we are using the **FXMenuNameDisplay** action to show the name of the plugin (or the alias if one exists) on the control surface and the **GoFXSlot **action is assigned to the corresponding RotaryPush to actually activate the FX. Additionally, I've added an SWS extension action to actually open the plugin GUI when the FX map is activated. If you don't want this behvaior, you can remove that line.
 
 Next you need to decide if you want the SelectedTrackFXMenu to be called up as needed, and therefore as part of an Associated Zone, or if you want to include it directly in your Home.zon. If you're using a MCU-style device, the most common usage will be to call it up as-needed as part of an AssociatedZone. If you're using more of a Mackie C4-style device, you may want to include the FXMenu in your Home zone. I will show how to setup both options below.
 
