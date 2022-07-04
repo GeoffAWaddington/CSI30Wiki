@@ -9,6 +9,8 @@ Once you’ve created some fx.zon files, the next step is determining how you wa
 
 * **SelectedTrack:** When this mode is enabled, simply selecting a track in Reaper will activate any FX maps on that track. This is particularly handy for control surfaces with pre-defined layouts like the Softube Console One. With this mode, because multiple FX can be activated at once (example: an EQ and a compressor), users would have to be careful when mapping their fx.zon files as to avoid conflicts. **Mapping action: GoSelectedTrack**
 
+**Tip:** You can use different FX activation methods on the same surface and use the various mapping actions to dictate which method is activate at any given time. Example: you can have a TrackFXMenu and a SelectedTrackFXMenu that you use a button to switch between, while also having another button toggling FocusedFXMapping as needed.
+
 ## FocusedFXMapping
 CSI version 2 has FocusedFX mapping enabled by default. This means if you have a fx.zon file for a particular FX/instrument plugin, and open the GUI in Reaper, that mapping will become activated on your surface by default. You can toggle this behavior off and on by assigning a button to the ToggleEnableFocusedFXMapping action as shown below:
 ```
@@ -19,8 +21,6 @@ But what if you don't want FocusedFXMapping on by default?  Since the default to
 ```
 Zone Home
 OnInitialization ToggleEnableFocusedFXMapping
-OnInitialization Broadcast Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
-OnInitialization Receive Home SelectedTrackSend SelectedTrackReceive SelectedTrackFXMenu TrackSend TrackReceive TrackFXMenu
     IncludedZones
         "Buttons"
         "Track"
