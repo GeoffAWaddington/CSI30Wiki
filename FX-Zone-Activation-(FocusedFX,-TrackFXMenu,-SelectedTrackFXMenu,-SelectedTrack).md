@@ -55,7 +55,7 @@ Zone "TrackFXMenu"
     Select|               NoAction
 ZoneEnd
 ```
-The key things to call out here is that we are using the **FXMenuNameDisplay** action to show the name of the plugin (or the alias if one exists) on the control surface and the **GoFXSlot **action is assigned to the corresponding RotaryPush to actually activate the FX.
+The key things to call out here is that we are using the **FXMenuNameDisplay** action to show the name of the plugin (or the alias if one exists) on the control surface and the **GoFXSlot** action is assigned to the corresponding RotaryPush to actually activate the FX.
 
 Next you need to decide if you want the TrackFXMenu to be called up as needed, and therefore as part of an Associated Zone, or if you want to include it directly in your Home.zon. If you're using a MCU-style device, the most common usage will be to call it up as-needed as part of an AssociatedZone. If you're using more of a Mackie C4-style device, you may want to include the FXMenu in your Home zone. I will show how to setup both options below.
 
@@ -114,7 +114,7 @@ Zone "SelectedTrackFXMenu"
      Select|          NoAction
 ZoneEnd
 ```
-The key things to call out here is that we are using the **FXMenuNameDisplay** action to show the name of the plugin (or the alias if one exists) on the control surface and the **GoFXSlot **action is assigned to the corresponding RotaryPush to actually activate the FX. Additionally, I've added an SWS extension action to actually open the plugin GUI when the FX map is activated. If you don't want this behvaior, you can remove that line.
+The key things to call out here is that we are using the **FXMenuNameDisplay** action to show the name of the plugin (or the alias if one exists) on the control surface and the **GoFXSlot** action is assigned to the corresponding RotaryPush to actually activate the FX. Additionally, I've added an SWS extension action to actually open the plugin GUI when the FX map is activated. If you don't want this behvaior, you can remove that line.
 
 Next you need to decide if you want the SelectedTrackFXMenu to be called up as needed, and therefore as part of an Associated Zone, or if you want to include it directly in your Home.zon. If you're using a MCU-style device, the most common usage will be to call it up as-needed as part of an AssociatedZone. If you're using more of a Mackie C4-style device, you may want to include the FXMenu in your Home zone. I will show how to setup both options below.
 
