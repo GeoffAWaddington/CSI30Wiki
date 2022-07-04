@@ -99,7 +99,7 @@
 * [[GoSelectedTrackSend]]
 * [[GoSelectedTrackReceive]]
 * [[GoSelectedTrackFXMenu]]
-* [[GoSelectedTrack]]
+* [[GoSelectedTrackFX]]
 
 ### Project Actions
 * [[SaveProject]]
