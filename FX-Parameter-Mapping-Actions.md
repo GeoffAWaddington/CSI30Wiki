@@ -86,6 +86,36 @@ Which would display on your surface (continuing the example from above with ReaC
 VST: ReaComp (Cockos)
 ```
 
+## FXMenuNameDisplay
+FXMenuNameDisplay is typically used in TrackFXMenu and SelectedTrackFXMenu zones to show the name of the FX loaded into the corresponding FX slot. If there is a plugin alias in the fx.zon file, it will display the alias. Otherwise, it will display the full plugin name from the first line of the zone file, including the plugin format and any vendor information. It's recommended that users create a plugin alias when creating fx.zon files for this reason. See [[FX and Instrument Mapping]] for more details.
+
+If there is no fx.zon for the corresponding FX in the slot. CSI will show "NoMap" on the display.
+```
+Zone "TrackFXMenu"
+        DisplayUpper|       	FXMenuNameDisplay
+        DisplayLower|           FXBypassedDisplay
+        Rotary|             	NoAction
+        RotaryPush|         	GoFXSlot
+	Mute| 			ToggleFXBypass
+        Left	            	TrackFXMenuBank -1
+        Right	           	TrackFXMenuBank 1
+ZoneEnd
+```
+
+## GoFXSlot
+GoFXSlot is used in TrackFXMenu and SelectedTrackFXMenu zones to activate the FX mapping for the corresponding FX slot. See the example below from a TrackFXMenu where pressing RotaryPush will activate the FX map for the corresponding FX.
+```
+Zone "TrackFXMenu"
+        DisplayUpper|       	FXMenuNameDisplay
+        DisplayLower|           FXBypassedDisplay
+        Rotary|             	NoAction
+        RotaryPush|         	GoFXSlot
+	Mute| 			ToggleFXBypass
+        Left	            	TrackFXMenuBank -1
+        Right	           	TrackFXMenuBank 1
+ZoneEnd
+```
+
 ## ToggleFXBypass
 Use this action in a SelectedTrackFXMenu or TrackFXMenu zone to assign toggling the FX Slot to a button.
 ```
