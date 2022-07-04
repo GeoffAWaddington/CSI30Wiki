@@ -17,7 +17,7 @@ CSI version 2 has FocusedFX mapping enabled by default. This means if you have a
    SomeButton     ToggleEnableFocusedFXMapping
 ```
 
-But what if you don't want FocusedFXMapping on by default?  Since the default toggle state is "on", you can add "OnInitialization ToggleFocusedFXMapping" to flip it to off when CSI starts up as shown below:
+But what if you don't want FocusedFXMapping on by default?  Since the default toggle state is "on", you can add "OnInitialization ToggleFocusedFXMapping" to your Home.zon to toggle the state to off when CSI starts up as shown in the example below:
 ```
 Zone Home
 OnInitialization ToggleEnableFocusedFXMapping
