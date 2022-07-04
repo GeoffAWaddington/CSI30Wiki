@@ -20,7 +20,7 @@ If you find something out of date, either comment to let us know, or even better
   * [[Zones]]
   * [[Send Zones]]
   * [[Receive Zones|Receive-Zones]]
-  * [[FX Menu Zones|FXMenu-Zones]]
+  * [[FX Menu Zones|FX-Zone-Activation-(FocusedFX,-TrackFXMenu,-SelectedTrackFXMenu,-SelectedTrack)#overview-four-different-activation-methods]]
   * [[FX and Instrument Zones|FX-and-Instrument-Mapping]]
   * [[Action Reference]]
   * [[Modifiers]]
