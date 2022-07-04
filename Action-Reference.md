@@ -65,7 +65,7 @@
 * [[FXNameDisplay|FX Parameter Mapping Actions#FXParamValueDisplay]] 
 * [[FXParamNameDisplay|FX Parameter Mapping Actions#FXParamNameDisplay]] 
 * [[FXParamValueDisplay|FX Parameter Mapping Actions#FXParamValueDisplay]] 
-* [[FXMenuNameDisplay|MapSelectedTrackFXToMenu]]
+* [[FXMenuNameDisplay|FX-Parameter-Mapping-Actions#fxmenunamedisplay]]
 * [[FocusedFXParam|FX Parameter Mapping Actions#focusedfxparam]]
 * [[FocusedFXParamNameDisplay|FX Parameter Mapping Actions#focusedfxparamnamedisplay-and-focusedfxparamvaluedisplay]]
 * [[FocusedFXParamValueDisplay|FX Parameter Mapping Actions#focusedfxparamnamedisplay-and-focusedfxparamvaluedisplay]]
@@ -74,7 +74,7 @@
 * [[ToggleFXBypass|FX Parameter Mapping Actions#ToggleFXBypass]]
 * [[FXBypassedDisplay|FX Parameter Mapping Actions#FXBypassedDisplay]]
 * [[FXGainReductionMeter|FX Parameter Mapping Actions#FXGainReductionMeter]]
-* [[GoFXSlot|MapSelectedTrackFXToMenu]]
+* [[GoFXSlot|FX-Parameter-Mapping-Actions#gofxslot]]
 
 ### Navigation
 * [[TrackBank]]
