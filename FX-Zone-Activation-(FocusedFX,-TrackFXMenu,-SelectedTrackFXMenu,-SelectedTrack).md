@@ -7,7 +7,7 @@ Once you’ve created some fx.zon files, the next step is determining how you wa
 
 * **SelectedTrackFXMenu:** Like TrackFXMenu, you select the plugin you want to activate from a menu on your control surface. SelectedTrackFXMenu splays the FX slots of the selected track horizontally. Here, imagine an 8-fader surface with displays. You've got track 3 selected in Reaper. SelectedTrackFXMenu will show FX Slot 1 on Track 3, FX Slot 2 on Track 3, FX Slot 3 on Track 3, etc. spread out across the 8 channels on your surface. If you have more FX on the selected track than you have control surface channels for, you can change FX slots by banking horizontally. **Mapping action: GoSelectedTrackFXMenu** to activate the zone, **GoFXSlot** to activate the FX mapping.
 
-* **SelectedTrack:** When this mode is enabled, simply selecting a track in Reaper will activate any FX maps on that track. This is particularly handy for control surfaces with pre-defined layouts like the Softube Console One. With this mode, because multiple FX can be activated at once (example: an EQ and a compressor), users would have to be careful when mapping their fx.zon files as to avoid conflicts. **Mapping action: GoSelectedTrack**
+* **SelectedTrack:** When this mode is enabled, simply selecting a track in Reaper will activate any FX maps on that track. This is particularly handy for control surfaces with pre-defined layouts like the Softube Console One. With this mode, because multiple FX can be activated at once (example: an EQ and a compressor), users would have to be careful when mapping their fx.zon files as to avoid conflicts. **Mapping action: GoSelectedTrackFX**
 
 **Tip:** You can use different FX activation methods on the same surface and use the various mapping actions to dictate which method is activate at any given time. Example: you can have a TrackFXMenu and a SelectedTrackFXMenu that you use a button to switch between, while also having another button toggling FocusedFXMapping as needed.
 
@@ -154,3 +154,30 @@ Zone Home
     IncludedZonesEnd
 ZoneEnd
 ```
+
+## SelectedTrackFX
+SelectedTrackFX is designed to automatically call up any FX.zon's simply by selecting a track in Reaper. This is especially useful for surface's like Softube's Console One or any other surface where you always want one or more track FX mapped to specifics widgets on your hardware. The key to making this approach work is pre-planning because you want to avoid the types of conflicts that could occur if you have two or more FX on the selected channel mapped to the same widget on your control surface. But if you're using a Channel Strip plugin on every channel and want specific EQ or compressor settings to automatically map to your control surface, this may be the approach for you.
+
+You have one of two options for activating SelectedTrackFX: 1) assigning GoSelectedTrackFX to a button, or 2) assigning GoSelectedTrackFX to automatically map on Track Selection. I'll show both methods below.
+
+Mapping SelectedTrackFX to a button is as simple as:
+```
+Zone "Buttons"
+     F1     GoSelectedTrackFX
+ZoneEnd
+```
+
+If you'd prefer to have that automatically occur whenever you select a track in Reaper, add this action to your Home.zon like this:
+```
+Zone "Home"
+OnInitialization ToggleEnableFocusedFXMapping 
+OnTrackSelection GoSelectedTrackFX
+     IncludedZones
+          "SelectedChannel"
+          "Buttons"
+          "SelectedTrackSend"
+          "SelectedTrackReceive"
+     IncludedZonesEnd
+ZoneEnd
+```
+Note: in the above example how I'm using OnInitilization ToggleEnableFocusedFXMapping to turn off FcusedFXMapping by default. 
