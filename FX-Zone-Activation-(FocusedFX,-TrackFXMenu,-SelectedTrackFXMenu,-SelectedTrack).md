@@ -181,3 +181,14 @@ OnTrackSelection GoSelectedTrackFX
 ZoneEnd
 ```
 Note: in the above example how I'm using OnInitilization ToggleEnableFocusedFXMapping to turn off FcusedFXMapping by default. 
+
+## Unmapping FX zones
+Now that you've got your fx.zon activated, what is the right way unmap/deactivate that fx.zon?
+
+* **FocusedFX:** Simply unfocus the FX in question in Reaper. Note: if you unfocus an FX then refocus the same FX, CSI may not pick it up the second time. You may need to focus another FX first.
+
+* **TrackFXMenu:** Unmapping actions are either **GoTrackFXMenu** or **GoHome** depending on whether you are trying to return to the FX menu or trying to return to the Home zone.
+
+* **SelectedTrackFXMenu:** Unmapping actions are either **GoSelectedTrackFXMenu** or **GoHome** depending on whether you are trying to return to the FX menu or trying to return to the Home zone.
+
+* **SelectedTrackFX:** Select another track or deselect the track. 
