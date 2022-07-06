@@ -5,7 +5,7 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 * [[Fader7Bit|Message-Generators#Fader7Bit]] - sends a MIDI message in a range specifying the current absolute value of the control. 
 * [[Fader14Bit|Message-Generators#Fader14Bit]] - like Fader7Bit, but has a larger (or more fine grained) set of values.
 * [[Encoders|Message-Generators#Encoders]] - unlike the Faders, an Encoder sends a relative value (increase/decrease) 
-* [[MFTEncoder|Message-Generators#MFTEncoder]] - a special encoder only found on the Midi Fighter Twister controller
+* [[MFTEncoder|Message-Generators#MFTEncoder]] - a special encoder only found on the MIDI Fighter Twister controller
 
 If you need to define a new .mst file, because one does not exist for your surface, the general idea here is to use the Reaper action **CSI Toggle Show Raw Input from Surfaces** to observe what values are sent when each control is manipulated. So for example, when I press one of the buttons on my controller, I see this:
 
