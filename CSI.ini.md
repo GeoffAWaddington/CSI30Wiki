@@ -1,47 +1,68 @@
-As mentioned on the [[Installation]] page, the configuration of your CSI installation is ultimately stored in a file called csi.ini. 
+As mentioned on the [[Installation]] page, the configuration of your CSI installation is ultimately stored in a file called csi.ini. This normally gets created when you setup CSI for the first time and shouldn't require direct user editing, however, if you want to understand how the csi.ini works, or need to troubleshoot, read on!
 
-Here's a typical CSI.ini:
+Here is what a typical CSI.ini might look like:
 ```
-Page "HomePage" FollowMCP NoSynchPages UseScrollLink
-
-MidiSurface "Console1" 7 6 "Console1.mst" "Console1" 0 0 0 0 
-
-MidiSurface "LaunchPad" 6 7 "LaunchPadMiniMK3.mst" "LaunchPadMiniMK3" 0 0 0 0 
-
-OSCSurface "iPad" 8001 9001 "TouchOSCPad.ost" "TouchOSCPad" 0 0 0 0  192.168.2.19
-
-OSCSurface "iPhone" 8000 9000 "TouchOSCPhone.ost" "TouchOSCPhone" 0 0 0 0  192.168.2.11
-
-MidiSurface "A800" 10 8 "RolandA800.mst" "RolandA800" 0 0 0 0 
-
-EuConSurface "EuCon" "EuCon" 64 8 8 0 
+Version 2.0
+MidiSurface "X-Touch" 12 11 
+OSCSurface "iPad Pro" 8000 9000 10.0.0.146 
+Page "HomePage" 
+"X-Touch" 8 0 "X-Touch.mst" "X-Touch"
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
 ```
 
-The line starting with "Page" defines a Page.
+The CSI version number is included in the first row. If missing, CSI will throw up an error when Reaper starts.
 
-From left to right, this states that:
+Next, you see...
+```
+MidiSurface "MCU" 12 11 
+```
 
-* There is a Page named "HomePage"
-* It follows the MCP (mixer control panel) track visibility
-* NoSynchPages means that this Page banks "by itself" -- if you go to another Page it will not be banked to the same location
-* UseScrollLink ensures that when you bank Tracks on the surface, they are made visible in the Reaper GUI
+This tells CSI that the user has configured a MIDI surface, named this device "X-Touch", and that device uses MIDI port 12 for incoming messages and MIDI port 11 for outbound messages.
 
-All the lines that come after that, starting with MidiSurface, represent each of the control surfaces. 
+There's also an OSC device in this setup.
+```
+OSCSurface "iPad Pro" 8000 9000 10.0.0.146 
+```
 
-The Channel Offset governs how the channels display. Suppose you had a Surface with 8 Faders and an Extender with 8 Faders. You could set the Surface Channel Offset to 0, and the Extender Channel Offset to 8, to get Channels 1-8 to show up on the Surface and channels 9-16 to show up on the Extender.
+This is telling CSI that there is an OSC surface that the user has named "iPad Pro", and that receives on port 8000, transmits on port 9000, and that iPad Pro has an IP Address of 10.0.0.146.
 
-Let's look look at one of them:
+Next, each [[Page|Pages]] in CSI is defined, with the surfaces, .mst file, and zone folder that will be used for each page.
+```
+Page "HomePage" 
+"X-Touch" 8 0 "X-Touch.mst" "X-Touch"
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
+```
 
-`MidiSurface "Console1" 7 6 "Console1.mst" "Console1" 0 0 0 0 `
+```
+Page "HomePage"
+```
+...is the name of the page.
 
-From left to right, this states that:
-* There is a control surface named Console1
-* It sends MIDI into Reaper on port 7
-* It receives MIDI from Reaper on port 6
-* The controls it contains are defined in a file called Console1.mst (see [[Defining Control Surface Capabilities]])
-* The zones it contains are in a folder called Console1 under the Zones folder (see [[Defining Control Surface Behaviour]])
-* 0 - Number of Channels - Console 1 has no Channels, an MCU has 8, etc.
-* 0 - Number of Sends - Console 1 has no Sends, an MCU has 8, etc.
-* 0 - Number of FX Menu Items - Console 1 has no FX Menu Items, an MCU has 8, etc.
-* 0 - Channel Offset -- this tells CSI how far from the left edge of the CSI virtual console you want your surface to start
+```
+"X-Touch" 8 0 "X-Touch.mst" "X-Touch"
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
+```
 
+This says the X-Touch surface gets included in the HomePage, has 8 channels, a channel offset of 0, and uses the X-Touch.mst and "X-Touch" zone folder. The iPad Pro definition follows the same format.
+
+If you had multiple pages defined, they would follow this same format as shown here...
+```
+Version 2.0
+MidiSurface "XTouchOne" 7 9
+MidiSurface "MFTwister" 6 8 
+OSCSurface "iPad Pro" 8003 9003 10.0.0.146 
+OSCSurface "TouchOSCLocal" 8002 9002 10.0.0.100 
+MidiSurface "CMC-QC" 23 24
+Page "HomePage" 
+"XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
+"MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterMenu"
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
+"TouchOSCLocal" 8 0 "FXTwister.ost" "FXTwisterMenu"
+"CMC-QC" 0 0 "Stienberg_CMC-QC-2.mst" "Steinberg_CMC-QC-2" 
+Page "FocusedFXPage" 
+"XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
+"MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterFocusedFX"
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterFocusedFX"
+"TouchOSCLocal" 8 0 "FXTwister.ost" "FXTwisterFocusedFX"
+"CMC-QC" 0 0 "Stienberg_CMC-QC-2.mst" "Steinberg_CMC-QC-2FocusedFX" 
+```
