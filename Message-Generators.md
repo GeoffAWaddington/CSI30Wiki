@@ -176,7 +176,7 @@ Widget RotaryA1
 	FB_Fader7Bit b0 00 00
 WidgetEnd
 ```
-### Additional Notes
+## Additional Notes
 
 - Some encoders like the MIDI Fighter Twister or Behringer BCR-2000 may require a FB_Fader7Bit processor instead of FB_Encoder to work properly. If you're not getting feedback, or your encoder is otherwise not working, you may want to try FB_Fader7Bit.
 
