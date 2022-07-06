@@ -3,8 +3,10 @@ As mentioned on the [[Installation]] page, the configuration of your CSI install
 Here is what a typical CSI.ini might look like:
 ```
 Version 2.0
+
 MidiSurface "X-Touch" 12 11 
 OSCSurface "iPad Pro" 8000 9000 10.0.0.146 
+
 Page "HomePage" 
 "X-Touch" 8 0 "X-Touch.mst" "X-Touch"
 "iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
@@ -48,13 +50,16 @@ This says the X-Touch surface gets included in the HomePage, has 8 channels, a c
 If you had multiple pages defined, they would follow this same format as shown here...
 ```
 Version 2.0
+
 MidiSurface "XTouchOne" 7 9
 MidiSurface "MFTwister" 6 8 
 OSCSurface "iPad Pro" 8003 9003 10.0.0.146 
+
 Page "HomePage" 
 "XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
 "MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterMenu"
 "iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
+
 Page "FocusedFXPage" 
 "XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
 "MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterFocusedFX"
