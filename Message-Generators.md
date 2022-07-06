@@ -1,5 +1,6 @@
 Message Generators allow you to define what MIDI messages the surface sends to CSI. The following types of Message Generators exist in CSI, and which you use will depend on your the control and your surface:
 
+
 * [[Press|Message-Generators#press]] - a simple generator that sends a single MIDI message on press, and optionally sends another message when released. Often, but not limited to, a button.
 * [[AnyPress|Message-Generators#AnyPress]] - a variation of Press needed for some devices.
 * [[Fader7Bit|Message-Generators#Fader7Bit]] - sends a MIDI message in a range specifying the current absolute value of the control. Used for faders and knobs with defined start and points.
@@ -138,9 +139,9 @@ One large benefit of encoders versus traditional Rotary knobs that would use a [
 
 In order to support the widest possible range of hardware encoders, CSI now allows users to customize which values their encoders transmit as well as define acceleration ranges for encoders that support it. EncoderPlain and EncoderPlainReverse are available if your surface has no acceleration.
 
-# Encoder Types
+## Encoder Types
 
-## MCU Encoder
+### MCU Encoder
 Here's an example of a typical MCU **Encoder** widget in CSI.
 ```
 Widget Rotary1
@@ -149,7 +150,7 @@ Widget Rotary1
 WidgetEnd
 ```
 
-## Non-MCU Encoders, no acceleration
+### Non-MCU Encoders, no acceleration
 Use this syntax only if your hardware encoder transmits a single-value for clockwise and counter-clockwise turns. Because each surface may be different, replace the "41" and "01" messages with the correct values for your hardware.
 
 In this example, the hardware encoder only transmits a value of 41 when rotated counter-clockwise (decrement, as noted by the < symbol), and only transmits a value of 01 when being rotated clockwise (increment, as noted by the > symbol). 
@@ -160,7 +161,7 @@ Widget Rotary1
 WidgetEnd
 ```
 
-## Encoders with discrete acceleration steps
+### Encoders with discrete acceleration steps
 Use this syntax when surface transmits different acceleration values for increment (CW) and decrement (CCW) turns. However, your surface may skip values (notice 48 and 49 are missing as are 08 09).
 ```
 Widget Rotary1
@@ -169,7 +170,7 @@ Widget Rotary1
 WidgetEnd
 ```
 
-## Encoders With a Continuous Acceleration Range
+### Encoders with a continuous acceleration range
 Use this syntax when your encoder transmits a continuous range of acceleration values between a defined start and end range with no breaks or jumps in the data. 
 
 ```
@@ -179,7 +180,7 @@ Widget Rotary1
 WidgetEnd
 ```
 
-## MFTEncoder
+### MFTEncoder
 The MIDI Fighter Twister by DJ Tech Tools can be configured to work as an Encoder with **Velocity Acceleration**. However, because it uses a non-standard set of values when turning the knob clockwise and counter-clockwise, a special widget was developed for the MIDI Fighter Twister. The correct syntax for a MFTwister encoder is shown below, including the full set of acceleration steps when using the Velocity Sensitive encoder setting. As you can see, there are 11 acceleration levels in each direction.
 
 ```
