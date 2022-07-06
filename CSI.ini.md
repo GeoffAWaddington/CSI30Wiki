@@ -16,7 +16,7 @@ The CSI version number is included in the first row. If missing, CSI will throw 
 
 Next, you see...
 ```
-MidiSurface "MCU" 12 11 
+MidiSurface "X-Touch" 12 11 
 ```
 
 This tells CSI that the user has configured a MIDI surface, named this device "X-Touch", and that device uses MIDI port 12 for incoming messages and MIDI port 11 for outbound messages.
