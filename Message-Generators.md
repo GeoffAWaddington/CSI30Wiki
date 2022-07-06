@@ -168,9 +168,7 @@ WidgetEnd
 ```
 
 # MFTEncoder
-The MIDI Fighter Twister by DJ Tech Tools can be configured to work as an Encoder with Velocity Acceleration. However, because it uses a non-standard set of values when turning the knob clockwise and counter-clockwise, a special widget was developed for the MIDI Fighter Twister. The correct syntax for a MFTwister encoder is shown below, including the full set of acceleration steps when using the Velocity Sensitive encoder setting. As you can see, there are 11 acceleration levels in each direction.
-
-More details and detailed explanation is provided on the [[MFTEncoder]] page.
+The MIDI Fighter Twister by DJ Tech Tools can be configured to work as an Encoder with **Velocity Acceleration**. However, because it uses a non-standard set of values when turning the knob clockwise and counter-clockwise, a special widget was developed for the MIDI Fighter Twister. The correct syntax for a MFTwister encoder is shown below, including the full set of acceleration steps when using the Velocity Sensitive encoder setting. As you can see, there are 11 acceleration levels in each direction.
 
 ```
 Widget RotaryA1
