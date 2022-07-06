@@ -26,7 +26,7 @@ There's also an OSC device in this setup.
 OSCSurface "iPad Pro" 8000 9000 10.0.0.146 
 ```
 
-This is telling CSI that there is an OSC surface that the user has named "iPad Pro", and that receives on port 8000, transmits on port 9000, and that iPad Pro has an IP Address of 10.0.0.146.
+This is telling CSI that there is an OSC surface that the user has named "iPad Pro", and that receives on port 8000, transmits to port 9000, and that iPad Pro has an IP Address of 10.0.0.146.
 
 Next, each [[Page|Pages]] in CSI is defined, with the surfaces, .mst file, and zone folder that will be used for each page.
 ```
