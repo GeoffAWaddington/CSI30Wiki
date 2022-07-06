@@ -1,4 +1,4 @@
-Message Generators allow you to define what MIDI messages the surface sends to CSI:
+Message Generators allow you to define what MIDI messages the surface sends to CSI. The following types of Message Generators exist in CSI, and which you use will depend on your the control and your surface:
 
 * [[Press|Message-Generators#press]] - a simple generator that sends a single MIDI message on press, and optionally sends another message when released. Often, but not limited to, a button.
 * [[AnyPress|Message-Generators#AnyPress] - a variation of Press needed for some devices.
@@ -7,18 +7,20 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 * [[Encoders|Message-Generators#Encoders]] - unlike the Faders, an Encoder sends a relative value (increase/decrease) 
 * [[MFTEncoder|Message-Generators#MFTEncoder]] - a special encoder only found on the Midi Fighter Twister controller
 
+If you need to define a new .mst file, because one does not exist for your surface, the general idea here is to use the Reaper action **CSI Toggle Show Raw Input from Surfaces** to observe what values are sent when each control is manipulated. So for example, when I press one of the buttons on my controller, I see this:
 
-The general pattern here is to use the [[MIDI Monitor]] to observe what values are sent when your widget is manipulated. So for example, when I press one of the buttons on my controller I see this:
+```
+IN <- XTouchOne 90  5b  7f 
+IN <- XTouchOne 90  5b  00 
+```
 
-[[images/MIDIMonitor.png]]
+The first line showed up when I pressed, the second one when I let go, so a reasonable assumption is the MIDI Generator in my widget should be:
 
-The first line showed up when I pressed, the second one when I let go, so a reasonable assumption is the MIDI Generator in my Widget should be:
+```
+Press 90 5b 7f 90 5b 00
+```
 
-`Press 90 5d 7f 90 5d 00`
-
-That said, please read the section on Press for some guidance/recommendations.
-
-## Press
+# Press
 Message Generators that send a message when pressed, and optionally send another message when released. 
 
 Defined using the following syntax:     
@@ -28,15 +30,16 @@ where:
 * 90 5e 7f is the message sent when the widget is pressed
 * 90 5e 00 is the message sent when the widget is released (optional)
 
-### Widget Definitions
-````
+However, we still need to name our widget. So lets presume this is a Play button. In our .mst file, that widget would look like this:
+```
 Widget Play
 	Press 90 5e 7f
 WidgetEnd
-````
+```
 
 The Play Widget has been declared without a Release message -- by far the most common definition type.
 
+Here is an example of a button with a release message.
 ````
 Widget Shift
 	Press 90 46 7f 90 46 00
@@ -45,8 +48,10 @@ WidgetEnd
 
 The Shift Widget has been declared with a Release message -- good for Buttons you plan to use for Shift/Option/Control/Alt, etc. or if you wish to use the "Hold" modifier.
 
+**Tip:** if your surface creates release messages, include them in your .mst file. It's better to have release messages and not need them, then need them and not have them.
+
 # AnyPress
-A Message Generator for use with surfaces whose buttons alternate between a press message (7f) on press, and on second press, a release message (00). Use AnyPress widgets for these types of surfaces. 
+AnyPress is Message Generator for use with surfaces whose buttons alternate between a press message (7f) on press, and on second press, a release message (00). Use AnyPress widgets for these types of surfaces. 
 
 ```` 
 Widget BankLeft
@@ -69,19 +74,6 @@ If you only see one message like 90 2e 7f, then press the button a second time..
 
 * If the next message is 90 2e 00, then you should use an AnyPress widget.
 
-### Stepping Through Parameters
-If you want to step through a parameter using button presses, that can be done similar to how we can map [[Encoders|Encoder]] to stepped parameters. The VST parameters are in a range of 0 to 1, and the parameter steps can be entered in brackets (with a space after the opening bracket and before the closing one).
-
-In this example, each "SomeButton" press will increment the tape type in IK Multimedia's Tape machines forward. And just to illustrate, when combined with a Shift modifier, you can increment the buttons in the opposite direction. 
-```` 
-SomeButton FXParam "3" "TapeType" [ 0.0 0.33 0.67 1.0 ]
-Shift+SomeButton FXParam "3" "TapeType" [ 1.0 0.67 0.33 0.0 ] 
-````
-
-The parameter steps can even be in any order you want!  You could group like items together, like if you had ValhallaVintage verbs and wanted all the hall modes next to one another. You could even skip steps: let's say there's a mode in a plugin you hate, you could leave that step out entirely!    
-
-Note: When incrementing steps upwards, CSI will return to the bottom of the list after the highest step. When incrementing downwards, CSI will stop at the bottom step. This behavior exists to prevent unwanted, potential jumps in volume. 
-
 # Fader7Bit
 A Message Generator that represents a control that measures its current position using a 7bit value (ie. 128 possible values). While the name includes the word "Fader" this type of message would be used for both faders AND knobs with absolute values (i.e. a knob with a defined start and end location).
 
@@ -96,7 +88,6 @@ WidgetEnd
 
 A message will be sent between b0 09 00 and b0 09 7f representing the current position of the fader.
 
-### Notes:
 When trying to decide if a Surface control should be represented using Fader7Bit or [[Encoder]], look at what values are actually being sent by the Surface. Fader7Bit expects an absolute value, whereas [[Encoder]] expects an increment/decrement value.
 
 * Use the Reaper Action "CSI Toggle Show Input from Surfaces" to see what's actually being sent.   
