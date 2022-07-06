@@ -149,7 +149,7 @@ Widget Rotary1
 WidgetEnd
 ```
 
-## Non-MCU Encoders, No Acceleration
+## Non-MCU Encoders, no acceleration
 Use this syntax only if your hardware encoder transmits a single-value for clockwise and counter-clockwise turns. Because each surface may be different, replace the "41" and "01" messages with the correct values for your hardware.
 
 In this example, the hardware encoder only transmits a value of 41 when rotated counter-clockwise (decrement, as noted by the < symbol), and only transmits a value of 01 when being rotated clockwise (increment, as noted by the > symbol). 
@@ -160,7 +160,7 @@ Widget Rotary1
 WidgetEnd
 ```
 
-## Encoder With Discrete Acceleration Steps
+## Encoders with discrete acceleration steps
 Use this syntax when surface transmits different acceleration values for increment (CW) and decrement (CCW) turns. However, your surface may skip values (notice 48 and 49 are missing as are 08 09).
 ```
 Widget Rotary1
