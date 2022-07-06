@@ -3,7 +3,7 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 * [[Press|Message-Generators#press]] - a simple generator that sends a single MIDI message on press, and optionally sends another message when released. Often, but not limited to, a button.
 * [[AnyPress|Message-Generators#AnyPress] - a variation of Press needed for some devices.
 * [[Fader7Bit|Message-Generators#Fader7Bit]] - sends a MIDI message in a range specifying the current absolute value of the control. 
-* [[Fader14Bit|Message-Generators#Fader14Bit]]]] - like Fader7Bit, but has a larger (or more fine grained) set of values.
+* [[Fader14Bit|Message-Generators#Fader14Bit]] - like Fader7Bit, but has a larger (or more fine grained) set of values.
 * [[Encoders|Message-Generators#Encoders]] - unlike the Faders, an Encoder sends a relative value (increase/decrease) 
 * [[MFTEncoder|Message-Generators#MFTEncoder]] - a special encoder only found on the Midi Fighter Twister controller
 
@@ -167,7 +167,7 @@ Widget Rotary1
 WidgetEnd
 ```
 
-## MIDI Fighter Twister Encoders (MFTEncoder)
+# MFTEncoder
 The MIDI Fighter Twister by DJ Tech Tools can be configured to work as an Encoder with Velocity Acceleration. However, because it uses a non-standard set of values when turning the knob clockwise and counter-clockwise, a special widget was developed for the MIDI Fighter Twister. The correct syntax for a MFTwister encoder is shown below, including the full set of acceleration steps when using the Velocity Sensitive encoder setting. As you can see, there are 11 acceleration levels in each direction.
 
 More details and detailed explanation is provided on the [[MFTEncoder]] page.
