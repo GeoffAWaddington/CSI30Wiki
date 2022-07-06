@@ -21,7 +21,7 @@ Press 90 5b 7f 90 5b 00
 ```
 
 # Press
-Message Generators that send a message when pressed, and optionally send another message when released. 
+Press is typically used for message generators that send a message when pressed, and optionally send another message when released. 
 
 Defined using the following syntax:     
 ````Press 90 5e 7f 90 5e 00````      
@@ -49,6 +49,18 @@ WidgetEnd
 The Shift Widget has been declared with a Release message -- good for Buttons you plan to use for Shift/Option/Control/Alt, etc. or if you wish to use the "Hold" modifier.
 
 **Tip:** if your surface creates release messages, include them in your .mst file. It's better to have release messages and not need them, then need them and not have them.
+
+## Using Press for jogwheels
+Additionally, press messages can be used to split up a jogwheel into clockwise (CW) and counter-clockwise (CCW) turns which can then be assigned to different actions in your CSI zone files. See the example below from a typical MCU device:
+```
+Widget JogWheelRotaryCW
+	Press b0 3c 01
+WidgetEnd
+
+Widget JogWheelRotaryCCW
+	Press b0 3c 41
+WidgetEnd
+```
 
 # AnyPress
 AnyPress is Message Generator for use with surfaces whose buttons alternate between a press message (7f) on press, and on second press, a release message (00). Use AnyPress widgets for these types of surfaces. 
