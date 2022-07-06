@@ -51,18 +51,12 @@ Version 2.0
 MidiSurface "XTouchOne" 7 9
 MidiSurface "MFTwister" 6 8 
 OSCSurface "iPad Pro" 8003 9003 10.0.0.146 
-OSCSurface "TouchOSCLocal" 8002 9002 10.0.0.100 
-MidiSurface "CMC-QC" 23 24
 Page "HomePage" 
 "XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
 "MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterMenu"
 "iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
-"TouchOSCLocal" 8 0 "FXTwister.ost" "FXTwisterMenu"
-"CMC-QC" 0 0 "Stienberg_CMC-QC-2.mst" "Steinberg_CMC-QC-2" 
 Page "FocusedFXPage" 
 "XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
 "MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterFocusedFX"
 "iPad Pro" 8 0 "FXTwister.ost" "FXTwisterFocusedFX"
-"TouchOSCLocal" 8 0 "FXTwister.ost" "FXTwisterFocusedFX"
-"CMC-QC" 0 0 "Stienberg_CMC-QC-2.mst" "Steinberg_CMC-QC-2FocusedFX" 
 ```
