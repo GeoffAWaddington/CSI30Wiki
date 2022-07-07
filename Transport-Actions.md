@@ -64,7 +64,7 @@ Then that would be paired with the below action in the .zon file.
 ```
 
 ## CycleTimeDisplayModes
-This action will change the time display mode in Reaper and surface.
+This action will change the time display mode in Reaper and surface. This action cycles through the following 6 modes: 1) Minutes/Seconds, 2) Measures.Beats/Minutes:Seconds:Frames, 3) Measure.Beats, 4) Seconds, 5) Samples, 6) Hours:Minutes:Seconds:Frames
 
 ```
     smpteBeats                  CycleTimeDisplayModes
