@@ -63,6 +63,14 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_NovationLaunchpadMiniRGB7Bit]]
 * [[FB_FaderportRGB7Bit]]
 
+# FB_MCUTimeDisplay
+Here's what the time display widget from an MCU device would look like in the mcu.mst file.
+```
+Widget TimeDisplay
+	FB_MCUTimeDisplay
+WidgetEnd
+````
+
 # FB_MFT (Feedback MIDI Fighter Twister)
 This feedback processor allows you to send specific color values to the **MIDI Fighter Twister** (MFTwister for short), and the information in this page is only applicable to this device.
 
