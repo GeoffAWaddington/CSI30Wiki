@@ -6,8 +6,8 @@
 * [[Play|Transport Actions]]
 * [[Stop|Transport Actions]]
 * [[Record|Transport Actions]]
-* [[CycleTimeline]]
-* [[MCUTimeDisplay]]
+* [[CycleTimeline|Transport Actions]]
+* [[MCUTimeDisplay|Transport Actions]]
 * [[CycleTimeDisplayModes|TimeDisplay#cycletimedisplaymodes]]
 
 ### Tracks
