@@ -7,12 +7,35 @@ The Transport Actions are:
 * Stop
 * Record
 * Loop
-* Return to the beginning on the timeline
+* [[MCUTimeDisplay|Transport-Actions#MCUTimeDisplay
+* [[CycleTimeDisplayModes|Transport-Actions#CycleTimeDisplayModes]]
 
-Little explanation needed for those, they map very directly to the buttons on Reaper's transport controls. 
+Little explanation needed for the above actions. They map very directly to the buttons on Reaper's transport controls. 
 
 They take no parameters, so if you want to map a Press widget to Play, you would put the following in your [[zone|Zones]] definition:
 
 `PlayButton Play`
 
 where PlayButton is the name of your widget. 
+
+## MCUTimeDisplay
+When paired with the appropriate display widget, the TimeDisplay action will display the time from Reaper, based on the time display mode.
+
+Here's what the time display widget from an MCU device would look like in the mcu.mst file.
+```
+Widget TimeDisplay
+	FB_MCUTimeDisplay
+WidgetEnd
+````
+
+Then that would be paired with the below action in the .zon file.
+```
+    TimeDisplay                 MCUTimeDisplay
+```
+
+## CycleTimeDisplayModes
+This action will change the time display mode in Reaper and surface.
+
+```
+    smpteBeats                  CycleTimeDisplayModes
+```
