@@ -1,14 +1,14 @@
 ## CSI Actions
 
 ### Transport and Timeline
-* [[Rewind|Transport Actions]]
-* [[FastForward|Transport Actions]]
-* [[Play|Transport Actions]]
-* [[Stop|Transport Actions]]
-* [[Record|Transport Actions]]
-* [[CycleTimeline|Transport Actions]]
-* [[MCUTimeDisplay|Transport Actions]]
-* [[CycleTimeDisplayModes|TimeDisplay#cycletimedisplaymodes]]
+* [[Rewind|Transport Actions#Rewind]]
+* [[FastForward|Transport Actions#FastForward]]
+* [[Play|Transport Actions#Play]]
+* [[Stop|Transport Actions#Stop]]
+* [[Record|Transport Actions#Record]]
+* [[CycleTimeline|Transport Actions#CycleTimeline]]
+* [[MCUTimeDisplay|Transport Actions#MCUTimeDisplay]]
+* [[CycleTimeDisplayModes|Transport Actions#CycleTimeDisplayModes]]
 
 ### Tracks
 * [[TrackVolume]]
