@@ -7,7 +7,7 @@ The Transport Actions are:
 * Stop
 * Record
 * Loop
-* [[MCUTimeDisplay|Transport-Actions#MCUTimeDisplay
+* [[MCUTimeDisplay|Transport-Actions#MCUTimeDisplay]]
 * [[CycleTimeDisplayModes|Transport-Actions#CycleTimeDisplayModes]]
 
 Little explanation needed for the above actions. They map very directly to the buttons on Reaper's transport controls. 
