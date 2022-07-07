@@ -85,3 +85,13 @@ Control+Select      TrackVolume 	 [ 0.716 ]
 ```
 
 ...in this case, I'm using a combination of the Control modifier plus the channel Select button to reset the track volume to unity gain (which is what the 0.716 represents).
+
+## Exclusive Solo
+This suggestion comes from Reaper forum user M4TU. If you want Exclusive Solo functionality (i.e. only one track solo'd at a time), you could do something like this in your TrackZone...
+
+```
+Zone "Track"
+    Shift+Solo     ClearAllSolo
+    Shift+Solo     TrackSolo
+ZoneEnd
+```
