@@ -91,7 +91,7 @@ This suggestion comes from Reaper forum user M4TU. If you want Exclusive Solo fu
 
 ```
 Zone "Track"
-    Shift+Solo     ClearAllSolo
-    Shift+Solo     TrackSolo
+    Shift+Solo|     ClearAllSolo
+    Shift+Solo|     TrackSolo
 ZoneEnd
 ```
