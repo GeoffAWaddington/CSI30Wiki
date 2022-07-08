@@ -204,7 +204,7 @@ Here’s a list of new actions introduced in CSI v2:
 * ToggleFXBypass
 * FXBypassedDisplay
 
-## Depreciated actions
+## Deprecated actions
 Here’s a list of legacy actions that have been removed. Many of these actions had to do with how zones were activated.
 
 * TimeDisplay (still exists - was renamed to MCUTimeDisplay)
