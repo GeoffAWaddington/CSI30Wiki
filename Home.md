@@ -8,7 +8,7 @@ If you find something out of date, either comment to let us know. Comments, corr
 
 CSI supports MIDI, MCU and OSC.
 
-PC (64 bit) and Intel Mac systems(Catalina or later, including Apple Silicon) are supported.
+PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supported.
 
 
 * [[Overview]]
