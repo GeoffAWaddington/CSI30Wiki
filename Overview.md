@@ -1,9 +1,4 @@
 ## Overview 
-The CSI Project aims to let you integrate your hardware control surfaces into Reaper with a much higher level of control than is possible out of the box. If you're prepared to put in the effort to customise your configuration, you should be able to integrate one or more control surfaces (Surfaces from now on) into a single virtual Surface.
-
-It supports MIDI, MCU and OSC. Eucon was supported in prior builds, but was removed as of CSI version 1.1. See this link for information on the [new Eucon project](https://forum.cockos.com/showthread.php?t=255955).
-
-PC and Intel Mac systems are supported. A recent version was also built for M1 Macs (Apple Silicon). There is no Linux build at this time but the source code is available on this github if anyone would like to attempt a Linux port.. See the [Installation](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/Installation) page for links. 
 
 ## High-level Concepts
 
