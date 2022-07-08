@@ -2,9 +2,12 @@ The Control Surface Integrator (CSI) is a Reaper plugin that aims to let you int
 
 This wiki serves as the official documentation project for the [CSI project for Reaper](https://forum.cockos.com/showthread.php?t=183143)
 
-This started out as a wiki project by Malcolm Groves, but several people are now helping to fill out the docs, including [Geoff, the developer of CSI](https://forum.cockos.com/member.php?u=12770) and also [Funkybot](https://forum.cockos.com/member.php?u=5889). If you'd like to contribute to the docs, let us know on the Reaper forums. 
+This started out as a wiki project by Malcolm Groves, but [Funkybot](https://forum.cockos.com/member.php?u=5889) is now the major contributor, with a little help from [Geoff, the developer of CSI](https://forum.cockos.com/member.php?u=12770). 
  
-If you find something out of date, either comment to let us know, or even better, edit the page and fix it. Comments, corrections, additions are very welcome. 
+If you find something out of date, either comment to let us know. Comments, corrections, additions are very welcome. 
+
+
+
 
 * [[Overview]]
 * [[Installation]]
