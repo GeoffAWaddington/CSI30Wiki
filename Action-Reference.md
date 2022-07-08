@@ -85,6 +85,7 @@
 * [[SelectedTrackSendBank]]
 * [[SelectedTrackReceiveBank]]
 * [[SelectedTrackFXMenuBank]]
+* [[ToggleSynchPageBanking]]
 * [[ToggleScrollLink]]
 * [[ForceScrollLink]]
 * [[NextPage|Pages#paging-actions]]
