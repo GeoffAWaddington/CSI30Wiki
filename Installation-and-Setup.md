@@ -47,6 +47,8 @@ The first time you install CSI, you will need to additionally add a CSI folder t
 
 *In CSI, each [[Page|Pages]] can utilize different .mst files and zone folders. This why you first create the Surfaces, then select the Page, then assign the Surface to each Page and define their behavior on each page.
 
+![CSI Preferences Screen Print](https://i.imgur.com/3gqL16s.png)
+
 **Tip:** The information you entered while setting up CSI for the first time gets stored in [[CSI.ini|CSI.INI]] in your CSI folder. Once you're comfortable, it's sometimes easier to edit this information directly in this file. 
 
 ## Installing CSI Updates
