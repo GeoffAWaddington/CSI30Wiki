@@ -1,7 +1,7 @@
 ## Minimum System Requirements
 CSI version 2.0 requires Reaper version 6.28 or later.
 
-**Windows:** 64-bit version of Windows. Additionally, the Microsoft Visual C++ 2019 runtime is required. You may already have this installed on your system, but if you successfully install CSI and do not see it as an option in Reaper's control surface preferences you will need to [download and install the 64bit version of the C++ runtime.](https://aka.ms/vs/16/release/VC_redist.x64.exe)
+**Windows:** 64-bit version of Windows. Additionally, the Microsoft Visual C++ 2019 runtime is required. You may already have this installed on your system, but if you successfully install CSI and do not see the CSI option in Reaper's control surface preferences you will need to [download and install the 64bit version of the C++ runtime.](https://aka.ms/vs/16/release/VC_redist.x64.exe)
 
 **Mac:** The minimum version of MacOS supported is 10.15 (Catalina).
 
