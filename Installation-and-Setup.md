@@ -37,5 +37,10 @@ Surface files can be found here (the number of surfaces will be updated over tim
 13. "OK" everything.
 14. **While still in Options|Preferences, if your device is MIDI, go to MIDI Devices and make sure the Surfaces you wish to use with CSI are Disabled for both Input and Output.** 
 
+## Installing CSI Updates
+When a new version of CSI is released, updating CSI involves no more than copying over the .dll or dylib to the appropriate UserPlugins folder with Reaper closed, then launching Reaper. 
+
+If you plan on updating any surface or support files, do **NOT** overwrite your current CSI.ini with the one in the .zip folder. By the same token, do not overwrite any .zon files or zone folders you may have customized unless you are intentionally going back to a stock setup - you will lose any customizations you made.
+
 ## Notes
 * The information you entered while setting up CSI for the first time gets stored in [[CSI.ini|CSI.INI]] in your CSI folder. Once you're comfortable, it's sometimes easier to edit this information directly in this file. 
