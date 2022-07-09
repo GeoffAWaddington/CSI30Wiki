@@ -38,4 +38,4 @@ Surface files can be found here (the number of surfaces will be updated over tim
 14. **While still in Options|Preferences, if your device is MIDI, go to MIDI Devices and make sure the Surfaces you wish to use with CSI are Disabled for both Input and Output.** 
 
 ## Notes
-* The information entered in steps 11 through 17 are stored in CSI.ini in your CSI folder. Once you're comfortable, it's sometimes easier to edit this information directly in this file. 
+* The information you entered while setting up CSI for the first time gets stored in [[CSI.ini|CSI.INI]] in your CSI folder. Once you're comfortable, it's sometimes easier to edit this information directly in this file. 
