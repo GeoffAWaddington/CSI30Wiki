@@ -137,7 +137,7 @@
 * [[Hold|Modifiers#hold]]
 * [[Flip]]
 
-### Reaper Actions
+## Reaper Actions
 ```    
 Button1 Reaper "40454"    
 Button2 Reaper "_0e5b196e7f67994bab6de09c49f05926"    
