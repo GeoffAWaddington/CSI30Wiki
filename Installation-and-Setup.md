@@ -29,7 +29,9 @@ The first time you install CSI, you will need to additionally add a CSI folder t
 ![CSI Folder Structure](https://i.imgur.com/4lyVisr.png)
 
 ## Setting up your CSI devices for the first time
-1. Once CSI is installed and you're back in Reaper, go to Options>Preferences (or just Ctrl+P) (a new window will appear).
+Now that you have successfully installed CSI and the Support Files, the next step is to setup your devices for the first time.
+
+1. In Reaper, go to Options>Preferences (or just Ctrl+P) (a new window will appear).
 2. Scroll down to the bottom and click on Control/OSC/web. **Note:** while on this screen, it is recommended to uncheck the box next to "Close control surface devices when stopped and not active application" as this will disconnect CSI when Reaper is not the focused application (unless that's what you want).
 3. Now, while still on the Control/OSC/Web preferences window, click on "Add" (a new window will open).
 4. Click on the empty dropdown beside "control surface mode" and select "Control Surface Integrator" - this will now show the settings for CSI. 
