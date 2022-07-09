@@ -12,7 +12,7 @@ PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supp
 
 
 * [[Overview]]
-* [[Installation]]
+* [[Installation|Installation-&-First-Time-Setup]]
   * [[Updating CSI|Installation#Installing CSI Updates]]
   * [[CSI.INI]]
 * [[Changes in CSI version 2.0]]
