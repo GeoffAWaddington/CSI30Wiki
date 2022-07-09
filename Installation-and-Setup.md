@@ -17,7 +17,7 @@ Surface files can be found here (the number of surfaces will be updated over tim
 2. Close Reaper.
 3. Open the CSI zip file you downloaded.
 4. **Windows:** Put the reaper_csurf_integrator64.dll in the folder named UserPlugins in the Reaper resource path. **Mac:** put the .dylib file in the same UserPlugins folder.
-5. Start Reaper. 
+5. If a first time setup, [[install the CSI support files|Installation-and-Setup#Installing-CSI-Support-Files]] then start Reaper. 
 6. **Mac only:** you will likely receive a warning that the CSI .dylib cannot be scanned. Once Reaper launches, open Settings -> Security & Privacy and allow the CSI .dylib to run. Then restart Reaper. You may get a second message, this time, select "Open". After that, you should receive no additional warnings about CSI until you update and need to repeat this process.
 
 ## Installing CSI Support Files
