@@ -21,7 +21,7 @@ Surface files can be found here (the number of surfaces will be updated over tim
 6. **Mac only:** you will likely receive a warning that the CSI .dylib cannot be scanned. Once Reaper launches, open Settings -> Security & Privacy and allow the CSI .dylib to run. Then restart Reaper. You may get a second message, this time, select "Open". After that, you should receive no additional warnings about CSI until you update and need to repeat this process.
 
 ## Installing CSI Support Files
-The first time you install CSI, you will need to additionally add a CSI folder to your Reaper Resource path, along with Surface and Zone folders.
+The first time you install CSI, you will need to additionally add a CSI folder to your Reaper Resource path, along with Surface and Zone subfolders. Surface and Zone folders will be provided for some common control surfaces to help get you up and running quickly.
 
 1. In File Explorer (Windows) or Finder (Mac) open your Reaper Resource Path
 2. Open the CSI Support zip file you [[downloaded| https://stash.reaper.fm/v/44740/CSI%20Support%20Files.zip]]
