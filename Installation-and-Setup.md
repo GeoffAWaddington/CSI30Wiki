@@ -28,21 +28,24 @@ The first time you install CSI, you will need to additionally add a CSI folder t
 3. Copy over the CSI folder from the .zip file directly into your Reaper Resource path. The file structure should look like the one shown in the image below. 
 ![CSI Folder Structure](https://i.imgur.com/4lyVisr.png)
 
-## Setting up CSI for the first time
+## Setting up your CSI devices for the first time
 1. Once CSI is installed and you're back in Reaper, go to Options>Preferences (or just Ctrl+P) (a new window will appear).
 2. Scroll down to the bottom and click on Control/OSC/web. **Note:** while on this screen, it is recommended to uncheck the box next to "Close control surface devices when stopped and not active application" as this will disconnect CSI when Reaper is not the focused application (unless that's what you want).
 3. Now, while still on the Control/OSC/Web preferences window, click on "Add" (a new window will open).
-4. Click on the empty dropdown beside "control surface mode" and select Control Surface Integrator - this will now show the settings for CSI. 
+4. Click on the empty dropdown beside "control surface mode" and select "Control Surface Integrator" - this will now show the settings for CSI. 
 5. There is a default Page ("HomePage") already defined to get you started.
-6. Click "Add Midi" or "Add OSC".
-7. Enter the number of channels on your surface -- e.g. MCU has 8 channels. Note: if you're using a one-fader surface with a SelectedTrackNavigator, enter 0 channels here.  
-8. Enter the number of Sends you would like to display -- must be no more than number of channels -- e.g. for MCU 8 Sends is maximum.
-9. Enter the number of FX Menu choices you would like to display -- must be no more than number of channels -- e.g. for MCU 8 FX Menu choices is maximum.
-10. Select your midi in and midi out ports (however you have your surface plugged into your computer), or your Remote IP, OSC in port, and OSC out port (however your OSC device is configured). Start any OSC device apps now.
-11. Choose an mst template for your Midi surface or an OSC template for your OSC surface.
-12. Choose the folder where your Zone files are located, CSI will attempt to guess based on your mst/osc choice, but you can override this. 
-13. "OK" everything.
-14. **While still in Options|Preferences, if your device is MIDI, go to MIDI Devices and make sure the Surfaces you wish to use with CSI are Disabled for both Input and Output.** 
+6. Under the "Surfaces" section on the left, click "Add Midi" or "Add OSC" depending on what type of Surface you are trying to add.
+7. Enter a name for your surface, and select the MIDI In and Out ports that correspond to your device. **Important note:** the MIDI Devices must be disabled in Reaper's Preferences -> MIDI Devices in order for CSI to access the MIDI ports.
+8. Click ok to save the device and repeat as needed for additional devices.
+9. In the "Pages" section of the CSI Setup screen, click on "HomePage".
+10. Now, on the "Assignments" section on the right, click "Add" to begin adding the Control Surfaces you just setup to the "HomePage"
+11. First, you will select the device name from the dropdown
+12. Enter the number of channels on your surface (Example: X-Touch/MCU devices have 8 channels)
+13. Enter the Channel Start Position (this is 0 by default, but if you're using multiple surfaces, you would use this to offset the start position on the second surface)
+14. Select the Surface (.mst) file that corresponds to your surface*
+16. Select the Zone folder that corresponds to your surface*
+
+*In CSI, each [[Page|Pages]] can utilize different .mst files and zone folders. This why you first create the Surfaces, then select the Page, then assign the Surface to each Page and define their behavior on each page.
 
 **Tip:** The information you entered while setting up CSI for the first time gets stored in [[CSI.ini|CSI.INI]] in your CSI folder. Once you're comfortable, it's sometimes easier to edit this information directly in this file. 
 
