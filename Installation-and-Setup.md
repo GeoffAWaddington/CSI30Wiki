@@ -15,7 +15,7 @@ Surface files can be found here (the number of surfaces will be updated over tim
 ## CSI Installation
 1. Find the Reaper resource path by running the Reaper Action: Show REAPER resource path in finder (or Windows equivalent). This is important as the folder may be different between different installs, Portable installs, etc.
 2. Close Reaper.
-3. Open the .zip file. The extracted folder will contain a subfolder called "CSI", which you should put in the Reaper resource path. Your CSI folder contents should look like this...
+3. Open the CSI zip file you downloaded.
 ![CSI Folder Structure](https://i.imgur.com/4lyVisr.png)
 4. **Windows:** Put the reaper_csurf_integrator64.dll in the folder named UserPlugins in the Reaper resource path. **Mac:** put the .dylib file in the same UserPlugins folder.
 5. Start Reaper. 
