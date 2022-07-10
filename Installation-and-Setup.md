@@ -36,10 +36,11 @@ Now that you have successfully installed CSI and the Support Files, the next ste
 3. Now, while still on the Control/OSC/Web preferences window, click on "Add" (a new window will open).
 4. Click on the empty dropdown beside "control surface mode" and select "Control Surface Integrator" - this will now show the settings for CSI. 
 5. There is a default Page ("HomePage") already defined to get you started.
-6. Under the "Surfaces" section on the left, click "Add Midi" or "Add OSC" depending on what type of Surface you are trying to add.
-7. Enter a name for your surface, and select the MIDI In and Out ports that correspond to your device. **Important note:** the MIDI Devices must be disabled in Reaper's Preferences -> MIDI Devices in order for CSI to access the MIDI ports.
+6. Under the "Surfaces" section on the left, click "Add MIDI" or "Add OSC" depending on what type of Surface you are trying to add.
+7A. **If adding a MIDI surface**, enter a name for your surface, and select the MIDI In and Out ports that correspond to your device. **Important note:** the MIDI Devices must be disabled in Reaper's Preferences -> MIDI Devices in order for CSI to access the MIDI ports.
+7B. **If adding an OSC surface**, enter a name for your surface. Next, enter the "CSI receives on" port (this corresponds to the Send port on your TouchOSC host). Finally, enter the "CSI sends to" port # (this should correspond to the "receive" port in your OSC host application).
 8. Click ok to save the device and repeat as needed for additional devices.
-9. In the "Pages" section of the CSI Setup screen, click on "HomePage".
+9. In the "Pages" section of the CSI Setup screen, click on "HomePage". For additional information, see [[Pages]].
 10. Now, on the "Assignments" section on the right, click "Add" to begin adding the Control Surfaces you just setup to the "HomePage"
 11. First, you will select the device name from the dropdown
 12. Enter the number of channels on your surface (Example: X-Touch/MCU devices have 8 channels)
