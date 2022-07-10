@@ -37,15 +37,15 @@ Now that you have successfully installed CSI and the Support Files, the next ste
 4. Click on the empty dropdown beside "control surface mode" and select "Control Surface Integrator" - this will now show the settings for CSI. 
 5. There is a default Page ("HomePage") already defined to get you started.
 6. Under the "Surfaces" section on the left, click "Add MIDI" or "Add OSC" depending on what type of Surface you are trying to add.
-7A. **If adding a MIDI surface**, enter a name for your surface, and select the MIDI In and Out ports that correspond to your device. **Important note:** the MIDI Devices must be disabled in Reaper's Preferences -> MIDI Devices in order for CSI to access the MIDI ports.
-7B. **If adding an OSC surface**, enter a name for your surface. Next, enter the "CSI receives on" port (this corresponds to the Send port on your TouchOSC host). Finally, enter the "CSI sends to" port # (this should correspond to the "receive" port in your OSC host application).
-8. Click ok to save the device and repeat as needed for additional devices.
-9. In the "Pages" section of the CSI Setup screen, click on "HomePage". For additional information, see [[Pages]].
-10. Now, on the "Assignments" section on the right, click "Add" to begin adding the Control Surfaces you just setup to the "HomePage"
-11. First, you will select the device name from the dropdown
-12. Enter the number of channels on your surface (Example: X-Touch/MCU devices have 8 channels)
-13. Enter the Channel Start Position (this is 0 by default, but if you're using multiple surfaces, you would use this to offset the start position on the second surface)
-14. Select the Surface (.mst) file that corresponds to your surface*
+7. **If adding a MIDI surface**, enter a name for your surface, and select the MIDI In and Out ports that correspond to your device. **Important note:** the MIDI Devices must be disabled in Reaper's Preferences -> MIDI Devices in order for CSI to access the MIDI ports.
+8. **If adding an OSC surface**, enter a name for your surface. Next, enter the "CSI receives on" port (this corresponds to the Send port on your TouchOSC host). Finally, enter the "CSI sends to" port # (this should correspond to the "receive" port in your OSC host application).
+9. Click ok to save the device and repeat as needed for additional devices.
+10. In the "Pages" section of the CSI Setup screen, click on "HomePage". For additional information, see [[Pages]].
+11. Now, on the "Assignments" section on the right, click "Add" to begin adding the Control Surfaces you just setup to the "HomePage"
+12. First, you will select the device name from the dropdown
+13. Enter the number of channels on your surface (Example: X-Touch/MCU devices have 8 channels)
+14. Enter the Channel Start Position (this is 0 by default, but if you're using multiple surfaces, you would use this to offset the start position on the second surface)
+15. Select the Surface (.mst) file that corresponds to your surface*
 16. Select the Zone folder that corresponds to your surface*
 
 *In CSI, each [[Page|Pages]] can utilize different .mst files and zone folders. This why you first create the Surfaces, then select the Page, then assign the Surface to each Page and define their behavior on each page.
