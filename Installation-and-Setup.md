@@ -8,7 +8,7 @@ CSI version 2.0 requires Reaper version 6.28 or later.
 Linux is not supported, though CSI is open source and someone with the know-how would be welcome to attempt a Linux port. 
 
 ## Download CSI
-You can find the most recent version of CSI here: https://stash.reaper.fm/v/42044/CSI%20Exp.zip [link to be updated when CSI 2.0 is official]
+You can find the most recent version of CSI here: https://stash.reaper.fm/v/44868/CSI%20v2_0.zip
 
 Surface files can be found here (the number of surfaces will be updated over time): https://stash.reaper.fm/v/44740/CSI%20Support%20Files.zip
 
