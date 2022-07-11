@@ -9,7 +9,6 @@ First, we have to tell one surface that "when CSI initializes, this surface will
 
 ```
 Zone "Home"
-OnInitialization ToggleEnableFocusedFXMapping 
 OnInitialization Broadcast Home 
      IncludedZones
           "SelectedTrack"
