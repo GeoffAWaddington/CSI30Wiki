@@ -24,7 +24,7 @@ Then, in surface #2, we'd need to express the message that "when CSI initializes
 
 ```
 Zone "Home"
-    OnInitialization Receive Home
+OnInitialization Receive Home
     IncludedZones
           "Channel"
           "Buttons"
