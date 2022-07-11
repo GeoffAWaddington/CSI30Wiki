@@ -1,4 +1,4 @@
-CSI has Broadcast and Receive actions designed to allow for keeping multiple surfaces in sync with one another. For example: you may want a "GoHome" on one surface to send one or more additional surfaces to their respective Home zones also. Another use case may be if you want to use an FX Menu on one surface, to broadcast the GoFXSlot message to actually map the FX on another surface. You could even set both surfaces to broadcast and receive simultaneously if you wanted to keep say an OSC surface used for displays in sync with zone changes on a MIDI surface you used for hardware controls. 
+CSI has Broadcast and Receive actions designed to allow for keeping multiple surfaces in sync with one another. For example: you may want a "GoHome" on one surface to send one or more additional surfaces to their respective Home zones also. Or maybe you want to use an FX Menu on one surface to broadcast GoFXSlot messages and actually map the FX on another surface. You could even set both surfaces to broadcast and receive simultaneously if you wanted to keep say an OSC surface used for displays in sync with zone changes on a MIDI surface you used for hardware controls. 
 
 Lets look at some examples on how to set this up...
 
@@ -41,7 +41,7 @@ What if you want two-way communication between two surfaces to make sure they st
 
 I use a TouchOSC setup running on my iPad to mirror my MIDI Fighter Twister hardware and use the same set of zone files on both devices. So in this use case, I want to make sure that regardless of what surface I'm using for controls at the time, that any zone changes or mapping of the FXMenu stay in sync across both devices. So if I map an FX using the GoFXSlot action using the TouchOSC device or the MIDI Fighter Twister, that mapping action gets broadcast and received regardless of which device initiated the action.
 
-This is how the home.zon file for this setup looks:
+Another key point here is that you only need one "OnInitialization Broadcast" row and one "OnInitialization Receive" row per surface with all of the broadcast/receive types listed out after. This is what the home.zon file for this setup would look like:
 
 ```
 Zone "Home"
