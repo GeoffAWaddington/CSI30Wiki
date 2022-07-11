@@ -2,7 +2,7 @@ CSI has Broadcast and Receive actions designed to allow for keeping multiple sur
 
 For example: you may want a "GoHome" on one surface to send one or more additional surfaces to their respective Home zones also. Or maybe you want to use an FX Menu on one surface to map the FX on another surface. You could even set both surfaces to broadcast and receive simultaneously if you wanted to keep say an OSC surface used for displays in sync with zone changes on a MIDI surface you used for hardware controls. 
 
-**Note:** The Broadcast/Receive status of SelectedTrackFXMenu and TrackFXMenu will dictate whether or not the GoFXSlot action is broadcast and received. Similarly, the Broadcast/Receive status of SelectedTrackSend/TrackSend, SelectedTrackReceive/TrackReceive, and SelectedTrackFXMenu/TrackFXMenu, will also dictate what happens to the respective banking actions for those zone types. 
+**Note:** The Broadcast/Receive status of SelectedTrackFXMenu and TrackFXMenu will dictate whether or not the GoFXSlot action is broadcast and received. Similarly, the Broadcast/Receive status of TrackSend, TrackReceive, and TrackFXMenu, will also dictate what happens to the respective banking actions for those zone types. 
 
 Lets look at some examples on how to set this up...
 
