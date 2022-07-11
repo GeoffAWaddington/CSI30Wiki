@@ -1,4 +1,6 @@
-CSI has Broadcast and Receive actions designed to allow for keeping multiple surfaces in sync with one another. For example: you may want a "GoHome" on one surface to send one or more additional surfaces to their respective Home zones also. Or maybe you want to use an FX Menu on one surface to broadcast GoFXSlot messages and actually map the FX on another surface. You could even set both surfaces to broadcast and receive simultaneously if you wanted to keep say an OSC surface used for displays in sync with zone changes on a MIDI surface you used for hardware controls. 
+CSI has Broadcast and Receive actions designed to allow for keeping multiple surfaces in sync with one another. Without these Broadcast and Receive messages, each surface would operate independently (except for Modifiers, which are global). But with Broadcast/Receive actions, you can dictate exactly how these different surfaces talk to each other.
+
+For example: you may want a "GoHome" on one surface to send one or more additional surfaces to their respective Home zones also. Or maybe you want to use an FX Menu on one surface to broadcast GoFXSlot messages and actually map the FX on another surface. You could even set both surfaces to broadcast and receive simultaneously if you wanted to keep say an OSC surface used for displays in sync with zone changes on a MIDI surface you used for hardware controls. 
 
 Lets look at some examples on how to set this up...
 
