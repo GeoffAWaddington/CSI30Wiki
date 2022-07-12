@@ -167,6 +167,26 @@ In the CSI Device Preferences, you'll no longer see the Send/Receive channel cou
 ## New CSI.ini format, new file error handling
 Version 2.0 introduces changes to the file [[CSI.ini|CSI.INI]] file format. Additionally, now CSI will check for an incorrectly formatted CSI.ini and warn users when Reaper starts, notifying users of the version mismatch (rather than crashing Reaper). In general, CSI will warn users if there's a missing folder or incorrectly formated CSI.ini and should not crash Reaper.
 
+## MCUTrackPan action no longer requires toggle row in .mst file
+If the Rotary encoders in your .mst file contained the toggle line that was required for the MCUTrackPan action, that line can now be removed.
+
+So if you previously had this in your .mst file...
+```
+Widget Rotary1
+	Encoder b0 10 7f [ < 41-48 > 01-08 ]
+	FB_Encoder b0 10 7f
+	Toggle 90 20 7f
+WidgetEnd
+```
+
+You can delete the toggle row so it looks like this...
+```
+Widget Rotary1
+	Encoder b0 10 7f [ < 41-48 > 01-08 ]
+	FB_Encoder b0 10 7f
+WidgetEnd
+```
+
 ## TouchOSC can now run locally
 You can now use the TouchOSC [mk II] application running on your local machine as a control surface in CSI.
 
