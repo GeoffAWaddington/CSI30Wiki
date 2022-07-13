@@ -60,7 +60,7 @@ ZoneEnd
 ```
 
 ## MCUTrackPan, MCUTrackPanDisplay
-MCUTrackPan is meant to allow you to toggle between TrackPan and TrackPanWidth from a single CSI action. The two lines of code [I've included the syntaxs for MCUTrackPanDisplay for convenience) control Pan and PanWidth, as well as Pan L and Pan R if you prefer to use Dual Pan. No zone switching, multiple widgets, or special rotary metering modes required.
+MCUTrackPan is meant to allow you to toggle between TrackPan and TrackPanWidth from a single CSI action. These two lines of code control Pan and PanWidth, as well as Pan L and Pan R if you prefer to use Dual Pan. No zone switching, multiple widgets, or special rotary metering modes required.
 ```
 Zone "Track"
      DisplayLower|     MCUTrackPanDisplay Rotary|
