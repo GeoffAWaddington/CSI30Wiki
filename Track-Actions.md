@@ -73,16 +73,23 @@ Use TrackPan for controlling the TrackPan in Reaper. TrackPanDisplay will displa
 ```
 Zone "Track"
      DisplayLower|      TrackPanDisplay
-     Rotary|            TrackPan
+     Rotary|            TrackPan 0
 ZoneEnd
 ```
+
+Now, notice the number after TrackPan...The numbers are for the LED ring displays on the MCU style encoders:
+
+* 0 means a single led -- perfect for Pan
+* 1 means fill from right edge - centre single -- fill to left edge perfect for Width or EQ boost/cut
+* 2 - left right fill -- good for level
+* 3 - spread -- good for Q
 
 ## TrackPanWidth, TrackPanWidthDisplay
 TrackPanWidth is used for controlling the PanWidth control in Reaper. 
 ```
 Zone "Track"
      Shift+DisplayLower|      TrackPanWidthDisplay
-     Shift+Rotary|            TrackPanWidth
+     Shift+Rotary|            TrackPanWidth 1
 ZoneEnd
 ```
 
