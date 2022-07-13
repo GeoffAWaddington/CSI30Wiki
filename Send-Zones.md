@@ -6,7 +6,7 @@ There are two types of Send Zones in CSI:
 
 **SelectedTrackSend** is best used when you have a surface with multiple channels and you want to map out the sends on the selected track, across those various channels. Example: you have an 8 channel MCU type device. If you have more than 8 sends on the selected track, you would use the SelectedTrackSendBank action to bank to the additional sends. 
 
-**TrackSend** is best used when you have a multiple channel surface, but you only want to see sends for the channel that corresponds to the track navigator. Example: you have an 8 channel MCU type device. Using the TrackSend will show you Send Slot #1 for channels 1-8. If you want to see the send loaded in Send Slot #2, you will use TrackSendBank action to navigate to the next slot, at which point, you'll be looking at Send Slot #2 for channels 1-8. You setup the number of tracks in the CSI device preferences.
+**TrackSend** is best used when you have a multiple channel surface, but you only want to see sends for the channel that corresponds to that specific channel. Example: you have an 8 channel MCU type device. Using the TrackSend will show you Send Slot #1 for channels 1-8. If you want to see the send loaded in Send Slot #2, you will use TrackSendBank action to navigate to the next slot, at which point, you'll be looking at Send Slot #2 for channels 1-8. You setup the number of tracks in the CSI device preferences.
 
 
 ## Send Mapping and Unmapping Actions
