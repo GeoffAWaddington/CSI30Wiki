@@ -1,10 +1,10 @@
 # Track Actions
 The following CSI actions are available for controlling Reaper's track controls. They will receive their context from the Zone Type, whether a "Track" zone (used for controlling multiple channels) or "SelectedTrack" zone.
 
-* [[TrackVolume|Track-Actions#TrackVolume]]
+* [[TrackVolume|Track-Actions#TrackVolume-TrackVolumeDisplay]]
 * [[SoftTakeover7BitTrackVolume|Track-Actions#SoftTakeover7BitTrackVolume]]
 * [[SoftTakeover14BitTrackVolume|Track-Actions#SoftTakeover14BitTrackVolume]]
-* [[MCUTrackPan|Track-Actions#MCUTrackPan]]
+* [[MCUTrackPan|Track-Actions#MCUTrackPan-MCUTrackPanDisplay]]
 * [[TrackPan|Track-Actions#TrackPan-TrackPanDisplay]]
 * [[TrackPanWidth|Track-Actions#TrackPanWidth-TrackPanWidthDisplay]]
 * [[TrackPanL|Track-Actions#TrackPanL-TrackPanLDisplay]]
@@ -12,22 +12,22 @@ The following CSI actions are available for controlling Reaper's track controls.
 * [[TrackSelect|Track-Actions#TrackSelect]]
 * [[TrackUniqueSelect|Track-Actions#TrackUniqueSelect]]
 * [[TrackRangeSelect|Track-Actions#TrackRangeSelect]]
-* [[TrackSolo]]
-* [[TrackMute]]
-* [[TrackInvertPolarity]]
-* [[TrackRecordArm]]
-* [[TrackNameDisplay]]
-* [[TrackVolumeDisplay]]
-* [[MCUTrackPanDisplay|MCUTrackPan]]
-* [[TrackPanDisplay]]
-* [[TrackPanWidthDisplay]]
-* [[TrackPanLeftDisplay]]
-* [[TrackPanRightDisplay]]
-* [[TrackOutputMeter]]
-* [[TrackOutputMeterAverageLR|TrackOutputMeter#TrackOutputMeterAverageLR]]
-* [[TrackOutputMeterMaxPeakLR|TrackOutputMeter#TrackOutputMeterMaxPeakLR]]
+* [[TrackSolo|Track-Actions#TrackSolo]]
+* [[TrackMute|Track-Actions#TrackMute]]
+* [[TrackRecordArm|Track-Actions#TrackRecordArm]]
+* [[TrackInvertPolarity|Track-Actions#TrackInvertPolarity]]
+* [[TrackNameDisplay|Track-Actions#TrackNameDisplay]]
+* [[TrackVolumeDisplay|Track-Actions#TrackVolume-TrackVolumeDisplay]]
+* [[MCUTrackPanDisplay|Track-Actions#MCUTrackPan-MCUTrackPanDisplay]]
+* [[TrackPanDisplay|Track-Actions#TrackPan-TrackPanDisplay]]
+* [[TrackPanWidthDisplay|Track-Actions#TrackPanWidth-TrackPanWidthDisplay]]
+* [[TrackPanLeftDisplay|Track-Actions#TrackPanL-TrackPanLeftDisplay]]
+* [[TrackPanRightDisplay|Track-Actions#TrackPanR-TrackPanRightDisplay]]
+* [[TrackOutputMeter|Track-Actions#TrackOutputMeter]]
+* [[TrackOutputMeterAverageLR|Track-Actions#TrackOutputMeterAverageLR]]
+* [[TrackOutputMeterMaxPeakLR|Track-Actions#TrackOutputMeterMaxPeakLR]]
 
-## TrackVolume
+## TrackVolume, TrackVolumeDisplay
 TrackVolume is the most commonly used CSI action for controlling TrackVolume. Use this for surfaces with motorized faders or encoders. TrackVolumeDisplay will display the fader volume on your surface. The example shown below shows the syntax for TrackVolumeDisplay could be used with touch sensitive faders to only show the track volume when touching the faders (you could show the Pan level in that display the rest of the time).  
 ```
 Zone "Track"
@@ -86,20 +86,20 @@ Zone "Track"
 ZoneEnd
 ```
 
-## TrackPanL, TrackPanLDisplay
+## TrackPanL, TrackPanLeftDisplay
 TrackPanL controls the Left channel's pan position when using the Dual Pan option in Reaper. Note: there is a known limitation where automation is not written when using this CSI action.
 ```
 Zone "Track"
-     Alt+DisplayLower|     TrackPanLDisplay
+     Alt+DisplayLower|     TrackPanLeftDisplay
      Alt+Rotary|           TrackPanL
 ZoneEnd
 ```
 
-## TrackPanR, TrackPanRDisplay
+## TrackPanR, TrackPanRightDisplay
 TrackPanR controls the Right channel's pan position when using the Dual Pan option in Reaper. Note: there is a known limitation where automation is not written when using this CSI action.
 ```
 Zone "Track"
-     Control+DisplayLower|     TrackPanRDisplay
+     Control+DisplayLower|     TrackPanRightDisplay
      Control+Rotary|           TrackPanR
 ZoneEnd
 ```
@@ -126,5 +126,69 @@ Use this action to select the start and end of a range of tracks and have them a
 ```
 Zone "Track"
      Control+Select|     TrackRangeSelect
+ZoneEnd
+```
+
+## TrackSolo
+TrackSolo will toggle the Solo state of the track. This action provides feedback of the solo state to the surface.
+```
+Zone "Track"
+     Solo|     TrackSolo
+ZoneEnd
+```
+
+## TrackMute
+TrackSolo will toggle the Solo state of the track. This action provides feedback of the mute state to the surface.
+```
+Zone "Track"
+     Mute|     TrackMute
+ZoneEnd
+```
+
+## TrackRecordArm
+Use TrackRecordArm to toggle the "Armed" state of the track. This action provides feedback to the surface.
+```
+Zone "Track"
+     RecordArm|     TrackRecordArm
+ZoneEnd
+```
+
+## TrackInvertPolarity
+TrackInvertPolarity will invert the polarity of the track. This action provides feedback to the surface. In this example, because most surfaces do not have a dedicated button for this, I'm using the Shift modifier combined with the RecordArm button to fire the action.
+```
+Zone "Track"
+     Shift+RecordArm|     TrackInvertPolarity
+ZoneEnd
+```
+
+## TrackNameDisplay
+Use TrackNameDisplay on a display widget to show the name of the track in question. Note: if a track is not named in Reaper, it will display "Track 1", "Track 2", etc. On a surface with only 8 characters, "Track 10" may be truncated to just "Track 1". Workaround: properly name your tracks!
+```
+Zone "Track"
+     DisplayUpper|     TrackNameDisplay
+ZoneEnd
+```
+
+## TrackOutputMeter
+Use this action if your surface has two columns of meter LEDs (one for left and one for right channel).
+```
+Zone "Track"
+     VUMeter|      TrackOutputMeter
+ZoneEnd
+```
+
+## TrackOutputMeterAverageLR
+Use this action if your surface has a single column LED for metering and you want that meter to show the average of both the left and right channels.
+```
+Zone "Track"
+     VUMeter|      TrackOutputMeterAverageLR
+ZoneEnd
+```
+
+## TrackOutputMeterMaxPeakLR
+Use this action if your surface has a single column LED for metering and you want that meter to show the highest peak value of both the left and right channels.
+```
+Zone "Track"
+     VUMeter|      TrackOutputMeterMaxPeakLR
 ZoneEnd
 ```
