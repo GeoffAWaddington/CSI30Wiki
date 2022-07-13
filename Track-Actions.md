@@ -2,16 +2,16 @@
 The following CSI actions are available for controlling Reaper's track controls. They will receive their context from the Zone Type, whether a "Track" zone (used for controlling multiple channels) or "SelectedTrack" zone.
 
 * [[TrackVolume|Track-Actions#TrackVolume]]
-* [[SoftTakeover7BitTrackVolume]]
-* [[SoftTakeover14BitTrackVolume]]
-* [[MCUTrackPan]]
-* [[TrackPan]]
-* [[TrackPanWidth]]
-* [[TrackPanL]]
-* [[TrackPanR]]
-* [[TrackSelect]]
-* [[TrackUniqueSelect|TrackSelect]]
-* [[TrackRangeSelect|TrackSelect]]
+* [[SoftTakeover7BitTrackVolume|Track-Actions#SoftTakeover7BitTrackVolume]]
+* [[SoftTakeover14BitTrackVolume|Track-Actions#SoftTakeover14BitTrackVolume]]
+* [[MCUTrackPan|Track-Actions#MCUTrackPan]]
+* [[TrackPan|Track-Actions#TrackPan-TrackPanDisplay]]
+* [[TrackPanWidth|Track-Actions#TrackPanWidth-TrackPanWidthDisplay]]
+* [[TrackPanL|Track-Actions#TrackPanL-TrackPanLDisplay]]
+* [[TrackPanR|Track-Actions#TrackPanR-TrackPanRDisplay]]
+* [[TrackSelect|Track-Actions#TrackSelect]]
+* [[TrackUniqueSelect|Track-Actions#TrackUniqueSelect]]
+* [[TrackRangeSelect|Track-Actions#TrackRangeSelect]]
 * [[TrackSolo]]
 * [[TrackMute]]
 * [[TrackInvertPolarity]]
@@ -86,19 +86,21 @@ Zone "Track"
 ZoneEnd
 ```
 
-## TrackPanL
+## TrackPanL, TrackPanLDisplay
 TrackPanL controls the Left channel's pan position when using the Dual Pan option in Reaper. Note: there is a known limitation where automation is not written when using this CSI action.
 ```
 Zone "Track"
-     Alt+Rotary|     TrackPanL
+     Alt+DisplayLower|     TrackPanLDisplay
+     Alt+Rotary|           TrackPanL
 ZoneEnd
 ```
 
-## TrackPanR
+## TrackPanR, TrackPanRDisplay
 TrackPanR controls the Right channel's pan position when using the Dual Pan option in Reaper. Note: there is a known limitation where automation is not written when using this CSI action.
 ```
 Zone "Track"
-     Control+Rotary|     TrackPanR
+     Control+DisplayLower|     TrackPanRDisplay
+     Control+Rotary|           TrackPanR
 ZoneEnd
 ```
 
