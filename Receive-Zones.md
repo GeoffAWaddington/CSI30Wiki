@@ -11,7 +11,7 @@ There are two types of Receive Zones in CSI:
 
 **SelectedTrackReceive** is best used when you have a surface with multiple channels and you want to map out the Receives on the selected track, across those various channels. Example: you have an 8 channel MCU type device. If you have more than 8 Receives on the selected track, you would use the SelectedTrackReceiveBank action to bank to the additional Receives. 
 
-**TrackReceive** is best used when you have a multiple channel surface, but you only want to see Receives for the channel that corresponds to the track navigator. Example: you have an 8 channel MCU type device. Using the TrackReceive will show you Receive Slot #1 for channels 1-8. If you want to see the Receive loaded in Receive Slot #2, you will use TrackReceiveSlotBank action to navigate to the next slot, at which point, you'll be looking at Receive Slot #2 for channels 1-8. You setup the number of tracks in the CSI device preferences.
+**TrackReceive** is best used when you have a multiple channel surface, but you only want to see Receives for the channel that corresponds that specific track. Example: you have an 8-channel MCU type device. Using the TrackReceive will show you Receive Slot #1 for channels 1-8. If you want to see the Receive loaded in Receive Slot #2, you will use TrackReceiveBank action to navigate to the next slot, at which point, you'll be looking at Receive Slot #2 for channels 1-8. You setup the number of tracks in the CSI device preferences.
 
 
 ## Receive Mapping and Unmapping Actions
