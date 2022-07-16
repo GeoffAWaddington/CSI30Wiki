@@ -170,7 +170,6 @@ Zone "FocusedFXParam"
      Fader1                             FocusedFXParam
      DisplayUpper1                      FocusedFXParamNameDisplay
      DisplayLower1                      FocusedFXParamValueDisplay
-     F2                                 LeaveSubZone
 ZoneEnd
 ````
 
@@ -182,7 +181,6 @@ Zone "FocusedFXParam"
      Fader1                             FocusedFXParam
      DisplayUpper1                      FocusedFXParamNameDisplay
      DisplayLower1                      FocusedFXParamValueDisplay
-     F2                                 LeaveSubZone
 ZoneEnd
 ```` 
 
