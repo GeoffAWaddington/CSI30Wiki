@@ -4,17 +4,21 @@ It is important to understand how this works in practise.
 
 Let's say we have a button defined in our [[MST file|Defining Control Surface Capabilities]] that has an LED light to indicate its status.    
 ```
-Widget UpperButton1 
+Widget Mute1 
   Press 90 20 7f
-  FB_TwoState  90 20 7f  90 20 00
+  FB_TwoState 90 20 7f 90 20 00
 WidgetEnd
 ```
 
 Then in our [[Zone file|Defining Control Surface Behaviour]], we bind it to our [[TrackMute|Track Actions#TrackMute]] action.     
-```UpperButton1 TrackMute```
+```
+Zone "SelectedTrack"
+     Mute1      TrackMute
+ZoneEnd
+```
 
-Here's the best case flow of what happens when we press the button on the surface:
-* Press the button
+Here's the best-case flow of what happens when we press the button on the surface:
+* Press the Mute button
 * The surface sends the 90 20 7f message to CSI
 * CSI attempts to mute the track in Reaper
 * CSI then queries Reaper to see if the track is currently muted (eg. if the attempt to mute it worked)
@@ -24,13 +28,11 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 
 * CSI sends the 90 20 00 message back to the surface, instructing it to turn the light off
 
-### Note:
-* It's important to understand it's not the surface deciding when to turn the light on or off. It's doing it in response to a message from CSI. We don't want the surface managing the state of the buttons, that responsibility belongs to Reaper/CSI.
+**Note:** It's important to understand it's not the surface deciding when to turn the light on or off. It's doing it in response to a message from CSI. We don't want the surface managing the state of the buttons, that responsibility belongs to Reaper/CSI.
 
-## Included Feedback Processors 
+# Feedback Processors 
 
 * [[FB_TwoState]]
-
 * [[FB_ Fader14Bit]]
 * [[FB_ Fader7Bit]]
 * [[FB_ Encoder]]
