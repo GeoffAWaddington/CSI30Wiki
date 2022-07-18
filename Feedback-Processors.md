@@ -10,7 +10,7 @@ Widget UpperButton1
 WidgetEnd
 ```
 
-Then in our [[Zone file|Defining Control Surface Behaviour]], we bind it to our [[TrackMute]] action.     
+Then in our [[Zone file|Defining Control Surface Behaviour]], we bind it to our [[TrackMute|Track Actions#TrackMute]] action.     
 ```UpperButton1 TrackMute```
 
 Here's the best case flow of what happens when we press the button on the surface:
