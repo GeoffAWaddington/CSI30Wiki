@@ -45,6 +45,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_MCUXTDisplayLower]] 
 * [[FB_MCUC4DisplayUpper]] 
 * [[FB_MCUC4DisplayLower]]
+* [[FB_MCUAssigmentDisplay]]
 * [[FB_FP8Display|FaderPort8-And-FaderPort16-Feedback-Displays]]
 * [[FB_FP16Display|FaderPort8-And-FaderPort16-Feedback-Displays]]
 * [[FB_FP8DisplayUpper|FaderPort8-And-FaderPort16-Feedback-Displays]]
@@ -63,7 +64,26 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_NovationLaunchpadMiniRGB7Bit]]
 * [[FB_FaderportRGB7Bit]]
 
-# FB_MCUTimeDisplay
+## FB_MCUAssigmentDisplay
+On an MCU or X-Touch it will display the overall 'mode' CSI is currently in, on the LED display labelled 'Assignment' immediately to then left of the SMPTE/Beats indicators (on an X-Touch, it's immediately to the left of the master solo indicator)
+
+The Modes are either Normal, ie regular track display; VCA, VCA leaders; or Folder, top level folders.
+
+The widget would look like this:
+```
+Widget AssigmentDisplay
+	FB_MCUAssigmentDisplay
+WidgetEnd
+```
+
+The zone would look like this:
+```
+Zone "Buttons"
+    AssignmentDisplay         TrackVCAFolderModeDisplay
+ZoneEnd
+```
+
+## FB_MCUTimeDisplay
 Here's what the time display widget from an MCU device would look like in the mcu.mst file.
 ```
 Widget TimeDisplay
@@ -71,7 +91,7 @@ Widget TimeDisplay
 WidgetEnd
 ````
 
-# FB_MFT (Feedback MIDI Fighter Twister)
+## FB_MFT (Feedback MIDI Fighter Twister)
 This feedback processor allows you to send specific color values to the **MIDI Fighter Twister** (MFTwister for short), and the information in this page is only applicable to this device.
 
 Note: Within CSI, only the buttons on the MFTwister can be colored, not the encoder rings themselves. This means the below section will only be applicable to the button/press widgets. 
@@ -88,7 +108,7 @@ WidgetEnd
 
 Do this for any buttons you would like to control the colors for. This just tells CSI that the colors for this button can be controlled within CSI. We will define the color values that get linked to a particular action in the .zon files so continue reading below.
 
-## Adding Colors to Your .Zon Files/Actions
+### Adding Colors to Your .Zon Files/Actions
 **Background:** the MFTwister color settings are a little tricky. From Geoff, "the RGB table is such that any one colour (r, g, b) MUST be 0 AND any OTHER colour (r, g, b) MUST be 255 -- the third colour can vary in the range 1 - 255 or so -- the colour table is a bit quirky." So for any state (i.e. off/on), two of the 3 colors must be 0 and 255. 
 
 Following your action, colors must appear in curly brackets following the action and require a space after the first bracket and before the last one. The first 3 numbers in the brackets are the RGB values for the off state. The second 3 numbers are the RGB values for the on state.
@@ -108,7 +128,7 @@ Toggle+ButtonB8 FXParam 0 "Bypass" { 90 255 0 255 50 0 }
 ZoneEnd
 ```` 
 
-## Tip: Using Dummy Colors in FX.zon Files
+### Tip: Using Dummy Colors in FX.zon Files
 Let's say our fx.zon includes some unmapped encoders and you want to give yourself some visual feedback that says, "hey, ButtonsB1 through ButtonsB3 have nothing mapped to them." You could setup your fx.zon files to include a color for this. This way, when you see the color, you know there's nothing mapped to that parameter. 
 
 For example, here I'm a dummy FX parameter (parameter 999 doesn't exist for this plugin) combined with Navy Blue to indicate there's nothing mapped to an encoder or button:
@@ -125,7 +145,7 @@ RotaryA2	FXParam 5 "Ratio"	[ 0.0 0.34 0.67 1.0 ] //these are the parameter steps
 ButtonA2	FXParam 999 "Dummy" { 90 255 0 90 255 0 }
 ```` 
 
-## FB_MFT_RGB Color Reference Table
+### FB_MFT_RGB Color Reference Table
 Lastly, to save you the time and effort, here are approximations of the MIDI Fighter Twister Utility's color codes, adapted for use in CSI.
 
 ```` 
@@ -174,7 +194,7 @@ MasterTRackNavigator
 ZoneEnd
 ```` 
 
-# FaderPort8 and FaderPort16 Displays
+## FaderPort8 and FaderPort16 Displays
 CSI supports the Presonus FaderPort8 and FaderPort16 Displays. Each of the 4 display rows requires it's own widget in the .mst file.
 
 For your .mst, here are the names for the FB generators that correspond to each line on the surface. 
