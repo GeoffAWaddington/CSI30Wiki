@@ -38,6 +38,8 @@ Note: the last 3 parameters in any such list will be assigned to the Reaper para
 ### Method 2: CSI Toggle Write Params to /CSI/Zones/ZoneRawFXFiles when FX inserted
 You can also run the Reaper action **"CSI Toggle Write Params to /CSI/Zones/ZoneRawFXFiles when FX inserted"** then insert the FX. That will create a .txt file that looks identical the ReaConsole window shown above. The .txt file can be located in the **CSI/Zones/ZoneRawFXFiles** folder.
 
+In your Reaper Resource Path, you must have a CSI/Zones/ZoneRawFXFiles folder already. If one doesn't exist, create one. If it's still not generating the .txt files when you insert FX after toggling that action to On, try running Reaper in Admin mode then try again.
+
 ### Method 3: Turn off the plugin UI and count!
 The third method is that you can toggle the plugin UI in Reaper by clicking the "UI" button in the plugin menu. This hides the plugin graphics and replaces them with a series of horizontal sliders. The first slider is FXParam 0, and then you would count up from there. 
 
