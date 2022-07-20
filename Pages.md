@@ -34,35 +34,30 @@ If you select a Page and click the **Edit **button, there are some options for..
 **Reaper GUI follows surface**: if checked, the on screen Mixer/Arrange window will bank with the surfaces. Can also be enabled/disabled with the [ToggleScrollLink](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/ToggleScrollLink) action.
 
 ## Paging Actions
-The Pages need to already be setup in CSI's preferences and then buttons on surface can be assigned to switch between Pages. This is similar to GoZone, but can impact multiple surfaces in CSI.
-
-Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages.
-
-In the below example, let's assume I have a Page called Home and another called Mix...
+If using multiple [[Pages]], the buttons on surface can be assigned to switch between Pages. Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages. In the below example, I have a Page called Home and another called Mix...
 
 On my Home page, I may want to utilize the "Channel" button on my surface to enter the Mix Page.
 ````
-Zone "Buttons|"
+Zone "Buttons"
         Channel         GoPage "Mix"  // Activates the Mix page
 ZoneEnd
 ````
 
 But in order to get back to the Home page, I probably want to make sure I have the opposite happening when the Mix page is active.
 ````
-Zone "Buttons|"
+Zone "Buttons"
         Channel         GoPage "Home"  // Activates the Home page
 ZoneEnd
 ````
 
-You could also use the NextPage action to just cycle through the Pages in your CSI setup. In a two page setup, this would essentially be a toggle, but if you had 3 or more pages, it will cycle through them.
+You could also use the NextPage action to just cycle through the Pages in your CSI setup. In a two-page setup this would essentially be a toggle but if you had 3 or more pages it will cycle through them.
 ```
-Zone "Buttons|"
+Zone "Buttons"
         Channel         NextPage  // Cycles through the list of pages
 ZoneEnd
 ```
 
-## PageNameDisplay
-This action can be assigned to a Display widget in order to show the name of the currently active Page.
+Finally, while not a Navigation Action, the PageNameDisplay action can be assigned to a Display widget in order to show the name of the currently active Page.
 
 ```
 MainDisplay     PageNameDisplay
