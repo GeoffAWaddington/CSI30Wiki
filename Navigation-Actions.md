@@ -11,16 +11,16 @@ Page under construction.
 * [[ToggleSynchPageBanking|Navigation Actions#ToggleSynchPageBanking]]
 * [[ToggleScrollLink|Navigation Actions#ToggleScrollLink]]
 * [[ForceScrollLink|Navigation Actions#ForceScrollLink]]
-* [[GoHome]]
-* [[GoSubZone|FX-Sub-Zones]]
-* [[LeaveSubZone]]
-* [[GoTrackSend]]
-* [[GoTrackReceive]]
-* [[GoTrackFXMenu]]
-* [[GoSelectedTrackSend]]
-* [[GoSelectedTrackReceive]]
-* [[GoSelectedTrackFXMenu]]
-* [[GoSelectedTrackFX]]
+* [[GoHome|Navigation Actions#GoHome]]
+* [[GoSubZone|Navigation Actions#GoSubZone-LeaveSubZone]]
+* [[LeaveSubZone|Navigation Actions#GoSubZone-LeaveSubZone]]
+* [[GoTrackSend|Navigation Actions#GoTrackSend]]
+* [[GoTrackReceive|Navigation Actions#GoTrackReceive]]
+* [[GoTrackFXMenu|Navigation Actions#GoTrackFXMenu]]
+* [[GoSelectedTrackSend|Navigation Actions#GoSelectedTrackSend]]
+* [[GoSelectedTrackReceive|Navigation Actions#GoSelectedTrackReceive]]
+* [[GoSelectedTrackFXMenu|Navigation Actions#GoSelectedTrackFXMenu]]
+* [[GoSelectedTrackFX|Navigation Actions#GoSelectedTrackFX]]
 * [[GoPage|Pages#paging-actions]]
 * [[NextPage|Pages#paging-actions]]
 * [[PageNameDisplay|Pages#pagenamedisplay]]
@@ -171,3 +171,44 @@ Zone "Buttons"
      Shift+F7     ToggleScrollLink
 ZoneEnd
 ```
+
+## GoHome
+Assign this action to a button to return to the Home Zone. If your surface supports feedback, you will see a light engaged when the Home zone is active.
+```
+Zone "Buttons"
+    GlobalView                  GoHome
+ZoneEnd
+```
+
+## GoSubZone, LeaveSubZone
+Use the GoSubZone action when you want to create custom SubZones to be called up on-demand. The SubZones need to be listed as SubZones within the surface definition. In the below example, we've got two SubZones, one for a "Marker" zone and another for a "Zoom" SubZone. The syntax to flag the included SubZones and the buttons to activate them would look like this...
+```
+Zone "Buttons"
+    SubZones
+        "Marker"
+        "Zoom"
+    SubZonesEnd
+     Marker                             GoSubZone "Marker"
+     Zoom                               GoSubZone "Zoom"
+```
+
+The SubZone itself would look like any other standalone .zon file. Also note that once we are in one of those custom SubZones, we need a way to exit the SubZone. You may want to use the same button you used to activate the SubZone in order for it to behave like a toggle. See the example below from the Marker SubZone.
+```
+Zone "Marker"
+    Up                   Reaper 40613   // Delete marker near cursor
+    Property+Up          NoFeedback
+    Down                 Reaper 40157   // Insert marker at current or edit position
+    Property+Down        NoFeedback
+    Right                Reaper 40173   // Go to next marker or project end
+    Property+Right       NoFeedback
+    Left                 Reaper 40172   // Go to previous marker or project start
+    Property+Left        NoFeedback
+
+    JogWheelRotaryCW     Reaper 40173   // Go to next marker or project end    
+    JogWheelRotaryCCW    Reaper 40172   // Go to previous marker or project start
+    
+    Marker               LeaveSubZone
+ZoneEnd
+```
+
+Click here to learn about [[FX SubZones|FX-Sub-Zones]].
