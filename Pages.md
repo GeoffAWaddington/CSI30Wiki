@@ -57,7 +57,7 @@ Zone "Buttons"
 ZoneEnd
 ```
 
-Finally, while not a Navigation Action, the PageNameDisplay action can be assigned to a Display widget in order to show the name of the currently active Page.
+Finally, the PageNameDisplay action can be assigned to a Display widget in order to show the name of the currently active Page.
 
 ```
 MainDisplay     PageNameDisplay
