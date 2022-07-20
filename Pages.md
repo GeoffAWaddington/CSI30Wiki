@@ -34,7 +34,7 @@ If you select a Page and click the **Edit **button, there are some options for..
 **Reaper GUI follows surface**: if checked, the on screen Mixer/Arrange window will bank with the surfaces. Can also be enabled/disabled with the [ToggleScrollLink](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/ToggleScrollLink) action.
 
 ## Paging Actions
-If using multiple [[Pages]], the buttons on surface can be assigned to switch between Pages. Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages. In the below example, I have a Page called Home and another called Mix...
+If using multiple Pages, the buttons on surface can be assigned to switch between Pages. Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages. In the below example, I have a Page called Home and another called Mix...
 
 On my Home page, I may want to utilize the "Channel" button on my surface to enter the Mix Page.
 ````
