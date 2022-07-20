@@ -205,7 +205,7 @@ Zone "Marker"
 ZoneEnd
 ```
 
-Click here to learn about [[FX SubZones|FX-and-Instrument-Mapping#fx-subzones]].
+Click here to learn about [[FX SubZones|FX and Instrument Mapping#fx-subzones]].
 
 ## GoTrackSend
 Use the GoTrackSend action to activate a TrackSend zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
