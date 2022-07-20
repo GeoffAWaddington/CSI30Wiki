@@ -194,13 +194,9 @@ The SubZone itself would look like any other standalone .zon file. Also note tha
 ```
 Zone "Marker"
     Up                   Reaper 40613   // Delete marker near cursor
-    Property+Up          NoFeedback
     Down                 Reaper 40157   // Insert marker at current or edit position
-    Property+Down        NoFeedback
     Right                Reaper 40173   // Go to next marker or project end
-    Property+Right       NoFeedback
     Left                 Reaper 40172   // Go to previous marker or project start
-    Property+Left        NoFeedback
 
     JogWheelRotaryCW     Reaper 40173   // Go to next marker or project end    
     JogWheelRotaryCCW    Reaper 40172   // Go to previous marker or project start
