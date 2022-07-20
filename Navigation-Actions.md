@@ -14,7 +14,6 @@ Page under construction.
 * [[GoHome]]
 * [[GoSubZone|FX-Sub-Zones]]
 * [[LeaveSubZone]]
-* [[PageNameDisplay|Pages#pagenamedisplay]]
 * [[GoTrackSend]]
 * [[GoTrackReceive]]
 * [[GoTrackFXMenu]]
@@ -24,6 +23,7 @@ Page under construction.
 * [[GoSelectedTrackFX]]
 * [[GoPage|Pages#paging-actions]]
 * [[NextPage|Pages#paging-actions]]
+* [[PageNameDisplay|Pages#pagenamedisplay]]
 
 ## TrackBank
 Add this action to your Buttons zone for banking the surface in a Track context. No change is made to the track selection in Reaper. Positive or negative numbers after the action name will dictate how many tracks will banked at a time.
