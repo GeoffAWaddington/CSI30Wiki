@@ -264,21 +264,21 @@ If using multiple [[Pages]], the buttons on surface can be assigned to switch be
 
 On my Home page, I may want to utilize the "Channel" button on my surface to enter the Mix Page.
 ````
-Zone "Buttons|"
+Zone "Buttons"
         Channel         GoPage "Mix"  // Activates the Mix page
 ZoneEnd
 ````
 
 But in order to get back to the Home page, I probably want to make sure I have the opposite happening when the Mix page is active.
 ````
-Zone "Buttons|"
+Zone "Buttons"
         Channel         GoPage "Home"  // Activates the Home page
 ZoneEnd
 ````
 
 You could also use the NextPage action to just cycle through the Pages in your CSI setup. In a two-page setup this would essentially be a toggle but if you had 3 or more pages it will cycle through them.
 ```
-Zone "Buttons|"
+Zone "Buttons"
         Channel         NextPage  // Cycles through the list of pages
 ZoneEnd
 ```
