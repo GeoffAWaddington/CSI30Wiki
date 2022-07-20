@@ -212,3 +212,51 @@ ZoneEnd
 ```
 
 Click here to learn about [[FX SubZones|FX-and-Instrument-Mapping#fx-subzones]].
+
+## GoTrackSend
+Use the GoTrackSend action to activate a TrackSend zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+```
+Zone "Buttons"
+    AudioInstrument             GoTrackSend
+ZoneEnd
+```
+
+## GoTrackReceive
+Use the GoTrackReceive action to activate a TrackReceive zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+```
+Zone "Buttons"
+    Aux                         GoTrackReceive
+ZoneEnd
+```
+
+## GoTrackFXMenu
+Use the GoTrackFXMenu action to activate a TrackFXMenu zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+```
+Zone "Buttons"
+    Busses                      GoTrackFXMenu
+ZoneEnd
+```
+
+## GoSelectedTrackSend
+Use the GoSelectedTrackSend action to activate a SelectedTrackSend zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+```
+Zone "Buttons"
+    MidiTracks                  GoSelectedTrackSend
+ZoneEnd
+```
+
+## GoSelectedTrackReceive
+Use the GoSelectedTrackReceive action to activate a SelectedTrackReceive zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+```
+Zone "Buttons"
+    Inputs                      GoSelectedTrackReceive
+ZoneEnd
+```
+
+## GoSelectedTrackFXMenu
+Use the GoSelectedTrackFXMenu action to activate a SelectedTrackFXMenu zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+```
+Zone "Buttons"
+    AudioTracks                 GoSelectedTrackFXMenu
+ZoneEnd
+```
