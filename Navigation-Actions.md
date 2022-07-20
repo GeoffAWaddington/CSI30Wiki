@@ -21,9 +21,9 @@ Page under construction.
 * [[GoSelectedTrackReceive|Navigation Actions#GoSelectedTrackReceive]]
 * [[GoSelectedTrackFXMenu|Navigation Actions#GoSelectedTrackFXMenu]]
 * [[GoSelectedTrackFX|Navigation Actions#GoSelectedTrackFX]]
-* [[GoPage|Pages#paging-actions]]
-* [[NextPage|Pages#paging-actions]]
-* [[PageNameDisplay|Pages#pagenamedisplay]]
+* [[GoPage|Navigation Actions#gopage-nextpage-pagenamedisplay]]
+* [[NextPage|Navigation Actions#gopage-nextpage-pagenamedisplay]]
+* [[PageNameDisplay|Navigation Actions#gopage-nextpage-pagenamedisplay]]
 
 ## TrackBank
 Add this action to your Buttons zone for banking the surface in a Track context. No change is made to the track selection in Reaper. Positive or negative numbers after the action name will dictate how many tracks will banked at a time.
@@ -284,8 +284,8 @@ Zone "Buttons|"
         Channel         NextPage  // Cycles through the list of pages
 ZoneEnd
 ```
-## PageNameDisplay
-This action can be assigned to a Display widget in order to show the name of the currently active Page.
+
+Finally, while not a Navigation Action, the PageNameDisplay action can be assigned to a Display widget in order to show the name of the currently active Page.
 
 ```
 MainDisplay     PageNameDisplay
