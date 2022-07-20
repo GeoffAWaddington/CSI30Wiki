@@ -8,11 +8,9 @@ Page under construction.
 * [[SelectedTrackSendBank|Navigation Actions#SelectedTrackSendBank]]
 * [[SelectedTrackReceiveBank|Navigation Actions#SelectedTrackReceiveBank]]
 * [[SelectedTrackFXMenuBank|Navigation Actions#SelectedTrackFXMenuBank]]
-* [[ToggleSynchPageBanking]]
-* [[ToggleScrollLink]]
-* [[ForceScrollLink]]
-* [[NextPage|Pages#paging-actions]]
-* [[GoPage|Pages#paging-actions]]
+* [[ToggleSynchPageBanking|Navigation Actions#ToggleSynchPageBanking]]
+* [[ToggleScrollLink|Navigation Actions#ToggleScrollLink]]
+* [[ForceScrollLink|Navigation Actions#ForceScrollLink]]
 * [[GoHome]]
 * [[GoSubZone|FX-Sub-Zones]]
 * [[LeaveSubZone]]
@@ -24,6 +22,8 @@ Page under construction.
 * [[GoSelectedTrackReceive]]
 * [[GoSelectedTrackFXMenu]]
 * [[GoSelectedTrackFX]]
+* [[GoPage|Pages#paging-actions]]
+* [[NextPage|Pages#paging-actions]]
 
 ## TrackBank
 Add this action to your Buttons zone for banking the surface in a Track context. No change is made to the track selection in Reaper. Positive or negative numbers after the action name will dictate how many tracks will banked at a time.
@@ -145,5 +145,29 @@ Zone "SelectedTrackFXMenu"
 	Mute| 			ToggleFXBypass
         Left            	SelectedTrackFXMenuBank -1
         Right           	SelectedTrackFXMenuBank 1
+ZoneEnd
+```
+
+## ToggleSynchPageBanking
+This action will toggle whether or not surface banking stays in sync when you change [[Pages|Pages]] in CSI. Example: if your surface is banked to show channels 25 to 32 on your HomePage, then you switch to a second page, do you want to maintain the banking position? This is enabled by default. This action will toggle the behavior.
+```
+Zone "Buttons"
+     F8     ToggleSynchPageBanking
+ZoneEnd
+```
+
+## ToggleScrollLink
+This action toggles the behavior where Reaper's MCP will follow CSI's banking and scroll in sync with the surface. This defaults to on.
+```
+Zone "Buttons"
+     F7     ToggleScrollLink
+ZoneEnd
+```
+
+## ForceScrollLink
+This action will force Reaper to scroll the MCP to the banked tracks on the surface.
+```
+Zone "Buttons"
+     Shift+F7     ToggleScrollLink
 ZoneEnd
 ```
