@@ -211,4 +211,4 @@ Zone "Marker"
 ZoneEnd
 ```
 
-Click here to learn about [[FX SubZones|FX-Sub-Zones]].
+Click here to learn about [[FX SubZones|FX-and-Instrument-Mapping#fx-subzones]].
