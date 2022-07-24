@@ -135,7 +135,7 @@
 * [[Touch|Modifiers#touch]]
 * [[InvertFB|Modifiers#invertfb]]
 * [[Hold|Modifiers#hold]]
-* [[Flip]]
+* [[Flip|Modifiers#global-modifiers]]
 
 ## Reaper Actions
 ```    
