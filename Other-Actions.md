@@ -114,7 +114,7 @@ Zone "Buttons"
 ZoneEnd    
 ```
 
-Here you see that the **Property+** modifier is combined with the widget name from the row **immediately above** followed by the NoFeedback action. If the **Property+** line doesn't immediately follow the widget+action row it's meant to apply to, this will not work.
+Here you see that the [[PropertyModifiers#Property]] modifier is combined with the widget name from the row **immediately above** followed by the NoFeedback action. If the **Property+** line doesn't immediately follow the widget+action row it's meant to apply to, this will not work.
 
 This very same approach also works with modifiers as shown below:
 
