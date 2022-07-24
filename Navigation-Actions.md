@@ -208,7 +208,7 @@ ZoneEnd
 Click here to learn about [[FX SubZones|FX and Instrument Mapping#fx-subzones]].
 
 ## GoTrackSend
-Use the GoTrackSend action to activate a TrackSend zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+Use the GoTrackSend action to activate the [[TrackSend|Send Zones]] zone type. This type of zone has a fixed name. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
 ```
 Zone "Buttons"
     AudioInstrument             GoTrackSend
@@ -216,7 +216,7 @@ ZoneEnd
 ```
 
 ## GoTrackReceive
-Use the GoTrackReceive action to activate a TrackReceive zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+Use the GoTrackReceive action to activate a [[TrackReceive|Receive Zones]] zone type. This type of zone has a fixed name. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
 ```
 Zone "Buttons"
     Aux                         GoTrackReceive
@@ -224,7 +224,7 @@ ZoneEnd
 ```
 
 ## GoTrackFXMenu
-Use the GoTrackFXMenu action to activate a TrackFXMenu zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+Use the GoTrackFXMenu action to activate a [[TrackFXMenu|FX-Zone-Activation-(FocusedFX,-TrackFXMenu,-SelectedTrackFXMenu,-SelectedTrack)#trackfxmenu]] zone. This type of zone has a fixed name. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
 ```
 Zone "Buttons"
     Busses                      GoTrackFXMenu
@@ -232,7 +232,7 @@ ZoneEnd
 ```
 
 ## GoSelectedTrackSend
-Use the GoSelectedTrackSend action to activate a SelectedTrackSend zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+Use the GoSelectedTrackSend action to activate a [[SelectedTrackSend|Send Zones]] zone. This type of zone has a fixed name. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
 ```
 Zone "Buttons"
     MidiTracks                  GoSelectedTrackSend
@@ -240,7 +240,7 @@ ZoneEnd
 ```
 
 ## GoSelectedTrackReceive
-Use the GoSelectedTrackReceive action to activate a SelectedTrackReceive zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+Use the GoSelectedTrackReceive action to activate a [[SelectedTrackReceive|Receive Zones]] zone. This type of zone has a fixed name. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
 ```
 Zone "Buttons"
     Inputs                      GoSelectedTrackReceive
@@ -248,7 +248,7 @@ ZoneEnd
 ```
 
 ## GoSelectedTrackFXMenu
-Use the GoSelectedTrackFXMenu action to activate a SelectedTrackFXMenu zone. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
+Use the GoSelectedTrackFXMenu action to activate a [[SelectedTrackFXMenu|FX-Zone-Activation-(FocusedFX,-TrackFXMenu,-SelectedTrackFXMenu,-SelectedTrack)#selectedtrackfxmenu]] zone. This type of zone has a fixed name. This action provides feedback to surfaces that support it and will act as a toggle for activating and exiting the zone.
 ```
 Zone "Buttons"
     AudioTracks                 GoSelectedTrackFXMenu
@@ -258,14 +258,15 @@ ZoneEnd
 ## GoPage, NextPage, PageNameDisplay
 If using multiple [[Pages]], the buttons on surface can be assigned to switch between Pages. Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages. In the below example, I have a Page called Home and another called Mix...
 
-On my Home page, I may want to utilize the "Channel" button on my surface to enter the Mix Page.
+On my Home page, I may want to utilize the "Channel" button on my surface to enter the Mix Page. Note: this "Buttons.zon" exists on the "HomePage" Page, and is different than the "Buttons.zon" on the "Mix" Page.
+
 ````
 Zone "Buttons"
         Channel         GoPage "Mix"  // Activates the Mix page
 ZoneEnd
 ````
 
-But in order to get back to the Home page, I probably want to make sure I have the opposite happening when the Mix page is active.
+But in order to get back to the Home page, I probably want to make sure I have the opposite happening when the Mix page is active. Note: this "Buttons.zon" exists on the "Mix" Page, and is different than the "Buttons.zon" on the "HomePage".
 ````
 Zone "Buttons"
         Channel         GoPage "Home"  // Activates the Home page
