@@ -1,5 +1,16 @@
 Modifiers are a way to indicate that you want one control to perform different actions under different circumstances. For example, this could be when another button is pressed in combination with the control (like your keyboard behaving differently when you hold the Shift key down), or it could be when a button is held down for a longer period of time. 
 
+The full list of available modifiers is:
+* [[Shift|Modifiers#global-modifiers]]
+* [[Option|Modifiers#global-modifiers]]
+* [[Control|Modifiers#global-modifiers]]
+* [[Alt|Modifiers#global-modifiers]]
+* [[Touch|Modifiers#Touch]]
+* [[InvertFB|Modifiers#InvertFB]]
+* [[Hold|Modifiers#Hold]]
+* [[Flip|Modifiers#Flip]]
+* [[Property|Modifiers#Property]]
+
 # Global Modifiers
 
 To avoid creating dependencies between zone files (where a control specified in one is referenced in another), there are a set of global modifiers available:
@@ -136,4 +147,13 @@ Zone "Track"
     Rotary|                     MCUTrackPan
     Fader|                   	TrackVolume 
     Flip+Fader|                	TrackPan 
+```
+
+## Property
+Property is a special kind of modifier that only works on specific surfaces like the SCE-24 or the [[NoFeedback|Other Actions#NoFeedback]] action. The below example shows how you would use Property to turn off the feedback on the Marker button in an X-Touch control surface. This is the most common use-case for the Property modifier (see [[NoFeedback|Other Actions#NoFeedback]] for more information). 
+```
+Zone "Buttons"
+     Marker                     Reaper 40171     // Insert marker at current or edit position
+     Property+Marker            NoFeedback       // Turns off feedback
+ZoneEnd
 ```
