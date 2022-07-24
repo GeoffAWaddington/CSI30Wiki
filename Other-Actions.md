@@ -69,7 +69,7 @@ Use the FixedTextDisplay action when you want to show static text within one of 
 ## FixedRGBColourDisplay
 Use this if you want to have a supported display widget change color in a particular zone. The values in the squiggly brackets represent the RGB (red, green, blue) color values. Note the British spelling of color [colour] in the action name.
 ```
-SomeButton     FixedRGBColourDisplay { 255 0 0 }
+     SomeDisplay     FixedRGBColourDisplay { 255 0 0 }
 ```
 
 ## ClearAllSolo
