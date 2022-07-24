@@ -89,6 +89,17 @@ Use this if you want to have a supported display widget change color in a partic
 SomeButton     FixedRGBColourDisplay { 255 0 0 }
 ```
 
+## ClearAllSolo
+ClearAllSolo is a CSI action designed to clear all solo'd tracks and also work with the global MCU 'Solo' widget to provide a visual indication that one or more tracks in your project may be in a solo'd state. 
+
+Example: you have an MCU surface, and Reaper tracks 1-8 are currently mapped to the surface's 8 faders, but you've got track 32 solo'd. When assigned to a widget capable of displaying two-state feedback, your surface will display a light indicating there is a solo'd track anywhere in your project. Pressing the button assigned to this action, will then clear any and all solo'd tracks.
+
+````
+Zone "Buttons|"
+        Solo            ClearAllSolo
+ZoneEnd
+````
+
 ## NoFeedback
 The NoFeedback action is meant to turn off feedback to a specific widget. This is especially useful if you have a control surface that is designed to show feedback on buttons, but those buttons are assigned to Reaper actions where feedback doesn't make sense because there is no on or off state. 
 
