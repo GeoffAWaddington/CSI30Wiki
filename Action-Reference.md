@@ -119,13 +119,13 @@
 * [[TrackAutoModeDisplay|Automation-Actions#trackautomodedisplay]]
 
 ### Other
-* [[NoAction]]
-* [[FixedTextDisplay]]
-* [[FixedRGBColourDisplay]]
-* [[ClearAllSolo]]
-* [[NoFeedback]]
-* [[Broadcast]]
-* [[Receive]]
+* [[NoAction|Other Actions#NoAction]]
+* [[FixedTextDisplay|Other Actions#FixedTextDisplay]]
+* [[FixedRGBColourDisplay|Other Actions#FixedTextDisplay]]
+* [[ClearAllSolo|Other Actions|ClearAllSolo]]
+* [[NoFeedback|Other Actions#NoFeedback]]
+* [[Broadcast|Broadcast and Receive]]
+* [[Receive|Broadcast and Receive]]
 
 ### Modifiers
 * [[Shift|Modifiers#global-modifiers]]
