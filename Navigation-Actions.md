@@ -256,7 +256,7 @@ ZoneEnd
 ```
 
 ## GoPage, NextPage, PageNameDisplay
-If using multiple [[Pages]], the buttons on surface can be assigned to switch between Pages. Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages. In the below example, I have a Page called Home and another called Mix...
+If using multiple [[Pages]], the buttons on surface can be assigned to switch between Pages. Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages. In the below example, I have a Page called Home and another called Mix. Those Pages will point to different zone folders that are configured to function differently based on the page. See [[Pages]] for more details about when and how to use Pages in CSI, for now we'll just focus on the actions to change pages.
 
 On my Home page, I may want to utilize the "Channel" button on my surface to enter the Mix Page. Note: this "Buttons.zon" exists on the "HomePage" Page, and is different than the "Buttons.zon" on the "Mix" Page.
 
