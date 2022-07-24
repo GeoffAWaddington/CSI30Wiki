@@ -59,29 +59,12 @@ ZoneEnd
 ```
 
 ## FixedTextDisplay
-Use the FixedTextDisplay action when you want to show static text within one of your displays. 
-
-In this example, I want to see the words "Pre/Post" in my display:
+Use the FixedTextDisplay action when you want to show static text within one of your displays. For instance, in this example, holding Shift and pressing RotaryPushA1 will reset (center) FXParam 1 on a particular fx.zon. But I want to leave myself a reminder of this functionality, so I added a message that will say "Press to Reset" on the lower display for that widget as soon as I engage the Shift modifier.
 ```
-	DisplayUpperA1 FixedTextDisplay "Pre/Post"
-```
-
-Tip: if you're in a zone with navigator where you're controlling multiple displays, you can use the pipe character | in your fixed text display to show the number. 
-
-For instance, this in your zone...
-```
-Zone "Send"
-	DisplayUpperD|		FixedTextDisplay "Send| Pan"
-ZoneEnd
+     Shift+RotaryPushA1        FXParam 1 [ 0.5 ]
+     Shift+DisplayLowerA1      FixedTextDisplay "Press to Reset"
 ```
 
-Would appear on your display on your surface as: 
-```
-DIsplayUpperD1 "Send1 Pan"
-DisplayUpperD2 "Send2 Pan"
-DisplayUpperD3 "Send3 Pan"
-etc.
-````
 
 ## FixedRGBColourDisplay
 Use this if you want to have a supported display widget change color in a particular zone.
