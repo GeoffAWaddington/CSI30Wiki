@@ -1,4 +1,4 @@
-As mentioned on the [[Installation]] page, the configuration of your CSI installation is ultimately stored in a file called csi.ini. This normally gets created when you setup CSI for the first time and shouldn't require direct user editing, however, if you want to understand how the csi.ini works, or need to troubleshoot, read on!
+As mentioned on the [[Installation|Installation and Setup]] page, the configuration of your CSI installation is ultimately stored in a file called csi.ini. This normally gets created when you setup CSI for the first time and shouldn't require direct user editing, however, if you want to understand how the csi.ini works, or need to troubleshoot, read on!
 
 Here is what a typical CSI.ini might look like:
 ```
