@@ -1,6 +1,6 @@
 Modifiers are a way to indicate that you want one control to perform different actions under different circumstances. For example, this could be when another button is pressed in combination with the control (like your keyboard behaving differently when you hold the Shift key down), or it could be when a button is held down for a longer period of time. 
 
-## Global Modifiers
+# Global Modifiers
 
 To avoid creating dependencies between zone files (where a control specified in one is referenced in another), there are a set of global modifiers available:
  
@@ -69,9 +69,9 @@ etc., but note that Shift+Control is the same as Control+Shift
 
 **Tip:** If you've defined a Shift modifier, a quick press of that button will enter a latching mode where the Shift modifier will remain active until pressed again.
 
-## Built-in Modifiers
+# Built-in Modifiers
 
-### Touch
+## Touch
 Touch messages can be used to tell CSI "when I'm touching this parameter, do this other thing." But Touch is a special kind of modifier in that a few things need to exist for it to work. 
 
 First, you need a control surface that's capable of sending Touch and Touch Release messages for a given control. Examples: fader touch messages on an MCU device, rotary touch messages on a Eucon surface, or an OSC parameter set to work with touch messages. If you have a surface that supports touch message for certain controls, you need to define the touch messages in your .mst/.ost files. Here is an example using an MCU's fader1.
@@ -114,17 +114,26 @@ Zone "Channel"
 ZoneEnd
 ```
 
-### InvertFB 
+## InvertFB 
 Up is down, down is up, on is off, and off is on. Example: Reaper EQ FX bypass On means control surface EQ Active light should be Off.
 
 ```` 
 InvertFB+SomeButton FXParam 16 "Bypass"
 ```` 
 
-### Hold
+## Hold
 A one-second hold of a button will result in a different action. For instance, pressing the "Click" button toggles the metronome, but holding the Click button opens the metronome settings. **Important:** for the Hold modifier to work, your button/widget must transmit release messages (otherwise, CSI will not be able to decipher between a hold and a button press). 
 
 ```` 
 Click				Reaper 40364 		//Toggle metronome
 Hold+Click			Reaper 40363		//Show metronome settings
 ````    
+
+## Flip
+The Flip modifier was designed for MCU-style surfaces with a "Flip" button that is meant to put TrackPan on faders for easier pan adjustment. See the example below for most common use-case.
+```
+Zone "Track"
+    Rotary|                     MCUTrackPan
+    Fader|                   	TrackVolume 
+    Flip+Fader|                	TrackPan 
+```
