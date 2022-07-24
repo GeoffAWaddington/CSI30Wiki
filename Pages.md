@@ -8,7 +8,7 @@ Pages allow you to have....
 * Different actions assigned to your surface depending on what your doing - i.e. different zone folders for one or more surfaces on each Page
 * Surface capabilities defined differently on each page - i.e. different .mst and/or files for one or more on each Page
 
-## **To create a Page:**
+## **To create a Page**
 
 1. Open Reaper's Preferences -> Control/OSC/Web
 2. Select CSI
