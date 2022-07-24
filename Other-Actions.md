@@ -3,8 +3,8 @@
 * [[FixedRGBColourDisplay|Other Actions#FixedTextDisplay]]
 * [[ClearAllSolo|Other Actions|ClearAllSolo]]
 * [[NoFeedback|Other Actions#NoFeedback]]
-* [[Broadcast]]
-* [[Receive]]
+* [[Broadcast|Broadcast and Receive]]
+* [[Receive|Broadcast and Receive]]
 
 ## NoAction
 The cunningly named NoAction action, does nothing. I'll just pause for a second while that sinks in. Now, contrary to what you might be thinking, this can be really useful. 
@@ -126,3 +126,6 @@ Zone "Buttons"
      Property+Shift+Marker      NoFeedback       // Turns off feedback
 ZoneEnd
 ```
+
+## Broadcast, Receive
+See [[Broadcast and Receive]] for details on how to use these actions.
