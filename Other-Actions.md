@@ -1,0 +1,117 @@
+* [[NoAction|Other Actions#NoAction]]
+* [[FixedTextDisplay|Other Actions#FixedTextDisplay]]
+* [[FixedRGBColourDisplay|Other Actions#FixedTextDisplay]]
+* [[ClearAllSolo|Other Actions|ClearAllSolo]]
+* [[NoFeedback|Other Actions#NoFeedback]]
+* [[Broadcast]]
+* [[Receive]]
+
+## NoAction
+The cunningly named NoAction action, does nothing. I'll just pause for a second while that sinks in. Now, contrary to what you might be thinking, this can be really useful. 
+
+Let's say you [[GoZone|Zone-Actions]] from "Home" to "FX". As discussed on the [[Zones]] page, this effectively overlays "FX" over the top of "Home". Widgets mapped in "FX" take over "Home" behaviour. Widgets mapped in "Home" but NOT in "FX" still work as they did before.
+
+However, what if you want to stop this behavior? Maybe in "FX", we want to cancel the "Home" behaviour to avoid operator errors. For example, perhaps in "Home" I have the transport controls mapped to widgets, but in"FX" I want to "disable" these mappings?
+
+In that case, map them to NoAction in "FX" and they will defiantly ignore your presses until you [[GoZone|Zone-Actions]] back to "Home".
+```
+Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)" "LA2ASlv"
+     Rotary1             FXParam 0 
+     RotaryPush1         NoAction
+     DisplayUpper1       FixedTextDisplay "Thresh"
+     DisplayLower1       FXParamValueDisplay 0
+
+     Rotary2             FXParam 3
+     RotaryPush2         NoAction  
+     DisplayUpper2       FixedTextDisplay "HF Emph"
+     DisplayLower2       FXParamValueDisplay 3
+
+     Rotary3             FXParam 1
+     RotaryPush3         NoAction 
+     DisplayUpper3       FixedTextDisplay "Output" 
+     DisplayLower3       FXParamValueDisplay 1 
+
+     Rotary4             NoAction
+     RotaryPush4         FXParam 2 [ 0.0 1.0 ]
+     DisplayUpper4       FixedTextDisplay "CompLim" 
+     DisplayLower4       FXParamValueDisplay 2
+
+     Rotary5             FXParam 4 [ 0.0 0.50 1.0 ]
+     RotaryPush5         NoAction     
+     DisplayUpper5       FixedTextDisplay "Meter" 
+     DisplayLower5       FXParamValueDisplay 4
+
+     Rotary6             NoAction
+     RotaryPush6         NoAction     
+     DisplayUpper6       NoAction
+     DisplayLower6       NoAction
+
+     Rotary7             NoAction 
+     RotaryPush7         NoAction
+     DisplayUpper7       NoAction 
+     DisplayLower7       NoAction 
+
+     Rotary8             FXParam 8
+     RotaryPush8         ToggleFXBypass
+     DisplayUpper8       FixedTextDisplay "Wet"
+     DisplayLower8       FXBypassedDisplay
+ZoneEnd
+```
+
+## FixedTextDisplay
+Use the FixedTextDisplay action when you want to show static text within one of your displays. 
+
+In this example, I want to see the words "Pre/Post" in my display:
+```
+	DisplayUpperA1 FixedTextDisplay "Pre/Post"
+```
+
+Tip: if you're in a zone with navigator where you're controlling multiple displays, you can use the pipe character | in your fixed text display to show the number. 
+
+For instance, this in your zone...
+```
+Zone "Send"
+	DisplayUpperD|		FixedTextDisplay "Send| Pan"
+ZoneEnd
+```
+
+Would appear on your display on your surface as: 
+```
+DIsplayUpperD1 "Send1 Pan"
+DisplayUpperD2 "Send2 Pan"
+DisplayUpperD3 "Send3 Pan"
+etc.
+````
+
+## FixedRGBColourDisplay
+Use this if you want to have a supported display widget change color in a particular zone.
+```
+SomeButton     FixedRGBColourDisplay { 255 0 0 }
+```
+
+## NoFeedback
+The NoFeedback action is meant to turn off feedback to a specific widget. This is especially useful if you have a control surface that is designed to show feedback on buttons, but those buttons are assigned to Reaper actions where feedback doesn't make sense because there is no on or off state. 
+
+In the below example, the Marker button is being used to insert a Marker at the current or edit position. On some control surfaces, this may cause the marker button to light up, which doesn't make sense. So to solve for this in our zone file, we need to use the NoFeedback action as shown below:
+
+```
+Zone "Buttons"
+     Marker                   Reaper 40171     // Insert marker at current or edit position
+     Property+Marker          NoFeedback       // Turns off feedback
+ZoneEnd    
+```
+
+Here you see that the **Property+** modifier is combined with the widget name from the row **immediately above** followed by the NoFeedback action. If the **Property+** line doesn't immediately follow the widget+action row it's meant to apply to, this will not work.
+
+This very same approach also works with modifiers as shown below:
+
+```
+Zone "Buttons"
+     Marker                     Reaper 40171     // Insert marker at current or edit position
+     Property+Marker            NoFeedback       // Turns off feedback
+     Option+Marker              Reaper 40173     // Go to next marker or project end
+     Property+Option+Marker     NoFeedback       // Turns off feedback	
+     Shift+Marker               Reaper 40172     // Go to previous marker or project start
+     Property+Shift+Marker      NoFeedback       // Turns off feedback
+ZoneEnd
+```
