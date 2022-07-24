@@ -132,10 +132,10 @@
 * [[Option|Modifiers#global-modifiers]]
 * [[Control|Modifiers#global-modifiers]]
 * [[Alt|Modifiers#global-modifiers]]
-* [[Touch|Modifiers#touch]]
-* [[InvertFB|Modifiers#invertfb]]
-* [[Hold|Modifiers#hold]]
-* [[Flip|Modifiers#global-modifiers]]
+* [[Touch|Modifiers#Touch]]
+* [[InvertFB|Modifiers#InvertFB]]
+* [[Hold|Modifiers#Hold]]
+* [[Flip|Modifiers#Flip]]
 
 ## Reaper Actions
 ```    
