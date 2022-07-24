@@ -22,6 +22,6 @@ ZoneEnd
 The Redo action will redo the last action in Reaper (as long as an action captured by Reaper's Undo History was recently undone). Here it's being used with a Shift modifier combined with the Undo button on an MCU-style surface but the CSI action can be assigned to any button [or combination] on any surface.
 ```
 Zone "Buttons"
-    Shift+Undo     Undo
+    Shift+Undo     Redo
 ZoneEnd
 ```
