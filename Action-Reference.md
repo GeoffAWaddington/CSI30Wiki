@@ -136,6 +136,7 @@
 * [[InvertFB|Modifiers#InvertFB]]
 * [[Hold|Modifiers#Hold]]
 * [[Flip|Modifiers#Flip]]
+* [[Property|Modifiers#Property]]
 
 ## Reaper Actions
 ```    
