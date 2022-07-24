@@ -103,9 +103,9 @@
 * [[PageNameDisplay|Navigation Actions#gopage-nextpage-pagenamedisplay]]
 
 ### Project Actions
-* [[SaveProject]]
-* [[Undo]]
-* [[Redo]]
+* [[SaveProject|Project Actions#SaveProject]]
+* [[Undo|Project Actions#Undo]]
+* [[Redo|Project Actions#Redo]]
 
 ### VCA
 * [[TrackToggleVCASpill|VCA's-and-VCA-Spill#togglevcamode]]
