@@ -67,9 +67,23 @@ Use the FixedTextDisplay action when you want to show static text within one of 
 
 
 ## FixedRGBColourDisplay
-Use this if you want to have a supported display widget change color in a particular zone. The values in the squiggly brackets represent the RGB (red, green, blue) color values. Note the British spelling of color [colour] in the action name.
+Use this if you want to have a supported display widget change color in a particular zone. The values in the squiggly brackets represent the RGB (red, green, blue) color values. Note the British spelling of color [colour] in the action name. 
+
+In the below example, FixedRGBColourDisplay is being used to set the colors of certain buttons when entering a zone. In this case, when in the Pan zone, the Pan button will turn blue ( { 0 55 255 } ), and the other buttons will go dark ( { 0 5 20 } ).
 ```
-     SomeDisplay     FixedRGBColourDisplay { 255 0 0 }
+  Pan                   FixedRGBColourDisplay { 0 55 255 }
+
+  Channel               FixedRGBColourDisplay { 0 5 20 }
+  Channel               GoHome
+  Channel               GoSubZone "NavigatorChannel"
+
+  Scroll                FixedRGBColourDisplay { 0 5 20 }
+  Scroll                GoHome
+  Scroll                GoSubZone "NavigatorScroll"
+
+  Shift+Scroll          FixedRGBColourDisplay { 0 5 20 }
+  Shift+Scroll          GoHome
+  Shift+Scroll          GoSubZone "NavigatorZoom"
 ```
 
 ## ClearAllSolo
