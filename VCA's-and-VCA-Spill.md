@@ -1,6 +1,6 @@
 CSI offers the ability to spill VCA's onto your multi-fader surfaces. We won't get into how to create VCA's in Reaper other than to say there are plenty of videos and other resources on that topic like this one:
 
-https://www.youtube.com/watch?v=JZzR7-KSQMU&t=333s
+https://www.youtube.com/watch?v=JZzR7-KSQMU&t
 
 ## What is VCA spill? 
 One common mixing workflow involves creating multiple VCA faders to control the levels of entire groups of tracks. For instance, you may have VCA faders for each of your orchestral sections, or maybe one for drums, another for bass tracks, another for guitars, lead vocals, background vocals, etc. VCA's can be a great way to manage projects with large track counts and simplify mixing by minimizing the visible number of channels on your control surface.
