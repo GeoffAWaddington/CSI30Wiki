@@ -11,7 +11,7 @@ CSI supports MIDI, MCU and OSC.
 PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supported.
 
 
-* [[Overview]]
+* [[CSI Overview]]
 * [[Installation and Setup|Installation-and-Setup]]
   * [[Updating CSI|Installation-and-Setup#Installing CSI Updates]]
   * [[CSI.INI]]
