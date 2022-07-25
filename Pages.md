@@ -13,7 +13,7 @@ Pages allow you to have....
 1. Open Reaper's Preferences -> Control/OSC/Web
 2. Select CSI
 3. Click Edit to open the CSI Settings
-4. On the left side of the CSI Settings, you can add a Page by clicking the Add button
+4. On the middle-section of the CSI Settings, you can add a Page by clicking the Add button
 5. Highlight the name of the Page you want to edit from the left, and add or modify surfaces on the right-hand portion of the screen
 
 ![CSI Settings Add Page Image](https://i.imgur.com/02MHtzu.png)
