@@ -1,4 +1,4 @@
-In CSI, a Page is the highest level of the hierarchy - with each Page containing one or more surfaces, and each surface having an .mst (if MIDI/MCU) or .ost (if OSC) file which describes the surface properties as well as a zone folder defining what exactly that surface will do in Reaper. CSI requires that at least one page exist (called "Home" by default) before surfaces can be added. 
+In CSI, a Page is the highest level of the hierarchy - with each Page containing one or more surfaces, and each surface having an .mst (if MIDI/MCU) or .ost (if OSC) file which describes the surface properties as well as a zone folder defining what exactly that surface will do in Reaper. CSI requires that at least one page exist (called "HomePage" by default) before surfaces can be added. 
 
 But CSI allows you to create multiple Pages, with each Page containing the configuration information for whatever Surfaces and Actions you want CSI to recognize. Only one Page can be active in Reaper at any time, but you can switch between Pages easily and instantaneously similar to activating a zone. 
 
