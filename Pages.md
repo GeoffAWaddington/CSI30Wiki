@@ -16,11 +16,11 @@ Pages allow you to have....
 4. On the left side of the CSI Settings, you can add a Page by clicking the Add button
 5. Highlight the name of the Page you want to edit from the left, and add or modify surfaces on the right-hand portion of the screen
 
-![CSI Settings Add Page Image](https://i.imgur.com/GtvtjFF.png)
+![CSI Settings Add Page Image](https://i.imgur.com/02MHtzu.png)
 
-As a best practice, your first page should be called "Home" (if anything just for consistency). Any pages you create beyond that can be named whatever you'd like.
+CSI's included support files should already have a page called "HomePage" created for you to make first-time setup easy. If not there, as a best practice, your first page should be called "HomePage" (if anything just for consistency). Any pages you create beyond that can be named whatever you'd like.
 
-Now you can begin adding surfaces (Add MIDI or Add OSC buttons) and selecting which .mst/.osc and Zone folder each Page will utilize. See [Installation](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/Installation) for instructions on how to setup a surface.
+Now you can begin adding surfaces (Add MIDI or Add OSC buttons) and selecting which .mst/.osc and Zone folder each Page will utilize. See [Installation](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/Installation and Setup) for instructions on how to setup a surface.
 
 ## **Page Settings**
 If you select a Page and click the **Edit **button, there are some options for...
