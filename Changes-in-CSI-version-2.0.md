@@ -186,6 +186,8 @@ Widget Rotary1
 	FB_Encoder b0 10 7f
 WidgetEnd
 ```
+## RGB Color Fixes
+Reaper handles RGB colors differently between Mac and PC. A bug in CSI has been fixed to correct the RGB behavior on both platforms.
 
 ## TouchOSC can now run locally
 You can now use the TouchOSC [mk II] application running on your local machine as a control surface in CSI.
