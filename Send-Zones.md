@@ -20,7 +20,7 @@ Depending on the type of send zone you are creating, you will need to create a C
 
 Unmapping is a simple as triggering the action a second time or using the GoHome action (which is more of a brute force approach). 
 
-## Activating a Send Map
+## Activating a Send Zone
 You can activate the send map one of three ways. First, you can assign the mapping action above to a button like this...
 ```
 Zone "Buttons"
