@@ -109,8 +109,8 @@
 
 ### VCA
 * [[TrackToggleVCASpill|VCA's-and-VCA-Spill#togglevcamode]]
-* [[CycleTrackVCAFolderModes]]
-* [[TrackVCAFolderModeDisplay]]
+* [[CycleTrackVCAFolderModes|VCA's-and-VCA-Spill#cycletrackvcafoldermodes-trackvcafoldermodedisplay]]
+* [[TrackVCAFolderModeDisplay|VCA's-and-VCA-Spill#cycletrackvcafoldermodes-trackvcafoldermodedisplay]]
 
 ### Automation
 * [[TrackAutoMode|Automation-Actions#trackautomode]]
