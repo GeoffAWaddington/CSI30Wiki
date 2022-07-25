@@ -29,9 +29,8 @@ Once VCA Mode is enabled, you can assign a CSI action to spill the faders for an
 
 In the below example, we're using Alt+Select to toggle spilling the tracks feeding the VCA fader.
 ```` 
-Zone "Channel|"
-	TrackNavigator
-	Alt+Select|		TrackToggleVCASpill
+Zone "Track"
+     Alt+Select|      TrackToggleVCASpill
 ZoneEnd
 ```` 
 
