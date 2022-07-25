@@ -22,17 +22,6 @@ CSI's included support files should already have a page called "HomePage" create
 
 Now you can begin adding surfaces (Add MIDI or Add OSC buttons) and selecting which .mst/.osc and Zone folder each Page will utilize. See [Installation](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/Installation and Setup) for instructions on how to setup a surface.
 
-## **Page Settings**
-If you select a Page and click the **Edit **button, there are some options for...
-
-![CSI Page Settings Image](https://i.imgur.com/sdKCT8V.png)
-
-**Track visibility on surface follows**: select Mixer Control Panel to have the surface visibility follow Reaper's MCP or Track Control Panel to have it follow the TCP. Example: Reaper allows you to hide a track in Reaper's Mixer (MCP) but still keep it visible in the TCP. Would you want to see that track on your control surface? If no, because it's hidden in the mixer and therefore should be on the surface, set track visibility on the surface to follow the Mixer Control Panel. If you'd prefer, you can have surface visibility follow the TCP view. 
-
-**Banks with other checked Pages**: if checked, this will ensure your Pages will stay in 'sync'. So if you're banked to a particular place in the mixer and then change Pages, you stay in the same place.
-
-**Reaper GUI follows surface**: if checked, the on screen Mixer/Arrange window will bank with the surfaces. Can also be enabled/disabled with the [ToggleScrollLink](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/ToggleScrollLink) action.
-
 ## Paging Actions
 If using multiple Pages, the buttons on surface can be assigned to switch between Pages. Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages. In the below example, I have a Page called Home and another called Mix...
 
