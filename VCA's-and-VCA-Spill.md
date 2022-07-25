@@ -21,7 +21,7 @@ Zone "Buttons"
 ZoneEnd
 ```
 
-**Note:** The standard CSI TrackBank action will automatically bank VCA's and folder tracks.
+**Note:** The standard CSI [[TrackBank|Navigation Actions#TrackBank]] action will automatically bank VCA's and folder tracks.
 
 ## TrackToggleVCASpill
 Once VCA Mode is enabled, you can assign a CSI action to spill the faders for any selected VCA fader. You probably want to use a modifier in addition to your channel select button to do this. 
