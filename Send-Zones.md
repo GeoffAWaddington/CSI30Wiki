@@ -81,12 +81,12 @@ ZoneEnd
 The available send zone actions are shown below.
 
 * [[TrackSendVolume|Send-Zones#send-actions]]
+* [[TrackSendVolumeDisplay|Send-Zones#send-actions]]
 * [[TrackSendPan|Send-Zones#send-actions]]
+* [[TrackSendPanDisplay|Send-Zones#send-actions]]
 * [[TrackSendMute|Send-Zones#send-actions]]
 * [[TrackSendPrePost|Send-Zones#send-actions]]
+* [[TrackSendPrePostDisplay|Send-Zones#send-actions]]
 * [[TrackSendStereoMonoToggle|Send-Zones#send-actions]]
 * [[TrackSendInvertPolarity|Send-Zones#send-actions]]
 * [[TrackSendNameDisplay|Send-Zones#send-actions]]
-* [[TrackSendVolumeDisplay|Send-Zones#send-actions]]
-* [[TrackSendPanDisplay|Send-Zones#send-actions]]
-* [[TrackSendPrePostDisplay|Send-Zones#send-actions]]
