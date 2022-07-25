@@ -35,4 +35,4 @@ ZoneEnd
 
 So if I have "Drums VCA" fader with all my drum tracks, entering VCA Mode (by pressing the F1 widget like in the above example) will show me only the VCA tracks, then Alt+Selecting the Drum VCA will show me all the drum tracks controlled by that particular VCA fader. To hide those tracks, I'd simply Alt+Select the Drum VCA again. To exit VCA mode, I'd simple toggle VCA mode again.
 
-VCA spill is currently limited to one level (example: if your VCA drum group, had another subset of VCAs for Kick, Snare, and Toms - you could only spill the top-level VCA group).
+You can also spill multiple levels of VCAs! Example: if your VCA drum group, had another subset of VCAs for Kick, Snare, and ambient mics - you could spill the drums, then subsequently spill out one of the sub-VCAs.
