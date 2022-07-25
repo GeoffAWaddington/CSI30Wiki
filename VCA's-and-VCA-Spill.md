@@ -38,3 +38,12 @@ ZoneEnd
 So if I have "Drums VCA" fader with all my drum tracks, entering VCA Mode (by pressing the F1 widget like in the above example) will show me only the VCA tracks, then Alt+Selecting the Drum VCA will show me all the drum tracks controlled by that particular VCA fader. To hide those tracks, I'd simply Alt+Select the Drum VCA again. To exit VCA mode, I'd simple toggle VCA mode again.
 
 You can also spill multiple levels of VCAs.
+
+## CycleTrackVCAFolderModes, TrackVCAFolderModeDisplay
+On an MCU or X-Touch TrackVCAFolderModeDisplay will display the overall 'mode' CSI is currently in, on the LED display labelled 'Assignment' immediately to then left of the SMPTE/Beats indicators. On an X-Touch, it's immediately to the left of the master solo indicator.
+
+CycleTrackVCAFolderModes will cycle through the various modes: 1) Normal (i.e. regular track display); 2) VCA (VCA leaders); or 3) Folder (top level folders).
+
+
+    nameValue                 CycleTrackVCAFolderModes
+    AssignmentDisplay         TrackVCAFolderModeDisplay
