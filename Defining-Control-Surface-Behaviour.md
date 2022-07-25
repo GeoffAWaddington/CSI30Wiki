@@ -18,6 +18,6 @@ Inside each .zon file we create a Zone to map the widgets on this surface to the
 
 At this stage there are primarily two types of Zones that we can define:
 * [[Zones that control general Reaper functionality|Zones]]. eg. the Tracks in our project, the Transport controls, our Track Sends, etc
-* [[Zones that control VST instruments/FX inside Reaper|FX Zones]]. eg. How to map the parameters of your EQ, Reverb, etc on the selected track across your surfaces.
+* [[Zones that control VST instruments/FX inside Reaper|FX-and-Instrument-Mapping]]. eg. How to map the parameters of your EQ, Reverb, etc on the selected track across your surfaces.
 
-They are both defined as Zones in .zon files, but there are some additional details for [[FX Zones that are worth discussing|FX Zones]]. 
+They are both defined as Zones in .zon files, but there are some additional details for [[FX Zones that are worth discussing|FX-and-Instrument-Mapping]]. 
