@@ -20,7 +20,7 @@ Pages allow you to have....
 
 CSI's included support files should already have a page called "HomePage" created for you to make first-time setup easy. If not there, as a best practice, your first page should be called "HomePage" (if anything just for consistency). Any pages you create beyond that can be named whatever you'd like.
 
-Now you can begin adding surfaces (Add MIDI or Add OSC buttons) and selecting which .mst/.osc and Zone folder each Page will utilize. See [Installation](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/Installation and Setup) for instructions on how to setup a surface.
+Now you can begin adding surfaces (Add MIDI or Add OSC buttons) and selecting which .mst/.osc and Zone folder each Page will utilize. See [[Installation|Installation-and-Setup]] for instructions on how to setup a surface.
 
 ## Paging Actions
 If using multiple Pages, the buttons on surface can be assigned to switch between Pages. Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages. In the below example, I have a Page called Home and another called Mix...
