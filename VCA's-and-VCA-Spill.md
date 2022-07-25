@@ -21,6 +21,8 @@ Zone "Buttons"
 ZoneEnd
 ```
 
+**Note:** The standard CSI TrackBank action will automatically bank VCA's and folder tracks.
+
 ## TrackToggleVCASpill
 Once VCA Mode is enabled, you can assign a CSI action to spill the faders for any selected VCA fader. You probably want to use a modifier in addition to your channel select button to do this. 
 
@@ -33,4 +35,4 @@ ZoneEnd
 
 So if I have "Drums VCA" fader with all my drum tracks, entering VCA Mode (by pressing the F1 widget like in the above example) will show me only the VCA tracks, then Alt+Selecting the Drum VCA will show me all the drum tracks controlled by that particular VCA fader. To hide those tracks, I'd simply Alt+Select the Drum VCA again. To exit VCA mode, I'd simple toggle VCA mode again.
 
-You can also spill multiple levels of VCAs.
+VCA spill is currently limited to one level (example: if your VCA drum group, had another subset of VCAs for Kick, Snare, and Toms - you could only spill the top-level VCA group).
