@@ -32,21 +32,22 @@ The first time you install CSI, you will need to additionally add a CSI folder t
 Now that you have successfully installed CSI and the Support Files, the next step is to setup your devices for the first time.
 
 1. In Reaper, go to Options>Preferences (or just Ctrl+P) (a new window will appear).
-2. Scroll down to the bottom and click on Control/OSC/web. **Note:** while on this screen, it is recommended to uncheck the box next to "Close control surface devices when stopped and not active application" as this will disconnect CSI when Reaper is not the focused application (unless that's what you want).
-3. Now, while still on the Control/OSC/Web preferences window, click on "Add" (a new window will open).
-4. Click on the empty dropdown beside "control surface mode" and select "Control Surface Integrator" - this will now show the settings for CSI. 
-5. There is a default Page ("HomePage") already defined to get you started. If you do not see one, click "Add" under the Pages section and create a page called "HomePage".
-6. Under the "Surfaces" section on the left, click "Add MIDI" or "Add OSC" depending on what type of Surface you are trying to add.
-7. **If adding a MIDI surface**, enter a name for your surface, and select the MIDI In and Out ports that correspond to your device. **Important note:** the MIDI Devices must be disabled in Reaper's Preferences -> MIDI Devices in order for CSI to access the MIDI ports.
-8. **If adding an OSC surface**, enter a name for your surface. In the "Remote Device IP Address" field, add the IP address of the device (phone, tablet, PC) running the OSC host software. Next, enter the "CSI receives on port" number (this corresponds to the send port number in your OSC host application). Finally, enter the "CSI sends to port" number (this corresponds to the receive port number in your OSC host application).
-9. Click ok to save the device and repeat as needed for additional devices.
-10. In the "Pages" section of the CSI Setup screen, click on "HomePage". For additional information, see [[Pages]].
-11. Now, on the "Assignments" section on the right, click "Add" to begin adding the Control Surfaces you just setup to the "HomePage"
-12. First, you will select the device name from the dropdown
-13. Enter the number of channels on your surface (Example: X-Touch/MCU devices have 8 channels)
-14. Enter the Channel Start Position (this is 0 by default, but if you're using multiple surfaces, you would use this to offset the start position on the second surface)
-15. Select the Surface (.mst) file that corresponds to your surface*
-16. Select the Zone folder that corresponds to your surface*
+2. Go to **Preferences>Audio>MIDI Devices** and make sure any MIDI-based control surfaces you plan on using in CSI show their "Mode" as "disabled" in both the Inputs and Outputs section. CSI needs access to these MIDI ports to function properly. Stay in the Preferences screen. 
+3. Next, go to **Preferences>Control/OSC/web**. **Note:** while on this screen, it is recommended to uncheck the box next to "Close control surface devices when stopped and not active application" as this will disconnect CSI when Reaper is not the focused application (unless that's what you want).
+4. Now, while still on the Control/OSC/Web preferences window, click on "Add" (a new window will open).
+5. Click on the empty dropdown beside "control surface mode" and select "Control Surface Integrator" - this will now show the settings for CSI. **Note:** you should never have more than one instance of CSI configured simultaneously.
+6. There is a default Page ("HomePage") already defined to get you started. If you do not see one, click "Add" under the Pages section and create a page called "HomePage".
+7. Under the "Surfaces" section on the left, click "Add MIDI" or "Add OSC" depending on what type of Surface you are trying to add.
+8. **If adding a MIDI surface**, enter a name for your surface, and select the MIDI In and Out ports that correspond to your device. 
+9. **If adding an OSC surface**, enter a name for your surface. In the "Remote Device IP Address" field, add the IP address of the device (phone, tablet, PC) running the OSC host software. Next, enter the "CSI receives on port" number (this corresponds to the send port number in your OSC host application). Finally, enter the "CSI sends to port" number (this corresponds to the receive port number in your OSC host application).
+10. Click ok to save the device and repeat as needed for additional devices.
+11. In the "Pages" section of the CSI Setup screen, click on "HomePage". For additional information, see [[Pages]].
+12. Now, on the "Assignments" section on the right, click "Add" to begin adding the Control Surfaces you just setup to the "HomePage"
+13. First, you will select the device name from the dropdown
+14. Enter the number of channels on your surface (Example: X-Touch/MCU devices have 8 channels)
+15. Enter the Channel Start Position (this is 0 by default, but if you're using multiple surfaces, you would use this to offset the start position on the second surface)
+16. Select the Surface (.mst) file that corresponds to your surface*
+17. Select the Zone folder that corresponds to your surface*
 
 *In CSI, each [[Page|Pages]] can utilize different .mst files and zone folders. This why you first create the Surfaces, then select the Page, then assign the Surface to each Page and define their behavior on each page.
 
