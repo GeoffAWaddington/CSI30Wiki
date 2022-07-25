@@ -34,7 +34,7 @@ Zone "Buttons"
 ZoneEnd
 ```
 
-**Note:** The TrackBank action will automatically bank VCA and Folder tracks when CSI's [[CycleTrackVCAFolderModes|VCA's-and-VCA-Spill#cycletrackvcafoldermodes-trackvcafoldermodedisplay] action is set to one of those respective modes.  
+**Note:** The TrackBank action will automatically bank VCA and Folder tracks when CSI's [[CycleTrackVCAFolderModes|VCA's-and-VCA-Spill#cycletrackvcafoldermodes-trackvcafoldermodedisplay]] action is set to one of those respective modes.  
 
 ## SelectedTrackBank
 This action works similarly to TrackBank but selects the track in Reaper. Use this in a selected track style workflow.
