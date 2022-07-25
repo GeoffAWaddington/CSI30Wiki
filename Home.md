@@ -47,4 +47,4 @@ PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supp
   * [UNdark's latest install and configure video](https://www.youtube.com/watch?v=mP75PTZuMPM)
   * [My configuration](https://github.com/malcolmgroves/reaper_csi)
   * [Some config files courtesy siniarch](https://siniarch.wixsite.com/csiconfigfiles)
-  * [Recent Doc Changes](GeoffAWaddington/CSIWiki/wiki/_history)
+  * [Recent Doc Changes](https://github.com/GeoffAWaddington/CSIWiki/wiki/_history)
