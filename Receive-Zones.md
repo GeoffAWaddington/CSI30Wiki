@@ -80,16 +80,75 @@ Zone "TrackReceive"
 ZoneEnd
 ```
 
-## Receive Actions
-The available receive actions are shown below.
+# Receive Actions
+The available Receive zone actions are shown below.
+
+* [[TrackReceiveNameDisplay|Receive-Zones#TrackReceiveNameDisplay]]
+* [[TrackReceiveVolume|Receive-Zones#trackReceivevolume-trackReceivevolumedisplay]]
+* [[TrackReceiveVolumeDisplay|Receive-Zones##trackReceivevolume-trackReceivevolumedisplay]]
+* [[TrackReceivePan|Receive-Zones#trackReceivepan-trackReceivepandisplay]]
+* [[TrackReceivePanDisplay|Receive-Zones#trackReceivepan-trackReceivepandisplay]]
+* [[TrackReceivePrePost|Receive-Zones#trackReceiveprepost-trackReceiveprepostdisplay]]
+* [[TrackReceivePrePostDisplay|Receive-Zones#trackReceiveprepost-trackReceiveprepostdisplay]]
+* [[TrackReceiveMute|Receive-Zones#trackReceivemute]]
+* [[TrackReceiveStereoMonoToggle|Receive-Zones#trackReceivestereomonotoggle]]
+* [[TrackReceiveInvertPolarity|Receive-Zones#trackReceiveinvertpolarity]]
+
+## TrackReceiveNameDisplay
+Use the TrackReceiveNameDisplay action in a "TrackReceive" or "SelectedTrackReceive" zone to display the name of the Receive channel.
 ```
-TrackReceiveVolume
-TrackReceivePan
-TrackReceiveMute
-TrackReceivePrePost
-TrackReceiveInvertPolarity
-TrackReceiveNameDisplay
-TrackReceiveVolumeDisplay
-TrackReceivePanDisplay
-TrackReceivePrePostDisplay
+Zone "TrackReceive"
+	DisplayLower| 		    TrackReceiveNameDisplay
+ZoneEnd
+```
+
+## TrackReceiveVolume, TrackReceiveVolumeDisplay
+Use the TrackReceiveVolume action in a "TrackReceive" or "SelectedTrackReceive" zone to control the Receive level. TrackReceiveVolumeDisplay can be used in a display widget to show the volume level.
+```
+Zone "TrackReceive"
+    	Fader|Touch+DisplayLower|   TrackReceiveVolumeDisplay
+    	Fader|                      TrackReceiveVolume
+ZoneEnd
+```
+
+## TrackReceivePan, TrackReceivePanDisplay
+Use the TrackReceivePan action in a "TrackReceive" or "SelectedTrackReceive" zone to control the Receive panning. TrackReceivePanDisplay can be used in a display widget to show the pan position.
+```
+Zone "TrackReceive"
+    	DisplayLower|               TrackReceivePanDisplay
+    	Rotary|                     TrackReceivePan
+ZoneEnd
+```
+
+## TrackReceivePrePost, TrackReceivePrePostDisplay
+Use the TrackReceivePrePost action in a "TrackReceive" or "SelectedTrackReceive" zone to cycle through whether the Receive is 1) Post-Fader (Post-Pan), 2) Pre-Fader (Post-FX), or 3) Pre-FX. TrackReceivePrePostDisplay can be used in a display widget to show the current value.
+```
+Zone "TrackReceive"
+    	Shift+DisplayLower|         TrackReceivePrePostDisplay
+    	Shift+RotaryPush|           TrackReceivePrePost
+ZoneEnd
+```
+
+## TrackReceiveMute
+Use the TrackReceiveMute action in a "TrackReceive" or "SelectedTrackReceive" zone to toggle muting the Receive.
+```
+Zone "TrackReceive"
+    	Mute|                       TrackReceiveMute
+ZoneEnd
+```
+
+## TrackReceiveStereoMonoToggle
+Use the TrackReceiveStereoMonoToggle action in a "TrackReceive" or "SelectedTrackReceive" zone to toggle between a stereo (default) and mono Receive.
+```
+Zone "TrackReceive"
+    	Shift+Mute|                 TrackReceiveStereoMonoToggle
+ZoneEnd
+```
+
+## TrackReceiveInvertPolarity
+Use the TrackReceiveInvertPolarity action in a "TrackReceive" or "SelectedTrackReceive" zone to invert the polarity of the Receive.
+```
+Zone "TrackReceive"
+    	Alt+Mute|                   TrackReceiveInvertPolarity
+ZoneEnd
 ```
