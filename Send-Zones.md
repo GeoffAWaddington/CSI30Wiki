@@ -80,16 +80,16 @@ ZoneEnd
 # Send Actions
 The available send zone actions are shown below.
 
-* [[TrackSendNameDisplay|Send-Zones#send-actions]]
-* [[TrackSendVolume|Send-Zones#send-actions]]
-* [[TrackSendVolumeDisplay|Send-Zones#send-actions]]
-* [[TrackSendPan|Send-Zones#send-actions]]
-* [[TrackSendPanDisplay|Send-Zones#send-actions]]
-* [[TrackSendPrePost|Send-Zones#send-actions]]
-* [[TrackSendPrePostDisplay|Send-Zones#send-actions]]
-* [[TrackSendMute|Send-Zones#send-actions]]
-* [[TrackSendStereoMonoToggle|Send-Zones#send-actions]]
-* [[TrackSendInvertPolarity|Send-Zones#send-actions]]
+* [[TrackSendNameDisplay|Send-Zones#TrackSendNameDisplay]]
+* [[TrackSendVolume|Send-Zones#tracksendvolume-tracksendvolumedisplay]]
+* [[TrackSendVolumeDisplay|Send-Zones##tracksendvolume-tracksendvolumedisplay]]
+* [[TrackSendPan|Send-Zones#tracksendpan-tracksendpandisplay]]
+* [[TrackSendPanDisplay|Send-Zones#tracksendpan-tracksendpandisplay]]
+* [[TrackSendPrePost|Send-Zones#tracksendprepost-tracksendprepostdisplay]]
+* [[TrackSendPrePostDisplay|Send-Zones#tracksendprepost-tracksendprepostdisplay]]
+* [[TrackSendMute|Send-Zones#tracksendmute]]
+* [[TrackSendStereoMonoToggle|Send-Zones#tracksendstereomonotoggle]]
+* [[TrackSendInvertPolarity|Send-Zones#tracksendinvertpolarity]]
 
 ## TrackSendNameDisplay
 Use the TrackSendNameDisplay action in a "TrackSend" or "SelectedTrackSend" zone to display the name of the send.
