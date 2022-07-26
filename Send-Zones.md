@@ -80,13 +80,72 @@ ZoneEnd
 # Send Actions
 The available send zone actions are shown below.
 
+* [[TrackSendNameDisplay|Send-Zones#send-actions]]
 * [[TrackSendVolume|Send-Zones#send-actions]]
 * [[TrackSendVolumeDisplay|Send-Zones#send-actions]]
 * [[TrackSendPan|Send-Zones#send-actions]]
 * [[TrackSendPanDisplay|Send-Zones#send-actions]]
-* [[TrackSendMute|Send-Zones#send-actions]]
 * [[TrackSendPrePost|Send-Zones#send-actions]]
 * [[TrackSendPrePostDisplay|Send-Zones#send-actions]]
+* [[TrackSendMute|Send-Zones#send-actions]]
 * [[TrackSendStereoMonoToggle|Send-Zones#send-actions]]
 * [[TrackSendInvertPolarity|Send-Zones#send-actions]]
-* [[TrackSendNameDisplay|Send-Zones#send-actions]]
+
+## TrackSendNameDisplay
+Use the TrackSendNameDisplay action in a "TrackSend" or "SelectedTrackSend" zone to display the name of the send.
+```
+Zone "TrackSend"
+	DisplayLower| 		    TrackSendNameDisplay
+ZoneEnd
+```
+
+## TrackSendVolume, TrackSendVolumeDisplay
+Use the TrackSendVolume action in a "TrackSend" or "SelectedTrackSend" zone to control the Send level. TrackSendVolumeDisplay can be used in a display widget to show the volume level.
+```
+Zone "TrackSend"
+    	Fader|Touch+DisplayLower|   TrackSendVolumeDisplay
+    	Fader|                      TrackSendVolume
+ZoneEnd
+```
+
+## TrackSendPan, TrackSendPanDisplay
+Use the TrackSendPan action in a "TrackSend" or "SelectedTrackSend" zone to control the Send panning. TrackSendPanDisplay can be used in a display widget to show the pan position.
+```
+Zone "TrackSend"
+    	DisplayLower|               TrackSendPanDisplay
+    	Rotary|                     TrackSendPan
+ZoneEnd
+```
+
+## TrackSendPrePost, TrackSendPrePostDisplay
+Use the TrackSendPrePost action in a "TrackSend" or "SelectedTrackSend" zone to cycle through whether the send is 1) Post-Fader (Post-Pan), 2) Pre-Fader (Post-FX), or 3) Pre-FX. TrackSendPrePostDisplay can be used in a display widget to show the current value.
+```
+Zone "TrackSend"
+    	Shift+DisplayLower|         TrackSendPrePostDisplay
+    	Shift+RotaryPush|           TrackSendPrePost
+ZoneEnd
+```
+
+## TrackSendMute
+Use the TrackSendMute action in a "TrackSend" or "SelectedTrackSend" zone to toggle muting the send.
+```
+Zone "TrackSend"
+    	Mute|                       TrackSendMute
+ZoneEnd
+```
+
+## TrackSendStereoMonoToggle
+Use the TrackSendStereoMonoToggle action in a "TrackSend" or "SelectedTrackSend" zone to toggle between a stereo (default) and mono send.
+```
+Zone "TrackSend"
+    	Shift+Mute|                 TrackSendStereoMonoToggle
+ZoneEnd
+```
+
+## TrackSendInvertPolarity
+Use the TrackSendInvertPolarity action in a "TrackSend" or "SelectedTrackSend" zone to invert the polarity of the send.
+```
+Zone "TrackSend"
+    	Alt+Mute|                   TrackSendInvertPolarity
+ZoneEnd
+```
