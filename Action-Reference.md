@@ -38,16 +38,16 @@
 * [[TrackOutputMeterMaxPeakLR|Track-Actions#TrackOutputMeterMaxPeakLR]]
 
 ### Track Sends
-* [[TrackSendNameDisplay|Send-Zones#TrackSendNameDisplay]]
-* [[TrackSendVolume|Send-Zones#tracksendvolume-tracksendvolumedisplay]]
-* [[TrackSendVolumeDisplay|Send-Zones##tracksendvolume-tracksendvolumedisplay]]
-* [[TrackSendPan|Send-Zones#tracksendpan-tracksendpandisplay]]
-* [[TrackSendPanDisplay|Send-Zones#tracksendpan-tracksendpandisplay]]
-* [[TrackSendPrePost|Send-Zones#tracksendprepost-tracksendprepostdisplay]]
-* [[TrackSendPrePostDisplay|Send-Zones#tracksendprepost-tracksendprepostdisplay]]
-* [[TrackSendMute|Send-Zones#tracksendmute]]
-* [[TrackSendStereoMonoToggle|Send-Zones#tracksendstereomonotoggle]]
-* [[TrackSendInvertPolarity|Send-Zones#tracksendinvertpolarity]]
+* [[TrackSendVolume|Send-Zones#send-actions]]
+* [[TrackSendPan|Send-Zones#send-actions]]
+* [[TrackSendMute|Send-Zones#send-actions]]
+* [[TrackSendPrePost|Send-Zones#send-actions]]
+* [[TrackSendStereoMonoToggle|Send-Zones#send-actions]]
+* [[TrackSendInvertPolarity|Send-Zones#send-actions]]
+* [[TrackSendNameDisplay|Send-Zones#send-actions]]
+* [[TrackSendVolumeDisplay|Send-Zones#send-actions]]
+* [[TrackSendPanDisplay|Send-Zones#send-actions]]
+* [[TrackSendPrePostDisplay|Send-Zones#send-actions]]
 
 ### Track Receives
 * [[TrackReceiveVolume|Receive-Zones#receive-actions]]
