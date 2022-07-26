@@ -1,5 +1,7 @@
 The Control Surface Integrator (CSI) is a Reaper plugin that aims to let you integrate your hardware control surfaces into Reaper with a much higher level of control than is possible out of the box. If you're prepared to put in the effort to customize your configuration, you will be able to integrate one or more MIDI, MCU, or OSC, control surfaces into a single virtual surface.
 
+Note: CSI requires access to the MIDI Devices and needs them disabled in Reaper's Preferences>Audio>MIDI Devices. For this reason, CSI may not be ideal for use with MIDI Controller Keyboards that will require notes to be passed along to Reaper in addition to the control functions. However, users have successfully implemented work arounds by using BOME MIDI Translator to split out note versus control data and creating a virtual MIDI port for use with CSI and the control data.
+
 ## High-level Concepts
 
 ### Pages
