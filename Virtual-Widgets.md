@@ -10,4 +10,4 @@ The Virtual Widgets currently defined are:
 * OnTrackSelection - fires when a track is selected in Reaper. 
 * OnPageEnter - fires after a new Page has been entered.
 * OnPageLeave - fires before the the old Page has been exited.
-* OnInitialization -- fires when CSI initializes -- not valid for EuCon -- if needed for EuCon, will add later
+* OnInitialization -- fires when CSI initializes 
