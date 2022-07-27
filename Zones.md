@@ -25,19 +25,24 @@ ZoneEnd
 Provided our [[CSI.INI]] and Widget definitions are setup correctly, this should allow us to control the Play button from our Surface.
 
 
-## One Zone Per File (CSI 1.1 and Up)
-CSI version 1.1 introduced a major change in that now you can only have one zone per file. In the past, a surface.zon file was usually comprised of multiple zones like: Home, Track, Button, Mastertrack, Jogwheel, SelectedTrackSends. Starting with CSI 1.1, these now need to be separate files. A similar CSI 1.1 surface would now be comprised of multiple files like:
-
+## One Zone Per File 
+CSI requires that a single zone exist in each .zon file. For example: a typical MCU-style zone folder would be made up of multiple .zon files such as...
 ```
 Home.zon
 Track.zon
-Button.zon
-MasterTrack.zon
-JogWheel.zon
+TrackSend.zon
+TrackReceive.zon
+TrackFXMenu.zon
 SelectedTrackSend.zon
+SelectedTrackReceive.zon
+SelectedTrackFXMenu.zon
+Buttons.zon
+MasterTrack.zon
+Marker.zon
+FocusedFXParam.zon
 ``` 
 
-This change immensely improves performance when you have a large number of FX.zon's but also has the added benefit of making it easier to borrow other people's zones and more easily add them to your setup. Example: if you see a SelectedTrackSendSlot.zon file that works, you can just copy and paste that into your surface folder, and just add the appropriate mapping action to your home.zon.
+This makes it easier to borrow other people's zones and add them to your setup. Example: if you see a SelectedTrackSendSlot.zon file that works for the X-Touch, you can just copy and paste that into your surface folder, and use that with a Mackie Universal as long as the widget names are the same.
 
 **Tip:** within each **\CSI\Zones\[Surface]** folder, it's probably a best practice to create an "FX Zones" sub-folder if you plan on mapping FX. This way, your surface zone files can all live together in the root of the folder, and all of your fx zones can exist in the **\CSI\Zones\[Surface]\FX Zones** folder, away from the surface files. Not a requirement, but will help keep things tidy.
 
