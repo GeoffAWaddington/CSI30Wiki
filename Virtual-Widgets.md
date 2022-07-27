@@ -26,7 +26,7 @@ ZoneEnd
 ```
 
 ## OnTrackSelection 
-OnTrackSelection is another virtual widget and will fire every time you select a new track in Reaper. Example: maybe you want clicking on a new track to return to your home.zon and close the GUI of any open plugin windows. You can automate all of that by doing something like this.
+OnTrackSelection is another virtual widget and will fire every time you select a new track in Reaper. Example: maybe you want selecting a new track to return to your home.zon and close the GUI of any open plugin windows. You can automate all of that by doing something like this.
 ```
 Zone "Home"
 OnTrackSelection          GoHome
