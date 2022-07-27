@@ -11,7 +11,7 @@ The Virtual Widgets currently defined are:
 * [[OnPageLeave|Virtual Widgets#OnPageLeave]] - fires before the old Page has been exited.
 
 ## OnInitialization
-The OnInitialization virtual widget belongs in your home.zon file and fires when CSI is initialized. This can be useful for setting the default state of toggles. For instance, OnInitialization could be to turn Focused FX mapping to an off state (it is on by default). If you're using an FX Menu, this is probably something you'd want off by default. This would be as simple as adding OnInitialization ToggleEnableFocusedFXMapping to your home zone.
+The OnInitialization virtual widget belongs in your home.zon file and fires when CSI is initialized. For instance, OnInitialization could be to turn Focused FX mapping (ToggleEnableFocusedFXMapping) to an off state as it is on by default. If you're using an FX Menu, this is probably something you'd want off by default. This would be as simple as adding OnInitialization ToggleEnableFocusedFXMapping to your home zone.
 ```
 Zone "Home"
 OnInitialization ToggleEnableFocusedFXMapping 
