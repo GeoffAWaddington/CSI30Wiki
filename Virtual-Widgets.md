@@ -43,7 +43,52 @@ ZoneEnd
 ```
 
 ## OnPageEnter
-OnPageEnter will fire an action when a new [[Page|Pages]] is activated in CSI. 
+OnPageEnter will fire an action when a new [[Page|Pages]] is activated in CSI. Note: if you wanted this same action to occur when Reaper/CSI is initialized, then you'd need to combine that with an OnInitialization virtual widget and action.
+
+For instance, in the Home.zon on one of my surfaces in my "HomePage", I may have this to set a particular screenset on startup and page enter.
+```
+Zone "Home"
+OnInitialization Reaper 40454     // Screenset: Load window set #01        
+OnPageEnter      Reaper 40454     // Screenset: Load window set #01          
+     IncludedZones
+          "SelectedTrack"
+          "Buttons"
+          "SelectedTrackFXMenu"
+          "SelectedTrackSend"
+          "SelectedTrackReceive"
+     IncludedZonesEnd
+ZoneEnd  
+```
+
+And in the Home.zon on that same surface I may have this on a hypothetical "Mix" page to load Screenset #2 whenever I enter that page, but then it will also automatically run the SWS action to then toggle the narrow mixer mode..
+```
+Zone "Home"    
+OnPageEnter      Reaper 40455                  // Screenset: Load window set #02
+OnPageEnter      Reaper _S&M_CYCLACTION_17     // Narrow Mixer Toggle
+     IncludedZones
+          "SelectedTrack"
+          "Buttons"
+          "SelectedTrackFXMenu"
+          "SelectedTrackSend"
+          "SelectedTrackReceive"
+     IncludedZonesEnd
+ZoneEnd  
+```
 
 ## OnPageLeave
-OnPageEnter will fire an action just prior to exiting the current [[Page|Pages]] in CSI. 
+OnPageEnter will fire an action just prior to exiting the current [[Page|Pages]] in CSI. Expanding on the above example, entering the "Mix" Page toggles the narrow mixer mode, and exiting the "Mix" Page automatically toggles it back. 
+
+```
+Zone "Home"    
+OnPageEnter      Reaper 40455                  // Screenset: Load window set #02
+OnPageEnter      Reaper _S&M_CYCLACTION_17     // Narrow Mixer Toggle
+OnPageLeave      Reaper _S&M_CYCLACTION_17     // Narrow Mixer Toggle
+     IncludedZones
+          "SelectedTrack"
+          "Buttons"
+          "SelectedTrackFXMenu"
+          "SelectedTrackSend"
+          "SelectedTrackReceive"
+     IncludedZonesEnd
+ZoneEnd  
+```
