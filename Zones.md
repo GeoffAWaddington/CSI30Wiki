@@ -49,17 +49,17 @@ This makes it easier to borrow other people's zones and add them to your setup. 
 ## Naming Zones / Fixed Zone Types
 Starting in CSI v2.0, Zones and AssociatedZones must have a fixed name. These zone types are:
 
-* **Home **- This zone is required and is the 'starting state' for CSI
-* **Buttons **- This zone is generally used for assigning buttons to CSI and Reaper actions
-* **Track **- Used when you want to control multiple channels across multiple widgets (e.g. 8 faders assigned to 8 channels)
-* **SelectedTrack **- Used for controlling the selected track in Reaper (commonly used for 1 fader surfaces)
-* **MasterTrack **- This is for assigning the master track fader to your surface
-* **SelectedTrackFXMenu **- Used for activating FX.zon files - shows the FX slots of the selected channel
-* **SelectedTrackSend **- Used for controlling the various sends on the selected channel
-* **SelectedTrackReceive **- Used for controlling the various Receives (if any) on the selected channel
-* **TrackFXMenu **- Used for activating FX.zon files - shows the same FX Slot across multiple channels
-* **TrackSend **- Used for controlling the same Send slot across multiple channels
-* **TrackReceive **- Used for controlling the same Receive slot across multiple channels  
+* **Home**- This zone is required and is the 'starting state' for CSI
+* **Buttons**- This zone is generally used for assigning buttons to CSI and Reaper actions
+* **Track**- Used when you want to control multiple channels across multiple widgets (e.g. 8 faders assigned to 8 channels)
+* **SelectedTrack**- Used for controlling the selected track in Reaper (commonly used for 1 fader surfaces)
+* **MasterTrack**- This is for assigning the master track fader to your surface
+* **SelectedTrackFXMenu**- Used for activating FX.zon files - shows the FX slots of the selected channel
+* **SelectedTrackSend**- Used for controlling the various sends on the selected channel
+* **SelectedTrackReceive**- Used for controlling the various Receives (if any) on the selected channel
+* **TrackFXMenu**- Used for activating FX.zon files - shows the same FX Slot across multiple channels
+* **TrackSend**- Used for controlling the same Send slot across multiple channels
+* **TrackReceive**- Used for controlling the same Receive slot across multiple channels  
 
 
 ## Activating Zones
