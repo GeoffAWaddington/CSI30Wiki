@@ -1,24 +1,3 @@
-## Latching Modifiers
-If your surface sends release messages on button press, then you can do a quick press and release to "latch" a modifier. Example: let's say you want to use a few actions that require a Shift modifier. Quickly pressing and releasing the Shift button will engage the latch mode, which is the same as continuing to hold down the Shift button. A quick press and release turns the latching off.
-
-## Chaining Multiple Modifiers
-You're not limited to one modifier like Shift or Control or Alt. You can combine them to add additional capabilities to your surface. Here are some examples of what that might look like...
-
-```
-Shift+Control+Button
-Control+Alt+Button
-Shift+Control+Alt+Button
-Shift+Control+Alt+Option+Button
-```
-
-## Modifiers Work on Displays Too!
-Did you know that you can use modifiers on your displays? Here is an example where the lower displays show the track volume, until you hold down Shift, when the TrackPans are displayed. 
-
-```
-     DisplayLower|                      TrackVolumeDisplay
-     Shift+DisplayLower|                MCUTrackPanDisplay
-```
-
 ## You Can Chain Actions For CSI "Macros"
 Want to run a few actions in a set sequence? Just create multiple lines in your .zon files with the actions in the order you want. CSI will trigger each action in the order from the .zon file similar to running a custom action (or macro). In this example, holding select will 1) select the track, 2) toggle the mixer setting to show/hide children in folders (which would only apply if a parent folder track), and 3) toggle VCA spill (which would only apply if a VCA master track).
 
