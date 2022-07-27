@@ -71,14 +71,26 @@ ZoneEnd
 
 Modifiers are global to a page, and as long as they are defined in a zone somewhere in that page, they can be used anywhere.
 
-You can also combine them together, such as:
+## Latching Modifiers
+If your surface sends release messages on button press, then you can do a quick press and release to "latch" a modifier. Example: let's say you want to use a few actions that require a Shift modifier. Quickly pressing and releasing the Shift button will engage the latch mode, which is the same as continuing to hold down the Shift button. A quick press and release turns the latching off.
 
-````    
-Shift+Control+Option+Alt+SomeButton SomeAction    
-````    
-etc., but note that Shift+Control is the same as Control+Shift
+## Chaining Multiple Modifiers
+You're not limited to one modifier like Shift or Control or Alt. You can combine them to add additional capabilities to your surface. Here are some examples of what that might look like...
 
-**Tip:** If you've defined a Shift modifier, a quick press of that button will enter a latching mode where the Shift modifier will remain active until pressed again.
+```
+Shift+Control+Button
+Control+Alt+Button
+Shift+Control+Alt+Button
+Shift+Control+Alt+Option+Button
+```
+
+## Modifiers Work on Displays Too!
+Did you know that you can use modifiers on your displays? Here is an example where the lower displays show the track volume, until you hold down Shift, when the TrackPans are displayed. 
+
+```
+     DisplayLower|                      TrackVolumeDisplay
+     Shift+DisplayLower|                MCUTrackPanDisplay
+```
 
 # Built-in Modifiers
 
