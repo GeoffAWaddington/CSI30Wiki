@@ -33,12 +33,11 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 # Feedback Processors 
 
 * [[FB_TwoState]]
-* [[FB_ Fader14Bit]]
-* [[FB_ Fader7Bit]]
-* [[FB_ Encoder]]
+* [[FB_Fader14Bit]]
+* [[FB_Fader7Bit]]
+* [[FB_Encoder]]
 * [[FB_VUMeter]] 
 * [[FB_GainReductionMeter]] 
-* [[FB_QConProXMasterVUMeter]] 
 * [[FB_MCUTimeDisplay]] 
 * [[FB_MCUVUMeter]] 
 * [[FB_MCUDisplayUpper]] 
@@ -48,6 +47,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_MCUC4DisplayUpper]] 
 * [[FB_MCUC4DisplayLower]]
 * [[FB_MCUAssigmentDisplay]]
+* [[FB_FaderportRGB7Bit]]
 * [[FB_FP8Display|FaderPort8-And-FaderPort16-Feedback-Displays]]
 * [[FB_FP16Display|FaderPort8-And-FaderPort16-Feedback-Displays]]
 * [[FB_FP8DisplayUpper|FaderPort8-And-FaderPort16-Feedback-Displays]]
@@ -58,13 +58,13 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_FP16DisplayLowerMiddle|FaderPort8-And-FaderPort16-Feedback-Displays]]
 * [[FB_FP8DisplayLower|FaderPort8-And-FaderPort16-Feedback-Displays]]
 * [[FB_FP16DisplayLower|FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_MFT_RGB]]
+* [[FB_NovationLaunchpadMiniRGB7Bit]]
 * [[FB_QConLiteDisplayUpper]]
 * [[FB_QConLiteDisplayUpperMid]]
 * [[FB_QConLiteDisplayLowerMid]]
 * [[FB_QConLiteDisplayLower]]
-* [[FB_MFT_RGB]]
-* [[FB_NovationLaunchpadMiniRGB7Bit]]
-* [[FB_FaderportRGB7Bit]]
+* [[FB_QConProXMasterVUMeter]] 
 * [[FB_XTouchDisplayUpper]] - CSI Exp only as of July 31, 2022
 
 ## FB_MCUAssigmentDisplay
