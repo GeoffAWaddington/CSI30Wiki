@@ -65,6 +65,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_MFT_RGB]]
 * [[FB_NovationLaunchpadMiniRGB7Bit]]
 * [[FB_FaderportRGB7Bit]]
+* [[FB_XTouchDisplayUpper]] - CSI Exp only as of July 31, 2022
 
 ## FB_MCUAssigmentDisplay
 On an MCU or X-Touch it will display the overall 'mode' CSI is currently in, on the LED display labelled 'Assignment' immediately to then left of the SMPTE/Beats indicators (on an X-Touch, it's immediately to the left of the master solo indicator)
