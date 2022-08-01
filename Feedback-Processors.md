@@ -323,7 +323,7 @@ Widget DisplayUpper8
 WidgetEnd
 ```
 
-## FB_MCUC4DisplayUpper
+## FB_MCUC4DisplayLower
 Similar to [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]], except covers the lower displays of the MCU C4 surface.
 ```
 Widget DisplayLower1
