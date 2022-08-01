@@ -38,7 +38,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_Encoder]]
 * [[FB_VUMeter]] 
 * [[FB_GainReductionMeter]] 
-* [[FB_MCUTimeDisplay]] 
+* [[FB_MCUTimeDisplay|Feedback-Processors#FB_MCUTimeDisplay]] 
 * [[FB_MCUVUMeter]] 
 * [[FB_MCUDisplayUpper]] 
 * [[FB_MCUDisplayLower]] 
@@ -46,26 +46,26 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_MCUXTDisplayLower]] 
 * [[FB_MCUC4DisplayUpper]] 
 * [[FB_MCUC4DisplayLower]]
-* [[FB_MCUAssigmentDisplay]]
+* [[FB_MCUAssigmentDisplay|Feedback-Processors#FB_MCUAssigmentDisplay]]
 * [[FB_FaderportRGB7Bit]]
-* [[FB_FP8Display|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_FP16Display|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_FP8DisplayUpper|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_FP16DisplayUpper|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_FP8DisplayUpperMiddle|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_FP16DisplayUpperMiddle|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_FP8DisplayLowerMiddle|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_FP16DisplayLowerMiddle|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_FP8DisplayLower|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_FP16DisplayLower|FaderPort8-And-FaderPort16-Feedback-Displays]]
-* [[FB_MFT_RGB]]
+* [[FB_FP8Display|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_FP16Display|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_FP8DisplayUpper|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_FP16DisplayUpper|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_FP8DisplayUpperMiddle|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_FP16DisplayUpperMiddle|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_FP8DisplayLowerMiddle|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_FP16DisplayLowerMiddle|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_FP8DisplayLower|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_FP16DisplayLower|Feedback-Processors#FaderPort8-And-FaderPort16-Feedback-Displays]]
+* [[FB_MFT_RGB|Feedback-Processors#FB_MFT_RGB]]
 * [[FB_NovationLaunchpadMiniRGB7Bit]]
 * [[FB_QConLiteDisplayUpper]]
 * [[FB_QConLiteDisplayUpperMid]]
 * [[FB_QConLiteDisplayLowerMid]]
 * [[FB_QConLiteDisplayLower]]
-* [[FB_QConProXMasterVUMeter]] 
-* [[FB_XTouchDisplayUpper]] - CSI Exp only as of July 31, 2022
+* [[FB_QConProXMasterVUMeter|Feedback-Processors#FB_QConProXMasterVUMeter]] 
+* [[FB_XTouchDisplayUpper|Feedback-Processors#FB_XTouchDisplayUpper]] - CSI Exp only as of July 31, 2022
 
 ## FB_MCUAssigmentDisplay
 On an MCU or X-Touch it will display the overall 'mode' CSI is currently in, on the LED display labelled 'Assignment' immediately to then left of the SMPTE/Beats indicators (on an X-Touch, it's immediately to the left of the master solo indicator)
@@ -94,7 +94,7 @@ Widget TimeDisplay
 WidgetEnd
 ````
 
-## FB_MFT (Feedback MIDI Fighter Twister)
+## FB_MFT_RGB
 This feedback processor allows you to send specific color values to the **MIDI Fighter Twister** (MFTwister for short), and the information in this page is only applicable to this device.
 
 Note: Within CSI, only the buttons on the MFTwister can be colored, not the encoder rings themselves. This means the below section will only be applicable to the button/press widgets. 
@@ -242,3 +242,39 @@ WidgetEnd
 ```
 
 **Note:** FB_FP8Display and FB_FP16Display are legacy feedback processors that now correspond to FB_FP8DisplayUpper and FB_FP16DisplayUpper respectively. The legacy versions will continue working for any .mst files where they already exist, but if you're creating a new set of files, you are encouraged to use the newer feedback processors.
+
+## FB_XTouchDisplayUpper
+FB_XTouchDisplayUpper is used for controlling colors on the displays for the X-Touch Universal and X-Touch Extender controllers. This feedback processor should exist in the UpperDisplay1 widget only and will control the colors for all 8 displays on the unit. The remaining displays should be FB_MCUDisplayUpper as shown in the example below.
+```
+Widget DisplayUpper1
+	FB_XTouchDisplayUpper 0
+WidgetEnd
+
+Widget DisplayUpper2
+	FB_MCUDisplayUpper 1
+WidgetEnd
+
+Widget DisplayUpper3
+	FB_MCUDisplayUpper 2
+WidgetEnd
+
+Widget DisplayUpper4
+	FB_MCUDisplayUpper 3
+WidgetEnd
+
+Widget DisplayUpper5
+	FB_MCUDisplayUpper 4
+WidgetEnd
+
+Widget DisplayUpper6
+	FB_MCUDisplayUpper 5
+WidgetEnd
+
+Widget DisplayUpper7
+	FB_MCUDisplayUpper 6
+WidgetEnd
+
+Widget DisplayUpper8
+	FB_MCUDisplayUpper 7
+WidgetEnd
+```
