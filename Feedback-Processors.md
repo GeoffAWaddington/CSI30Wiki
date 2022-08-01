@@ -38,8 +38,6 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_Encoder|Feedback-Processors#FB_Encoder]]
 * [[FB_VUMeter]] 
 * [[FB_GainReductionMeter]] 
-* [[FB_MCUTimeDisplay|Feedback-Processors#FB_MCUTimeDisplay]] 
-* [[FB_MCUVUMeter|Feedback-Processors#FB_MCUVUMeter]] 
 * [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]] 
 * [[FB_MCUDisplayLower|Feedback-Processors#FB_MCUDisplayLower]] 
 * [[FB_MCUXTDisplayUpper|Feedback-Processors#FB_MCUXTDisplayUpper]] 
@@ -47,6 +45,8 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_MCUC4DisplayUpper|Feedback-Processors#FB_MCUC4DisplayUpper]] 
 * [[FB_MCUC4DisplayLower|Feedback-Processors#FB_MCUC4DisplayLower]]
 * [[FB_MCUAssigmentDisplay|Feedback-Processors#FB_MCUAssigmentDisplay]]
+* [[FB_MCUTimeDisplay|Feedback-Processors#FB_MCUTimeDisplay]] 
+* [[FB_MCUVUMeter|Feedback-Processors#FB_MCUVUMeter]] 
 * [[FB_FaderportRGB7Bit]]
 * [[FB_FP8Display|Feedback-Processors#faderport8-and-faderport16-displays]]
 * [[FB_FP16Display|Feedback-Processors#faderport8-and-faderport16-displays]]
@@ -331,6 +331,33 @@ Widget DisplayLower8
 WidgetEnd
 ```
 
+## FB_MCUAssigmentDisplay
+On an MCU or X-Touch it will display the overall 'mode' CSI is currently in, on the LED display labelled 'Assignment' immediately to then left of the SMPTE/Beats indicators (on an X-Touch, it's immediately to the left of the master solo indicator)
+
+The Modes are either Normal, ie regular track display; VCA, VCA leaders; or Folder, top level folders.
+
+The widget would look like this:
+```
+Widget AssigmentDisplay
+	FB_MCUAssigmentDisplay
+WidgetEnd
+```
+
+The zone would look like this:
+```
+Zone "Buttons"
+    AssignmentDisplay         TrackVCAFolderModeDisplay
+ZoneEnd
+```
+
+## FB_MCUTimeDisplay
+FB_MCUTimeDisplay will display the time in Reaper, according to whichever mode Reaper is currently set to display time in. The below example shows what the MCU time display widget would look like in the mcu.mst file.
+```
+Widget TimeDisplay
+	FB_MCUTimeDisplay
+WidgetEnd
+````
+
 ## FB_MCUVUMeter 
 Use FB_MCUVUMeter for the VU meters on an MCU-style device. The syntax for this type of processor is FB_MCUVUMeter followed by the channel number (starting at 0 for channel 1). So an 8-channel surface would look like the below example.
 ```
@@ -366,33 +393,6 @@ Widget VUMeter8
 	FB_MCUVUMeter 7
 WidgetEnd
 ```
-
-## FB_MCUAssigmentDisplay
-On an MCU or X-Touch it will display the overall 'mode' CSI is currently in, on the LED display labelled 'Assignment' immediately to then left of the SMPTE/Beats indicators (on an X-Touch, it's immediately to the left of the master solo indicator)
-
-The Modes are either Normal, ie regular track display; VCA, VCA leaders; or Folder, top level folders.
-
-The widget would look like this:
-```
-Widget AssigmentDisplay
-	FB_MCUAssigmentDisplay
-WidgetEnd
-```
-
-The zone would look like this:
-```
-Zone "Buttons"
-    AssignmentDisplay         TrackVCAFolderModeDisplay
-ZoneEnd
-```
-
-## FB_MCUTimeDisplay
-FB_MCUTimeDisplay will display the time in Reaper, according to whichever mode Reaper is currently set to display time in. The below example shows what the MCU time display widget would look like in the mcu.mst file.
-```
-Widget TimeDisplay
-	FB_MCUTimeDisplay
-WidgetEnd
-````
 
 ## FB_MFT_RGB
 This feedback processor allows you to send specific color values to the **MIDI Fighter Twister** (MFTwister for short), and the information in this page is only applicable to this device.
