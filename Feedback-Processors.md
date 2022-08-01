@@ -472,31 +472,6 @@ Psychedelic Purple     240	0	255
 Electric Purple	       165	0	255
 ```` 
 
-## FB_QConProXMasterVUMeter (Feedback QCon ProX Master VU Meter)
-Use this widget for Qcon Pro X|iCON master meters. 
-
-If you have one of these surfaces, your widgets should look like this in the .mst:
-
-```` 
-Widget MasterChannelMeterLeft
-	FB_QConProXMasterVUMeter
-WidgetEnd
-
-Widget MasterChannelMeterRight
-	FB_QConProXMasterVUMeter
-WidgetEnd
-```` 
-
-Also, make sure you specify Left (0) and Right (1) in the.zon file.
-
-```` 
-Zone "MasterTrack"
-MasterTRackNavigator
-    MasterChannelMeterLeft TrackOutputMeter  0
-    MasterChannelMeterRight TrackOutputMeter  1
-ZoneEnd
-```` 
-
 ## FB_FaderportRGB7Bit 
 Use FB_FaderportRGB7Bit for controlling the RGB buttons on a Faderport8 or Faderport16 device. See the examples below.
 ```
@@ -571,6 +546,31 @@ WidgetEnd
 ```
 
 **Note:** FB_FP8Display and FB_FP16Display are legacy feedback processors that now correspond to FB_FP8DisplayUpper and FB_FP16DisplayUpper respectively. The legacy versions will continue working for any .mst files where they already exist, but if you're creating a new set of files, you are encouraged to use the newer feedback processors.
+
+## FB_QConProXMasterVUMeter (Feedback QCon ProX Master VU Meter)
+Use this widget for Qcon Pro X|iCON master meters. 
+
+If you have one of these surfaces, your widgets should look like this in the .mst:
+
+```` 
+Widget MasterChannelMeterLeft
+	FB_QConProXMasterVUMeter
+WidgetEnd
+
+Widget MasterChannelMeterRight
+	FB_QConProXMasterVUMeter
+WidgetEnd
+```` 
+
+Also, make sure you specify Left (0) and Right (1) in the.zon file.
+
+```` 
+Zone "MasterTrack"
+MasterTRackNavigator
+    MasterChannelMeterLeft TrackOutputMeter  0
+    MasterChannelMeterRight TrackOutputMeter  1
+ZoneEnd
+```` 
 
 ## FB_XTouchDisplayUpper
 FB_XTouchDisplayUpper is used for controlling colors on the displays for the X-Touch Universal and X-Touch Extender controllers. This feedback processor should exist in the UpperDisplay1 widget only and will control the colors for all 8 displays on the unit. The remaining displays should be FB_MCUDisplayUpper as shown in the example below.
