@@ -47,7 +47,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_MCUAssigmentDisplay|Feedback-Processors#FB_MCUAssigmentDisplay]]
 * [[FB_MCUTimeDisplay|Feedback-Processors#FB_MCUTimeDisplay]] 
 * [[FB_MCUVUMeter|Feedback-Processors#FB_MCUVUMeter]] 
-* [[FB_FaderportRGB7Bit]]
+* [[FB_FaderportRGB7Bit|Feedback-Processors#FaderportRGB7Bit]]
 * [[FB_FP8Display|Feedback-Processors#faderport8-and-faderport16-displays]]
 * [[FB_FP16Display|Feedback-Processors#faderport8-and-faderport16-displays]]
 * [[FB_FP8DisplayUpper|Feedback-Processors#faderport8-and-faderport16-displays]]
@@ -496,6 +496,35 @@ MasterTRackNavigator
     MasterChannelMeterRight TrackOutputMeter  1
 ZoneEnd
 ```` 
+
+## FB_FaderportRGB7Bit 
+Use FB_FaderportRGB7Bit for controlling the RGB buttons on a Faderport8 or Faderport16 device. See the examples below.
+```
+Widget AudioBtn
+	Press 90 3e 7f
+	FB_FaderportRGB7Bit 90 3e 7f
+WidgetEnd
+
+Widget Instrument
+	Press 90 3f 7f
+	FB_FaderportRGB7Bit 90 3f 7f
+WidgetEnd
+
+Widget BusBtn
+	Press 90 40 7f
+	FB_FaderportRGB7Bit 90 40 7f
+WidgetEnd
+
+Widget VCABtn
+	Press 90 41 7f
+	FB_FaderportRGB7Bit 90 41 7f
+WidgetEnd
+
+Widget AllBtn
+	Press 90 42 7f
+	FB_FaderportRGB7Bit 90 42 7f
+WidgetEnd
+```
 
 ## FaderPort8 and FaderPort16 Displays
 CSI supports the Presonus FaderPort8 and FaderPort16 Displays. Each of the 4 display rows requires it's own widget in the .mst file.
