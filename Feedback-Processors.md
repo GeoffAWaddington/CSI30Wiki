@@ -39,7 +39,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_VUMeter]] 
 * [[FB_GainReductionMeter]] 
 * [[FB_MCUTimeDisplay|Feedback-Processors#FB_MCUTimeDisplay]] 
-* [[FB_MCUVUMeter]] 
+* [[FB_MCUVUMeter|Feedback-Processors#FB_MCUVUMeter]] 
 * [[FB_MCUDisplayUpper]] 
 * [[FB_MCUDisplayLower]] 
 * [[FB_MCUXTDisplayUpper]] 
@@ -111,6 +111,41 @@ Use FB_Encoder for surfaces with a continuous encoder (no absolute start and end
 Widget Rotary1
 	Encoder b0 10 7f [ < 41 > 01 ]
 	FB_Encoder b0 10 00
+WidgetEnd
+```
+## FB_MCUVUMeter 
+Use FB_MCUVUMeter for the VU meters on an MCU-style device. The syntax for this type of processor is FB_MCUVUMeter followed by the channel number (starting at 0 for channel 1). So an 8-channel surface would look like the below example.
+```
+Widget VUMeter1
+	FB_MCUVUMeter 0
+WidgetEnd
+
+Widget VUMeter2
+	FB_MCUVUMeter 1
+WidgetEnd
+
+Widget VUMeter3
+	FB_MCUVUMeter 2
+WidgetEnd
+
+Widget VUMeter4
+	FB_MCUVUMeter 3
+WidgetEnd
+
+Widget VUMeter5
+	FB_MCUVUMeter 4
+WidgetEnd
+
+Widget VUMeter6
+	FB_MCUVUMeter 5
+WidgetEnd
+
+Widget VUMeter7
+	FB_MCUVUMeter 6
+WidgetEnd
+
+Widget VUMeter8
+	FB_MCUVUMeter 7
 WidgetEnd
 ```
 
