@@ -152,7 +152,7 @@ WidgetEnd
 ```
 
 ## FB_MCUDisplayLower
-Similar to [[FB_MCUDIsplayUpper]], except covers the lower displays of MCU-style surfaces.
+Similar to [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]], except covers the lower displays of MCU-style surfaces.
 ```
 Widget DisplayLower1
 	FB_MCUDisplayLower 0
@@ -188,7 +188,7 @@ WidgetEnd
 ```
 
 ## FB_MCUXTDisplayUpper
-Similar to [[FB_MCUDIsplayUpper]], except covers the upper displays of MCU Extender-style (XT) surfaces.
+Similar to [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]], except covers the upper displays of MCU Extender-style (XT) surfaces.
 ```
 Widget DisplayUpper1
 	FB_MCUXTDisplayUpper 0
@@ -224,7 +224,7 @@ WidgetEnd
 ```
 
 ## FB_MCUXTDisplayUpper
-Similar to [[FB_MCUDIsplayUpper]], except covers the lower displays of MCU Extender-style (XT) surfaces.
+Similar to [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]], except covers the lower displays of MCU Extender-style (XT) surfaces.
 ```
 Widget DisplayLower1
 	FB_MCUXTDisplayLower 0
@@ -260,7 +260,7 @@ WidgetEnd
 ```
 
 ## FB_MCUC4DisplayUpper
-Similar to [[FB_MCUDIsplayUpper]], except covers the upper displays of the MCU C4 surface.
+Similar to [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]], except covers the upper displays of the MCU C4 surface.
 ```
 Widget DisplayUpper1
 	FB_MCUC4DisplayUpper 0
@@ -296,7 +296,7 @@ WidgetEnd
 ```
 
 ## FB_MCUC4DisplayUpper
-Similar to [[FB_MCUDIsplayUpper]], except covers the lower displays of the MCU C4 surface.
+Similar to [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]], except covers the lower displays of the MCU C4 surface.
 ```
 Widget DisplayLower1
 	FB_MCUC4DisplayLower 0
