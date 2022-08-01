@@ -547,6 +547,15 @@ WidgetEnd
 
 **Note:** FB_FP8Display and FB_FP16Display are legacy feedback processors that now correspond to FB_FP8DisplayUpper and FB_FP16DisplayUpper respectively. The legacy versions will continue working for any .mst files where they already exist, but if you're creating a new set of files, you are encouraged to use the newer feedback processors.
 
+## FB_NovationLaunchpadMiniRGB7Bit
+Use FB_NovationLaunchpadMiniRGB7Bit for controlling the RGB colors on the Novation Launchpad Mini buttons. See the example below.
+```
+Widget ButtonA1
+Press b0 5b 7f
+FB_NovationLaunchpadMiniRGB7Bit b0 5b 7f
+WidgetEnd
+```
+
 ## FB_QConProXMasterVUMeter (Feedback QCon ProX Master VU Meter)
 Use this widget for Qcon Pro X|iCON master meters. 
 
