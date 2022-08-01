@@ -60,10 +60,10 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_FP16DisplayLower|Feedback-Processors#faderport8-and-faderport16-displays]]
 * [[FB_MFT_RGB|Feedback-Processors#FB_MFT_RGB]]
 * [[FB_NovationLaunchpadMiniRGB7Bit|Feedback-Processors#fb_novationlaunchpadminirgb7bit]]
-* [[FB_QConLiteDisplayUpper]]
-* [[FB_QConLiteDisplayUpperMid]]
-* [[FB_QConLiteDisplayLowerMid]]
-* [[FB_QConLiteDisplayLower]]
+* [[FB_QConLiteDisplayUpper|Feedback-Processors#qcon-lite-displays]]
+* [[FB_QConLiteDisplayUpperMid|Feedback-Processors#qcon-lite-displays]]
+* [[FB_QConLiteDisplayLowerMid|Feedback-Processors#qcon-lite-displays]]
+* [[FB_QConLiteDisplayLower|Feedback-Processors#qcon-lite-displays]]
 * [[FB_QConProXMasterVUMeter|Feedback-Processors#FB_QConProXMasterVUMeter]] 
 * [[FB_XTouchDisplayUpper|Feedback-Processors#FB_XTouchDisplayUpper]] - CSI Exp only as of July 31, 2022
 
