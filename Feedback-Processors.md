@@ -36,8 +36,8 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_Fader14Bit|Feedback-Processors#FB_Fader14Bit]]
 * [[FB_Fader7Bit|Feedback-Processors#FB_Fader7Bit]]
 * [[FB_Encoder|Feedback-Processors#FB_Encoder]]
-* [[FB_VUMeter]] 
-* [[FB_GainReductionMeter|Feedback-Processors#FB_GainReductionMeter]] 
+* [[FB_GainReductionMeter|Feedback-Processors#FB_GainReductionMeter]]
+* [[FB_VUMeter|Feedback-Processors#FB_VUMeter]]
 * [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]] 
 * [[FB_MCUDisplayLower|Feedback-Processors#FB_MCUDisplayLower]] 
 * [[FB_MCUXTDisplayUpper|Feedback-Processors#FB_MCUXTDisplayUpper]] 
@@ -119,6 +119,26 @@ Use FB_GainReductionMeter for the gain reduction meter on the Softube Console On
 ```
 Widget CompressorMeter
 	FB_GainReductionMeter b0 73 00
+WidgetEnd
+```
+
+## FB_VUMeter 
+FB_VUMeter is designed for the meters in the Softube Console One. An example of these definitions is shown below.
+```
+Widget InputMeterLeft
+	FB_VUMeter b0 6e 00
+WidgetEnd
+
+Widget InputMeterRight
+	FB_VUMeter b0 6f 00
+WidgetEnd
+
+Widget OutputMeterLeft
+	FB_VUMeter b0 70 00
+WidgetEnd
+
+Widget OutputMeterRight
+	FB_VUMeter b0 71 00
 WidgetEnd
 ```
 
