@@ -114,7 +114,7 @@ Widget Rotary1
 WidgetEnd
 ```
 
-##FB_MCUDisplayUpper
+## FB_MCUDisplayUpper
 This is the feedback processor used for the upper displays on an MCU-style surface (see [[FB_XTouchDisplayUpper]] if using an X-Touch or X-Touch Extender). The syntax is FB_MCUDisplayUpper followed by the channel # beginning with 0 for channel 1. Here's an example from an 8-channel MCU surface.
 
 ```
