@@ -32,7 +32,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 
 # Feedback Processors 
 
-* [[FB_TwoState]]
+* [[FB_TwoState|Feedback-Processors#FB_TwoState]]
 * [[FB_Fader14Bit]]
 * [[FB_Fader7Bit]]
 * [[FB_Encoder]]
@@ -66,6 +66,15 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_QConLiteDisplayLower]]
 * [[FB_QConProXMasterVUMeter|Feedback-Processors#FB_QConProXMasterVUMeter]] 
 * [[FB_XTouchDisplayUpper|Feedback-Processors#FB_XTouchDisplayUpper]] - CSI Exp only as of July 31, 2022
+
+## FB_TwoState
+FB_TwoState is designed to provide feedback to buttons that have only an on or off state. Here's an example of the Mute button on channel 1 of an MCU style device. Notice it consists of a "Press" portion (the message generator for this widget), and also the FB_TwoState portion. The messages that follow are the bytes that are transmitted to control the state.
+```
+Widget Mute1
+	Press 90 10 7f 90 10 00
+	FB_TwoState 90 10 7f 90 10 00
+WidgetEnd
+```
 
 ## FB_MCUAssigmentDisplay
 On an MCU or X-Touch it will display the overall 'mode' CSI is currently in, on the LED display labelled 'Assignment' immediately to then left of the SMPTE/Beats indicators (on an X-Touch, it's immediately to the left of the master solo indicator)
