@@ -40,12 +40,12 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_GainReductionMeter]] 
 * [[FB_MCUTimeDisplay|Feedback-Processors#FB_MCUTimeDisplay]] 
 * [[FB_MCUVUMeter|Feedback-Processors#FB_MCUVUMeter]] 
-* [[FB_MCUDisplayUpper]] 
-* [[FB_MCUDisplayLower]] 
-* [[FB_MCUXTDisplayUpper]] 
-* [[FB_MCUXTDisplayLower]] 
-* [[FB_MCUC4DisplayUpper]] 
-* [[FB_MCUC4DisplayLower]]
+* [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]] 
+* [[FB_MCUDisplayLower|Feedback-Processors#FB_MCUDisplayLower]] 
+* [[FB_MCUXTDisplayUpper|Feedback-Processors#FB_MCUXTDisplayUpper]] 
+* [[FB_MCUXTDisplayLower|Feedback-Processors#FB_MCUXTDisplayLower]] 
+* [[FB_MCUC4DisplayUpper|Feedback-Processors#FB_MCUC4DisplayUpper]] 
+* [[FB_MCUC4DisplayLower|Feedback-Processors#FB_MCUC4DisplayLower]]
 * [[FB_MCUAssigmentDisplay|Feedback-Processors#FB_MCUAssigmentDisplay]]
 * [[FB_FaderportRGB7Bit]]
 * [[FB_FP8Display|Feedback-Processors#faderport8-and-faderport16-displays]]
@@ -113,6 +113,224 @@ Widget Rotary1
 	FB_Encoder b0 10 00
 WidgetEnd
 ```
+
+##FB_MCUDisplayUpper
+This is the feedback processor used for the upper displays on an MCU-style surface (see [[FB_XTouchDisplayUpper]] if using an X-Touch or X-Touch Extender). The syntax is FB_MCUDisplayUpper followed by the channel # beginning with 0 for channel 1. Here's an example from an 8-channel MCU surface.
+
+```
+Widget DisplayUpper1
+	FB_MCUDisplayUpper 0
+WidgetEnd
+
+Widget DisplayUpper2
+	FB_MCUDisplayUpper 1
+WidgetEnd
+
+Widget DisplayUpper3
+	FB_MCUDisplayUpper 2
+WidgetEnd
+
+Widget DisplayUpper4
+	FB_MCUDisplayUpper 3
+WidgetEnd
+
+Widget DisplayUpper5
+	FB_MCUDisplayUpper 4
+WidgetEnd
+
+Widget DisplayUpper6
+	FB_MCUDisplayUpper 5
+WidgetEnd
+
+Widget DisplayUpper7
+	FB_MCUDisplayUpper 6
+WidgetEnd
+
+Widget DisplayUpper8
+	FB_MCUDisplayUpper 7
+WidgetEnd
+```
+
+## FB_MCUDisplayLower
+Similar to [[FB_MCUDIsplayUpper]], except covers the lower displays of MCU-style surfaces.
+```
+Widget DisplayLower1
+	FB_MCUDisplayLower 0
+WidgetEnd
+
+Widget DisplayLower2
+	FB_MCUDisplayLower 1
+WidgetEnd
+
+Widget DisplayLower3
+	FB_MCUDisplayLower 2
+WidgetEnd
+
+Widget DisplayLower4
+	FB_MCUDisplayLower 3
+WidgetEnd
+
+Widget DisplayLower5
+	FB_MCUDisplayLower 4
+WidgetEnd
+
+Widget DisplayLower6
+	FB_MCUDisplayLower 5
+WidgetEnd
+
+Widget DisplayLower7
+	FB_MCUDisplayLower 6
+WidgetEnd
+
+Widget DisplayLower8
+	FB_MCUDisplayLower 7
+WidgetEnd
+```
+
+## FB_MCUXTDisplayUpper
+Similar to [[FB_MCUDIsplayUpper]], except covers the upper displays of MCU Extender-style (XT) surfaces.
+```
+Widget DisplayUpper1
+	FB_MCUXTDisplayUpper 0
+WidgetEnd
+
+Widget DisplayUpper2
+	FB_MCUXTDisplayUpper 1
+WidgetEnd
+
+Widget DisplayUpper3
+	FB_MCUXTDisplayUpper 2
+WidgetEnd
+
+Widget DisplayUpper4
+	FB_MCUXTDisplayUpper 3
+WidgetEnd
+
+Widget DisplayUpper5
+	FB_MCUXTDisplayUpper 4
+WidgetEnd
+
+Widget DisplayUpper6
+	FB_MCUXTDisplayUpper 5
+WidgetEnd
+
+Widget DisplayUpper7
+	FB_MCUXTDisplayUpper 6
+WidgetEnd
+
+Widget DisplayUpper8
+	FB_MCUXTDisplayUpper 7
+WidgetEnd
+```
+
+## FB_MCUXTDisplayUpper
+Similar to [[FB_MCUDIsplayUpper]], except covers the lower displays of MCU Extender-style (XT) surfaces.
+```
+Widget DisplayLower1
+	FB_MCUXTDisplayLower 0
+WidgetEnd
+
+Widget DisplayLower2
+	FB_MCUXTDisplayLower 1
+WidgetEnd
+
+Widget DisplayLower3
+	FB_MCUXTDisplayLower 2
+WidgetEnd
+
+Widget DisplayLower4
+	FB_MCUXTDisplayLower 3
+WidgetEnd
+
+Widget DisplayLower5
+	FB_MCUXTDisplayLower 4
+WidgetEnd
+
+Widget DisplayLower6
+	FB_MCUXTDisplayLower 5
+WidgetEnd
+
+Widget DisplayLower7
+	FB_MCUXTDisplayLower 6
+WidgetEnd
+
+Widget DisplayLower8
+	FB_MCUXTDisplayLower 7
+WidgetEnd
+```
+
+## FB_MCUC4DisplayUpper
+Similar to [[FB_MCUDIsplayUpper]], except covers the upper displays of the MCU C4 surface.
+```
+Widget DisplayUpper1
+	FB_MCUC4DisplayUpper 0
+WidgetEnd
+
+Widget DisplayUpper2
+	FB_MCUC4DisplayUpper 1
+WidgetEnd
+
+Widget DisplayUpper3
+	FB_MCUC4DisplayUpper 2
+WidgetEnd
+
+Widget DisplayUpper4
+	FB_MCUC4DisplayUpper 3
+WidgetEnd
+
+Widget DisplayUpper5
+	FB_MCUC4DisplayUpper 4
+WidgetEnd
+
+Widget DisplayUpper6
+	FB_MCUC4DisplayUpper 5
+WidgetEnd
+
+Widget DisplayUpper7
+	FB_MCUC4DisplayUpper 6
+WidgetEnd
+
+Widget DisplayUpper8
+	FB_MCUC4DisplayUpper 7
+WidgetEnd
+```
+
+## FB_MCUC4DisplayUpper
+Similar to [[FB_MCUDIsplayUpper]], except covers the lower displays of the MCU C4 surface.
+```
+Widget DisplayLower1
+	FB_MCUC4DisplayLower 0
+WidgetEnd
+
+Widget DisplayLower2
+	FB_MCUC4DisplayLower 1
+WidgetEnd
+
+Widget DisplayLower3
+	FB_MCUC4DisplayLower 2
+WidgetEnd
+
+Widget DisplayLower4
+	FB_MCUC4DisplayLower 3
+WidgetEnd
+
+Widget DisplayLower5
+	FB_MCUC4DisplayLower 4
+WidgetEnd
+
+Widget DisplayLower6
+	FB_MCUC4DisplayLower 5
+WidgetEnd
+
+Widget DisplayLower7
+	FB_MCUC4DisplayLower 6
+WidgetEnd
+
+Widget DisplayLower8
+	FB_MCUC4DisplayLower 7
+WidgetEnd
+```
+
 ## FB_MCUVUMeter 
 Use FB_MCUVUMeter for the VU meters on an MCU-style device. The syntax for this type of processor is FB_MCUVUMeter followed by the channel number (starting at 0 for channel 1). So an 8-channel surface would look like the below example.
 ```
@@ -169,7 +387,7 @@ ZoneEnd
 ```
 
 ## FB_MCUTimeDisplay
-Here's what the time display widget from an MCU device would look like in the mcu.mst file.
+FB_MCUTimeDisplay will display the time in Reaper, according to whichever mode Reaper is currently set to display time in. The below example shows what the MCU time display widget would look like in the mcu.mst file.
 ```
 Widget TimeDisplay
 	FB_MCUTimeDisplay
