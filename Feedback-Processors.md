@@ -33,9 +33,9 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 # Feedback Processors 
 
 * [[FB_TwoState|Feedback-Processors#FB_TwoState]]
-* [[FB_Fader14Bit]]
-* [[FB_Fader7Bit]]
-* [[FB_Encoder]]
+* [[FB_Fader14Bit|Feedback-Processors#FB_Fader14Bit]]
+* [[FB_Fader7Bit|Feedback-Processors#FB_Fader7Bit]]
+* [[FB_Encoder|Feedback-Processors#FB_Encoder]]
 * [[FB_VUMeter]] 
 * [[FB_GainReductionMeter]] 
 * [[FB_MCUTimeDisplay|Feedback-Processors#FB_MCUTimeDisplay]] 
@@ -73,6 +73,44 @@ FB_TwoState is designed to provide feedback to buttons that have only an on or o
 Widget Mute1
 	Press 90 10 7f 90 10 00
 	FB_TwoState 90 10 7f 90 10 00
+WidgetEnd
+```
+
+Note: if a button is assigned to a Reaper action, you will only see feedback if the action reports its on/off state to Reaper. You will see this in the Reaper action list where applicable. Otherwise, a light may appear in a constant on or off state. This is not a bug in CSI.
+
+## FB_Fader14Bit
+Use this feedback processor for 14-bit motorized faders, such an MCU-style device, or any other MIDI control surface with 14-bit knobs or faders. Below is an example of a touch-sensitive 14-bit fader that you'd see in an MCU-style device.
+```
+Widget Fader1
+	Fader14Bit e0 7f 7f
+	FB_Fader14Bit e0 7f 7f
+	Touch 90 68 7f 90 68 00
+WidgetEnd
+```
+
+## FB_Fader7Bit
+Use Fader7Bit for any traditional "absolute" [as in having a fixed start and end point] MIDI faders and knobs (yes, Fader7Bit applies to knobs too!). Here's the syntax for a typical 7-bit MIDI knob with feedback. 
+```
+Widget Knob1
+	Fader7Bit B0 16 7F
+	FB_Fader7Bit B0 16 00
+WidgetEnd
+```
+
+Note: some surfaces, like the MIDI Fighter Twister, use encoders but may have 7Bit LED rings to represent the value of the current parameter, so you may end up with an Encoder widget with a Fader7Bit feedback processor. 
+```
+Widget RotaryA1
+	MFTEncoder b0 00 7f
+	FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+## FB_Encoder
+Use FB_Encoder for surfaces with a continuous encoder (no absolute start and end point) and feedback that expects the same.
+```
+Widget Rotary1
+	Encoder b0 10 7f [ < 41 > 01 ]
+	FB_Encoder b0 10 00
 WidgetEnd
 ```
 
