@@ -2,18 +2,6 @@ If you prefer to work with folders within Reaper, it's easy to create a [VCA](VC
 
 You'll be able to expand and collapse folders directly from your surface and toggle between seeing all tracks and a folder only view.
 
-## Pre-Condition: Track Visibility on Surface Follows Mixer Control Panel
-For these features to work as expected, you'll need to ensure that whatever [Page](Conceptual-Overview#pages) you're working with in CSI is setup so Track Visibility on Surface Follows the Mixer Control Panel. To find this setting:
-
-1. Open Reaper's Preferences
-2. Go to the Control/OSC/Web section
-3. Click on Control Surface Integrator to select it
-4. Click Edit
-5. Click to select your Page on the left-hand side
-6. Click Edit
-7. Make sure Track Visibility on Surface follows "Mixer Control Panel" radio button is selected
-8. Click OK several times to save the changes if necessary
-
 ## Expanding and Collapsing Folders
 Let's say your mix makes extensive use of folder tracks and you'd like the option to quickly expand and collapse your folders right from your surface. You can do that with a combination of CSI plus some carefully sequenced Reaper actions.
 
