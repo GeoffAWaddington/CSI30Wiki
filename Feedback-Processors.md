@@ -423,17 +423,13 @@ WidgetEnd
 ```
 
 ## FB_MFT_RGB
-This feedback processor allows you to send specific color values to the **MIDI Fighter Twister** (MFTwister for short), and the information in this page is only applicable to this device.
+This feedback processor allows you to send specific color values to the **MIDI Fighter Twister** (MFTwister for short). Note: Within CSI, only the buttons on the MFTwister can be colored, not the encoder rings themselves. This means the below section will only be applicable to the button/press widgets. 
 
-Note: Within CSI, only the buttons on the MFTwister can be colored, not the encoder rings themselves. This means the below section will only be applicable to the button/press widgets. 
-
-### Adding Color Feedback To Your Widgets in the .mst File
-Let's say you've got a button widget called ButtonA1 on your MFTwister, and it's at the address b1 00 7f. If you would like to take control of the button color within CSI, you would first open the .mst file and setup your widget to use the following format:
-
+Let's say you've got a button widget called ButtonA1 on your MFTwister, and it's at the address b1 00 7f. If you would like to take control of the button color within CSI, you would add the FB_MFT_RGB feedback processor using the same address as the button itself as shown in the below example.
 ```` 
 Widget ButtonA1
     Press b1 00 7f
-    FB_MFT_RGB  b1 00 7f
+    FB_MFT_RGB b1 00 7f
 WidgetEnd
 ```` 
 
@@ -579,8 +575,8 @@ WidgetEnd
 Use FB_NovationLaunchpadMiniRGB7Bit for controlling the RGB colors on the Novation Launchpad Mini buttons. See the example below.
 ```
 Widget ButtonA1
-Press b0 5b 7f
-FB_NovationLaunchpadMiniRGB7Bit b0 5b 7f
+        Press b0 5b 7f
+        FB_NovationLaunchpadMiniRGB7Bit b0 5b 7f
 WidgetEnd
 ```
 
