@@ -664,3 +664,15 @@ Widget DisplayUpper8
 	FB_MCUDisplayUpper 7
 WidgetEnd
 ```
+
+**Important Note:** The X-Touch firmware only supports 8 track colors. For best results use track colors in Reaper that closely correspond to the below colors...
+```
+Black
+White
+Red
+Green
+Blue
+Cyan
+Magenta
+Yellow
+```
