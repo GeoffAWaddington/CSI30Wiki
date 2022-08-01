@@ -37,7 +37,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_Fader7Bit|Feedback-Processors#FB_Fader7Bit]]
 * [[FB_Encoder|Feedback-Processors#FB_Encoder]]
 * [[FB_VUMeter]] 
-* [[FB_GainReductionMeter]] 
+* [[FB_GainReductionMeter|Feedback-Processors#FB_GainReductionMeter]] 
 * [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]] 
 * [[FB_MCUDisplayLower|Feedback-Processors#FB_MCUDisplayLower]] 
 * [[FB_MCUXTDisplayUpper|Feedback-Processors#FB_MCUXTDisplayUpper]] 
@@ -111,6 +111,14 @@ Use FB_Encoder for surfaces with a continuous encoder (no absolute start and end
 Widget Rotary1
 	Encoder b0 10 7f [ < 41 > 01 ]
 	FB_Encoder b0 10 00
+WidgetEnd
+```
+
+## FB_GainReductionMeter
+Use FB_GainReductionMeter for the gain reduction meter on the Softube Console One.
+```
+Widget CompressorMeter
+	FB_GainReductionMeter b0 73 00
 WidgetEnd
 ```
 
@@ -556,7 +564,27 @@ FB_NovationLaunchpadMiniRGB7Bit b0 5b 7f
 WidgetEnd
 ```
 
-## FB_QConProXMasterVUMeter (Feedback QCon ProX Master VU Meter)
+## QCon Lite Displays
+Use FB_QConLiteDisplayUpper, FB_QConLiteDisplayUpperMid, FB_QConLiteDisplayLowerMid, FB_QConLiteDisplayLower for the four display lines on the QCon Lite surface. The correct syntax for each includes the Feedback Processor name, followed by the Channel # starting with 0.
+```
+Widget DisplayUpper1
+	FB_QConLiteDisplayUpper 0
+WidgetEnd
+
+Widget DisplayUpperMid1
+        FB_QConLiteDisplayUpperMid 0
+WidgetEnd
+
+Widget DisplayLowerMid1
+        FB_QConLiteDisplayLowerMid 0
+WidgetEnd
+
+Widget DisplayLower1
+	FB_QConLiteDisplayLower 0
+WidgetEnd
+```
+
+## FB_QConProXMasterVUMeter
 Use this widget for Qcon Pro X|iCON master meters. 
 
 If you have one of these surfaces, your widgets should look like this in the .mst:
