@@ -251,7 +251,7 @@ Widget DisplayUpper8
 WidgetEnd
 ```
 
-## FB_MCUXTDisplayUpper
+## FB_MCUXTDisplayLower
 Similar to [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]], except covers the lower displays of MCU Extender-style (XT) surfaces.
 ```
 Widget DisplayLower1
