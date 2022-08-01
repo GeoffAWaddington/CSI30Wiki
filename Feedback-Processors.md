@@ -99,7 +99,7 @@ This feedback processor allows you to send specific color values to the **MIDI F
 
 Note: Within CSI, only the buttons on the MFTwister can be colored, not the encoder rings themselves. This means the below section will only be applicable to the button/press widgets. 
 
-## Adding Color Feedback To Your Widgets in the .mst File
+### Adding Color Feedback To Your Widgets in the .mst File
 Let's say you've got a button widget called ButtonA1 on your MFTwister, and it's at the address b1 00 7f. If you would like to take control of the button color within CSI, you would first open the .mst file and setup your widget to use the following format:
 
 ```` 
