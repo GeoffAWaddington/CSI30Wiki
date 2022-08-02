@@ -36,8 +36,8 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_Fader14Bit|Feedback-Processors#FB_Fader14Bit]]
 * [[FB_Fader7Bit|Feedback-Processors#FB_Fader7Bit]]
 * [[FB_Encoder|Feedback-Processors#FB_Encoder]]
-* [[FB_GainReductionMeter|Feedback-Processors#FB_GainReductionMeter]]
-* [[FB_VUMeter|Feedback-Processors#FB_VUMeter]]
+* [[FB_GainReductionMeter|Feedback-Processors#FB_GainReductionMeter]] - As of Aug 2, 2022, being renamed FB_ConsoleOneVUMeter
+* [[FB_VUMeter|Feedback-Processors#FB_VUMeter]] - As of Aug 2, 2022, being renamed FB_ConsoleOneVUMeter
 * [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]] 
 * [[FB_MCUDisplayLower|Feedback-Processors#FB_MCUDisplayLower]] 
 * [[FB_MCUXTDisplayUpper|Feedback-Processors#FB_MCUXTDisplayUpper]] 
