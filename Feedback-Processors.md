@@ -661,7 +661,7 @@ Widget DisplayUpper8
 WidgetEnd
 ```
 
-**Important Note:** The X-Touch firmware only supports 8 track colors. For best results use track colors in Reaper that closely correspond to the below colors...
+**Important Note:** The X-Touch firmware only supports 8 track colors. These are not full RGB screens. CSI will translate the colors in Reaper to the nearest approximation of the colors supported on the X-Touch, which are...
 ```
 Black
 White
