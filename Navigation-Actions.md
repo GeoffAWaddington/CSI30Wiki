@@ -8,7 +8,7 @@
 * [[SelectedTrackFXMenuBank|navigation actions#selectedtrackfxmenubank]]
 * [[ToggleSynchPageBanking|navigation actions#togglesynchpagebanking]]
 * [[ToggleScrollLink|navigation actions#togglescrolllink]]
-* [[ForceScrollLink|navigation actions#forcescrolllink]]
+* [[ForceScrollLink|navigation actions#forcescrolllink]] - Depreciated in CSI Exp builds (as of July 31 2022).
 * [[GoHome|navigation actions#gohome]]
 * [[GoSubZone|navigation actions#gosubzone-leavesubzone]]
 * [[LeaveSubZone|navigation actions#gosubzone-leavesubzone]]
