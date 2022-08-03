@@ -1,4 +1,4 @@
-We define what behaviour should occur when particular widgets are pressed/turned/moved/etc in .zon files. 
+We define what behavior should occur when particular widgets are pressed/turned/moved/etc in .zon files. 
 
 If you remember in our [[CSI.INI]] file, for each surface we listed a number of things:
 
