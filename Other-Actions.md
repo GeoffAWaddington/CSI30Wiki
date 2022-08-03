@@ -1,6 +1,6 @@
 * [[NoAction|Other Actions#NoAction]]
 * [[FixedTextDisplay|Other Actions#FixedTextDisplay]]
-* [[FixedRGBColourDisplay|Other Actions#FixedTextDisplay]]
+* [[FixedRGBColourDisplay|Other Actions#FixedRGBColourDisplay]] - As of Aug 3, 2022, will be renamed FixedRGBColorDisplay in next CSI release
 * [[ClearAllSolo|Other Actions|ClearAllSolo]]
 * [[NoFeedback|Other Actions#NoFeedback]]
 * [[Broadcast|Broadcast and Receive]]
