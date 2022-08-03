@@ -20,7 +20,7 @@ PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supp
   * [[Message Generators]]
   * [[Feedback Processors]]
   * [[Virtual Widgets]]
-* [[Defining Control Surface Behaviour]]
+* [[Defining Control Surface Behavior]]
   * [[Pages]]
   * [[Zones]]
   * [[Send Zones]]
