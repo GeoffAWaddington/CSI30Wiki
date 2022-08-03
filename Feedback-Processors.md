@@ -10,7 +10,7 @@ Widget Mute1
 WidgetEnd
 ```
 
-Then in our [[Zone file|Defining Control Surface Behaviour]], we bind it to our [[TrackMute|Track Actions#TrackMute]] action.     
+Then in our [[Zone file|Defining Control Surface Behavior]], we bind it to our [[TrackMute|Track Actions#TrackMute]] action.     
 ```
 Zone "SelectedTrack"
      Mute1      TrackMute
