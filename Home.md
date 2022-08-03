@@ -29,7 +29,7 @@ PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supp
   * [[FX and Instrument Zones|FX-and-Instrument-Mapping]]
   * [[Action Reference]]
   * [[Modifiers]]
-  * [[Invoking Multiple Actions]]
+  * [[Invoking-Multiple-Actions-(Macro-Actions)]]
   * [[Broadcast and Receive|Broadcast-and-Receive]]
 * [[Tips and Tricks|Tips-and-Tricks]]
 * Step By Step Guides
