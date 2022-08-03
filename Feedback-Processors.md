@@ -436,7 +436,7 @@ WidgetEnd
 Do this for any buttons you would like to control the colors for. This just tells CSI that the colors for this button can be controlled within CSI. We will define the color values that get linked to a particular action in the .zon files so continue reading below.
 
 ### Adding Colors to Your .Zon Files/Actions
-**Background:** the MFTwister color settings are a little tricky. From Geoff, "the RGB table is such that any one colour (r, g, b) MUST be 0 AND any OTHER colour (r, g, b) MUST be 255 -- the third colour can vary in the range 1 - 255 or so -- the colour table is a bit quirky." So for any state (i.e. off/on), two of the 3 colors must be 0 and 255. 
+**Background:** the MFTwister color settings are a little tricky. From Geoff, "the RGB table is such that any one color (r, g, b) MUST be 0 AND any OTHER color (r, g, b) MUST be 255 -- the third color can vary in the range 1 - 255 or so -- the color table is a bit quirky." So for any state (i.e. off/on), two of the 3 colors must be 0 and 255. 
 
 Following your action, colors must appear in curly brackets following the action and require a space after the first bracket and before the last one. The first 3 numbers in the brackets are the RGB values for the off state. The second 3 numbers are the RGB values for the on state.
 
