@@ -37,7 +37,7 @@ A few things to note:
 * Within each Widget, we define the capabilities of that widget. These could be one or more of either:
   * [[Message Generators]] - things that will result in a message being sent to CSI. eg. Press, Fader14Bit, etc
   * [[Feedback Processors]] - things that will receive a message back from CSI to display feedback on the surface. eg. FB_TwoState, FB_Fader14Bit, etc where the FB represents FeedBack. 
-* Each of the Message Generators and Feedback Processors may have a varying number of parameters that follow them that define the MIDI Message details sent/received and other behaviour. Look at the specific [[Message Generators]]/[[Feedback Processors]] you are using to see what parameters it supports. 
+* Each of the Message Generators and Feedback Processors may have a varying number of parameters that follow them that define the MIDI Message details sent/received and other behavior. Look at the specific [[Message Generators]]/[[Feedback Processors]] you are using to see what parameters it supports. 
 
 So for example, my UpperButton1 Widget is defined as:
 ```
@@ -60,5 +60,5 @@ WidgetEnd
 
 
 ## Note:
-* Because the .mst file doesn't specify anything about behaviour, just surface capabilities, in theory anyone with the same model surface should be able to reuse the same .mst file, even if they want to assign different behaviours to those controls. eg. If I have a BCF2000, and so do you, in theory we can use the same .mst file. However, be careful here as if you have changed the configuration of your surface, it may be sending different midi messages, in which case someone else's .mst file may not work for you. 
+* Because the .mst file doesn't specify anything about behavior, just surface capabilities, in theory anyone with the same model surface should be able to reuse the same .mst file, even if they want to assign different behaviors to those controls. eg. If I have a BCF2000, and so do you, in theory we can use the same .mst file. However, be careful here as if you have changed the configuration of your surface, it may be sending different midi messages, in which case someone else's .mst file may not work for you. 
 * It's easy to forget that you're not controlling what the surface does in your MST. It is more accurate to say you are reflecting what it does. For example, if my surface isn't currently sending a message on button release, then defining it as a [[Press]] control  with a Release message in your .mst won't magically make it start. Either edit the surface (if possible) to make it do that, or define it in the .mst as a [[Press]] with a single message.
