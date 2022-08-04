@@ -67,7 +67,7 @@ Use the FixedTextDisplay action when you want to show static text within one of 
 
 
 ## FixedRGBColourDisplay
-Use this if you want to have a supported display widget change color in a particular zone. The values in the squiggly brackets represent the RGB (red, green, blue) color values. Note the British spelling of color [colour] in the action name. 
+Use this if you want to have a supported display widget [Select buttons on FaderPort8/16] change color in a particular zone. The values in the squiggly brackets represent the RGB (red, green, blue) color values. Note the British spelling of color [colour] in the action name. 
 
 In the below example, FixedRGBColourDisplay is being used to set the colors of certain buttons when entering this custom "NavigatorPan" SubZone. In this case, when the zone is active, the Pan button will turn blue { 0 55 255 }, and the other navigation buttons on this surface (Channel, Scroll) will go dark { 0 5 20 }.
 ```
