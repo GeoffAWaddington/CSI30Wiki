@@ -169,3 +169,11 @@ Zone "Buttons"
      Property+Marker            NoFeedback       // Turns off feedback
 ZoneEnd
 ```
+
+If using Property on a modified widget, the Property+ needs to be the very first word in the syntax for that line. Here's the same example above, just using a modifier to illustrate the example: 
+```
+Zone "Buttons"
+     Shift+Marker                     Reaper 40171     // Insert marker at current or edit position
+     Property+Shift+Marker            NoFeedback       // Turns off feedback
+ZoneEnd
+```
