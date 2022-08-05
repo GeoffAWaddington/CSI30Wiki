@@ -157,7 +157,7 @@ ZoneEnd
 ```
 
 ## ToggleScrollLink
-This action toggles the behavior where Reaper's MCP will follow CSI's banking and scroll in sync with the surface. This defaults to on. **Note:** as of the CSI EXP builds release on July 31st 2022, this defaults to off. 
+This action toggles the behavior where Reaper's MCP will follow CSI's banking and scroll in sync with the surface. **Note:** as of the August 5, 2022 CSI release, this defaults to Off (previously defaulted to On). 
 ```
 Zone "Buttons"
      F7     ToggleScrollLink
