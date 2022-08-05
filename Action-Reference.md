@@ -87,7 +87,6 @@
 * [[SelectedTrackFXMenuBank|navigation actions#selectedtrackfxmenubank]]
 * [[ToggleSynchPageBanking|navigation actions#togglesynchpagebanking]]
 * [[ToggleScrollLink|navigation actions#togglescrolllink]]
-* [[ForceScrollLink|navigation actions#forcescrolllink]]
 * [[GoHome|navigation actions#gohome]]
 * [[GoSubZone|navigation actions#gosubzone-leavesubzone]]
 * [[LeaveSubZone|navigation actions#gosubzone-leavesubzone]]
