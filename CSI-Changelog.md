@@ -1,7 +1,7 @@
 # August 5, 2022 Update
 
 ## New Feature: X-Touch Color Support (FB_XTouchDisplayUpper)
-Color support for the X-Touch Universal and X-Touch Extender has been added. See [[FB_XTouchDisplayUpper|Feedback-Processors#FB_XTouchDisplayUpper]] for details.
+Color support for the X-Touch Universal and X-Touch Extender has been added. See [[FB_XTouchDisplayUpper|Feedback-Processors#fb_xtouchdisplayupper]] for details.
 
 ## Removed ForceScrollLink Action
 The ForceScrollLink action has been removed.
