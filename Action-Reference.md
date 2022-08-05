@@ -121,7 +121,7 @@
 ### Other
 * [[NoAction|Other Actions#NoAction]]
 * [[FixedTextDisplay|Other Actions#FixedTextDisplay]]
-* [[FixedRGBColourDisplay|Other Actions#FixedTextDisplay]]
+* [[FixedRGBColorDisplay|Other Actions#FixedRGBColorDisplay]]
 * [[ClearAllSolo|Other Actions|ClearAllSolo]]
 * [[NoFeedback|Other Actions#NoFeedback]]
 * [[Broadcast|Broadcast and Receive]]
