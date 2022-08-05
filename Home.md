@@ -15,7 +15,7 @@ PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supp
 * [[Installation and Setup|Installation-and-Setup]]
   * [[Updating CSI|Installation-and-Setup#Installing CSI Updates]]
   * [[CSI.INI]]
-* [[Changes in CSI version 2.0]]
+* [[CSI Changelog]]
 * [[Defining Control Surface Capabilities]]
   * [[Message Generators]]
   * [[Feedback Processors]]
