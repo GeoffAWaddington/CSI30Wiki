@@ -1,3 +1,25 @@
+# August 5, 2022 Update
+
+## New Feature: X-Touch Color Support (FB_XTouchDisplayUpper)
+Color support for the X-Touch Universal and X-Touch Extender has been added. See [[FB_XTouchDisplayUpper|Feedback-Processors#FB_XTouchDisplayUpper]] for details.
+
+## Removed ForceScrollLink Action
+The ForceScrollLink action has been removed.
+
+## ToggleScrollLink now defaults to Off
+The [[ToggleScrollLink|Navigation-Actions#togglescrolllink]] action now defaults to Off. Previously defaulted to on.
+
+## Renamed FixedRGBColourDisplay to FixedRGBColorDisplay to standardize spelling
+Standardizing CSI to consistently utilize US spelling. The FixedRGBColourDisplay action is now [[FixedRGBColorDisplay|Other-Actions#FixedRGBColorDisplay]].
+
+## Renamed FB_GainReductionMeter to FB_ConsoleOneGainReductionMeter for clarity
+Name changed to clarify this widget is specific to the Softube Console One.
+
+## Renamed FB_VUMeter to FB_ConsoleOneVUMeter for clarity
+Name changed to clarify this widget is specific to the Softube Console One.
+
+# CSI Version 2.0
+
 CSI version 2.0 made a number of under-the-hood changes to zone loading to improve results and simplify some processes, while also expanding capabilities and improving features in various areas. This page is designed towards users with familiarity with CSI v1/1.1 authoring and is meant to assist in migration to version 2.0 by summarizing and consolidating the changes. 
 
 ## No more Navigators and fixed Zone names
