@@ -1,6 +1,6 @@
 * [[NoAction|Other Actions#NoAction]]
 * [[FixedTextDisplay|Other Actions#FixedTextDisplay]]
-* [[FixedRGBColourDisplay|Other Actions#FixedRGBColourDisplay]] - As of Aug 3, 2022, will be renamed FixedRGBColorDisplay in next CSI release
+* [[FixedRGBColorDisplay|Other Actions#FixedRGBColorDisplay]]
 * [[ClearAllSolo|Other Actions|ClearAllSolo]]
 * [[NoFeedback|Other Actions#NoFeedback]]
 * [[Broadcast|Broadcast and Receive]]
@@ -66,23 +66,23 @@ Use the FixedTextDisplay action when you want to show static text within one of 
 ```
 
 
-## FixedRGBColourDisplay
-Use this if you want to have a supported display widget [Select buttons on FaderPort8/16] change color in a particular zone. The values in the squiggly brackets represent the RGB (red, green, blue) color values. Note the British spelling of color [colour] in the action name. 
+## FixedRGBColorDisplay
+Use this if you want to have a supported display widget [Select buttons on FaderPort8/16] change color in a particular zone. The values in the squiggly brackets represent the RGB (red, green, blue) color values. 
 
-In the below example, FixedRGBColourDisplay is being used to set the colors of certain buttons when entering this custom "NavigatorPan" SubZone. In this case, when the zone is active, the Pan button will turn blue { 0 55 255 }, and the other navigation buttons on this surface (Channel, Scroll) will go dark { 0 5 20 }.
+In the below example, FixedRGBColorDisplay is being used to set the colors of certain buttons when entering this custom "NavigatorPan" SubZone. In this case, when the zone is active, the Pan button will turn blue { 0 55 255 }, and the other navigation buttons on this surface (Channel, Scroll) will go dark { 0 5 20 }.
 ```
 Zone "NavigatorPan"
-  Pan                   FixedRGBColourDisplay { 0 55 255 }
+  Pan                   FixedRGBColorDisplay { 0 55 255 }
 
-  Channel               FixedRGBColourDisplay { 0 5 20 }
+  Channel               FixedRGBColorDisplay { 0 5 20 }
   Channel               GoHome
   Channel               GoSubZone "NavigatorChannel"
 
-  Scroll                FixedRGBColourDisplay { 0 5 20 }
+  Scroll                FixedRGBColorDisplay { 0 5 20 }
   Scroll                GoHome
   Scroll                GoSubZone "NavigatorScroll"
 
-  Shift+Scroll          FixedRGBColourDisplay { 0 5 20 }
+  Shift+Scroll          FixedRGBColorDisplay { 0 5 20 }
   Shift+Scroll          GoHome
   Shift+Scroll          GoSubZone "NavigatorZoom"
 
