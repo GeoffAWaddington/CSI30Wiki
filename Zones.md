@@ -86,6 +86,42 @@ Here's what that looks like in a Buttons.zon
     Busses                      GoTrackFXMenu
 ````
 
+# Home Zone
+Every surface in CSI requires a Home zone. The types of zones defined in "IncludedZones" will dictate the starting (or "home") state of the surface. Additionally, CSI version 2 introduced the concept of AssociatedZones. These are zones like Sends, Receives, and FX Menus that are not activated as part of the home.zon, but will be called from this zone.
+
+Below is an example of a typical MCU-style home.zon. The "Track" zone will use the displays and widgets when the Home zone is active, but if you want to call up an FX menu, Sends, or Receives to then takeover over some of the widgets, they need to be listed as AssociatedZones as shown below. When configured like this, the AssociatedZones function as "radio-button" style zones, where only one can be active at a given time (example: SelectedTrackSends or SelectedTrackReceives - not both simultaneously).
+```
+Zone Home
+    IncludedZones
+        "Buttons"
+        "Track"
+        "MasterTrack"
+    IncludedZonesEnd
+    AssociatedZones
+       "SelectedTrackFXMenu"
+       "SelectedTrackSend"
+       "SelectedTrackReceive"
+       "TrackFXMenu"
+       "TrackSend"
+       "TrackReceive"
+    AssociatedZonesEnd
+ZoneEnd
+```
+
+On the other hand, here's an example of a home.zon where the Track zone, SelectedTrackFXMenu, and SelectedTrackSend zones are all activate in the home.zon itself. For this particular device/use-case, RowA of the surface covers the Track zone, RowB covers the SelectedTrackFXMenu, and RowC covers SelectedTrackSend and I wanted all 3 active simultaneously which is why we have all 3 listed as IncludedZones in the Home.zon versus AssociatedZones in the prior example.
+```
+Zone "Home"
+    IncludedZones
+        "Buttons"
+        "Track"
+        "SelectedTrackFXMenu"
+        "SelectedTrackSend"
+    IncludedZonesEnd
+ZoneEnd
+```
+
+The Home.zon would also include any [[Broadcast and Receive|Broadcast-and-Receive]] messages and is also a great place to define actions assigned to [[Virtual Widgets]].
+
 ## FX Zones
 FX zone file names can be whatever you'd like them to, but the FX zone name in the .zon file itself must match the plugin name in Reaper exactly. See [FX Zones](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/FX-Zones) for more information on how to create an FX.zon.
 
