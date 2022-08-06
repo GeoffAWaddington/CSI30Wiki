@@ -86,7 +86,7 @@ Here's what that looks like in a Buttons.zon
     Busses                      GoTrackFXMenu
 ````
 
-# Home Zone
+## Home Zone
 Every surface in CSI requires a Home zone. The types of zones defined in "IncludedZones" will dictate the starting (or "home") state of the surface. Additionally, CSI version 2 introduced the concept of AssociatedZones. These are zones like Sends, Receives, and FX Menus that are not activated as part of the home.zon, but will be called from this zone.
 
 Below is an example of a typical MCU-style home.zon. The "Track" zone will use the displays and widgets when the Home zone is active, but if you want to call up an FX menu, Sends, or Receives to then takeover over some of the widgets, they need to be listed as AssociatedZones as shown below. When configured like this, the AssociatedZones function as "radio-button" style zones, where only one can be active at a given time (example: SelectedTrackSends or SelectedTrackReceives - not both simultaneously).
