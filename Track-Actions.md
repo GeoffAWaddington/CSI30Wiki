@@ -170,9 +170,18 @@ ZoneEnd
 
 ## TrackNameDisplay
 Use TrackNameDisplay on a display widget to show the name of the track in question. Note: if a track is not named in Reaper, it will display "Track 1", "Track 2", etc. On a surface with only 8 characters, "Track 10" may be truncated to just "Track 1". Workaround: properly name your tracks!
+
+Here's TrackNameDisplay used in a typical "Track" zone.
 ```
 Zone "Track"
      DisplayUpper|     TrackNameDisplay
+ZoneEnd
+```
+
+In the below example, we've got a display widget called "MainDisplay" and want to assign the selected track's name to always appear on that widget. To do this, we can create a SelectedTrack.zon and simply add the following... 
+```
+Zone "SelectedTrack"
+     MainDisplay     TrackNameDisplay
 ZoneEnd
 ```
 
