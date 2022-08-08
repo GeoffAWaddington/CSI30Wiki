@@ -191,6 +191,7 @@ Zone "Track"
      VUMeterRight|     TrackOutputMeter 1
 ZoneEnd
 ```
+If you have more than just left and right channels (e.g. surround) you can use TrackOutputMeter 2, TrackOutputMeter 3, etc.
 
 ## TrackOutputMeterAverageLR
 Use this action if your surface has a single column LED for metering and you want that meter to show the average of both the left and right channels.
