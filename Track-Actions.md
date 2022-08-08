@@ -177,10 +177,18 @@ ZoneEnd
 ```
 
 ## TrackOutputMeter
-Use this action if your surface has two columns of meter LEDs (one for left and one for right channel).
+Use this action if your surface has two columns of meter LEDs (one for left and one for right channel). By default, CSI will display the left channel (0) on a mono meter.
 ```
 Zone "Track"
      VUMeter|      TrackOutputMeter
+ZoneEnd
+```
+
+If you have a surface where the meter has right and left channels, you would break those up into two widgets in your .mst and in your Track zone, append the channel number (0=Left, 1=Right) to the end of the TrackOutputMeter action as shown below.
+```
+Zone "Track"
+     VUMeterLeft|      TrackOutputMeter 0
+     VUMeterRight|     TrackOutputMeter 1
 ZoneEnd
 ```
 
