@@ -8,7 +8,7 @@ Pages allow you to have....
 * Different actions assigned to your surface depending on what your doing - i.e. different zone folders for one or more surfaces on each Page
 * Surface capabilities defined differently on each page - i.e. different .mst and/or files for one or more on each Page
 
-**Note:** The current Page is saved within your Reaper project. Example: if you save a project while CSI is on your "MixPage", upon reopening said project, CSI will start out on your "MixPage".
+**Note:** The current Page is saved within your Reaper project. Example: if you save a project while CSI is on your "MixPage", upon reopening said project, CSI will start out on your "MixPage" instead of the default "HomePage".
 
 ## **To create a Page**
 
