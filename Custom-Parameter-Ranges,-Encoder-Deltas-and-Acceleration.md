@@ -1,5 +1,4 @@
-# Zone File Custom Parameter Ranges, Deltas, and Acceleration
-CSI now also allows you to customize the parameter ranges for a given control, how quickly an encoder will step through a parameter (the delta), and even customize the acceleration curve for an encoder. All on a per-parameter basis!
+CSI allows you to customize the parameter ranges for a given control, how quickly an encoder will step through a parameter (the delta), and even customize the acceleration curve for an encoder. All on a per-parameter basis!
 
 ## Default Range, Default Step Size, Default Acceleration
 If you would rather rely on CSI's default values for encoders, just map your FX Parameter or CSI action to your encoder widget exactly like you normally would any CSI action. The full 0.0 to 1.0 parameter range will be used, as will the default CSI delta, with absolutely no acceleration. 
