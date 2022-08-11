@@ -45,10 +45,6 @@ Here's an example of how to limit the parameter range AND use a custom accelerat
 Encoder1 FXParam 1 "Attack" [ 0.0>0.66 (0.001,0.0025,0.033,0.05) ]
 ```
 
-# Stepped Parameters
-
-Because encoders don't have absolute begin and end values like a fader, this presents a challenge when mapping stepped FX Parameters to encoder widgets. What's a stepped parameter? Example: an SSL BusCompressor has stepped attack times: .1ms, .3ms, 1ms, 3ms, 10ms, 30ms. The knob will jump to those values with no in-between settings possible. For these types of controls, CSI needs to be told in the fx.zon file, where exactly each parameter step is located. The lowest possible value is always 0.0 and the highest possible value is always 1.0. 
-
 ## Mapping Stepped Parameters To Encoders
 In this FX zone, there are 3 Character modes, whose parameter values correspond to 0.0, 0.5, and 1.0, there are 10 Ensemble options (which are .1 step apart), and bypass is a simple on/off toggle (either 0.0 or 1.0). So to make this work with our Encoder widgets in an fx.zon file, they need to be mapped in our .zon file as such:
 
