@@ -36,7 +36,7 @@ PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supp
   * [[Setting Up Your Phone or Tablet as an OSC Device in CSI ]]
   * [[How To: Creating a Touch OSC Template, .ost File, and Zone for Use in CSI]]
 * Examples
-  * [Examples that come with the beta download](https://stash.reaper.fm/v/38349/CSI%20beta.zip)
+  * [Examples that come with the beta download](https://stash.reaper.fm/v/44740/CSI%20Support%20Files.zip)
   * [poetnprophet's Getting Started Video](https://youtu.be/T5IC-fuI0E8)
   * [poetnprophet's Workflow Video](https://www.youtube.com/watch?v=CRU6hBRXnUQ)  
   * [EpicSound's BCF 2000 Video](https://youtu.be/aFIC9A_MwY0)
