@@ -33,7 +33,7 @@ Zone "Buttons"
 ZoneEnd
 ```
 
-**Note:** The TrackBank action will automatically bank VCA and Folder tracks when CSI's [[CycleTrackVCAFolderModes|VCA's-and-VCA-Spill#cycletrackvcafoldermodes-trackvcafoldermodedisplay]] action is set to one of those respective modes.  
+**Note:** The TrackBank action will automatically bank VCA and Folder tracks when CSI's [[CycleTrackVCAFolderModes|VCA's-and-VCA-Spill#cycletrackvcafoldermodes-trackvcafoldermodedisplay]] action is set to one of those respective modes. Additionally, banking information is saved within your Reaper project. Example: if you are banked to track 30 when you last saved your Reaper project, upon reopening that project, CSI will be banked to track 30, allowing you to pick up where you last left off.
 
 ## SelectedTrackBank
 This action works similarly to TrackBank but selects the track in Reaper. Use this in a selected track style workflow.
