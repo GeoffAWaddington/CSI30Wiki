@@ -1,27 +1,26 @@
-* [[TrackBank|navigation actions#trackbank]]
-* [[SelectedTrackBank|navigation actions#selectedtrackbank]]
-* [[TrackSendBank|navigation actions#tracksendbank]]
-* [[TrackReceiveBank|navigation actions#trackreceivebank]]
-* [[TrackFXMenuBank|navigation actions#trackfxmenubank]]
-* [[SelectedTrackSendBank|navigation actions#selectedtracksendbank]]
-* [[SelectedTrackReceiveBank|navigation actions#selectedtrackreceivebank]]
-* [[SelectedTrackFXMenuBank|navigation actions#selectedtrackfxmenubank]]
-* [[ToggleSynchPageBanking|navigation actions#togglesynchpagebanking]]
-* [[ToggleScrollLink|navigation actions#togglescrolllink]]
-* [[GoHome|navigation actions#gohome]]
-* [[GoSubZone|navigation actions#gosubzone-leavesubzone]]
-* [[LeaveSubZone|navigation actions#gosubzone-leavesubzone]]
-* [[GoTrackSend|navigation actions#gotracksend]]
-* [[GoTrackReceive|navigation actions#gotrackreceive]]
-* [[GoTrackFXMenu|navigation actions#gotrackfxmenu]]
-* [[GoSelectedTrackSend|navigation actions#goselectedtracksend]]
-* [[GoSelectedTrackReceive|navigation actions#goselectedtrackreceive]]
-* [[GoSelectedTrackFXMenu|navigation actions#goselectedtrackfxmenu]]
-* [[GoSelectedTrackFX|navigation actions#goselectedtrackfx]]
-* [[GoPage|navigation actions#gopage-nextpage-pagenamedisplay]]
-* [[NextPage|navigation actions#gopage-nextpage-pagenamedisplay]]
-* [[PageNameDisplay|navigation actions#gopage-nextpage-pagenamedisplay]]
-
+* [[TrackBank|Navigation Actions#trackbank]]
+* [[SelectedTrackBank|Navigation Actions#selectedtrackbank]]
+* [[TrackSendBank|Navigation Actions#tracksendbank]]
+* [[TrackReceiveBank|Navigation Actions#trackreceivebank]]
+* [[TrackFXMenuBank|Navigation Actions#trackfxmenubank]]
+* [[SelectedTrackSendBank|Navigation Actions#selectedtracksendbank]]
+* [[SelectedTrackReceiveBank|Navigation Actions#selectedtrackreceivebank]]
+* [[SelectedTrackFXMenuBank|Navigation Actions#selectedtrackfxmenubank]]
+* [[ToggleSynchPageBanking|Navigation Actions#togglesynchpagebanking]]
+* [[ToggleScrollLink|Navigation Actions#togglescrolllink]]
+* [[GoHome|Navigation Actions#gohome]]
+* [[GoSubZone|Navigation Actions#gosubzone-leavesubzone]]
+* [[LeaveSubZone|Navigation Actions#gosubzone-leavesubzone]]
+* [[GoTrackSend|Navigation Actions#gotracksend]]
+* [[GoTrackReceive|Navigation Actions#gotrackreceive]]
+* [[GoTrackFXMenu|Navigation Actions#gotrackfxmenu]]
+* [[GoSelectedTrackSend|Navigation Actions#goselectedtracksend]]
+* [[GoSelectedTrackReceive|Navigation Actions#goselectedtrackreceive]]
+* [[GoSelectedTrackFXMenu|Navigation Actions#goselectedtrackfxmenu]]
+* [[GoSelectedTrackFX|Navigation Actions#goselectedtrackfx]]
+* [[GoPage|Navigation Actions#gopage-nextpage-pagenamedisplay]]
+* [[NextPage|Navigation Actions#gopage-nextpage-pagenamedisplay]]
+* [[PageNameDisplay|Navigation Actions#gopage-nextpage-pagenamedisplay]]
 
 ## TrackBank
 Add this action to your Buttons zone for banking the surface in a Track context. No change is made to the track selection in Reaper. Positive or negative numbers after the action name will dictate how many tracks will banked at a time.
@@ -161,6 +160,27 @@ This action toggles the behavior where Reaper's MCP will follow CSI's banking an
 ```
 Zone "Buttons"
      F7     ToggleScrollLink
+ZoneEnd
+```
+
+if you want to have ToggleScrollLink default to "On", you could include it in your Home.zon along with an OnInitialization virtual widget as shown below. **Important note:** ToggleScrollLink is actually a "Page-level" action. So if you had included "OnInitialization ToggleScrollLink" in two surface zone files, or shared one zone folder between two devices, the action would actually fire twice thus not actually changing the state (changing it from it's default off state, to on, to off again). The current workaround would be not to share zone folders between two surfaces if you want ScrollLink enabled by default.
+```
+Zone "Home"
+	OnInitialization ToggleScrollLink
+     	IncludedZones
+     	   	"Buttons"
+     	   	"Track"
+     	   	"SelectedTrack"
+		"MasterTrack"
+     	IncludedZonesEnd
+     	AssociatedZones
+     	   	"SelectedTrackFXMenu"
+     		"SelectedTrackSend"
+     		"SelectedTrackReceive"
+     		"TrackSend"
+     		"TrackReceive"	
+     	AssociatedZonesEnd
+		
 ZoneEnd
 ```
 
