@@ -163,7 +163,7 @@ Zone "Buttons"
 ZoneEnd
 ```
 
-if you want to have ToggleScrollLink default to "On", you could include it in your Home.zon along with an OnInitialization virtual widget as shown below. **Important note:** ToggleScrollLink is actually a "Page-level" action. So if you had included "OnInitialization ToggleScrollLink" in two surface zone files, or shared one zone folder between two devices, the action would actually fire twice thus not actually changing the state (changing it from it's default off state, to on, to off again). The current workaround would be not to share zone folders between two surfaces if you want ScrollLink enabled by default.
+if you want to have ToggleScrollLink default to "On", you could include it in your Home.zon along with an OnInitialization virtual widget as shown below. **Important note:** ToggleScrollLink is actually a "Page-level" action. So if you had included "OnInitialization ToggleScrollLink" in two surface zone files, or shared one zone folder between two devices, the action would actually fire twice thus not actually changing the state (changing it from it's default off state, to on, to off again). The current workaround would be to only include this action in one surface home.zon and not to share zone folders between two surfaces if you want ScrollLink enabled by default.
 ```
 Zone "Home"
 	OnInitialization ToggleScrollLink
