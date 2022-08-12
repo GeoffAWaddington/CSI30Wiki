@@ -45,7 +45,7 @@ Rotary1  FXParam 3 [ 0.0 0.34 0.67 1.0 ]
 ZoneEnd
 ```
 
-For more information on assigning Stepped Parameters to encoders in CSI see the section on [[Encoder Customization|(https://github.com/GeoffAWaddington/CSIWiki/wiki/Message-Generators#encoder-customization)]].
+For more information on assigning Stepped Parameters to encoders in CSI see the section on [Encoder Customization.](https://github.com/GeoffAWaddington/CSIWiki/wiki/Message-Generators#encoder-customization)
 
 ## Stepped Parameter Reference Table
 Most developers will evenly distribute and normalize the number of parameter steps in their plugins. This won't always be true, but I'd say it's the case for around 98% of stepped parameters. As a result, you can try to reference the below list of parameter step sizes. Remember: only copy the stuff in the brackets, not the number that precedes them.
