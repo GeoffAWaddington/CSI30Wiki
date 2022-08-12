@@ -51,7 +51,7 @@ The Shift Widget has been declared with a Release message -- good for Buttons yo
 
 **Tip:** if your surface creates release messages, include them in your .mst file. It's better to have release messages and not need them, then need them and not have them.
 
-For information on how to assign buttons using Press widgets to toggles and stepped parameters see [Stepped Params and Toggles.](https://github.com/GeoffAWaddington/CSIWiki/wiki/Stepped-Parameters-and-Toggles)
+For information on how to assign buttons using Press widgets to toggles and stepped parameters in a Zone file, see [Stepped Params and Toggles.](https://github.com/GeoffAWaddington/CSIWiki/wiki/Stepped-Parameters-and-Toggles)
 
 ## Using Press for jogwheels
 Additionally, press messages can be used to split up a jogwheel into clockwise (CW) and counter-clockwise (CCW) turns which can then be assigned to different actions in your CSI zone files. See the example below from a typical MCU device:
