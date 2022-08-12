@@ -74,3 +74,13 @@ Zone "Track"
     Shift+Solo|     TrackSolo
 ZoneEnd
 ```
+
+## Dedicated TrackNameDisplay for Last Touched Track
+If you've got a surface that transmits touch messages and you want a display that will show the name of the track you're touching, you can attach a Fader Touch modifier to the display. But because fader touch messages were designed to override existing functionality, you'd have to add a FixedTextDisplay action wtih an empty string (just 2 empty quotes with a space between), followed by the fader touch syntax with a TrackNameDisplay as shown below.
+
+```
+Zone "Track"
+    MainDisplay|                   FixedTextDisplay " "
+    Fader|Touch+MainDisplay|       TrackNameDisplay
+ZoneEnd
+```
