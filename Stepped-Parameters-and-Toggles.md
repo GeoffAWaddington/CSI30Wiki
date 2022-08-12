@@ -1,4 +1,4 @@
-This page will cover mapping toggles and stepped parameters to buttons. Visit the [Encoders](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/Encoders#stepped-parameters) page for details on how to map stepped parameters to an endless rotary encoder.
+This page will cover mapping toggles and stepped parameters to buttons. Visit the [Encoders](https://github.com/GeoffAWaddington/CSIWiki/wiki/Message-Generators#Encoders) page for details on how to map stepped parameters to an endless rotary encoder.
 
 # Toggles [ Two Steps ]
 
