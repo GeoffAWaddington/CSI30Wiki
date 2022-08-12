@@ -33,11 +33,19 @@ Mapping multiple steps is essentially the same as mapping a toggle, there are ju
 
 ```
 Zone "VST: TR5 Tape Machine 80 (IK Multimedia)" "Tape Machine 80"
-FocusedFXNavigator
 Button1  FXParam 3 [ 0.0 0.34 0.67 1.0 ]      // Step up a list: this WILL loop
 Button2  FXParam 3 [ 1.0 0.67 0.34 0.0 ]      // Step down: this will NOT loop
 ZoneEnd
 ```
+
+You can also use an Encoder to scroll through stepped parameters. Here, I'm using Rotary 1 (an encoder widget) to cycle through the stepped parameters.
+```
+Zone "VST: TR5 Tape Machine 80 (IK Multimedia)" "Tape Machine 80"
+Rotary1  FXParam 3 [ 0.0 0.34 0.67 1.0 ]
+ZoneEnd
+```
+
+For more information on assigning Stepped Parameters to encoders in CSI see [[Customizing Encoders|Message-Generators#overriding-the-tick-count-on-stepped-parameters]].
 
 ## Stepped Parameter Reference Table
 Most developers will evenly distribute and normalize the number of parameter steps in their plugins. This won't always be true, but I'd say it's the case for around 98% of stepped parameters. As a result, you can try to reference the below list of parameter step sizes. Remember: only copy the stuff in the brackets, not the number that precedes them.
