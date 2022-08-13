@@ -1,4 +1,4 @@
-If you read the [[Defining Control Surface Capabilities]] page, you'd know that we define Widgets in our .mst/.ost files to represent the capabilities of our surfaces. I sometimes think of these Widgets (or at least the Message Generator part) as triggers I can use to [[cause certain actions or behaviours|Defining Control Surface Behaviour]] to occur.
+If you read the [[Defining Control Surface Capabilities]] page, you'd know that we define Widgets in our .mst/.ost files to represent the capabilities of our surfaces. I sometimes think of these Widgets (or at least the Message Generator part) as triggers I can use to [[cause certain actions or behaviours|Defining-Control-Surface-Behavior]] to occur.
 
 If we run with that analogy, then the Widgets on our surfaces are not the only things we may want to use to trigger behaviours. Sometimes we may want to trigger them when certain things occur in Reaper itself, e.g. when the selected track changes. 
 
