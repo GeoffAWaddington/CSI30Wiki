@@ -135,9 +135,9 @@ WidgetEnd
 In this example, touching Fader1 generates a message of 90 68 7f, and releasing Fader1 generates a second message of 90 68 00. 
 
 # Encoders
-Encoders are typically referred to as "Endless Rotary" knobs (i.e. knobs with no absolute begin and end positions). While CSI typically requires the use of [[Fader7Bit]] widgets for traditional rotary knobs that communicate absolute start and end values, Encoders are different in that they communicate a relative change in value (i.e. it sends one value when it is increasing and one when it is decreasing).
+Encoders are typically referred to as "Endless Rotary" knobs or "Relative Encoders" (i.e. knobs with no absolute begin and end positions). While CSI typically requires the use of [[Fader7Bit|Message-Generators#fader7bit]] widgets for traditional rotary knobs that communicate absolute start and end values, Encoders are different in that they communicate a relative change in value (i.e. it sends one value or one set of values when it is increasing and one when it is decreasing).
 
-One large benefit of encoders versus traditional Rotary knobs that would use a [[Fader7Bit]] widget, is that encoders typically allow for much higher resolution than 7bit MIDI.
+One large benefit of encoders versus traditional Rotary knobs that would use a [[Fader7Bit|Message-Generators#fader7bit]] widget, is that encoders typically allow for much higher resolution than 7bit MIDI.
 
 In order to support the widest possible range of hardware encoders, CSI now allows users to customize which values their encoders transmit as well as define acceleration ranges for encoders that support it. EncoderPlain and EncoderPlainReverse are available if your surface has no acceleration.
 
