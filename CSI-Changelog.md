@@ -1,3 +1,8 @@
+# August 14, 2022 Update
+
+## Bug Fix: Custom Deltas
+The 'Custom Delta' functionality for [[Encoders|Message-Generators#encoders]] was not working previously working and fixed in this build.
+
 # August 5, 2022 Update
 
 ## New Feature: X-Touch Color Support (FB_XTouchDisplayUpper)
