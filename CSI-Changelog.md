@@ -1,33 +1,45 @@
+# August 15, 2022 Update
+Reaper forum user [Navelpluisje](https://forum.cockos.com/member.php?u=139512) has made some contributions to improve FaderPort8/16 functionality in this build, including developing a TrackNumberDisplay action. Thanks to Navelpluisje for the additions!
+
+### BREAKING CHANGE: FB_FaderportRGB7bit is now FB_FaderportRGB
+Anyone using an existing set of files for the Presonus Faderport8 or Faderport16 will need to update their .mst files to rename FB_FaderportRGB7bit to FB_FaderportRGB.
+
+### New Action: TrackNumberDisplay
+This new display action will show the Reaper track number on a display. This can be useful for multi-line displays like the Faderport8/16 or SCE24 where you may want to spare a line for the track number as well as OSC surfaces.
+
+### New Feedback Processors: FB_FaderportTwoStateRGB, FB_FPVUMeter
+FB_FaderportTwoStateRGB is used to allow two different colors for the Select buttons on the Faderport8/16 (track selected, track not selected), and FB_FPVUMeter allows one of the lines on the Faderport8/16 to function as a VU meter.
+
 # August 14, 2022 Update
 
-## Bug Fix: Custom Deltas
+### Bug Fix: Custom Deltas
 The 'Custom Delta' functionality for [[Encoders|Message-Generators#encoders]] was not working previously working and fixed in this build.
 
 # August 5, 2022 Update
 
-## New Feature: X-Touch Color Support (FB_XTouchDisplayUpper)
+### New Feature: X-Touch Color Support (FB_XTouchDisplayUpper)
 Color support for the X-Touch Universal and X-Touch Extender has been added. See [[FB_XTouchDisplayUpper|Feedback-Processors#fb_xtouchdisplayupper]] for details.
 
-## Removed ForceScrollLink Action
+### Removed ForceScrollLink Action
 The ForceScrollLink action has been removed.
 
-## ToggleScrollLink now defaults to Off
+### ToggleScrollLink now defaults to Off
 The [[ToggleScrollLink|Navigation-Actions#togglescrolllink]] action now defaults to Off. Previously defaulted to on.
 
-## Renamed FixedRGBColourDisplay to FixedRGBColorDisplay to standardize spelling
+### Renamed FixedRGBColourDisplay to FixedRGBColorDisplay to standardize spelling
 Standardizing CSI to consistently utilize US spelling. The FixedRGBColourDisplay action is now [[FixedRGBColorDisplay|Other-Actions#FixedRGBColorDisplay]].
 
-## Renamed FB_GainReductionMeter to FB_ConsoleOneGainReductionMeter for clarity
+### Renamed FB_GainReductionMeter to FB_ConsoleOneGainReductionMeter for clarity
 Name changed to clarify this widget is specific to the Softube Console One.
 
-## Renamed FB_VUMeter to FB_ConsoleOneVUMeter for clarity
+### Renamed FB_VUMeter to FB_ConsoleOneVUMeter for clarity
 Name changed to clarify this widget is specific to the Softube Console One.
 
 # CSI Version 2.0 - July 10, 2022
 
 CSI version 2.0 made a number of under-the-hood changes to zone loading to improve results and simplify some processes, while also expanding capabilities and improving features in various areas. This page is designed towards users with familiarity with CSI v1/1.1 authoring and is meant to assist in migration to version 2.0 by summarizing and consolidating the changes. 
 
-## No more Navigators and fixed Zone names
+### No more Navigators and fixed Zone names
 In order to simplify .zon creation, the concept of Navigators have been removed (at least from the .zon files), and CSI inherits the Zone type based on a fixed set of Zone names. The fixed Zone names are:
 
 
@@ -45,7 +57,7 @@ TrackReceive
 TrackSend
 ```
 
-## Changes to the Home.zon syntax (AssociatedZones)
+### Changes to the Home.zon syntax (AssociatedZones)
 CSI version 2 introduced the concept of AssociatedZones. These are zones like Sends, Receives, and FX Menus that are not activated as part of the home.zon, but will be called from this zone.
 
 Below is an example of a typical MCU-style home.zon. The "Track" zone will use the displays and widgets when the Home zone is active, but if you want to call up an FX menu, Sends, or Receives to then takeover over some of the widgets, they need to be listed as AssociatedZones as shown below. When configured like this, the AssociatedZones function as "radio-button" style zones, where only one can be active at a given time (example: SelectedTrackSends or SelectedTrackReceives - not both simultaneously).
@@ -67,7 +79,7 @@ Zone Home
 ZoneEnd
 ```
 
-## No more “GoZone”
+### No more “GoZone”
 Fixed zone names mean we no longer need the GoZone action. Instead, users can activate fixed zones directly from the following list of actions:
 
 * [GoHome](https://github.com/GeoffAWaddington/CSIWiki/wiki/GoHome)
@@ -81,10 +93,10 @@ Fixed zone names mean we no longer need the GoZone action. Instead, users can ac
 * [GoSelectedTrackReceive](https://github.com/GeoffAWaddington/CSIWiki/wiki/GoSelectedTrackReceive)
 * [GoSelectedTrack](https://github.com/GeoffAWaddington/CSIWiki/wiki/GoSelectedTrack)
 
-## Zone feedback
+### Zone feedback
 Now, active zones will send feedback to surfaces that support this like the Behringer X-Touch, X-Touch One, etc. Example: if the Home zone is active, the button dedicated to this zone on these types of surfaces will light up. Same for the Send/Receive/FXMenu type zones. 
 
-## Broadcast and Receive syntax improved
+### Broadcast and Receive syntax improved
 In CSI, you can instruct one surface to "broadcast" zone changes to another surface to keep them in sync, as long as that other surface is set to "receive" and listen to those broadcast changes. This is not new functionality, however, rather than having a bunch of separate actions for this behavior, you can now list all your broadcast message types on a single row in the Home.zon, and same for Receive messages. 
 
 Broadcast/Receive only works for "Home" and "Associated Zones". If you have SelectedTrackFXMenu or FXMenu set to broadcast/receive, that includes the GoFXSlot messages that activates those zones.
@@ -110,7 +122,7 @@ OnInitialization Receive Home SelectedTrackSend SelectedTrackReceive SelectedTra
 ZoneEnd
 ```
 
-## FocusedFX changes
+### FocusedFX changes
 The elimination of navigators mentioned above applies to FX.zon files too! By default, CSI version 2 will have FocusedFX mapping enabled. This means if you have a fx.zon file for a particular FX/instrument plugin, and open the GUI in Reaper, that mapping will become activated by default. You can toggle this behavior off and on by assigning a button to the ToggleEnableFocusedFXMapping action as shown below:
 ```
    SomeButton     ToggleEnableFocusedFXMapping
@@ -138,10 +150,10 @@ OnInitialization Receive Home SelectedTrackSend SelectedTrackReceive SelectedTra
 ZoneEnd
 ```
 
-## Rewind and FastForward improvements
+### Rewind and FastForward improvements
 Big improvements have been made to the Rewind and FastForward actions. They will now latch and seek the play/edit cursor. The first press of either button will result in a slower rewind/forward speed. If you press the button again, you get a second, faster speed. In addition, feedback has been added to these actions for use in OSC surfaces or any MIDI surfaces that can provide rewind/fastforward feedback.
 
-## New "Flip" Modifier
+### New "Flip" Modifier
 A new modifier called "Flip" has been introduced with the intention of being assigned to the Flip button on MCU-style control surfaces. A common use-case for this would be to temporarily put track pans onto the faders for quick panning adjustments. And because it's a modifier, a quick press of the button this is assigned to will allow for latching.
 
 Here's how you'd define the modifier in a Buttons zone.
@@ -171,30 +183,30 @@ Zone "Track"
 ZoneEnd
 ```
 
-## SubZones are for more than just FX now
+### SubZones are for more than just FX now
 SubZones are custom zones (i.e. they don’t have a fixed, pre-defined name) that can be called up from other zones. Common use-cases for SubZones would be create a custom Zoom zone, or a custom Marker zone that can re-purpose some widget assignments and change the functionality of the surface. They are also commonly used FX SubZones, which existed in CSI version 1.1. Think of an example of a Mastering Suite that may have more parameters than you have controls for on your surface. With FX SubZones, you could create one zone for the compressor section, another for the limiter section, then activate those different surfaces via button presses.
 
-## FX SubZone crashes on Mac have been resolved
+### FX SubZone crashes on Mac have been resolved
 In CSI v1.1, using a SubZone on Mac would cause CSI to crash Reaper [there was a workaround]. These now work as intended without crashing.
 
-## Banking actions can exist in the buttons zone
+### Banking actions can exist in the buttons zone
 In CSI v1.1, Send, Receive and FX Menu banking actions needed to exist in those zones. In CSI v2, there are unique banking actions for each type. Those banking actions are no longer constrained to the Send, Receive, FX Menu zone files…you can use those in the buttons.zon
 
-## Track Pin features have been removed
+### Track Pin features have been removed
 Track pinning has been removed [as of now] from CSI v2 in order to clean up and simplify the code behind the scenes.
 
-## New CSI Preferences screen
+### New CSI Preferences screen
 To accommodate some under the hood changes how to surfaces get assigned to Pages, the CSI preferences screen has been redesigned. It now has a left to right flow where first you configure Surfaces on the left, then create one or more [[Pages]] in the middle, then use the Assignments section to assign surfaces to each page. See [[Setting up CSI for the first time|Installation-and-Setup#setting-up-your-csi-devices-for-the-first-time]] for more details. 
 
 ![CSI Preferences Screen Print](https://i.imgur.com/3gqL16s.png)
 
-## CSI Preferences: removed the FX Menu and Send/Receive channel count fields
+### CSI Preferences: removed the FX Menu and Send/Receive channel count fields
 In the CSI Device Preferences, you'll no longer see the Send/Receive channel count fields. They inherit the count from the channel count.
 
-## New CSI.ini format, new file error handling
+### New CSI.ini format, new file error handling
 Version 2.0 introduces changes to the file [[CSI.ini|CSI.INI]] file format. Additionally, now CSI will check for an incorrectly formatted CSI.ini and warn users when Reaper starts, notifying users of the version mismatch (rather than crashing Reaper). In general, CSI will warn users if there's a missing folder or incorrectly formated CSI.ini and should not crash Reaper.
 
-## MCUTrackPan action no longer requires toggle row in .mst file
+### MCUTrackPan action no longer requires toggle row in .mst file
 If the Rotary encoders in your .mst file contained the toggle line that was required for the MCUTrackPan action, that line can now be removed.
 
 So if you previously had this in your .mst file...
@@ -213,22 +225,22 @@ Widget Rotary1
 	FB_Encoder b0 10 7f
 WidgetEnd
 ```
-## RGB Color Fixes
+### RGB Color Fixes
 Reaper handles RGB colors differently between Mac and PC. A bug in CSI has been fixed to correct the RGB behavior on both platforms.
 
-## TouchOSC can now run locally
+### TouchOSC can now run locally
 You can now use the TouchOSC [mk II] application running on your local machine as a control surface in CSI.
 
-## Native Apple Silicon (ARM) support, universal binary
+### Native Apple Silicon (ARM) support, universal binary
 Mac users with M1 [or more recent] can now use CSI natively in the Reaper ARM version. The .dylib is now a universal binary that includes ARM and Intel versions. You will need to allow the CSI .dylib to have access within Security and Privacy settings in Mac OS, then restart Reaper.
 
-## Catalina or greater required for MacOS
+### Catalina or greater required for MacOS
 The minimum version of MacOS supported is 10.15. This was changed in order to support new processors.
 
-## No more 32-bit CSI builds
+### No more 32-bit CSI builds
 CSI no longer includes 32-bit builds on Windows and Mac. This was dropped in order to support new processors. 
 
-## New actions
+### New actions
 Here’s a list of new actions introduced in CSI v2:
 
 * SaveProject
@@ -261,7 +273,7 @@ Here’s a list of new actions introduced in CSI v2:
 * ToggleFXBypass
 * FXBypassedDisplay
 
-## Deprecated actions
+### Deprecated actions
 Here’s a list of legacy actions that have been removed. Many of these actions had to do with how zones were activated.
 
 * TimeDisplay (still exists - was renamed to MCUTimeDisplay)
