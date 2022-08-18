@@ -593,14 +593,6 @@ WidgetEnd
 
 **Note:** FB_FP8Display and FB_FP16Display are legacy feedback processors that now correspond to FB_FP8DisplayUpper and FB_FP16DisplayUpper respectively. The legacy versions will continue working for any .mst files where they already exist, but if you're creating a new set of files, you are encouraged to use the newer feedback processors.
 
-## FB_NovationLaunchpadMiniRGB7Bit
-Use FB_NovationLaunchpadMiniRGB7Bit for controlling the RGB colors on the Novation Launchpad Mini buttons. See the example below.
-```
-Widget ButtonA1
-        Press b0 5b 7f
-        FB_NovationLaunchpadMiniRGB7Bit b0 5b 7f
-WidgetEnd
-```
 
 ## FB_FPVUMeter
 FB_FPVUMeter is a feedback processor designed for the VU meters on a Faderport8/Faderport16 surface. Thanks to [Navelpluisje](https://forum.cockos.com/member.php?u=139512) for contributing this processor! Here's an example of what those meters would look like in an .mst.
@@ -634,6 +626,14 @@ Zone "Track"
 ZoneEnd
 ```
 
+## FB_NovationLaunchpadMiniRGB7Bit
+Use FB_NovationLaunchpadMiniRGB7Bit for controlling the RGB colors on the Novation Launchpad Mini buttons. See the example below.
+```
+Widget ButtonA1
+        Press b0 5b 7f
+        FB_NovationLaunchpadMiniRGB7Bit b0 5b 7f
+WidgetEnd
+```
 
 ## QCon Lite Displays
 Use FB_QConLiteDisplayUpper, FB_QConLiteDisplayUpperMid, FB_QConLiteDisplayLowerMid, FB_QConLiteDisplayLower for the four display lines on the QCon Lite surface. The correct syntax for each includes the Feedback Processor name, followed by the Channel # starting with 0.
