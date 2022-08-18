@@ -672,3 +672,12 @@ Cyan
 Magenta
 Yellow
 ```
+
+## FB_XTouchCompactEncoder
+FB_XTouchCompactEncoder is used for providing feedback to the encoders on an X-Touch Compact or X-Touch Mini when operating in MIDI mode. These encoders are somewhat unique in that they operate as fixed rotary knobs that will continue to transmit messages when the encoder is turned and the minimum or maximum has already been reached. 
+```
+Widget RotaryA1
+    XTouchCompactEncoder ba 01 7f
+    FB_XTouchCompactEncoder ba 01 7f
+WidgetEnd
+```
