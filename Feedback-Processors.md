@@ -58,6 +58,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_FP16DisplayLower|Feedback-Processors#faderport8-and-faderport16-displays]]
 * [[FB_FP8Display|Feedback-Processors#faderport8-and-faderport16-displays]]
 * [[FB_FP16Display|Feedback-Processors#faderport8-and-faderport16-displays]]
+* [[FB_FPVUMeter|Feedback-Processors#fpvumeter]]
 * [[FB_MFT_RGB|Feedback-Processors#FB_MFT_RGB]]
 * [[FB_NovationLaunchpadMiniRGB7Bit|Feedback-Processors#fb_novationlaunchpadminirgb7bit]]
 * [[FB_QConLiteDisplayUpper|Feedback-Processors#qcon-lite-displays]]
@@ -580,6 +581,39 @@ Widget ButtonA1
         FB_NovationLaunchpadMiniRGB7Bit b0 5b 7f
 WidgetEnd
 ```
+
+## FB_FPVUMeter
+FB_FPVUMeter is a feedback processor designed for the VU meters on a Faderport8/Faderport16 surface. Here's an example of what those meters would look like in an .mst.
+```
+Widget VUMeter1
+	FB_FPVUMeter 0
+WidgetEnd
+
+Widget VUMeter2
+	FB_FPVUMeter 1
+WidgetEnd
+```
+
+And here is how those widgets can be utilized in a .zon file for the Faderport8/16 (last line).
+```
+Zone "Track"
+  DisplayType|              DisplayType 5
+
+  ScribbleLine1_|           TrackNameDisplay
+  Property+ScribbleLine1_|  TextAlign Left            
+  Property+ScribbleLine1_|  Invert 1           
+
+  ScribbleLine2_|           TrackVolumeDisplay
+  ScribbleLine3_|           TrackPanDisplay
+  ScribbleLine4_|           TrackPanDisplay
+
+  ValueBar|                 TrackPan
+  Property+ValueBar|        Mode BiPolar
+
+  VUMeter|                  TrackOutputMeter
+ZoneEnd
+```
+
 
 ## QCon Lite Displays
 Use FB_QConLiteDisplayUpper, FB_QConLiteDisplayUpperMid, FB_QConLiteDisplayLowerMid, FB_QConLiteDisplayLower for the four display lines on the QCon Lite surface. The correct syntax for each includes the Feedback Processor name, followed by the Channel # starting with 0.
