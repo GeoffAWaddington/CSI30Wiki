@@ -280,10 +280,10 @@ Zone "Buttons"
 ZoneEnd
 ````
 
-But in order to get back to the Home page, I probably want to make sure I have the opposite happening when the Mix page is active. Note: this "Buttons.zon" exists on the "Mix" Page, and is different than the "Buttons.zon" on the "HomePage".
+But in order to get back to the HomePage, I probably want to make sure I have the opposite happening when the Mix page is active. Note: this "Buttons.zon" exists on the "Mix" Page, and is different than the "Buttons.zon" on the "HomePage".
 ````
 Zone "Buttons"
-        Channel         GoPage "Home"  // Activates the Home page
+        Channel         GoPage "HomePage"  // Activates the Home page
 ZoneEnd
 ````
 
