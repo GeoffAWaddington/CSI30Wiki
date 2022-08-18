@@ -1,31 +1,32 @@
 # Track Actions
 The following CSI actions are available for controlling Reaper's track controls. They will receive their context from the Zone Type, whether a "Track" zone (used for controlling multiple channels) or "SelectedTrack" zone.
 
-* [[TrackVolume|Track-Actions#TrackVolume-TrackVolumeDisplay]]
-* [[SoftTakeover7BitTrackVolume|Track-Actions#SoftTakeover7BitTrackVolume]]
-* [[SoftTakeover14BitTrackVolume|Track-Actions#SoftTakeover14BitTrackVolume]]
-* [[MCUTrackPan|Track-Actions#MCUTrackPan-MCUTrackPanDisplay]]
-* [[TrackPan|Track-Actions#TrackPan-TrackPanDisplay]]
-* [[TrackPanWidth|Track-Actions#TrackPanWidth-TrackPanWidthDisplay]]
-* [[TrackPanL|Track-Actions#TrackPanL-TrackPanLDisplay]]
-* [[TrackPanR|Track-Actions#TrackPanR-TrackPanRDisplay]]
-* [[TrackSelect|Track-Actions#TrackSelect]]
-* [[TrackUniqueSelect|Track-Actions#TrackUniqueSelect]]
-* [[TrackRangeSelect|Track-Actions#TrackRangeSelect]]
-* [[TrackSolo|Track-Actions#TrackSolo]]
-* [[TrackMute|Track-Actions#TrackMute]]
-* [[TrackRecordArm|Track-Actions#TrackRecordArm]]
-* [[TrackInvertPolarity|Track-Actions#TrackInvertPolarity]]
-* [[TrackNameDisplay|Track-Actions#TrackNameDisplay]]
-* [[TrackVolumeDisplay|Track-Actions#TrackVolume-TrackVolumeDisplay]]
-* [[MCUTrackPanDisplay|Track-Actions#MCUTrackPan-MCUTrackPanDisplay]]
-* [[TrackPanDisplay|Track-Actions#TrackPan-TrackPanDisplay]]
-* [[TrackPanWidthDisplay|Track-Actions#TrackPanWidth-TrackPanWidthDisplay]]
-* [[TrackPanLeftDisplay|Track-Actions#TrackPanL-TrackPanLeftDisplay]]
-* [[TrackPanRightDisplay|Track-Actions#TrackPanR-TrackPanRightDisplay]]
-* [[TrackOutputMeter|Track-Actions#TrackOutputMeter]]
-* [[TrackOutputMeterAverageLR|Track-Actions#TrackOutputMeterAverageLR]]
-* [[TrackOutputMeterMaxPeakLR|Track-Actions#TrackOutputMeterMaxPeakLR]]
+* [[TrackVolume|Track-Actions#trackvolume-trackvolumedisplay]]
+* [[SoftTakeover7BitTrackVolume|Track-Actions#softtakeover7bittrackvolume]]
+* [[SoftTakeover14BitTrackVolume|Track-Actions#softtakeover14bittrackvolume]]
+* [[MCUTrackPan|Track-Actions#mcutrackpan-mcutrackpandisplay]]
+* [[TrackPan|Track-Actions#trackpan-trackpandisplay]]
+* [[TrackPanWidth|Track-Actions#trackpanwidth-trackpanwidthdisplay]]
+* [[TrackPanL|Track-Actions#trackpanl-trackpanldisplay]]
+* [[TrackPanR|Track-Actions#trackpanr-trackpanrdisplay]]
+* [[TrackSelect|Track-Actions#trackselect]]
+* [[TrackUniqueSelect|Track-Actions#trackuniqueselect]]
+* [[TrackRangeSelect|Track-Actions#trackrangeselect]]
+* [[TrackSolo|Track-Actions#tracksolo]]
+* [[TrackMute|Track-Actions#trackmute]]
+* [[TrackRecordArm|Track-Actions#trackrecordarm]]
+* [[TrackInvertPolarity|Track-Actions#trackinvertpolarity]]
+* [[TrackNameDisplay|Track-Actions#tracknamedisplay]]
+* [[TrackNumberDisplay|Track-Actions#tracknumberdisplay]]
+* [[TrackVolumeDisplay|Track-Actions#trackvolume-trackvolumedisplay]]
+* [[MCUTrackPanDisplay|Track-Actions#mcutrackpan-mcutrackpandisplay]]
+* [[TrackPanDisplay|Track-Actions#TrackPan-trackpandisplay]]
+* [[TrackPanWidthDisplay|Track-Actions#trackpanwidth-trackpanwidthdisplay]]
+* [[TrackPanLeftDisplay|Track-Actions#trackpanl-trackpanleftdisplay]]
+* [[TrackPanRightDisplay|Track-Actions#trackpanr-trackpanrightdisplay]]
+* [[TrackOutputMeter|Track-Actions#trackoutputmeter]]
+* [[TrackOutputMeterAverageLR|Track-Actions#trackoutputmeteraveragelr]]
+* [[TrackOutputMeterMaxPeakLR|Track-Actions#trackoutputmetermaxpeaklr]]
 
 ## TrackVolume, TrackVolumeDisplay
 TrackVolume is the most commonly used CSI action for controlling TrackVolume. Use this for surfaces with motorized faders or encoders. TrackVolumeDisplay will display the fader volume on your surface. The example shown below shows the syntax for TrackVolumeDisplay could be used with touch sensitive faders to only show the track volume when touching the faders (you could show the Pan level in that display the rest of the time).  
@@ -182,6 +183,17 @@ In the below example, we've got a display widget called "MainDisplay" and want t
 ```
 Zone "SelectedTrack"
      MainDisplay     TrackNameDisplay
+ZoneEnd
+```
+
+## TrackNumberDisplay
+Use TrackNumberDisplay on a display widget to display the Reaper track # on your surface. In the below example, we've got a surface that has 4 display rows (FaderPort8/16, SCE-24 or an OSC device). The track number is being displayed on the second row of the display (DisplayUpperMiddle). 
+```
+Zone "Track"
+    DisplayUpper|          TrackNameDisplay
+    DisplayUpperMiddle|    TrackNumberDisplay
+    DisplayLowerMiddle|    TrackPanDisplay
+    DisplayLower|          TrackVolumeDisplay
 ZoneEnd
 ```
 
