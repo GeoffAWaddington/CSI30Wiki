@@ -198,7 +198,7 @@ XTouchCompactEncoder exists because the encoders in the X-Touch Compact and X-To
 ```
 Widget RotaryA1
     XTouchCompactEncoder ba 01 7f
-    FB_XTouchCompactEncoder ba 01 7f
+    FB_Fader7Bit ba 01 7f
 WidgetEnd
 ```
 
