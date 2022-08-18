@@ -625,6 +625,9 @@ Zone "Track"
 ZoneEnd
 ```
 
+Note: the VU Meter is only available in FaderPort Display Types 4,5,7 and 8 as shown below.
+![FaderPort Display Types](https://pasteboard.co/qQTheianj9tM.jpg)
+
 ## FB_NovationLaunchpadMiniRGB7Bit
 Use FB_NovationLaunchpadMiniRGB7Bit for controlling the RGB colors on the Novation Launchpad Mini buttons. See the example below.
 ```
