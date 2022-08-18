@@ -7,6 +7,7 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 * [[Fader14Bit|Message-Generators#fader14bit]] - like Fader7Bit, but has a larger (or more fine grained) set of values.
 * [[Encoders|Message-Generators#encoders]] - unlike the Faders, an Encoder sends a relative value (increase/decrease) 
 * [[MFTEncoder|Message-Generators#mftencoder]] - a special encoder only found on the MIDI Fighter Twister controller
+* [[XTouchCompactEncoder||Message-Generators#xtouchcompactencoder]] - another special encoder for the X-Touch Compact and X-Touch Mini. **Note: added to the CSI EXP Build as of August 17, 2022.**
 
 If you need to define a new .mst file, because one does not exist for your surface, the general idea here is to use the Reaper action **CSI Toggle Show Raw Input from Surfaces** to observe what values are sent when each control is manipulated. So for example, when I press one of the buttons on my controller, I see this:
 
@@ -189,6 +190,15 @@ The MIDI Fighter Twister by DJ Tech Tools can be configured to work as an Encode
 Widget RotaryA1
 	MFTEncoder b0 00 7f [ < 3f 3e 3d 3c 3b 3a 39 38 36 33 2f > 41 42 43 44 45 46 47 48 4a 4d 51 ]
 	FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+### XTouchCompactEncoder
+XTouchCompactEncoder exists because the encoders in the X-Touch Compact and X-Touch Mini devices can be configured as [absolute] rotary knobs that continue to send messages when turned beyond their maximum ranges. The encoders will continue to send 00 messages when turned counter-clockwise, and 7f messages when turned clockwise. This effectively allows them to function as encoders. Use this widget type to enable that behavior.
+```
+Widget Rotary1
+    XTouchCompactEncoder b0 0a 7f
+    FB_Fader7Bit         b0 0a 7f
 WidgetEnd
 ```
 
