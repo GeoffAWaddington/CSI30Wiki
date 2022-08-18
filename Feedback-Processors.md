@@ -65,7 +65,8 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_QConLiteDisplayLowerMid|Feedback-Processors#qcon-lite-displays]]
 * [[FB_QConLiteDisplayLower|Feedback-Processors#qcon-lite-displays]]
 * [[FB_QConProXMasterVUMeter|Feedback-Processors#FB_QConProXMasterVUMeter]] 
-* [[FB_XTouchDisplayUpper|Feedback-Processors#FB_XTouchDisplayUpper]] - CSI Exp only as of July 31, 2022
+* [[FB_XTouchDisplayUpper|Feedback-Processors#fb_xtouchdisplayupper]]
+* [[FB_XTouchCompactEncoder|Feedback-Processors#fb_xtouchcompactencoder]]
 
 ## FB_TwoState
 FB_TwoState is designed to provide feedback to buttons that have only an on or off state. Here's an example of the Mute button on channel 1 of an MCU style device. Notice it consists of a "Press" portion (the message generator for this widget), and also the FB_TwoState portion. The messages that follow are the bytes that are transmitted to control the state.
