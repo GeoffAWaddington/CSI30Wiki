@@ -583,7 +583,7 @@ WidgetEnd
 ```
 
 ## FB_FPVUMeter
-FB_FPVUMeter is a feedback processor designed for the VU meters on a Faderport8/Faderport16 surface. Here's an example of what those meters would look like in an .mst.
+FB_FPVUMeter is a feedback processor designed for the VU meters on a Faderport8/Faderport16 surface. Thanks to [Navelpluisje](https://forum.cockos.com/member.php?u=139512) for contributing this processor! Here's an example of what those meters would look like in an .mst.
 ```
 Widget VUMeter1
 	FB_FPVUMeter 0
