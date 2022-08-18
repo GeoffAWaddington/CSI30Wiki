@@ -197,6 +197,8 @@ Zone "Track"
 ZoneEnd
 ```
 
+That's to [Navelpluisje](https://forum.cockos.com/member.php?u=139512) for contributing this action!
+
 ## TrackOutputMeter
 Use this action if your surface has two columns of meter LEDs (one for left and one for right channel). By default, CSI will display the left channel (0) on a mono meter.
 ```
