@@ -47,7 +47,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_MCUAssigmentDisplay|Feedback-Processors#FB_MCUAssigmentDisplay]]
 * [[FB_MCUTimeDisplay|Feedback-Processors#FB_MCUTimeDisplay]] 
 * [[FB_MCUVUMeter|Feedback-Processors#FB_MCUVUMeter]] 
-* [[FB_FaderportRGB7Bit|Feedback-Processors#fb_faderportrgb7bit]]
+* [[FB_FaderportRGB|Feedback-Processors#fb_faderportrgb]]
 * [[FB_FaderportTwoStateRGB|Feedback-Processors#fb_faderporttwostatergb]]
 * [[FB_FP8DisplayUpper|Feedback-Processors#faderport8-and-faderport16-displays]]
 * [[FB_FP16DisplayUpper|Feedback-Processors#faderport8-and-faderport16-displays]]
