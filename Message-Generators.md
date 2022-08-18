@@ -201,6 +201,8 @@ Widget Rotary1
 WidgetEnd
 ```
 
+Thanks to [mschnell](https://forum.cockos.com/member.php?u=60721) for contributing a script that directly lead to the development of this message generator.
+
 ## Encoder Customization
 
 ### Default Range, Default Step Size, Default Acceleration
