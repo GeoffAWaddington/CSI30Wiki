@@ -196,9 +196,9 @@ WidgetEnd
 ### XTouchCompactEncoder
 XTouchCompactEncoder exists because the encoders in the X-Touch Compact and X-Touch Mini devices can be configured as [absolute] rotary knobs that continue to send messages when turned beyond their maximum ranges. The encoders will continue to send 00 messages when turned counter-clockwise, and 7f messages when turned clockwise. This effectively allows them to function as encoders. Use this widget type to enable that behavior.
 ```
-Widget Rotary1
-    XTouchCompactEncoder b0 0a 7f
-    FB_Fader7Bit         b0 0a 7f
+Widget RotaryA1
+    XTouchCompactEncoder ba 01 7f
+    FB_XTouchCompactEncoder ba 01 7f
 WidgetEnd
 ```
 
