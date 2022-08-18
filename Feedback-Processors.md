@@ -48,6 +48,7 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_MCUTimeDisplay|Feedback-Processors#FB_MCUTimeDisplay]] 
 * [[FB_MCUVUMeter|Feedback-Processors#FB_MCUVUMeter]] 
 * [[FB_FaderportRGB7Bit|Feedback-Processors#fb_faderportrgb7bit]]
+* [[FB_FaderportTwoStateRGB|Feedback-Processors#fb_faderporttwostatergb]]
 * [[FB_FP8DisplayUpper|Feedback-Processors#faderport8-and-faderport16-displays]]
 * [[FB_FP16DisplayUpper|Feedback-Processors#faderport8-and-faderport16-displays]]
 * [[FB_FP8DisplayUpperMiddle|Feedback-Processors#faderport8-and-faderport16-displays]]
@@ -498,37 +499,56 @@ Psychedelic Purple     240	0	255
 Electric Purple	       165	0	255
 ```` 
 
-## FB_FaderportRGB7Bit 
-Use FB_FaderportRGB7Bit for controlling the RGB buttons on a Faderport8 or Faderport16 device. See the examples below.
+## FB_FaderportRGB 
+Use FB_FaderportRGB for controlling the RGB buttons on a Faderport8 or Faderport16 device. See the examples below.
 ```
 Widget AudioBtn
 	Press 90 3e 7f
-	FB_FaderportRGB7Bit 90 3e 7f
+	FB_FaderportRGB 90 3e 7f
 WidgetEnd
 
 Widget Instrument
 	Press 90 3f 7f
-	FB_FaderportRGB7Bit 90 3f 7f
+	FB_FaderportRGB 90 3f 7f
 WidgetEnd
 
 Widget BusBtn
 	Press 90 40 7f
-	FB_FaderportRGB7Bit 90 40 7f
+	FB_FaderportRGB 90 40 7f
 WidgetEnd
 
 Widget VCABtn
 	Press 90 41 7f
-	FB_FaderportRGB7Bit 90 41 7f
+	FB_FaderportRGB 90 41 7f
 WidgetEnd
 
 Widget AllBtn
 	Press 90 42 7f
-	FB_FaderportRGB7Bit 90 42 7f
+	FB_FaderportRGB 90 42 7f
+WidgetEnd
+```
+**Important:** previously named FB_FaderportRGB7Bit (please update any .mst files with the new name). 
+
+## FB_FaderportTwoStateRGB 
+FB_FaderportTwoStateRGB is meant to allow the Select button colors of a Faderport8/16 to follow the track selection, but also show a dimmed state when the track is not currently selected. Thanks to [Navelpluisje](https://forum.cockos.com/member.php?u=139512) for contributing this processor!
+
+Here's what that would look like in a Faderport8 or Faderport16.mst file.
+```
+Widget Select1
+	Press 90 4c 7f 90 4c 00
+	FB_FaderportTwoStateRGB 90 4c 7f
 WidgetEnd
 ```
 
+And here is the syntax for making that work in a track.zon.
+```
+Zone "Track"
+    Select|   TrackUniqueSelect  { "Track" }
+ZoneEnd
+```
+
 ## FaderPort8 and FaderPort16 Displays
-CSI supports the Presonus FaderPort8 and FaderPort16 Displays. Each of the 4 display rows requires it's own widget in the .mst file.
+CSI supports the Presonus FaderPort8 and FaderPort16 Displays. Each of the 4 display rows requires its own widget in the .mst file.
 
 For your .mst, here are the names for the FB generators that correspond to each line on the surface. 
 
