@@ -269,6 +269,19 @@ Zone "Buttons"
 ZoneEnd
 ```
 
+## GoSelectedTrackFX
+Use GoSelectedTrackFX to map FX on the selected track. One use case for this action would be to automatically map one or more FX when a track is selected as shown in the below example:
+```
+Zone "Home"
+OnInitialization ToggleEnableFocusedFXMapping    // Turns focused FX mapping off on initialization
+OnTrackSelection GoSelectedTrackFX
+     IncludedZones
+          "SelectedTrack"
+          "Buttons"
+     IncludedZonesEnd
+ZoneEnd
+```
+
 ## GoPage, NextPage, PageNameDisplay
 If using multiple [[Pages]], the buttons on surface can be assigned to switch between Pages. Use the CSI **GoPage** action to jump between Pages in CSI. Use **NextPage** to cycle between Pages. In the below example, I have a Page called Home and another called Mix. Those Pages will point to different zone folders that are configured to function differently based on the page. See [[Pages]] for more details about when and how to use Pages in CSI, for now we'll just focus on the actions to change pages.
 
