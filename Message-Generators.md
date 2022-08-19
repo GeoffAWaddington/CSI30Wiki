@@ -7,7 +7,7 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 * [[Fader14Bit|Message-Generators#fader14bit]] - like Fader7Bit, but has a larger (or more fine grained) set of values.
 * [[Encoders|Message-Generators#encoders]] - unlike the Faders, an Encoder sends a relative value (increase/decrease) 
 * [[MFTEncoder|Message-Generators#mftencoder]] - a special encoder only found on the MIDI Fighter Twister controller
-* [[XTouchCompactEncoder|Message-Generators#xtouchcompactencoder]] - another special encoder for the X-Touch Compact and X-Touch Mini. **Note: added to the CSI EXP Build as of August 17, 2022.**
+* [[Encoder7Bit|Message-Generators#encoder7bit]] - another special encoder for the X-Touch Compact and X-Touch Mini. **Note: added to the CSI EXP Build as of August 19, 2022.**
 
 If you need to define a new .mst file, because one does not exist for your surface, the general idea here is to use the Reaper action **CSI Toggle Show Raw Input from Surfaces** to observe what values are sent when each control is manipulated. So for example, when I press one of the buttons on my controller, I see this:
 
@@ -193,15 +193,15 @@ Widget RotaryA1
 WidgetEnd
 ```
 
-### XTouchCompactEncoder
-XTouchCompactEncoder exists because the encoders in the X-Touch Compact and X-Touch Mini devices can be configured as [absolute] rotary knobs that continue to send messages when turned beyond their maximum ranges. The encoders will continue to send 00 messages when turned counter-clockwise, and 7f messages when turned clockwise. This effectively allows them to function as encoders. Use this widget type to enable that behavior.
+### Encoder7Bit
+Encoder7Bit exists because some encoders, like those in the X-Touch Compact and X-Touch Mini devices, can be configured as [absolute] rotary knobs that continue to send messages when turned beyond their maximum ranges. The encoders will continue to send 00 messages when at minimum and turned counter-clockwise, and 7f messages when at maximum and turned clockwise. In between, it sends standard absolute MIDI messages for the full 0-127 range. This effectively allows them to function as both traditional knobs and encoders. Use this widget type to enable that behavior.
 ```
 Widget Rotary1
-    XTouchCompactEncoder ba 01 7f
+    Encoder7Bit ba 01 7f
 WidgetEnd
 ```
 
-Thanks to [mschnell](https://forum.cockos.com/member.php?u=60721) for contributing a script that directly lead to the development of this message generator.
+Thanks to [mschnell](https://forum.cockos.com/member.php?u=60721) for contributing a script that directly led to the development of this message generator.
 
 ## Encoder Customization
 
