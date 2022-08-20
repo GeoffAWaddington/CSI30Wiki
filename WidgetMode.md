@@ -1,5 +1,5 @@
 ## WidgetMode
-WidgetMode currently has no functionality but is intended to allow CSI to have greater control of device specific features, such as displays. This page will be updated when device-specific functionality gets added.
+WidgetMode currently has no functionality (exists only in the CSI Exp builds as of August 19, 2022) but is intended to allow CSI to have greater control of device specific features, such as displays. This page will be updated when device-specific functionality gets added.
 
 One proposed example: what's currently accomplished by all these Property+ values below...
 ```
