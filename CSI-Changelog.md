@@ -1,3 +1,147 @@
+# August 20, 2022 - Recent EXP Build Updates
+Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
+
+### New Action: ToggleChannel
+ToggleChannel allows you to define a widget, such as RotaryPush, to toggle functionality assigned to that action. Example: this allows you to toggle between TrackPan + TrackPanDisplay and TrackPanWidth + TrackPanWidth display on the same channel. To do this, first you would define "RotaryPush|" to the ToggleChannel action. Next, you would use Toggle+as a modifier. 
+```
+    RotaryPush|                 ToggleChannel
+
+    Rotary|                     TrackPan
+    Rotary|			WidgetMode Dot
+    DisplayLower|      		TrackPanDisplay
+
+    Toggle+Rotary|              TrackPanWidth
+    Toggle+Rotary|		WidgetMode BoostCut
+    Toggle+DisplayLower| 	TrackPanWidthDisplay
+```
+
+You can now also modify your .mst files and remove the Toggle part of a rotary definition. So this...
+```
+Widget Rotary1
+	Encoder b0 10 7f [ > 01-0f < 41-4f ]
+	FB_Encoder b0 10 7f
+        Toggle 90 20 7f
+WidgetEnd
+```
+
+Becomes...
+```
+Widget Rotary1
+	Encoder b0 10 7f [ > 01-0f < 41-4f ]
+	FB_Encoder b0 10 7f
+WidgetEnd
+```
+
+### New Action: WidgetMode
+[[WidgetMode]] is designed to send additional, specific, instructions to a given widget. For instance, on a typical MCU-style device, you can set the Rotary encoder feedback to vary between Dot, BoostCut, Fill, and Spread modes.
+```
+    Rotary|                     TrackPan
+    Rotary|			WidgetMode Dot
+    DisplayLower|      		TrackPanDisplay
+
+    Toggle+Rotary|              TrackPanWidth
+    Toggle+Rotary|		WidgetMode BoostCut
+    Toggle+DisplayLower| 	TrackPanWidthDisplay
+```
+
+### New Action: SetWidgetMode
+SetWidgetMode exists because you may want to set a Faderport display ScribbleStripMode, therefore, you will need SetWidgetMode since there is no other Action that updates the Widget, as there would be with, say, Rotary values and LED ring style.
+```
+    FPDisplay   SetWidgetMode
+    FPDisplay   WidgetMode SomeWidgetMode
+```
+
+## New FaderPortDisplay functionality
+CSI supports all the display functionality of the Presonus FaderPort8 and FaderPort16. The FaderPorts have multiple (9) display types to choose from, contains a ValueBar and can, depending on the display type, show the VU Meter. 
+
+### Display Type
+Display type is a per display setting and consists of a widget and an action to set the actual display type. In your .mst file this will look like:
+```
+// ===========================================
+// SCRIBBLE STRIP MODE
+// ===========================================
+Widget ScribbleStripMode1
+	FB_FP8ScribbleStripMode 0
+WidgetEnd
+
+Widget ScribbleStripMode2
+	FB_FP8ScribbleStripMode 1
+WidgetEnd
+etc.....
+```
+The image below shows all the display types and the Id
+
+![DisplayTypes](https://user-images.githubusercontent.com/1625221/185239569-a5c1477b-45b4-4cda-b26d-f7dd4409cf90.jpg)
+
+The default scribble strip mode is id **2** This is a version with 4 lines and in most cases the most versatile one.
+
+For implementing the scribble strip mode you need to add 2 lines of code. The first one is adding the scribblescript widget to the file. It's value should be `SetWidgetMode`. This tells CSI the only value to use will be the WidgetMode. The second line sets the WidgetMode value. In this case that is the Scribble strip mode. The value is the ID of one of the layouts shown above.
+
+In your zone file this will look like this:
+```
+Zone "Track"
+  ScribbleStripMode|        SetWidgetMode
+  ScribbleStripMode|        WidgetMode 8
+```
+
+### Scribble lines
+
+Each of the 4 scribble lines requires it’s own widget in the .mst file.
+For your .mst, here are the names for the FB generators that correspond to each line on the surface.
+
+|  | **FaderPort 8** | **FaderPort 16** |
+| --- | --- | --- |
+| Line 1 | FB_FP8ScribbleLine1 | FB_FP16ScribbleLine1 |
+| Line 2 | FB_FP8ScribbleLine2 | FB_FP16ScribbleLine2 |
+| Line 3 | FB_FP8ScribbleLine3 | FB_FP16ScribbleLine3 |
+| Line 4 | FB_FP8ScribbleLine4 | FB_FP16ScribbleLine4 |
+
+And here is an example of how the `.mst` would be mapped out for Display 1 on the Faderport8.
+```
+// ===========================================
+// SCRIBBLE LINES CHANNEL 1
+// ===========================================
+Widget ScribbleLine1_1
+	FB_FP8ScribbleLine1 0
+WidgetEnd
+
+Widget ScribbleLine2_1
+	FB_FP8ScribbleLine2 0
+WidgetEnd
+
+Widget ScribbleLine3_1
+	FB_FP8ScribbleLine3 0
+WidgetEnd
+
+Widget ScribbleLine4_1
+	FB_FP8ScribbleLine4 0
+WidgetEnd
+
+```
+
+Per scribble line you're able to set ythe text align and you can set a line to inverted (changing back and foreground colour). These values are set with a WidgetMode.
+* **TextAlign**: Possible values are **Center**, **Left** and **Right**. The default when not set is **Center**
+* **Invert**: Pass the value **Invert** to invert. It will be normal when not passed.
+
+Using this in a zone file will look like this:
+```
+Zone "Track"
+  ScribbleLine1_|      TrackNameDisplay
+  ScribbleLine1_|      WidgetMode "Left"
+
+  ScribbleLine2_|      TrackNameDisplay
+  ScribbleLine2_|      WidgetMode "Center Invert"
+ZoneEnd
+```
+_In this example line 1 in the scribble text will be left aligned. Line 2 will be right aligned and inverted._
+
+
+### Depreciated Actions: MCUTrackPan, ToggleMCUTrackPanWidth, MCUTrackPanDisplay
+The MCUTrackPan actions have been removed in favor of the new, more flexible, "ToggleChannel" functionality.
+
+### New Encoder7Bit Message Generator
+[[Encoder7Bit|Message-Generators#Encoder7Bit]] was created to address 7-Bit absolute encoders that continue to transmit 00 values when turned counter-clockwise after the minimum has been reached, and send 7f values when turned clockwise even after the maximum value has been reached. The X-Touch Compact and X-Touch Mini encoders can be configured to behave this way.
+
 # August 15, 2022 Update
 Reaper forum user [Navelpluisje](https://forum.cockos.com/member.php?u=139512) has made some contributions to improve FaderPort8/16 functionality in this build, including developing a TrackNumberDisplay action. Thanks to Navelpluisje for the additions!
 
