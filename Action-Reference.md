@@ -119,6 +119,7 @@
 * [[TrackAutoModeDisplay|Automation-Actions#trackautomodedisplay]]
 
 ### Other
+* [[Widget Mode|Widget Mode]]
 * [[NoAction|Other Actions#NoAction]]
 * [[FixedTextDisplay|Other Actions#FixedTextDisplay]]
 * [[FixedRGBColorDisplay|Other Actions#FixedRGBColorDisplay]]
