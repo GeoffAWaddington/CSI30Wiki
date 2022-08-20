@@ -7,7 +7,7 @@ Once you’ve created some fx.zon files, the next step is determining how you wa
 
 * **SelectedTrackFXMenu:** Like TrackFXMenu, you select the plugin you want to activate from a menu on your control surface. SelectedTrackFXMenu splays the FX slots of the selected track horizontally. Here, imagine an 8-fader surface with displays. You've got track 3 selected in Reaper. SelectedTrackFXMenu will show FX Slot 1 on Track 3, FX Slot 2 on Track 3, FX Slot 3 on Track 3, etc. spread out across the 8 channels on your surface. If you have more FX on the selected track than you have control surface channels for, you can change FX slots by banking horizontally. **Mapping action: GoSelectedTrackFXMenu** to activate the zone, **GoFXSlot** to activate the FX mapping.
 
-* **SelectedTrack:** When this mode is enabled, simply selecting a track in Reaper will activate any FX maps on that track. This is particularly handy for control surfaces with pre-defined layouts like the Softube Console One. With this mode, because multiple FX can be activated at once (example: an EQ and a compressor), users would have to be careful when mapping their fx.zon files as to avoid conflicts. **Mapping action: GoSelectedTrackFX**
+* **SelectedTrackFX:** When this mode is enabled, any fx.zon's on the selected track will become active. This means multiple FX can be mapped at the same time. This is particularly handy for control surfaces with pre-defined layouts like the Softube Console One - or someone seeking to replicate a similar workflow. With this mode, because multiple FX can be activated at once (example: an EQ and a compressor), users would have to be careful when mapping their fx.zon files as to avoid conflicts. **Mapping action: GoSelectedTrackFX**
 
 **Tip:** You can use different FX activation methods on the same surface and use the various mapping actions to dictate which method is activate at any given time. Example: you can have a TrackFXMenu and a SelectedTrackFXMenu that you use a button to switch between, while also having another button toggling FocusedFXMapping as needed.
 
@@ -170,17 +170,63 @@ ZoneEnd
 If you'd prefer to have that automatically occur whenever you select a track in Reaper, add this action to your Home.zon like this:
 ```
 Zone "Home"
-OnInitialization ToggleEnableFocusedFXMapping 
-OnTrackSelection GoSelectedTrackFX
-     IncludedZones
-          "SelectedChannel"
-          "Buttons"
-          "SelectedTrackSend"
-          "SelectedTrackReceive"
-     IncludedZonesEnd
+OnInitialization        ToggleEnableFocusedFXMapping 
+OnTrackSelection 	GoSelectedTrack
+OnTrackSelection 	GoSelectedTrackFX
+        AssociatedZones
+           "SelectedTrack"
+        AssociatedZonesEnd
 ZoneEnd
 ```
 Note: in the above example how I'm using OnInitilization ToggleEnableFocusedFXMapping to turn off FcusedFXMapping by default. 
+
+Just to illustrate an example using Softube's Console One for instance, one could have a SelectedTrack zone assigning some of the widgets to your surface to the selected track's controls in Reaper...
+```
+Zone "SelectedTrack"
+	InputMeterLeft 		TrackOutputMeter "0"
+	InputMeterRight		TrackOutputMeter "1"
+	OutputMeterLeft 	TrackOutputMeter "0"
+	OutputMeterRight	TrackOutputMeter "1"
+	Volume 			TrackVolume
+	Control+Volume 		TrackPanWidth	"1"
+	Shift+Volume 		TrackPan 	"0"
+	Option+Volume 		FocusedFXParam
+	Mute 			TrackMute
+	Solo 			TrackSolo
+ZoneEnd
+```
+
+...while also having a "compressor" map active on different widgets...
+```
+Zone "VST: UAD Teletronix LA-2A Silver (Universal Audio, Inc.)" "LA2ASlv"
+	Threshold 		FXParam "0"
+	Output	 		FXParam "1"
+	Meter 			FXParam "4"
+	Attack 			FXParam "3"
+	Ratio 			FXParam "2"
+	InvertFB+Compressor 	FXParam "6" "Bypass" [ 0.0 1.0 ]
+	WetDry			FXParam "7"
+ZoneEnd
+```
+
+...at the same time as an EQ map on even different widgets...
+```
+Zone "VST: UAD Pultec EQP-1A (Universal Audio, Inc.)" "EQP1A"
+	HiGain 			FXParam "7" "HF Atten"
+	HiFrequency 		FXParam "6" "HF Atten Freq"
+	HiMidGain 		FXParam "4" "HF Boost"
+	HiMidFrequency 		FXParam "3" "High Freq"
+	HiMidQ 			FXParam "5" "HF Q"
+	LoMidGain 		FXParam "2" "LF Atten"
+	LoMidFrequency 		FXParam "0" "Low Freq"
+	LoGain 			FXParam "1" "LF Boost"
+	LoFrequency 		FXParam "0" "Low Freq"
+	InvertFB+Equalizer	FXParam "10" "Bypass" [ 0.0 1.0 ]
+	Parallel 		FXParam "11" "Wet"
+ZoneEnd
+```
+
+...and everything works in tandem as long as there are no conflicting widget assignments and there's one track selected in Reaper.
 
 ## Unmapping FX zones
 Now that you've got your fx.zon activated, what is the right way unmap/deactivate that fx.zon?
