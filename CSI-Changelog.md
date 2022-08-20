@@ -135,6 +135,8 @@ ZoneEnd
 ```
 _In this example line 1 in the scribble text will be left aligned. Line 2 will be right aligned and inverted._
 
+### New Feedback Processor: FPVUMeter
+[[FB_FPVUMeter|Feedback-Processors#fb_fpvumeter]] added to support the FaderPort 8/16 VU meters.
 
 ### Depreciated Actions: MCUTrackPan, ToggleMCUTrackPanWidth, MCUTrackPanDisplay
 The MCUTrackPan actions have been removed in favor of the new, more flexible, "ToggleChannel" functionality.
