@@ -51,7 +51,7 @@ SetWidgetMode exists because you may want to set a Faderport display ScribbleStr
     FPDisplay   WidgetMode SomeWidgetMode
 ```
 
-## New FaderPortDisplay functionality
+## New FaderPortDisplay functionality (FB_FP8ScribbleStripMode Feedback Processors, new widget modes)
 CSI supports all the display functionality of the Presonus FaderPort8 and FaderPort16. The FaderPorts have multiple (9) display types to choose from, contains a ValueBar and can, depending on the display type, show the VU Meter. 
 
 ### Display Type
