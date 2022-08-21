@@ -1,5 +1,22 @@
-# August 20, 2022 - Recent EXP Build Updates
+# August 21, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
+
+## Additions to Broadcast/Receive Functionality
+[[Broadcast and Receive|Broadcast-and-Receive]] has been expanded with some additional functioanlity:
+
+**ToggleEnableFocusedFXMapping** is automatically included if ToggleEnableFocusedFXMapping is in Broadcast/Receive list
+**SelectedTrackSendBank** is automatically included if SelectedTrackSend is in Broadcast/Receive list
+**SelectedTrackReceiveBank** is automatically included if SelectedTrackReceive is in Broadcast/Receive list
+**SelectedTrackFXMenuBank** is automatically included if SelectedTrackFX is in Broadcast/Receive list
+
+## New Actions: CycleTrackInputMonitor, TrackInputMonitorDisplay
+Use CyleTrackInputMonitor to cycle through the input monitoring modes in a Track or SelectedTrack zone. The corresponding display action in TrackInputMonitorDisplay.
+```
+Zone "Track"
+    Alt+RotaryPush|        	CycleTrackInputMonitor
+    Alt+DisplayLower|   	TrackInputMonitorDisplay
+ZoneEnd
+```
 
 ## Subzones Can Now Contain | Character
 In prior CSI builds, a SubZone called from a Track context with a | character could not inherit the full track context with all the channels (example: channels 1-8). Now they can. For instance, here's a basic use-case using a DualPan SubZone that wasn't possible prior to this build.
@@ -68,6 +85,22 @@ Widget Rotary1
 	Encoder b0 10 7f [ > 01-0f < 41-4f ]
 	FB_Encoder b0 10 7f
 WidgetEnd
+```
+
+## New Actions: TrackPanAutoLeft, TrackPanAutoRight, TrackPanAutoLeftDisplay, TrackPanAutoRightDisplay
+TrackPanAutoLeft will control TrackPan or TrackPanL (if using Dual Pans). TrackPanAutoRight will control TrackPanWidth or TrackPanR (if using Dual Pans). This adds considerable convenience in that you can use Stereo Balance Pans or Dual Pans even in the same Reaper project and control them in CSI without having to change zones. The one difference is that the WidgetMode for TrackPanAutoRight must be fixed (i.e. you can't use the Spread mode for PanWidth and Dot mode for PanR - you have to pick one).
+```
+Zone "Track"
+    RotaryPush|                 ToggleChannel
+
+    Rotary|                     TrackPanAutoLeft
+    Rotary|			WidgetMode Dot
+    Toggle+Rotary|              TrackPanAutoRight
+    Toggle+Rotary|		WidgetMode Dot
+
+    DisplayLower|      		TrackPanAutoLeftDisplay
+    Toggle+DisplayLower|   	TrackPanAutoRightDisplay
+ZoneEnd
 ```
 
 ## New Action: WidgetMode
