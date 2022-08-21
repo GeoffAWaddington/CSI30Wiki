@@ -1,7 +1,7 @@
 # August 20, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
 
-### New Action: ToggleChannel
+## New Action: ToggleChannel
 ToggleChannel allows you to define a widget, such as RotaryPush, to toggle functionality assigned to that action. Example: this allows you to toggle between TrackPan + TrackPanDisplay and TrackPanWidth + TrackPanWidth display on the same channel. To do this, first you would define "RotaryPush|" to the ToggleChannel action. Next, you would use Toggle+as a modifier. 
 ```
     RotaryPush|                 ToggleChannel
@@ -32,7 +32,7 @@ Widget Rotary1
 WidgetEnd
 ```
 
-### New Action: WidgetMode
+## New Action: WidgetMode
 [[WidgetMode]] is designed to send additional, specific, instructions to a given widget. For instance, on a typical MCU-style device, you can set the Rotary encoder feedback to vary between Dot, BoostCut, Fill, and Spread modes.
 ```
     Rotary|                     TrackPan
@@ -51,10 +51,10 @@ SetWidgetMode exists because you may want to set a Faderport display ScribbleStr
     FPDisplay   WidgetMode SomeWidgetMode
 ```
 
-## New FaderPortDisplay functionality (FB_FP8ScribbleStripMode Feedback Processors, new widget modes)
+# New FaderPortDisplay functionality (FB_FP8ScribbleStripMode Feedback Processors, new widget modes)
 CSI supports all the display functionality of the Presonus FaderPort8 and FaderPort16. The FaderPorts have multiple (9) display types to choose from, contains a ValueBar and can, depending on the display type, show the VU Meter. 
 
-### Display Type
+## Display Type
 Display type is a per display setting and consists of a widget and an action to set the actual display type. In your .mst file this will look like:
 ```
 // ===========================================
@@ -84,7 +84,7 @@ Zone "Track"
   ScribbleStripMode|        WidgetMode 8
 ```
 
-### Scribble lines
+## Scribble lines
 
 Each of the 4 scribble lines requires it’s own widget in the .mst file.
 For your .mst, here are the names for the FB generators that correspond to each line on the surface.
@@ -135,7 +135,7 @@ ZoneEnd
 ```
 _In this example line 1 in the scribble text will be left aligned. Line 2 will be right aligned and inverted._
 
-### Valuebar
+## Valuebar
 The FaderPort 8 and FaderPort 16 have a Valuebar available in the scribble display. The ValueBar can be used for a visual representation of pan value, volume, pan width, etc. The valuebar has 5 different modes.
 
 ![FaderPortValueBar](https://user-images.githubusercontent.com/52307138/185798368-b404f2a3-945f-4c06-88e5-3088c663faed.jpg)
@@ -160,10 +160,10 @@ Zone "Track"
   ValueBar|     WidgetMode BiPolar
 ```
 
-### Depreciated Actions: MCUTrackPan, ToggleMCUTrackPanWidth, MCUTrackPanDisplay
+## Depreciated Actions: MCUTrackPan, ToggleMCUTrackPanWidth, MCUTrackPanDisplay
 The MCUTrackPan actions have been removed in favor of the new, more flexible, "ToggleChannel" functionality.
 
-### New Encoder7Bit Message Generator
+## New Encoder7Bit Message Generator
 [[Encoder7Bit|Message-Generators#Encoder7Bit]] was created to address 7-Bit absolute encoders that continue to transmit 00 values when turned counter-clockwise after the minimum has been reached, and send 7f values when turned clockwise even after the maximum value has been reached. The X-Touch Compact and X-Touch Mini encoders can be configured to behave this way.
 
 # August 15, 2022 Update
