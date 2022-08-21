@@ -44,17 +44,17 @@ WidgetEnd
     Toggle+DisplayLower| 	TrackPanWidthDisplay
 ```
 
-### New Action: SetWidgetMode
+## New Action: SetWidgetMode
 SetWidgetMode exists because you may want to set a Faderport display ScribbleStripMode, therefore, you will need SetWidgetMode since there is no other Action that updates the Widget, as there would be with, say, Rotary values and LED ring style.
 ```
     FPDisplay   SetWidgetMode
     FPDisplay   WidgetMode SomeWidgetMode
 ```
 
-# New FaderPortDisplay functionality (FB_FP8ScribbleStripMode Feedback Processors, new widget modes)
+## New FaderPortDisplay functionality (FB_FP8ScribbleStripMode Feedback Processors, new widget modes)
 CSI supports all the display functionality of the Presonus FaderPort8 and FaderPort16. The FaderPorts have multiple (9) display types to choose from, contains a ValueBar and can, depending on the display type, show the VU Meter. 
 
-## Display Type
+### Display Type
 Display type is a per display setting and consists of a widget and an action to set the actual display type. In your .mst file this will look like:
 ```
 // ===========================================
@@ -84,7 +84,7 @@ Zone "Track"
   ScribbleStripMode|        WidgetMode 8
 ```
 
-## Scribble lines
+### Scribble lines
 
 Each of the 4 scribble lines requires it’s own widget in the .mst file.
 For your .mst, here are the names for the FB generators that correspond to each line on the surface.
@@ -135,7 +135,7 @@ ZoneEnd
 ```
 _In this example line 1 in the scribble text will be left aligned. Line 2 will be right aligned and inverted._
 
-## Valuebar
+### Valuebar
 The FaderPort 8 and FaderPort 16 have a Valuebar available in the scribble display. The ValueBar can be used for a visual representation of pan value, volume, pan width, etc. The valuebar has 5 different modes.
 
 ![FaderPortValueBar](https://user-images.githubusercontent.com/52307138/185798368-b404f2a3-945f-4c06-88e5-3088c663faed.jpg)
