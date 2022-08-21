@@ -135,6 +135,31 @@ ZoneEnd
 ```
 _In this example line 1 in the scribble text will be left aligned. Line 2 will be right aligned and inverted._
 
+### Valuebar
+The FaderPort 8 and FaderPort 16 have a Valuebar available in the scribble display. The ValueBar can be used for a visual representation of pan value, volume, pan width, etc. The valuebar has 5 different modes.
+
+![ValueBar](https://user-images.githubusercontent.com/1625221/185376492-0455c358-1540-4a7d-999d-154c60c74ad5.jpg)
+
+In the mst file it looks like:
+```
+// ===========================================
+// VALUE BAR
+// ===========================================
+Widget ValueBar1
+	FB_FPValueBar 0
+WidgetEnd
+
+Widget ValueBar2
+	FB_FPValueBar 1
+WidgetEnd
+```
+Setting the mode is the zone file is handled by a property. For this reason it is not possible changing this with a modifier key. In the zone file it looks like:
+```
+Zone "Track"
+  ValueBar|     TrackPan
+  ValueBar|     WidgetMode BiPolar
+```
+
 ### Depreciated Actions: MCUTrackPan, ToggleMCUTrackPanWidth, MCUTrackPanDisplay
 The MCUTrackPan actions have been removed in favor of the new, more flexible, "ToggleChannel" functionality.
 
