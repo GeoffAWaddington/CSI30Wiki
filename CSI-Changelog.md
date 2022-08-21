@@ -71,7 +71,7 @@ etc.....
 ```
 The image below shows all the display types and the Id
 
-![DisplayTypes](https://user-images.githubusercontent.com/1625221/185239569-a5c1477b-45b4-4cda-b26d-f7dd4409cf90.jpg)
+![FaderPortDisplayTypes](https://user-images.githubusercontent.com/52307138/185772386-6217f370-9564-43b4-8ca3-79463b374c9d.jpg)
 
 The default scribble strip mode is id **2** This is a version with 4 lines and in most cases the most versatile one.
 
