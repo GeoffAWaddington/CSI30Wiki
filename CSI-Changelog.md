@@ -4,10 +4,10 @@ Using this as a placeholder for some recent EXP build updates that will work the
 ## Additions to Broadcast/Receive Functionality
 [[Broadcast and Receive|Broadcast-and-Receive]] has been expanded with some additional functioanlity:
 
-**ToggleEnableFocusedFXMapping** is automatically included if ToggleEnableFocusedFXMapping is in Broadcast/Receive list
-**SelectedTrackSendBank** is automatically included if SelectedTrackSend is in Broadcast/Receive list
-**SelectedTrackReceiveBank** is automatically included if SelectedTrackReceive is in Broadcast/Receive list
-**SelectedTrackFXMenuBank** is automatically included if SelectedTrackFX is in Broadcast/Receive list
+* **ToggleEnableFocusedFXMapping** is automatically included if **ToggleEnableFocusedFXMapping** is in Broadcast/Receive list
+* **SelectedTrackSendBank** is automatically included if **SelectedTrackSend** is in Broadcast/Receive list
+* **SelectedTrackReceiveBank** is automatically included if **SelectedTrackReceive** is in Broadcast/Receive list
+* **SelectedTrackFXMenuBank** is automatically included if **SelectedTrackFX** is in Broadcast/Receive list
 
 ## New Actions: CycleTrackInputMonitor, TrackInputMonitorDisplay
 Use CyleTrackInputMonitor to cycle through the input monitoring modes in a Track or SelectedTrack zone. The corresponding display action in TrackInputMonitorDisplay.
