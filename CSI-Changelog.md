@@ -138,7 +138,7 @@ _In this example line 1 in the scribble text will be left aligned. Line 2 will b
 ### Valuebar
 The FaderPort 8 and FaderPort 16 have a Valuebar available in the scribble display. The ValueBar can be used for a visual representation of pan value, volume, pan width, etc. The valuebar has 5 different modes.
 
-![ValueBar](https://user-images.githubusercontent.com/1625221/185376492-0455c358-1540-4a7d-999d-154c60c74ad5.jpg)
+![FaderPortValueBar](https://user-images.githubusercontent.com/52307138/185798368-b404f2a3-945f-4c06-88e5-3088c663faed.jpg)
 
 In the mst file it looks like:
 ```
