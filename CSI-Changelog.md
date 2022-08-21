@@ -103,6 +103,8 @@ Zone "Track"
 ZoneEnd
 ```
 
+**Note:** When using Dual Pans, TrackL and TrackR automation does not get written from a control surface. This appears to require a change to the Reaper API's. 
+
 ## New Action: WidgetMode
 [[WidgetMode]] is designed to send additional, specific, instructions to a given widget. For instance, on a typical MCU-style device, you can set the Rotary encoder feedback to vary between Dot, BoostCut, Fill, and Spread modes.
 ```
