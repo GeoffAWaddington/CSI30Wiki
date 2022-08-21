@@ -51,7 +51,13 @@ SetWidgetMode exists because you may want to set a Faderport display ScribbleStr
     FPDisplay   WidgetMode SomeWidgetMode
 ```
 
-## New FaderPortDisplay functionality (FB_FP8ScribbleStripMode Feedback Processors, new widget modes)
+## Depreciated Actions: MCUTrackPan, ToggleMCUTrackPanWidth, MCUTrackPanDisplay
+The MCUTrackPan actions have been removed in favor of the new, more flexible, "ToggleChannel" functionality.
+
+## New Message Generator: Encoder7Bit
+[[Encoder7Bit|Message-Generators#Encoder7Bit]] was created to address 7-Bit absolute encoders that continue to transmit 00 values when turned counter-clockwise after the minimum has been reached, and send 7f values when turned clockwise even after the maximum value has been reached. The X-Touch Compact and X-Touch Mini encoders can be configured to behave this way.
+
+# New FaderPortDisplay functionality (FB_FP8ScribbleStripMode Feedback Processors, new widget modes)
 CSI supports all the display functionality of the Presonus FaderPort8 and FaderPort16. The FaderPorts have multiple (9) display types to choose from, contains a ValueBar and can, depending on the display type, show the VU Meter. 
 
 ### Display Type
@@ -159,12 +165,6 @@ Zone "Track"
   ValueBar|     TrackPan
   ValueBar|     WidgetMode BiPolar
 ```
-
-## Depreciated Actions: MCUTrackPan, ToggleMCUTrackPanWidth, MCUTrackPanDisplay
-The MCUTrackPan actions have been removed in favor of the new, more flexible, "ToggleChannel" functionality.
-
-## New Encoder7Bit Message Generator
-[[Encoder7Bit|Message-Generators#Encoder7Bit]] was created to address 7-Bit absolute encoders that continue to transmit 00 values when turned counter-clockwise after the minimum has been reached, and send 7f values when turned clockwise even after the maximum value has been reached. The X-Touch Compact and X-Touch Mini encoders can be configured to behave this way.
 
 # August 15, 2022 Update
 Reaper forum user [Navelpluisje](https://forum.cockos.com/member.php?u=139512) has made some contributions to improve FaderPort8/16 functionality in this build, including developing a TrackNumberDisplay action. Thanks to Navelpluisje for the additions!
