@@ -18,7 +18,7 @@ Zone "Track"
      Toggle+Rotary|                     WidgetMode BoostCut
      Toggle+DisplayLower|               TrackPanWidthDisplay
      
-     Shift+RotaryPan|                   GoSubZone "DualPan"
+     Shift+RotaryPush|                  GoSubZone "DualPan"
 ZoneEnd
 ```
 
@@ -35,7 +35,7 @@ Zone "DualPan"
      Toggle+Rotary|                     TrackPanR
      Toggle+Rotary|                     WidgetMode Dot
 
-     Shift+RotaryPan|                   LeaveSubZone
+     Shift+RotaryPush|                  LeaveSubZone
 ZoneEnd
 ```
 
