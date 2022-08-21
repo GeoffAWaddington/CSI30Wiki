@@ -2,7 +2,7 @@
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
 
 ## Subzones Can Now Contain | Character
-In prior CSI builds, a SubZone called from a Track context with a | character could not inherit the full track context. For instance, here's a basic use-case using a DualPan SubZone that wasn't possible prior to this build.
+In prior CSI builds, a SubZone called from a Track context with a | character could not inherit the full track context with all the channels (example: channels 1-8). Now they can. For instance, here's a basic use-case using a DualPan SubZone that wasn't possible prior to this build.
 ```
 Zone "Track"
     SubZones
