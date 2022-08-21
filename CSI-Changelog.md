@@ -1,6 +1,44 @@
 # August 20, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
 
+## Subzones Can Now Contain | Character
+In prior CSI builds, a SubZone called from a Track context with a | character could not inherit the full track context. For instance, here's a basic use-case using a DualPan SubZone that wasn't possible prior to this build.
+```
+Zone "Track"
+    SubZones
+        "DualPan"
+    SubZonesEnd
+     RotaryPush|                        ToggleChannel
+
+     DisplayLower|                      TrackPanDisplay
+     Rotary|                            TrackPan
+     Rotary|                            WidgetMode Dot
+     
+     Toggle+Rotary|                     TrackPanWidth
+     Toggle+Rotary|                     WidgetMode BoostCut
+     Toggle+DisplayLower|               TrackPanWidthDisplay
+     
+     Shift+RotaryPan|                   GoSubZone "DualPan"
+ZoneEnd
+```
+
+And the DualPan zone itself...
+```
+Zone "DualPan"
+     RotaryPush|                        ToggleChannel
+     
+     DisplayLower|                      TrackPanLDisplay
+     Rotary|                            TrackPanL
+     Rotary|                            WidgetMode Dot
+     
+     Toggle+DisplayLower|               TrackPanRDisplay
+     Toggle+Rotary|                     TrackPanR
+     Toggle+Rotary|                     WidgetMode Dot
+
+     Shift+RotaryPan|                   LeaveSubZone
+ZoneEnd
+```
+
 ## New Action: ToggleChannel
 ToggleChannel allows you to define a widget, such as RotaryPush, to toggle functionality assigned to that action. Example: this allows you to toggle between TrackPan + TrackPanDisplay and TrackPanWidth + TrackPanWidth display on the same channel. To do this, first you would define "RotaryPush|" to the ToggleChannel action. Next, you would use Toggle+as a modifier. 
 ```
