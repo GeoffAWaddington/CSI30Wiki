@@ -1,5 +1,34 @@
-# August 21, 2022 - Recent EXP Build Updates
+# August 22, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
+
+## New Action: OSCTimeDisplay
+Use OSCTimeDisplay for displaying Reaper's time, including the various modes, on an OSC surface. This is basically the OSC equivalent of MCUTimeDisplay. Use the same, pre-existing, CycleTimeDisplayModes action to change modes.
+```
+Zone "Buttons"
+    TimeDisplay                 OSCTimeDisplay
+    SomeButton                  CycleTimeDisplayModes    
+ZoneEnd
+```
+
+## New Action: ToggleFXOffline
+Use ToggleFXOffline to change the FX status to "offline" in Reaper. Offline FX is similar to Bypass, but it removes the plugin from memory and additional processing. In the below example, it's assigned to Shift+Mute.
+```
+Zone "SelectedTrackFXMenu"
+        DisplayUpper|         FXMenuNameDisplay
+        DisplayLower|         FXBypassedDisplay
+        Rotary|               NoAction
+        RotaryPush|           GoFXSlot
+        Mute|                 ToggleFXBypass
+        Shift+Mute|           ToggleFXOffline
+        Left                  SelectedTrackFXMenuBank -1
+        Right                 SelectedTrackFXMenuBank 1
+
+        RecordArm|            NoAction
+        Solo|                 NoAction
+        Select|               NoAction
+     Fader|                   NoAction    
+ZoneEnd
+```
 
 ## Additions to Broadcast/Receive Functionality
 [[Broadcast and Receive|Broadcast-and-Receive]] has been expanded with some additional functioanlity:
