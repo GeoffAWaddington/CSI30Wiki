@@ -36,8 +36,8 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_Fader14Bit|Feedback-Processors#FB_Fader14Bit]]
 * [[FB_Fader7Bit|Feedback-Processors#FB_Fader7Bit]]
 * [[FB_Encoder|Feedback-Processors#FB_Encoder]]
-* [[FB_Processor|Feedback-Processors#FB_Processor]]
-* [[FB_IntProcessor|Feedback-Processors#FB_IntProcessor]]
+* [[FB_Processor|Feedback-Processors#FB_Processor]]*
+* [[FB_IntProcessor|Feedback-Processors#FB_IntProcessor]]*
 * [[FB_ConsoleOneGainReductionMeter|Feedback-Processors#FB_ConsoleOneGainReductionMeter]]
 * [[FB_ConsoleOneVUMeter|Feedback-Processors#FB_ConsoleOneVUMeter]]
 * [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]] 
@@ -70,6 +70,8 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_QConLiteDisplayLower|Feedback-Processors#qcon-lite-displays]]
 * [[FB_QConProXMasterVUMeter|Feedback-Processors#FB_QConProXMasterVUMeter]] 
 * [[FB_XTouchDisplayUpper|Feedback-Processors#fb_xtouchdisplayupper]]
+
+*Used for OSC devices.
 
 ## FB_TwoState
 FB_TwoState is designed to provide feedback to buttons that have only an on or off state. Here's an example of the Mute button on channel 1 of an MCU style device. Notice it consists of a "Press" portion (the message generator for this widget), and also the FB_TwoState portion. The messages that follow are the bytes that are transmitted to control the state.
