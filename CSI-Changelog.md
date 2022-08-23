@@ -1,5 +1,19 @@
-# August 22, 2022 - Recent EXP Build Updates
+# August 23, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
+
+## New Action: GlobalAutoModeDisplay
+If you wanted to dedicate a display to showing the global auomation mode within Reaper (example: on an OSC device), there is now a CSI action that will display that.
+```
+Zone "Buttons"
+     AutoModeDisplay     GlobalAutoModeDisplay
+ZoneEnd
+```
+
+## TrackVCAFolderModeDisplay, ToggleFXOffline, and ToggleFXBypass Now Display String and Integer (Based on Widget Type)
+Depending on what type of widget these actions are assigned to, CSI will either return the surface an integer (e.g. 0 for off, 1 for on) or return a string value (e.g. 'Offline'). This change is particularly helpful because a MIDI feedback processor, like an MCU, is expecting an integer value for the TrackVCAFolderMode action to work, but on an OSC display, a string would be far more meaningful.
+
+## Bug-Fix: ToggleFXBypass Now Respects FX Chain Bypass Status
+ToggleFXBypass would return the incorrect status if the plugin was enabled by the entire FX Chain was bypassed. This has been corrected.
 
 ## New Action: OSCTimeDisplay
 Use OSCTimeDisplay for displaying Reaper's time, including the various modes, on an OSC surface. This is basically the OSC equivalent of MCUTimeDisplay. Use the same, pre-existing, CycleTimeDisplayModes action to change modes.
