@@ -129,7 +129,7 @@ WidgetEnd
 **Note:** there may be rare scenarios where numeric (e.g. 0/1) feedback is more useful than "bypassed/active" or "offline/online". For those use cases, use [[FB_IntProcessor|Feedback-Processors#fb_intprocessor]].
 
 ## FB_IntProcessor
-Use FB_IntProcessor in OSC surfaces in the rare instances where an integer [number] value is the only value that you want returned to a widget. Example: if you'd prefer that an OSC display widget receive 0/1 versus "bypassed/active", FB_IntProcessor may be the better choice over [[FB_Processor|Feedback-Processors#FB_Processor]]. The syntax is the term FB_Processor versus the OSC address for the message. 
+Use FB_IntProcessor in OSC surfaces in the rare instances where an integer [number] value is the only value that you want returned to a widget. Example: if you'd prefer that an OSC display widget receive 0/1 versus "bypassed/active". The syntax is the word FB_IntProcessor versus the OSC address for the message as shown below. 
 ```
 Widget TrackFXSlotStatus1
 	FB_IntProcessor /Mixer/TrackFXSlotStatus1
