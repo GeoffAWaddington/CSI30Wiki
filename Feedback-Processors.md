@@ -119,18 +119,20 @@ WidgetEnd
 ```
 
 ## FB_Processor
-Use FB_Processor in OSC surfaces whenever a string (text) value may be returned. This is the standard OSC Feedback Processor type and makes for a good default for OSC surfaces.
+FB_Processor is the standard OSC feedback processor type. This feedback processor type will receive strings, integers, floats, volume, pan, etc. and generally "just work" for most OSC-related use cases. The syntax is the term FB_Processor versus the OSC address for the message. Below is an example that corresponds to a TrackNameDisplay1 widget on the Mixer page of this hypothetical OSC surface.
 ```
 Widget TrackNameDisplay1
 	FB_Processor /Mixer/TrackNameDisplay1
 WidgetEnd
 ```
 
+**Note:** there may be rare scenarios where numeric (e.g. 0/1) feedback is more useful than "bypassed/active" or "offline/online". For those use cases, use [[FB_IntProcessor|Feedback-Processors#fb_intprocessor]].
+
 ## FB_IntProcessor
-Use FB_IntProcessor in OSC surfaces whenever an integer [number] value is the only value that will be returned. Example: if you're dedicating a display to something like TrackNumberDisplay.
+Use FB_IntProcessor in OSC surfaces in the rare instances where an integer [number] value is the only value that you want returned to a widget. Example: if you'd prefer that an OSC display widget receive 0/1 versus "bypassed/active", FB_IntProcessor may be the better choice over [[FB_Processor|Feedback-Processors#FB_Processor]]. The syntax is the term FB_Processor versus the OSC address for the message. 
 ```
-Widget TrackNumberDisplay1
-	FB_IntProcessor /Mixer/TrackNumberDisplay1
+Widget TrackFXSlotStatus1
+	FB_IntProcessor /Mixer/TrackFXSlotStatus1
 WidgetEnd
 ```
 
