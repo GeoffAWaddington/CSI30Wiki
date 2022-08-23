@@ -5,9 +5,10 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 * [[AnyPress|Message-Generators#anypress]] - a variation of Press needed for some devices.
 * [[Fader7Bit|Message-Generators#fader7bit]] - sends a MIDI message in a range specifying the current absolute value of the control. Used for faders and knobs with defined start and points.
 * [[Fader14Bit|Message-Generators#fader14bit]] - like Fader7Bit, but has a larger (or more fine grained) set of values.
+* [[Control|Message-Generators#control]] - used for OSC controls
 * [[Encoders|Message-Generators#encoders]] - unlike the Faders, an Encoder sends a relative value (increase/decrease) 
 * [[MFTEncoder|Message-Generators#mftencoder]] - a special encoder only found on the MIDI Fighter Twister controller
-* [[Encoder7Bit|Message-Generators#encoder7bit]] - another special encoder for the X-Touch Compact and X-Touch Mini. **Note: added to the CSI EXP Build as of August 19, 2022.**
+* [[Encoder7Bit|Message-Generators#encoder7bit]] - another special encoder for the X-Touch Compact and X-Touch Mini. **Note: added to the CSI EXP Build as of August 19, 2022.**\
 
 If you need to define a new .mst file, because one does not exist for your surface, the general idea here is to use the Reaper action **CSI Toggle Show Raw Input from Surfaces** to observe what values are sent when each control is manipulated. So for example, when I press one of the buttons on my controller, I see this:
 
@@ -134,6 +135,16 @@ WidgetEnd
 ```
 
 In this example, touching Fader1 generates a message of 90 68 7f, and releasing Fader1 generates a second message of 90 68 00. 
+
+# Control
+The Message Generator titled simple 'Control' exists for OSC devices where a control is being defined in an .ost file. Example: here is what a touch-sensitive fader with feedback may look like in an OSC surface. You see Control followed by the OSC address of the fader, and corresponding rows for feedback and touch.
+```
+Widget Fader1
+	Control /Mixer/Fader1
+	FB_Processor /Mixer/Fader1
+	Touch /Mixer/Fader1/z
+WidgetEnd
+```
 
 # Encoders
 Encoders are typically referred to as "Endless Rotary" knobs or "Relative Encoders" (i.e. knobs with no absolute begin and end positions). While CSI typically requires the use of [[Fader7Bit|Message-Generators#fader7bit]] widgets for traditional rotary knobs that communicate absolute start and end values, Encoders are different in that they communicate a relative change in value (i.e. it sends one value or one set of values when it is increasing and one when it is decreasing).
