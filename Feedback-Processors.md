@@ -36,6 +36,8 @@ At some point in the future, the track becomes unmuted (either by pressing the b
 * [[FB_Fader14Bit|Feedback-Processors#FB_Fader14Bit]]
 * [[FB_Fader7Bit|Feedback-Processors#FB_Fader7Bit]]
 * [[FB_Encoder|Feedback-Processors#FB_Encoder]]
+* [[FB_Processor|Feedback-Processors#FB_Processor]]
+* [[FB_IntProcessor|Feedback-Processors#FB_IntProcessor]]
 * [[FB_ConsoleOneGainReductionMeter|Feedback-Processors#FB_ConsoleOneGainReductionMeter]]
 * [[FB_ConsoleOneVUMeter|Feedback-Processors#FB_ConsoleOneVUMeter]]
 * [[FB_MCUDisplayUpper|Feedback-Processors#FB_MCUDisplayUpper]] 
@@ -113,6 +115,22 @@ Use FB_Encoder for surfaces with a continuous encoder (no absolute start and end
 Widget Rotary1
 	Encoder b0 10 7f [ < 41 > 01 ]
 	FB_Encoder b0 10 00
+WidgetEnd
+```
+
+## FB_Processor
+Use FB_Processor in OSC surfaces whenever a string (text) value may be returned. This is the standard OSC Feedback Processor type and makes for a good default for OSC surfaces.
+```
+Widget TrackNameDisplay1
+	FB_Processor /Mixer/TrackNameDisplay1
+WidgetEnd
+```
+
+## FB_IntProcessor
+Use FB_IntProcessor in OSC surfaces whenever an integer [number] value is the only value that will be returned. Example: if you're dedicating a display to something like TrackNumberDisplay.
+```
+Widget TrackNumberDisplay1
+	FB_IntProcessor /Mixer/TrackNumberDisplay1
 WidgetEnd
 ```
 
