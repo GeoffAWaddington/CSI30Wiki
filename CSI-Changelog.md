@@ -1,6 +1,35 @@
 # August 23, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
 
+## CSI No Longer Saves the Bank Location in Your Reaper Project
+Due to changes in track visibility, Reaper state, etc., saving the banking information in the Reaper .rpp could lead to issues and was eliminated.
+
+## Improvements to Track Visibility
+To improve Track Visibility and update behavior, CSI now recalculates the Track list on every Run, about 33 times a second -- don't worry, the recalculation takes microseconds.
+
+## Follow TCP/MCP Functionality
+You can now force CSI to follow Reaper's TCP or MCP view. Simply add FollowTCP or FollowMCP to the first line of the csi.ini after the Page name to dictate behavior.
+
+```
+Version 2.0
+
+MidiSurface "XTouchOne" 7 9
+MidiSurface "MFTwister" 6 8 
+OSCSurface "iPad Pro" 8003 9003 10.0.0.146 
+
+Page "HomePage" 
+FollowTCP
+"XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
+"MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterMenu"
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
+
+Page "MixPage" 
+FollowMCP UseScrollLink NoSynchPages
+"XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
+"MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterFocusedFX"
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterFocusedFX"
+```
+
 ## New Action: GlobalAutoModeDisplay
 If you wanted to dedicate a display to showing the global auomation mode within Reaper (example: on an OSC device), there is now a CSI action that will display that.
 ```
