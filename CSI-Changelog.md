@@ -7,9 +7,8 @@ Due to changes in track visibility, Reaper state, etc., saving the banking infor
 ## Improvements to Track Visibility
 To improve Track Visibility and update behavior, CSI now recalculates the Track list on every Run, about 33 times a second -- don't worry, the recalculation takes microseconds.
 
-## Follow TCP/MCP Functionality
-You can now force CSI to follow Reaper's TCP or MCP view. Simply add FollowTCP or FollowMCP to the first line of the csi.ini after the Page name to dictate behavior.
-
+## Follow TCP Functionality
+By default CSI will follow Reaper's MCP view. ou can override this behavior if you add FollowTCP to the line in the csi.ini with the page name as shown below.
 ```
 Version 2.0
 
@@ -17,14 +16,12 @@ MidiSurface "XTouchOne" 7 9
 MidiSurface "MFTwister" 6 8 
 OSCSurface "iPad Pro" 8003 9003 10.0.0.146 
 
-Page "HomePage" 
-FollowTCP
+Page "HomePage" FollowTCP
 "XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
 "MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterMenu"
 "iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
 
 Page "MixPage" 
-FollowMCP UseScrollLink NoSynchPages
 "XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
 "MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterFocusedFX"
 "iPad Pro" 8 0 "FXTwister.ost" "FXTwisterFocusedFX"
