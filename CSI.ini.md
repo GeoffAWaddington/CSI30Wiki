@@ -70,8 +70,8 @@ Page "FocusedFXPage"
 There are some additional actions one can add in the csi.ini to modify functionality of CSI. These would be added to the same line as the Page name, immediately afterwards.
 
 * FollowTCP - By default CSI follows the track visibility of Reaper's MCP view. Use Follow TCP to override this functionality.
-* UseScrollLink - This turns on scroll linking between the surface and Reaper.
-* NoSynchPages - With this disabled, each page will have independent banking.
+* UseScrollLink - This turns on scroll linking between the surface and Reaper (Reaper follows CSI). The default is off.
+* NoSynchPages - With this disabled, each page will have independent banking. The default is on.
 
 ```
 Version 2.0
