@@ -67,13 +67,13 @@ Page "FocusedFXPage"
 ```
 
 ## Page Configuration Options
-There are some additional options one can add in the csi.ini to modify functionality of CSI on a per-[[Page|Pages]] level. These are entirely optional, and in no means required but exist solely to override the default behavior. 
-
-From a syntax perspective, these belong immediately following the Page name for any Pages where you are looking to override the default behavior. 
+There are some additional options one can add in the csi.ini to modify functionality of CSI on a per-[[Page|Pages]] level. These are entirely optional, and in no means required but exist solely to override the default behavior. These are:
 
 * **FollowTCP** - By default CSI follows the track visibility of Reaper's MCP view. Use Follow TCP to override the default functionality.
 * **UseScrollLink** - This turns on scroll linking between the surface and Reaper (Reaper follows CSI). The default is off.
 * **NoSynchPages** - With this disabled, each page will have independent banking. The default is on.
+
+From a syntax perspective, these belong immediately following the Page name for any Pages where you are looking to override the default behavior. 
 
 ```
 Version 2.0
