@@ -121,7 +121,7 @@ WidgetEnd
 ```
 
 ## FB_Processor
-FB_Processor is the standard OSC feedback processor type. This feedback processor type will receive strings, integers, floats, volume, pan, etc. and generally "just work" for most OSC-related use cases. The syntax is the word FB_Processor followed by the OSC address for the message. Below is an example that corresponds to a TrackNameDisplay1 widget on the Mixer page of this hypothetical OSC surface.
+FB_Processor is the standard OSC feedback processor type. This feedback processor type will transmit strings, integers, floats, volume, pan, etc. and generally "just work" for most OSC-related use cases. The syntax is the word FB_Processor followed by the OSC address for the message. Below is an example that corresponds to a TrackNameDisplay1 widget on the Mixer page of this hypothetical OSC surface.
 ```
 Widget TrackNameDisplay1
 	FB_Processor /Mixer/TrackNameDisplay1
