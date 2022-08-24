@@ -65,3 +65,23 @@ Page "FocusedFXPage"
 "MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterFocusedFX"
 "iPad Pro" 8 0 "FXTwister.ost" "FXTwisterFocusedFX"
 ```
+
+## CSI.ini Actions
+There are some additional actions one can add in the csi.ini to modify functionality of CSI. These would be added to the same line as the Page name, immediately afterwards.
+
+* FollowTCP - By default CSI follows the track visibility of Reaper's MCP view. Use Follow TCP to override this functionality.
+* UseScrollLink - This turns on scroll linking between the surface and Reaper.
+* NoSynchPages - With this disabled, each page will have independent banking.
+
+```
+Version 2.0
+
+MidiSurface "XTouchOne" 7 9
+MidiSurface "MFTwister" 6 8 
+OSCSurface "iPad Pro" 8003 9003 10.0.0.146 
+
+Page "HomePage" FollowTCP UseScrollLink NoSynchPages
+"XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
+"MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterMenu"
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
+```
