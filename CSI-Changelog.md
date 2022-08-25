@@ -1,6 +1,70 @@
 # August 23, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
 
+## New Virtual Widgets: OnPlayStart, OnPlayStop, OnRecordStart, OnRecordStop, OnZoneActivation, OnZoneDeactivation
+A slew of new virtual widgets have been added to allow you to automatically fire off actions based on Play or Record state, or when Zones are activated or deactivated. This adds a LOT of flexibility to Zones and can create a "smarter" experience.
+
+Here are some example use-cases:
+```
+Zone "Home"
+OnRecordStart SendMIDIMessage "B5 0F 04"     // Makes button B8 strobe on record start
+OnRecordStop  SendMIDIMessage "B5 0F 00"     // Makes button B8 stop strobing on record stop
+OnPlayStart   SendMIDIMessage "B5 0E 04"     // Makes button B8 strobe on play start
+OnPlayStop    SendMIDIMessage "B5 0E 00"     // Makes button B8 stop strobing on play start
+...
+ZoneEnd
+```
+
+```
+Zone "SelectedTrackSend"
+	OnZoneActivation	    SetAllDisplaysColor Cyan
+	OnZoneDeactivation	    RestoreAllDisplaysColor
+ ...
+ZoneEnd
+```
+
+```
+Zone "SelectedTrackFXMenu"
+	OnZoneActivation	SetAllDisplaysColor Yellow
+	OnZoneDeactivation	RestoreAllDisplaysColor
+...
+ZoneEnd
+```
+
+## New X-Touch Exclusive Actions: SetAllDisplaysColor, RestoreAllDisplaysColor
+SelAllDisplaysColor and RestoreAllDeisplaysColor are highly specialized widgets for the X-Touch Universal and X-Touch Extenders to set the colors of all displays at once. When combined with the new OnZoneActivation, OnZoneDeactivation virtual widgets, these allow you to set all of the surface displays to the same color when you enter a SelectedTrackFXMenu zone, and restore the prior colors when you exit that Zone...
+```
+Zone "SelectedTrackFXMenu"
+	OnZoneActivation	SetAllDisplaysColor Yellow
+	OnZoneDeactivation	RestoreAllDisplaysColor
+...
+ZoneEnd
+```
+
+See the XTouchEncoder section of the [[Message Generators]] page for a list of available X-Touch colors. 
+
+## New Action: SendMIDIMessage
+SendMIDIMessage allows you to send arbitrary MIDI message to any CSI device based on whatever conditions you'd like to setup. This is great for devices like the MIDIFighterTwister, the Launch Pads, and other MIDI surfaces that will change colors or functionality based on MIDI messages they receive. For example, I'm doing this in my Home.zon to turn on strobing and change colors of buttons on my MIDI Fighter Twister based on the playback and record states in Reaper.
+```
+Zone "Home"
+OnRecordStart SendMIDIMessage "B1 0F 50"     // Makes button B8 red on record start
+OnRecordStart SendMIDIMessage "B5 0F 04"     // Makes button B8 strobe on record start
+OnRecordStop  SendMIDIMessage "B1 0F 5F"     // Makes button B8 pink on record stop
+OnRecordStop  SendMIDIMessage "B5 0F 00"     // Makes button B8 stop strobing on record stop
+OnPlayStart   SendMIDIMessage "B1 0E 2D"     // Makes button B8 green on play start
+OnPlayStart   SendMIDIMessage "B5 0E 04"     // Makes button B8 strobe on play start
+OnPlayStop    SendMIDIMessage "B1 0E 5F"     // Makes button B8 pink on play stop
+OnPlayStop    SendMIDIMessage "B5 0E 00"     // Makes button B8 stop strobing on play start
+     IncludedZones
+          "SelectedTrack"r
+          "Buttons"
+          "SelectedTrackFXMenu"
+          "SelectedTrackSend"
+          "SelectedTrackReceive"
+     IncludedZonesEnd
+ZoneEnd
+```
+
 ## CSI No Longer Saves the Bank Location in Your Reaper Project
 Due to changes in track visibility, Reaper state, etc., saving the banking information in the Reaper .rpp could lead to issues and was eliminated.
 
