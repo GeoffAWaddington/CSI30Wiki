@@ -1,5 +1,18 @@
-# August 24, 2022 - Recent EXP Build Updates
+# August 25, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
+
+## Preliminary Test Implentation for OSARA Integration
+[OSARA](https://osara.reaperaccessibility.com/) is described as "a Reaper extension that aims to make Reaper accessible to screen reader users." CSI has added preliminary support for OSARA with the goal of improving CSI with these screen readers. A new "Speak" action was added that can be triggered in various scenarios. See the example below which would speak the phrase "UAD Fairchild 660 Compressor" when the FX.zon was activated.
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+	OnZoneActivation	Speak "UAD Fairchild 660 Compressor"
+
+	DisplayUpper1		FixedTextDisplay "HdRoom"
+ 	DisplayLower1		FXParamValueDisplay 9
+	Rotary1			FXParam 9 [ 0.0 0.17 0.33 0.50 0.67 0.83 1.0 ]
+   ...
+ZoneEnd
+``` 
 
 ## New Virtual Widgets: OnPlayStart, OnPlayStop, OnRecordStart, OnRecordStop, OnZoneActivation, OnZoneDeactivation
 A slew of new virtual widgets have been added to allow you to automatically fire off actions based on Play or Record state, or when Zones are activated or deactivated. This adds a LOT of flexibility to Zones and can create a "smarter" experience.
