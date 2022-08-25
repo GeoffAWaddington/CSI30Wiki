@@ -41,7 +41,7 @@ Zone "SelectedTrackFXMenu"
 ZoneEnd
 ```
 
-See the FB_XTouchDisplayUpper section of the [[Feedback Processors|Feedback-Processors#fb_xtouchdisplayupper]] page for a list of available X-Touch colors. 
+See [[FB_XTouchDisplayUpper|Feedback-Processors#fb_xtouchdisplayupper]] for a list of available X-Touch colors. 
 
 ## New Action: SendMIDIMessage
 SendMIDIMessage allows you to send arbitrary MIDI message to any CSI device based on whatever conditions you'd like to setup. This is great for devices like the MIDIFighterTwister, the Launch Pads, and other MIDI surfaces that will change colors or functionality based on MIDI messages they receive. For example, I'm doing this in my Home.zon to turn on strobing and change colors of buttons on my MIDI Fighter Twister based on the playback and record states in Reaper.
