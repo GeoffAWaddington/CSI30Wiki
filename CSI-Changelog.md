@@ -1,4 +1,4 @@
-# August 23, 2022 - Recent EXP Build Updates
+# August 24, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
 
 ## New Virtual Widgets: OnPlayStart, OnPlayStop, OnRecordStart, OnRecordStop, OnZoneActivation, OnZoneDeactivation
