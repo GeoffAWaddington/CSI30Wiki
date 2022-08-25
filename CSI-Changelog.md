@@ -65,6 +65,13 @@ OnPlayStop    SendMIDIMessage "B5 0E 00"     // Makes button B8 stop strobing on
 ZoneEnd
 ```
 
+You can, of course, assign this to a button.
+```
+Zone "Buttons"
+    SommeButton     SendMIDIMessage "B5 0E 04"     // Makes button B8 strobe on play start
+ZoneEnd
+```
+
 ## CSI No Longer Saves the Bank Location in Your Reaper Project
 Due to changes in track visibility, Reaper state, etc., saving the banking information in the Reaper .rpp could lead to issues and was eliminated.
 
