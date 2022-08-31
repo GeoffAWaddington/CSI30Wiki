@@ -1,4 +1,4 @@
-# August 25, 2022 - Recent EXP Build Updates
+# August 31, 2022 - Recent EXP Build Updates
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
 
 ## Bug Fixes for Zone On/Off Colors on OSC, Track Selection, ScrollLink
@@ -56,14 +56,19 @@ Zone "SelectedTrackFXMenu"
 ZoneEnd
 ```
 
-## New X-Touch Exclusive Actions: SetAllDisplaysColor, RestoreAllDisplaysColor
-SelAllDisplaysColor and RestoreAllDeisplaysColor are highly specialized widgets for the X-Touch Universal and X-Touch Extenders to set the colors of all displays at once. When combined with the new OnZoneActivation, OnZoneDeactivation virtual widgets, these allow you to set all of the surface displays to the same color when you enter a SelectedTrackFXMenu zone, and restore the prior colors when you exit that Zone...
+## New X-Touch Exclusive Actions: SetXTouchDisplayColors, RestoreXTouchDisplayColors
+SetXTouchDisplayColors and RestoreXTouchDisplayColors are highly specialized actions for the X-Touch Universal and X-Touch Extenders to set the colors of all displays at once. When combined with the new OnZoneActivation, OnZoneDeactivation virtual widgets, these allow you to set all of the surface displays to the same color when you enter a SelectedTrackFXMenu zone, and restore the prior colors when you exit that Zone...
 ```
 Zone "SelectedTrackFXMenu"
-	OnZoneActivation	SetAllDisplaysColor Yellow
-	OnZoneDeactivation	RestoreAllDisplaysColor
+	OnZoneActivation	SetXTouchDisplayColors Yellow
+	OnZoneDeactivation	RestoreXTouchDisplayColors
 ...
 ZoneEnd
+```
+
+On the X-Touch, you can also set all 8 colors to any arbitrary value you'd like, but it MUST be all 8 colors. You include the color name for each of the 8 channels in a string with quotes. The syntax for that is shown below:
+```
+      OnZoneActivation     SetXTouchDisplayColors "Red Red Magenta Blue Yellow Green Cyan Red"
 ```
 
 See [[FB_XTouchDisplayUpper|Feedback-Processors#fb_xtouchdisplayupper]] for a list of available X-Touch colors. 
