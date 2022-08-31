@@ -8,7 +8,7 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 * [[Control|Message-Generators#control]] - used for OSC controls
 * [[Encoders|Message-Generators#encoders]] - unlike the Faders, an Encoder sends a relative value (increase/decrease) 
 * [[MFTEncoder|Message-Generators#mftencoder]] - a special encoder only found on the MIDI Fighter Twister controller
-* [[Encoder7Bit|Message-Generators#encoder7bit]] - another special encoder for the X-Touch Compact and X-Touch Mini. **Note: added to the CSI EXP Build as of August 19, 2022.**\
+* [[Encoder7Bit|Message-Generators#encoder7bit]] - another special encoder for the X-Touch Compact and X-Touch Mini.
 
 If you need to define a new .mst file, because one does not exist for your surface, the general idea here is to use the Reaper action **CSI Toggle Show Raw Input from Surfaces** to observe what values are sent when each control is manipulated. So for example, when I press one of the buttons on my controller, I see this:
 
