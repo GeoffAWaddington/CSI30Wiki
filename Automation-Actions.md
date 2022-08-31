@@ -46,12 +46,11 @@ Here Shift+RecordArm will cycle through the various automation modes.
 ```` 
 
 ## TrackAutoModeDisplay
-TrackAutoModeDisplay can be combined with a TrackNavigator or SelectedTrackNavigator to show you the current automation mode. In this example, pushing RotaryB7 will cycle through the automation mode on the selected track and the corresponding display will tell us which mode it's in.
+TrackAutoModeDisplay can be combined with a TrackNavigator or SelectedTrackNavigator to show you the current automation mode. In this example, pressing Shift+RecordArm on a given channel will cycle through the automation mode on the selected track and the corresponding display will tell us which mode it's in.
 
 ```
-Zone "SelectedTrack"
-SelectedTrackNavigator
-
-RotaryPushB7 CycleTrackAutoMode
-DisplayRotaryPushB7 TrackAutoModeDisplay
+Zone "Track"
+    Shift+RecordArm|        CycleTrackAutoMode
+    Shift+DisplayLower|     TrackAutoModeDisplay
+ZoneEnd
 ```
