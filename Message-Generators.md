@@ -123,6 +123,8 @@ WidgetEnd
 ```
 A message will be sent between e0 00 00 and e0 7f 7f representing the current position of the fader.
 
+**Note:** To adjust the fader range in Reaper to match the motorized fader range on your hardware, go to Reaper's **Preferences -> Appearance -> Track Control Panels** and set the "Volume fader range" to match the maximum value on your hardware fader.
+
 ## Adding Touch Messages
 If your control surface supports "Touch" messages for faders and encoders, these should also be defined in the widget as shown in the example below:
 
