@@ -94,6 +94,8 @@ Widget Fader1
 WidgetEnd
 ```
 
+**Note: **To adjust the fader range in Reaper to match the motorized fader range on your hardware, go to Reaper's Preferences -> Appearance -> Track Control Panels and set the "Volume fader range" to match the maximum value on your hardware fader.
+
 ## FB_Fader7Bit
 Use Fader7Bit for any traditional "absolute" [as in having a fixed start and end point] MIDI faders and knobs (yes, Fader7Bit applies to knobs too!). Here's the syntax for a typical 7-bit MIDI knob with feedback. 
 ```
