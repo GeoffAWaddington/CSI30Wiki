@@ -42,16 +42,16 @@ ZoneEnd
 
 ```
 Zone "SelectedTrackSend"
-	OnZoneActivation	    SetAllDisplaysColor Cyan
-	OnZoneDeactivation	    RestoreAllDisplaysColor
+	OnZoneActivation	    SetXTouchDisplayColors Cyan
+	OnZoneDeactivation	    RestoreXTouchDisplayColors
  ...
 ZoneEnd
 ```
 
 ```
 Zone "SelectedTrackFXMenu"
-	OnZoneActivation	SetAllDisplaysColor Yellow
-	OnZoneDeactivation	RestoreAllDisplaysColor
+	OnZoneActivation	SetXTouchDisplayColors Yellow
+	OnZoneDeactivation	RestoreXTouchDisplayColors
 ...
 ZoneEnd
 ```
