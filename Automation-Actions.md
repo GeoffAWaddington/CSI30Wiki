@@ -45,12 +45,6 @@ Here Shift+RecordArm will cycle through the various automation modes.
 	Shift+RecordArm|	CycleTrackAutoMode
 ```` 
 
-Now, if your surface has displays and you'd like to see the name of the automation mode appear on the surface that can be done by adding the name of the display widget after the CSI action. In the below example, I'm using the upper display of an MCU device to show the automation mode.
-
-```` 
-	Shift+RecordArm|	CycleTrackAutoMode DisplayLower|
-```` 
-
 ## TrackAutoModeDisplay
 TrackAutoModeDisplay can be combined with a TrackNavigator or SelectedTrackNavigator to show you the current automation mode. In this example, pushing RotaryB7 will cycle through the automation mode on the selected track and the corresponding display will tell us which mode it's in.
 
