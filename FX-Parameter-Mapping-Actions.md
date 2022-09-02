@@ -93,7 +93,7 @@ If there is no fx.zon for the corresponding FX in the slot. CSI will show "NoMap
 ```
 Zone "TrackFXMenu"
         DisplayUpper|       	FXMenuNameDisplay
-        DisplayLower|           FXBypassedDisplay
+        DisplayLower|           FXBypassDisplay
         Rotary|             	NoAction
         RotaryPush|         	GoFXSlot
 	Mute| 			ToggleFXBypass
@@ -107,7 +107,7 @@ GoFXSlot is used in TrackFXMenu and SelectedTrackFXMenu zones to activate the FX
 ```
 Zone "TrackFXMenu"
         DisplayUpper|       	FXMenuNameDisplay
-        DisplayLower|           FXBypassedDisplay
+        DisplayLower|           FXBypassDisplay
         Rotary|             	NoAction
         RotaryPush|         	GoFXSlot
 	Mute| 			ToggleFXBypass
@@ -129,12 +129,12 @@ Zone "TrackFXMenu"
 ZoneEnd
 ```
 
-## FXBypassedDisplay
-If you want to add the FX state ("Enabled" or "Bypass") to the SelectedTrackFXMenu or TrackFXMenu you would utilize the FXBypassedDisplay action as shown below:
+## FXBypassDisplay
+If you want to add the FX state ("Enabled" or "Bypass") to the SelectedTrackFXMenu or TrackFXMenu you would utilize the FXBypassDisplay action as shown below:
 ```
 Zone "TrackFXMenu"
         DisplayUpper|       	FXMenuNameDisplay
-        DisplayLower|           FXBypassedDisplay
+        DisplayLower|           FXBypassDisplay
         Rotary|             	NoAction
         RotaryPush|         	GoFXSlot
 	Mute| 			ToggleFXBypass
