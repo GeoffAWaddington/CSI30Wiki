@@ -156,7 +156,7 @@ Use ToggleFXOffline to change the FX status to "offline" in Reaper. Offline FX i
 ```
 Zone "SelectedTrackFXMenu"
         DisplayUpper|         FXMenuNameDisplay
-        DisplayLower|         FXBypassedDisplay
+        DisplayLower|         FXBypassDisplay
         Shift+DisplayLower|   ToggleFXOffline
         Rotary|               NoAction
         RotaryPush|           GoFXSlot
@@ -683,7 +683,7 @@ Here’s a list of new actions introduced in CSI v2:
 * SelectedTrackFXMenuBank
 * Flip
 * ToggleFXBypass
-* FXBypassedDisplay
+* FXBypassDisplay
 
 ### Deprecated actions
 Here’s a list of legacy actions that have been removed. Many of these actions had to do with how zones were activated.
