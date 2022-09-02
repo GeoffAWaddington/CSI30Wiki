@@ -73,7 +73,7 @@
 * [[ToggleEnableFocusedFXMapping|FX Parameter Mapping Actions#ToggleEnableFocusedFXMapping]]
 * [[ToggleEnableFocusedFXParamMapping|FX Parameter Mapping Actions#ToggleEnableFocusedFXParamMapping]]
 * [[ToggleFXBypass|FX Parameter Mapping Actions#ToggleFXBypass]]
-* [[FXBypassedDisplay|FX Parameter Mapping Actions#FXBypassedDisplay]]
+* [[FXBypassDisplay|FX Parameter Mapping Actions#FXBypassDisplay]]
 * [[FXGainReductionMeter|FX Parameter Mapping Actions#FXGainReductionMeter]]
 * [[GoFXSlot|FX-Parameter-Mapping-Actions#gofxslot]]
 
