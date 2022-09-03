@@ -8,13 +8,17 @@
 * [[Record|Transport Actions#Record]]
 * [[CycleTimeline|Transport Actions#CycleTimeline]]
 * [[MCUTimeDisplay|Transport Actions#MCUTimeDisplay]]
+* [[OSCTimeDisplay|Transport Actions#OSCTimeDisplay]]
 * [[CycleTimeDisplayModes|Transport Actions#CycleTimeDisplayModes]]
 
 ### Tracks
 * [[TrackVolume|Track-Actions#trackvolume-trackvolumedisplay]]
 * [[SoftTakeover7BitTrackVolume|Track-Actions#softtakeover7bittrackvolume]]
 * [[SoftTakeover14BitTrackVolume|Track-Actions#softtakeover14bittrackvolume]]
-* [[MCUTrackPan|Track-Actions#mcutrackpan-mcutrackpandisplay]]
+* [[TrackPanAutoLeftTrack-Actions#trackpanautoleft]]
+* [[TrackPanAutoLeftDisplayTrack-Actions#trackpanautoleftdisplay]]
+* [[TrackPanAutoRightTrack-Actions#trackpanautoright]]
+* [[TrackPanAutoRightDisplayTrack-Actions#trackpanautorightdisplay]]
 * [[TrackPan|Track-Actions#trackpan-trackpandisplay]]
 * [[TrackPanWidth|Track-Actions#trackpanwidth-trackpanwidthdisplay]]
 * [[TrackPanL|Track-Actions#trackpanl-trackpanldisplay]]
@@ -26,10 +30,11 @@
 * [[TrackMute|Track-Actions#trackmute]]
 * [[TrackRecordArm|Track-Actions#trackrecordarm]]
 * [[TrackInvertPolarity|Track-Actions#trackinvertpolarity]]
+* [[CycleTrackInputMonitor|Track-Actions#cycletrackinputmonitor]]
+* [[TrackInputMonitorDisplay|Track-Actions#trackinputmonitordisplay]]
 * [[TrackNameDisplay|Track-Actions#tracknamedisplay]]
 * [[TrackNumberDisplay|Track-Actions#tracknumberdisplay]]
 * [[TrackVolumeDisplay|Track-Actions#trackvolume-trackvolumedisplay]]
-* [[MCUTrackPanDisplay|Track-Actions#mcutrackpan-mcutrackpandisplay]]
 * [[TrackPanDisplay|Track-Actions#TrackPan-trackpandisplay]]
 * [[TrackPanWidthDisplay|Track-Actions#trackpanwidth-trackpanwidthdisplay]]
 * [[TrackPanLeftDisplay|Track-Actions#trackpanl-trackpanleftdisplay]]
@@ -74,6 +79,7 @@
 * [[ToggleEnableFocusedFXParamMapping|FX Parameter Mapping Actions#ToggleEnableFocusedFXParamMapping]]
 * [[ToggleFXBypass|FX Parameter Mapping Actions#ToggleFXBypass]]
 * [[FXBypassDisplay|FX Parameter Mapping Actions#FXBypassDisplay]]
+* [[ToggleFXOffline||FX Parameter Mapping Actions#togglefxoffline]]
 * [[FXGainReductionMeter|FX Parameter Mapping Actions#FXGainReductionMeter]]
 * [[GoFXSlot|FX-Parameter-Mapping-Actions#gofxslot]]
 
@@ -117,6 +123,7 @@
 * [[GlobalAutoMode|Automation-Actions#globalautomode]]
 * [[CycleTrackAutoMode|Automation-Actions#cycletrackautomode]]
 * [[TrackAutoModeDisplay|Automation-Actions#trackautomodedisplay]]
+* [[GlobalAutoModeDisplay|Automation-Actions#globalautomodedisplay]]
 
 ### Other
 * [[WidgetMode|WidgetMode]] - Added to CSI Exp Build August 19, 2022
@@ -127,6 +134,13 @@
 * [[NoFeedback|Other Actions#NoFeedback]]
 * [[Broadcast|Broadcast and Receive]]
 * [[Receive|Broadcast and Receive]]
+* [[ToggleChannel|Other Actions#togglechannel]]
+* [[WidgetMode|Other Actions#widgetmode]]
+* [[SetWidgetMode|Other Actions#setwidgetmode]]
+* [[SendMIDIMessage|Other Actions#sendmidimessage]]
+* [[SetXTouchDisplayColors|Other Actions#SetXTouchDisplayColors]]
+* [[RestoreXTouchDisplayColors|Other Actions#restorextouchdisplaycolors]]
+* [[Speak|Other Actions#speak]]
 
 ### Modifiers
 * [[Shift|Modifiers#global-modifiers]]
