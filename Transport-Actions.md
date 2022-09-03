@@ -8,6 +8,7 @@ The Transport Actions are:
 * [[Record|Transport-Actions#Record]]
 * [[CycleTimeline|Transport-Actions#CycleTimeline]]
 * [[MCUTimeDisplay|Transport-Actions#MCUTimeDisplay]]
+* [[OSCTimeDisplay|Transport-Actions#OSCTimeDisplay]]
 * [[CycleTimeDisplayModes|Transport-Actions#CycleTimeDisplayModes]]
 
 ## Rewind
@@ -63,8 +64,16 @@ Then that would be paired with the below action in the .zon file.
     TimeDisplay                 MCUTimeDisplay
 ```
 
+## OSCTimeDisplay
+Use OSCTimeDisplay for displaying Reaper's time, including the various modes, on an OSC surface. This is basically the OSC equivalent of MCUTimeDisplay.
+```
+Zone "Buttons"
+    TimeDisplay                 OSCTimeDisplay
+ZoneEnd
+```
+
 ## CycleTimeDisplayModes
-This action will change the time display mode in Reaper and surface. This action cycles through the following 6 modes: 1) Minutes/Seconds, 2) Measures.Beats/Minutes:Seconds:Frames, 3) Measure.Beats, 4) Seconds, 5) Samples, 6) Hours:Minutes:Seconds:Frames
+When combined with MCUTimeDisplay or OSCTimeDisplay, CycleTimeDisplayModes will change the time display mode in Reaper and surface. This action cycles through the following 6 modes: 1) Minutes/Seconds, 2) Measures.Beats/Minutes:Seconds:Frames, 3) Measure.Beats, 4) Seconds, 5) Samples, 6) Hours:Minutes:Seconds:Frames
 
 ```
     smpteBeats                  CycleTimeDisplayModes
