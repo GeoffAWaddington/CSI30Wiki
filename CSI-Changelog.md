@@ -1,4 +1,4 @@
-# August 31, 2022 - Recent EXP Build Updates
+# August 31, 2022
 Using this as a placeholder for some recent EXP build updates that will work their way to the main CSI branch once testing and development is complete.
 
 ## Bug Fixes for Zone On/Off Colors on OSC, Track Selection, ScrollLink
