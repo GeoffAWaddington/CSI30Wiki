@@ -1,5 +1,22 @@
 CSI allows you to map plugin parameters to your control surface. See [[FX-and-Instrument-Mapping]] for details on how to create a .zon file for your effect or instrument (they're called FX zones, but work equally well for instruments). You'll also want to see [[Finding FXParam Numbers|FX-and-Instrument-Mapping#finding-fxparam-numbers]] for a quick and easy to way to get the FX Param # that you'll need for the mapping. 
 
+## FX Action List
+* [[FXParam|FX Parameter Mapping Actions#FXParam]] 
+* [[FXNameDisplay|FX Parameter Mapping Actions#FXParamValueDisplay]] 
+* [[FXParamNameDisplay|FX Parameter Mapping Actions#FXParamNameDisplay]] 
+* [[FXParamValueDisplay|FX Parameter Mapping Actions#FXParamValueDisplay]] 
+* [[FXMenuNameDisplay|FX-Parameter-Mapping-Actions#fxmenunamedisplay]]
+* [[FocusedFXParam|FX Parameter Mapping Actions#focusedfxparam]]
+* [[FocusedFXParamNameDisplay|FX Parameter Mapping Actions#focusedfxparamnamedisplay-and-focusedfxparamvaluedisplay]]
+* [[FocusedFXParamValueDisplay|FX Parameter Mapping Actions#focusedfxparamnamedisplay-and-focusedfxparamvaluedisplay]]
+* [[ToggleEnableFocusedFXMapping|FX Parameter Mapping Actions#ToggleEnableFocusedFXMapping]]
+* [[ToggleEnableFocusedFXParamMapping|FX Parameter Mapping Actions#ToggleEnableFocusedFXParamMapping]]
+* [[ToggleFXBypass|FX Parameter Mapping Actions#ToggleFXBypass]]
+* [[FXBypassDisplay|FX Parameter Mapping Actions#FXBypassDisplay]]
+* [[ToggleFXOffline|FX Parameter Mapping Actions#togglefxoffline]]
+* [[FXGainReductionMeter|FX Parameter Mapping Actions#FXGainReductionMeter]]
+* [[GoFXSlot|FX-Parameter-Mapping-Actions#gofxslot]]
+
 ## FXParam
 FXParam is the CSI action to control a plugin parameter. Let's say we've followed the steps in  [[Finding FXParam Numbers|FX-and-Instrument-Mapping#finding-fxparam-numbers]] and we can see that ReaComp's parameter list looks something like this...
 
@@ -140,6 +157,27 @@ Zone "TrackFXMenu"
 	Mute| 			ToggleFXBypass
         Left	            	TrackFXMenuBank -1
         Right	           	TrackFXMenuBank 1
+ZoneEnd
+```
+
+## ToggleFXOffline
+Use ToggleFXOffline to change the FX status to "offline" in Reaper. Offline FX is similar to Bypass, but it removes the plugin from memory and additional processing. In the below example, it's assigned to Shift+Mute. **Note:** This one CSI action is both an action AND a display. Notice the Shift+DisplayLower| line!
+```
+Zone "SelectedTrackFXMenu"
+        DisplayUpper|         FXMenuNameDisplay
+        DisplayLower|         FXBypassDisplay
+        Shift+DisplayLower|   ToggleFXOffline
+        Rotary|               NoAction
+        RotaryPush|           GoFXSlot
+        Mute|                 ToggleFXBypass
+        Shift+Mute|           ToggleFXOffline
+        Left                  SelectedTrackFXMenuBank -1
+        Right                 SelectedTrackFXMenuBank 1
+
+        RecordArm|            NoAction
+        Solo|                 NoAction
+        Select|               NoAction
+     Fader|                   NoAction    
 ZoneEnd
 ```
 
