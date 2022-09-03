@@ -1,5 +1,11 @@
 # Automation Actions
 
+* [[TrackAutoMode|Automation-Actions#trackautomode]]
+* [[GlobalAutoMode|Automation-Actions#globalautomode-globalautomodedisplay]]
+* [[CycleTrackAutoMode|Automation-Actions#cycletrackautomode]]
+* [[TrackAutoModeDisplay|Automation-Actions#trackautomodedisplay]]
+* [[GlobalAutoModeDisplay|Automation-Actions#globalautomode-globalautomodedisplay]]
+
 ## TrackAutoMode
 Use the CSI Action TrackAutoMode to assign a button to each of Reaper's Track Automation Modes. This action is designed to work on the selected track(s) without the need for a navigator, allowing it to work in a typical "Buttons" zone.
 
@@ -16,7 +22,7 @@ Zone "Buttons"
 ZoneEnd
 ```` 
 
-## GlobalAutoMode
+## GlobalAutoMode, GlobalAutoModeDisplay
 GlobalAutoMode is used to set Reaper's Global Automation override mode. You may want to use a modifier and put it in the same Zone as your other automation buttons as shown in the example below.
 
 ```
@@ -37,6 +43,12 @@ Zone "Buttons"
 ZoneEnd
 ```
 
+If you wanted to dedicate a display to showing the global auomation mode within Reaper (example: on an OSC device), there is now a CSI action that will display that.
+```
+Zone "Buttons"
+     AutoModeDisplay     GlobalAutoModeDisplay
+ZoneEnd
+```
 ## CycleTrackAutoMode
 Use the CSI action CycleTrackAutoMode when you're looking to cycle through the various automation modes in Reaper. Note: "Write" mode is left out by design in order to prevent accidental writing or over-writing of automation while cycling through modes.
 
