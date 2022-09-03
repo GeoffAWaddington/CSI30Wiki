@@ -5,6 +5,13 @@
 * [[NoFeedback|Other Actions#NoFeedback]]
 * [[Broadcast|Broadcast and Receive]]
 * [[Receive|Broadcast and Receive]]
+* [[ToggleChannel|Other Actions#togglechannel]]
+* [[WidgetMode|WidgetMode]]
+* [[SetWidgetMode|WidgetMode#setwidgetmode]]
+* [[SendMIDIMessage|Other Actions#sendmidimessage]]
+* [[SetXTouchDisplayColors|Other Actions#setxtouchdisplaycolors-restorextouchdisplaycolors]]
+* [[RestoreXTouchDisplayColors|Other Actions#restorextouchdisplaycolors]]
+* [[Speak|Other Actions#speak]]
 
 ## NoAction
 The cunningly named NoAction action, does nothing. I'll just pause for a second while that sinks in. Now, contrary to what you might be thinking, this can be really useful. 
@@ -131,3 +138,75 @@ ZoneEnd
 
 ## Broadcast, Receive
 See [[Broadcast and Receive]] for details on how to use these actions.
+
+## WidgetMode, SetWidgetMode
+See [[WidgetMode]] for more details on this unique set of actions.
+
+## SendMIDIMessage
+SendMIDIMessage allows you to send arbitrary MIDI message to any CSI device based on whatever conditions you'd like to setup. This is great for devices like the MIDIFighterTwister, the Launch Pads, and other MIDI surfaces that will change colors or functionality based on MIDI messages they receive. For example, I'm doing this in my Home.zon to turn on strobing and change colors of buttons on my MIDI Fighter Twister based on the playback and record states in Reaper.
+```
+Zone "Home"
+OnRecordStart SendMIDIMessage "B1 0F 50"     // Makes button B8 red on record start
+OnRecordStart SendMIDIMessage "B5 0F 04"     // Makes button B8 strobe on record start
+OnRecordStop  SendMIDIMessage "B1 0F 5F"     // Makes button B8 pink on record stop
+OnRecordStop  SendMIDIMessage "B5 0F 00"     // Makes button B8 stop strobing on record stop
+OnPlayStart   SendMIDIMessage "B1 0E 2D"     // Makes button B8 green on play start
+OnPlayStart   SendMIDIMessage "B5 0E 04"     // Makes button B8 strobe on play start
+OnPlayStop    SendMIDIMessage "B1 0E 5F"     // Makes button B8 pink on play stop
+OnPlayStop    SendMIDIMessage "B5 0E 00"     // Makes button B8 stop strobing on play start
+     IncludedZones
+          "SelectedTrack"r
+          "Buttons"
+          "SelectedTrackFXMenu"
+          "SelectedTrackSend"
+          "SelectedTrackReceive"
+     IncludedZonesEnd
+ZoneEnd
+```
+
+You can, of course, assign this to a button.
+```
+Zone "Buttons"
+    SommeButton     SendMIDIMessage "B5 0E 04"     // Makes button B8 strobe on play start
+ZoneEnd
+```
+
+## SetXTouchDisplayColors, RestoreXTouchDisplayColors
+SetXTouchDisplayColors and RestoreXTouchDisplayColors are highly specialized actions for the X-Touch Universal and X-Touch Extenders to set the colors of all displays at once. When combined with the new OnZoneActivation, OnZoneDeactivation virtual widgets, these allow you to set all of the surface displays to the same color when you enter a SelectedTrackFXMenu zone and restore the prior colors when you exit that Zone...
+```
+Zone "SelectedTrackFXMenu"
+	OnZoneActivation	SetXTouchDisplayColors Yellow
+	OnZoneDeactivation	RestoreXTouchDisplayColors
+...
+ZoneEnd
+```
+
+On the X-Touch, you can also set all 8 colors to any arbitrary value you'd like, but it MUST be all 8 colors. You include the color name for each of the 8 channels in a string with quotes. The syntax for that is shown below:
+```
+      OnZoneActivation     SetXTouchDisplayColors "Red Red Magenta Blue Yellow Green Cyan Red"
+```
+
+**Important Note:** The X-Touch firmware only supports 8 track colors. These are not full RGB screens. CSI will translate the colors in Reaper to the nearest approximation of the colors supported on the X-Touch, which are...
+```
+Black
+White
+Red
+Green
+Blue
+Cyan
+Magenta
+Yellow
+```
+
+## Speak
+[OSARA](https://osara.reaperaccessibility.com/) is described as "a Reaper extension that aims to make Reaper accessible to screen reader users." CSI has added preliminary support for OSARA with the goal of improving CSI with these screen readers. A new "Speak" action was added that can be triggered in various scenarios. See the example below which would speak the phrase "UAD Fairchild 660 Compressor" when the FX.zon was activated.
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+	OnZoneActivation	Speak "UAD Fairchild 660 Compressor"
+
+	DisplayUpper1		FixedTextDisplay "HdRoom"
+ 	DisplayLower1		FXParamValueDisplay 9
+	Rotary1			FXParam 9 [ 0.0 0.17 0.33 0.50 0.67 0.83 1.0 ]
+   ...
+ZoneEnd
+``` 
