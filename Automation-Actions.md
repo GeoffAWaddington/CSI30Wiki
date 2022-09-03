@@ -1,12 +1,12 @@
 # Automation Actions
 
-* [[TrackAutoMode|Automation-Actions#trackautomode]]
+* [[TrackAutoMode|Automation-Actions#trackautomode-trackautomodedisplay]]
+* [[TrackAutoModeDisplay|Automation-Actions#trackautomode-trackautomodedisplay]]
 * [[GlobalAutoMode|Automation-Actions#globalautomode-globalautomodedisplay]]
-* [[CycleTrackAutoMode|Automation-Actions#cycletrackautomode]]
-* [[TrackAutoModeDisplay|Automation-Actions#trackautomodedisplay]]
 * [[GlobalAutoModeDisplay|Automation-Actions#globalautomode-globalautomodedisplay]]
+* [[CycleTrackAutoMode|Automation-Actions#cycletrackautomode]]
 
-## TrackAutoMode
+## TrackAutoMode, TrackAutoModeDisplay 
 Use the CSI Action TrackAutoMode to assign a button to each of Reaper's Track Automation Modes. This action is designed to work on the selected track(s) without the need for a navigator, allowing it to work in a typical "Buttons" zone.
 
 Here is an example of buttons mapped to each of the 5 automation modes in Reaper.
@@ -21,6 +21,15 @@ Zone "Buttons"
      Alt+Latch       TrackAutoMode 5 	  // LatchPreview
 ZoneEnd
 ```` 
+
+TrackAutoModeDisplay can be combined with a TrackNavigator or SelectedTrackNavigator to show you the current automation mode. In this example, pressing Shift+RecordArm on a given channel will cycle through the automation mode on the selected track and the corresponding display will tell us which mode it's in.
+
+```
+Zone "Track"
+    Shift+RecordArm|        CycleTrackAutoMode
+    Shift+DisplayLower|     TrackAutoModeDisplay
+ZoneEnd
+```
 
 ## GlobalAutoMode, GlobalAutoModeDisplay
 GlobalAutoMode is used to set Reaper's Global Automation override mode. You may want to use a modifier and put it in the same Zone as your other automation buttons as shown in the example below.
@@ -56,13 +65,3 @@ Here Shift+RecordArm will cycle through the various automation modes.
 ```` 
 	Shift+RecordArm|	CycleTrackAutoMode
 ```` 
-
-## TrackAutoModeDisplay
-TrackAutoModeDisplay can be combined with a TrackNavigator or SelectedTrackNavigator to show you the current automation mode. In this example, pressing Shift+RecordArm on a given channel will cycle through the automation mode on the selected track and the corresponding display will tell us which mode it's in.
-
-```
-Zone "Track"
-    Shift+RecordArm|        CycleTrackAutoMode
-    Shift+DisplayLower|     TrackAutoModeDisplay
-ZoneEnd
-```
