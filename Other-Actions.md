@@ -10,7 +10,7 @@
 * [[SetWidgetMode|WidgetMode#setwidgetmode]]
 * [[SendMIDIMessage|Other Actions#sendmidimessage]]
 * [[SetXTouchDisplayColors|Other Actions#setxtouchdisplaycolors-restorextouchdisplaycolors]]
-* [[RestoreXTouchDisplayColors|Other Actions#restorextouchdisplaycolors]]
+* [[RestoreXTouchDisplayColors|Other Actions#setxtouchdisplaycolors-restorextouchdisplaycolors]]
 * [[Speak|Other Actions#speak]]
 
 ## NoAction
