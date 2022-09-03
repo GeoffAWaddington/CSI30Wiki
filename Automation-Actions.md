@@ -1,4 +1,4 @@
-# Automation Actions
+****# Automation Actions
 
 * [[TrackAutoMode|Automation-Actions#trackautomode]]
 * [[GlobalAutoMode|Automation-Actions#globalautomode-globalautomodedisplay]]
@@ -50,7 +50,7 @@ Zone "Buttons"
 ZoneEnd
 ```
 ## CycleTrackAutoMode
-Use the CSI action CycleTrackAutoMode when you're looking to cycle through the various automation modes in Reaper. Note: "Write" mode is left out by design in order to prevent accidental writing or over-writing of automation while cycling through modes.
+Use the CSI action CycleTrackAutoMode when you're looking to cycle through the various automation modes in Reaper. **Note:** "Write" mode is left out by design in order to prevent accidental writing or over-writing of automation while cycling through modes.
 
 Here Shift+RecordArm will cycle through the various automation modes.
 ```` 
