@@ -119,11 +119,11 @@
 * [[TrackVCAFolderModeDisplay|VCA's-and-VCA-Spill#cycletrackvcafoldermodes-trackvcafoldermodedisplay]]
 
 ### Automation
-* [[TrackAutoMode|Automation-Actions#trackautomode]]
+* [[TrackAutoMode|Automation-Actions#trackautomode-trackautomodedisplay]]
+* [[TrackAutoModeDisplay|Automation-Actions#trackautomode-trackautomodedisplay]]
 * [[GlobalAutoMode|Automation-Actions#globalautomode-globalautomodedisplay]]
-* [[CycleTrackAutoMode|Automation-Actions#cycletrackautomode]]
-* [[TrackAutoModeDisplay|Automation-Actions#trackautomodedisplay]]
 * [[GlobalAutoModeDisplay|Automation-Actions#globalautomode-globalautomodedisplay]]
+* [[CycleTrackAutoMode|Automation-Actions#cycletrackautomode]]
 
 ### Other
 * [[NoAction|Other Actions#NoAction]]
