@@ -1,4 +1,4 @@
-****# Automation Actions
+# Automation Actions
 
 * [[TrackAutoMode|Automation-Actions#trackautomode]]
 * [[GlobalAutoMode|Automation-Actions#globalautomode-globalautomodedisplay]]
