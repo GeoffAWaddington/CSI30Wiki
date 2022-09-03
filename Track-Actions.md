@@ -1,10 +1,14 @@
 # Track Actions
 The following CSI actions are available for controlling Reaper's track controls. They will receive their context from the Zone Type, whether a "Track" zone (used for controlling multiple channels) or "SelectedTrack" zone.
 
+### Tracks
 * [[TrackVolume|Track-Actions#trackvolume-trackvolumedisplay]]
 * [[SoftTakeover7BitTrackVolume|Track-Actions#softtakeover7bittrackvolume]]
 * [[SoftTakeover14BitTrackVolume|Track-Actions#softtakeover14bittrackvolume]]
-* [[MCUTrackPan|Track-Actions#mcutrackpan-mcutrackpandisplay]]
+* [[TrackPanAutoLeft|Track-Actions#trackpanautoleft]]
+* [[TrackPanAutoLeftDisplay|Track-Actions#trackpanautoleftdisplay]]
+* [[TrackPanAutoRight|Track-Actions#trackpanautoright]]
+* [[TrackPanAutoRightDisplay|Track-Actions#trackpanautorightdisplay]]
 * [[TrackPan|Track-Actions#trackpan-trackpandisplay]]
 * [[TrackPanWidth|Track-Actions#trackpanwidth-trackpanwidthdisplay]]
 * [[TrackPanL|Track-Actions#trackpanl-trackpanldisplay]]
@@ -16,10 +20,11 @@ The following CSI actions are available for controlling Reaper's track controls.
 * [[TrackMute|Track-Actions#trackmute]]
 * [[TrackRecordArm|Track-Actions#trackrecordarm]]
 * [[TrackInvertPolarity|Track-Actions#trackinvertpolarity]]
+* [[CycleTrackInputMonitor|Track-Actions#cycletrackinputmonitor]]
+* [[TrackInputMonitorDisplay|Track-Actions#trackinputmonitordisplay]]
 * [[TrackNameDisplay|Track-Actions#tracknamedisplay]]
 * [[TrackNumberDisplay|Track-Actions#tracknumberdisplay]]
 * [[TrackVolumeDisplay|Track-Actions#trackvolume-trackvolumedisplay]]
-* [[MCUTrackPanDisplay|Track-Actions#mcutrackpan-mcutrackpandisplay]]
 * [[TrackPanDisplay|Track-Actions#TrackPan-trackpandisplay]]
 * [[TrackPanWidthDisplay|Track-Actions#trackpanwidth-trackpanwidthdisplay]]
 * [[TrackPanLeftDisplay|Track-Actions#trackpanl-trackpanleftdisplay]]
@@ -60,14 +65,23 @@ Zone "Track
 ZoneEnd
 ```
 
-## MCUTrackPan, MCUTrackPanDisplay
-MCUTrackPan is meant to allow you to toggle between TrackPan and TrackPanWidth from a single CSI action. These two lines of code control Pan and PanWidth, as well as Pan L and Pan R if you prefer to use Dual Pan. No zone switching, multiple widgets, or special rotary metering modes required.
+## TrackPanAutoLeft, TrackPanAutoRight, TrackPanAutoLeftDisplay, TrackPanAutoRightDisplay
+TrackPanAutoLeft will control TrackPan or TrackPanL (if using Dual Pans). TrackPanAutoRight will control TrackPanWidth or TrackPanR (if using Dual Pans). This adds considerable convenience in that you can use Stereo Balance Pans or Dual Pans even in the same Reaper project and control them in CSI without having to change zones. The one difference is that the WidgetMode for TrackPanAutoRight must be fixed (i.e. you can't use the Spread mode for PanWidth and Dot mode for PanR - you have to pick one). **Note:** in the below example, the [[ToggleChannel|Other Actions#togglechannel]] action is being used to flip between TrackPanAutoLeft and TrackPanAutoRight on the same widgets without changing zones.
 ```
 Zone "Track"
-     DisplayLower|     MCUTrackPanDisplay Rotary|
-     Rotary|           MCUTrackPan  
+    RotaryPush|                 ToggleChannel
+
+    Rotary|                     TrackPanAutoLeft
+    Rotary|			WidgetMode Dot
+    Toggle+Rotary|              TrackPanAutoRight
+    Toggle+Rotary|		WidgetMode Dot
+
+    DisplayLower|      		TrackPanAutoLeftDisplay
+    Toggle+DisplayLower|   	TrackPanAutoRightDisplay
 ZoneEnd
 ```
+
+**Note:** When using Dual Pans, TrackL and TrackR automation does not get written from a control surface. This appears to require a change to the Reaper API's. 
 
 ## TrackPan, TrackPanDisplay
 Use TrackPan for controlling the TrackPan in Reaper. TrackPanDisplay will display the value of the TrackPan action on your surface.
