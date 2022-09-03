@@ -10,6 +10,7 @@ The full list of available modifiers is:
 * [[Hold|Modifiers#Hold]]
 * [[Flip|Modifiers#Flip]]
 * [[Property|Modifiers#Property]]
+* [[Toggle|Other Actions#togglechannel]]
 
 # Global Modifiers
 
@@ -177,3 +178,6 @@ Zone "Buttons"
      Property+Shift+Marker            NoFeedback       // Turns off feedback
 ZoneEnd
 ```
+
+## Toggle
+See [[ToggleChannel|Other Actions#togglechannel]] for details on how to use the toggle modifier.
