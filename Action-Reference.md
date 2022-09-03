@@ -126,7 +126,6 @@
 * [[GlobalAutoModeDisplay|Automation-Actions#globalautomodedisplay]]
 
 ### Other
-* [[WidgetMode|WidgetMode]] - Added to CSI Exp Build August 19, 2022
 * [[NoAction|Other Actions#NoAction]]
 * [[FixedTextDisplay|Other Actions#FixedTextDisplay]]
 * [[FixedRGBColorDisplay|Other Actions#FixedRGBColorDisplay]]
