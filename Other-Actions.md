@@ -139,6 +139,23 @@ ZoneEnd
 ## Broadcast, Receive
 See [[Broadcast and Receive]] for details on how to use these actions.
 
+## ToggleChannel
+ToggleChannel allows you to define a widget, such as RotaryPush, to toggle functionality assigned to that action. Example: this allows you to toggle between TrackPanAutoLeft + TrackPanAutoLeftDisplay and TrackPanAutoRight + TrackPanAutoRightDisplay on the same channel on the same zone. To do this, first you would define "RotaryPush|" to the ToggleChannel action. Next, you would use Toggle+ as a modifier. 
+```
+Zone "Track"
+    RotaryPush|                 ToggleChannel
+
+    Rotary|                     TrackPanAutoLeft
+    Rotary|			WidgetMode Dot
+    Toggle+Rotary|              TrackPanAutoRight
+    Toggle+Rotary|		WidgetMode Dot
+
+    DisplayLower|      		TrackPanAutoLeftDisplay
+    Toggle+DisplayLower|   	TrackPanAutoRightDisplay
+ZoneEnd
+```
+This functionality can also be used in FX.zon's to group like-parameters (example: you can flip between the Frequency and Q control on an EQ plugin).
+
 ## WidgetMode, SetWidgetMode
 See [[WidgetMode]] for more details on this unique set of actions.
 
