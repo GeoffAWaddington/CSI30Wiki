@@ -120,10 +120,10 @@
 
 ### Automation
 * [[TrackAutoMode|Automation-Actions#trackautomode]]
-* [[GlobalAutoMode|Automation-Actions#globalautomode]]
+* [[GlobalAutoMode|Automation-Actions#globalautomode-globalautomodedisplay]]
 * [[CycleTrackAutoMode|Automation-Actions#cycletrackautomode]]
 * [[TrackAutoModeDisplay|Automation-Actions#trackautomodedisplay]]
-* [[GlobalAutoModeDisplay|Automation-Actions#globalautomodedisplay]]
+* [[GlobalAutoModeDisplay|Automation-Actions#globalautomode-globalautomodedisplay]]
 
 ### Other
 * [[NoAction|Other Actions#NoAction]]
