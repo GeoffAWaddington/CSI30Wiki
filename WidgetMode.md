@@ -17,6 +17,21 @@ SetWidgetMode exists because you may want to set a Faderport display ScribbleStr
     FPDisplay   WidgetMode SomeWidgetMode
 ```
 
+## MCU Widget Modes
+There are four Widget Modes that you can use for MCU-style displays to change the LED ring behavior around the rotary. They are:
+
+```
+Rotary|     WidgetMode Dot         // Single LED dot to indicate current value
+Rotary|     WidgetMode BoostCut    // Center-based fill - values below center fill to the left, values above center fill to the right
+Rotary|     WidgetMode Fill        // Fills from left to right
+Rotary|     WidgetMode Spread      // Spreads out from center
+```
+
+* **Dot** is useful for showing pan position.
+* **BoostCut** is great for PanWidth or showing an equalizer's boost/cut level.
+* **Fill** is great for FX and showing level.
+* **Spread** is excellent for showing width (pan width).
+
 ## Faderport WidgetModes
 CSI supports all the display functionality of the Presonus FaderPort8 and FaderPort16. The FaderPorts have multiple (9) display types to choose from, contains a ValueBar and can, depending on the display type, show the VU Meter. 
 
