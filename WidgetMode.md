@@ -18,7 +18,7 @@ SetWidgetMode exists because you may want to set a Faderport display ScribbleStr
 ```
 
 ## MCU Widget Modes
-There are four Widget Modes that you can use for MCU-style displays to change the LED ring behavior around the rotary. They are:
+Building off the example above, there are four WidgetMode settings that you can use for MCU-style displays to change the LED ring behavior around the rotary. They are:
 
 ```
 Rotary|     WidgetMode Dot         // Single LED dot to indicate current value
