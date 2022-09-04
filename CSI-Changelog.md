@@ -3,15 +3,6 @@
 ## Bug Fixes for Zone On/Off Colors on OSC, Track Selection, ScrollLink
 There were some recent fixes to Zone on/off colors on OSC surfaces, as well as fixes to track selection and ScrollLink introduced due to recent changes to Track Visibility.
 
-## X-Touch Universal and XT: Track/VCA/Folder supports channel colors for VCA and Folder
-For X-Touch Universal and XT owner, Track colors were already supported, now the CycleTrackVCAFolderModes action was expanded to allow you to set a fixed color for VCA and Folder modes respectively.
-
-```
-    nameValue CycleTrackVCAFolderModes "Blue Magenta"
-```
-
-See [[FB_XTouchDisplayUpper|Feedback-Processors#fb_xtouchdisplayupper]] for a list of available X-Touch colors. 
-
 ## Preliminary Test Implentation for OSARA Integration
 [OSARA](https://osara.reaperaccessibility.com/) is described as "a Reaper extension that aims to make Reaper accessible to screen reader users." CSI has added preliminary support for OSARA with the goal of improving CSI with these screen readers. A new "Speak" action was added that can be triggered in various scenarios. See the example below which would speak the phrase "UAD Fairchild 660 Compressor" when the FX.zon was activated.
 ```
