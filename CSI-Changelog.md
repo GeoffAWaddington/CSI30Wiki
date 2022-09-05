@@ -36,7 +36,28 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
 ZoneEnd
 ```
 
-Now, how do we deal with stepped params, encoder acceleration, step sizes, colors, etc.? We add those to a new block of text at the bottom and define them on a per-parameter basis. 
+Now, let's say I want RotaryPush8 to toggle the FX Bypass state, but it's the only toggly-style action I need. You can simply add another block, with that specific instruction.
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 9      1     2      3     6    7      0     8
+     FXParamNames             HdRoom Input Thresh Ratio Knee Output Meter WetDry
+     FXValueWidgets           Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+
+     FXParams                 5
+     FXParamNames             "DC Bal"
+     FXValueWidgets           Rotary1
+     FXParamNameDisplays      DisplayUpper1
+     FXParamValueDisplays     DisplayLower1
+     FXWidgetModifiers        Shift
+
+     FXParams                 11
+     FXValueWidgets           RotaryPush8
+ZoneEnd
+```
+
+Now, how do we deal with stepped params, encoder acceleration, step sizes, colors, etc.? We simply add those to a new block of text at the bottom and define them on a per-parameter basis (except DefaultAcceleration, which is not at a per-parameter level). 
 ```
 Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParams                 9      1     2      3     6    7      0     8
