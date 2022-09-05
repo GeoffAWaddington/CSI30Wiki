@@ -16,7 +16,7 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamValueDisplays     DisplayLower|
 ZoneEnd
 ```
-**Note:** using the legacy FX.zon syntax, this simple mapping would've required something like 40 lines of code. The new EZFXZone syntax accomplishes all the same functionality in only 5 lines! That could be an entire fx.zon if so desired.
+**Note:** using the legacy FX.zon syntax, this simple mapping would've required something like 40 lines of code. The new EZFXZone syntax accomplishes all the same functionality in only 5 lines! If you wanted, you could stop right there; that could be an entire fx.zon!
 
 Now, if we want to add a modifier, we add the next block of text shown below. Very similar layout, except there is one more row, with the addition of the **FXWidgetModifiers Shift** line. This says, show FXParam 5, "DC Bal", on Shift+Rotary1 and the corresponding Shift-Displays.
 ```
@@ -36,7 +36,7 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
 ZoneEnd
 ```
 
-Now, let's say I want RotaryPush8 to toggle the FX Bypass state, but it's the only toggly-style action I need and I don't necessarily need to see that on a display. You can simply add another block, with that specific instruction.
+Now, let's say I want RotaryPush8 to toggle the FX Bypass state, but it's the only toggle-style action I need and I don't necessarily need to see that on a display. You can simply add another block with that specific instruction on the one widget:
 ```
 Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParams                 9      1     2      3     6    7      0     8
