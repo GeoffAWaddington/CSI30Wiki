@@ -95,7 +95,7 @@ The following actions are coming soon.
 ```
 FXParamsBank
 FXWidgetModes
-FXParamColors
+FXParamColors (including changing over to Hex values for RGBA)
 DefaultAcceleration
 ```
 
