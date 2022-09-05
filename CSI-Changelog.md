@@ -4,7 +4,7 @@ This is what is currently floating around in the CSI Exp builds as of September 
 ## First Pass at EZFXZones
 **Note: consider this feature extra-experimental. This is not ready for production projects yet. Also, some actions described below are currently still being coded.**
 
-EZFXZones are a new way of writing FX Zones that uses far fewer lines, and saves a lot of the tedious repetition of the legacy fx.zon format (which is not going away). These new FX zones follow a spreadhseet-like format where you can think of the FX Parameters where you read both down and across.
+EZFXZones are a new way of writing FX Zones that uses far fewer lines, and saves a lot of the tedious repetition of the legacy fx.zon format (which is not going away). These new FX zones follow a spreadhseet-like format where you read both across and down.
 
 Diving right into a real-world example, the first block of text starting with "FXParams" is saying FXParam 9, which we are giving the alias "HeadRoom", gets assigned to Rotary1. You will see the FXParamName on DisplayUpper1, and you will see the FXParamValue on DisplayLower1. FXParam 1, "Input", will get assigned to Rotary2, with the FXParamName name showing up on DisplayUpper2 and FXParamValueName on DisplayLower2. And on and on.
 ```
