@@ -1,3 +1,194 @@
+# September 5, 2022 - EXP Builds
+This is what is currently floating around in the CSI Exp builds as of September 5th, 2022. 
+
+## First Pass at EZFXZones
+**Note: consider this feature extra-experimental. This is not ready for production projects yet. Also, some actions described below are currently still being coded.**
+
+EZFXZones are a new way of writing FX Zones that uses far fewer lines, and saves a lot of the tedious repetition of the legacy fx.zon format (which is not going away). These new FX zones follow a spreadhseet-like format where you can think of the FX Parameters where you read both down and across.
+
+Diving right into a real-world example, the first block of text starting with "FXParams" is saying FXParam 9, which we are giving the alias "HeadRoom", gets assigned to Rotary1. You will see the FXParamName on DisplayUpper1, and you will see the FXParamValue on DisplayLower1. FXParam 1, "Input", will get assigned to Rotary2, with the FXParamName name showing up on DisplayUpper2 and FXParamValueName on DisplayLower2. And on and on.
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 9      1     2      3     6    7      0     8
+     FXParamNames             HdRoom Input Thresh Ratio Knee Output Meter WetDry
+     FXValueWidgets           Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+ZoneEnd
+```
+**Note:** using the legacy FX.zon syntax, this simple mapping would've required something like 40 lines of code. The new EZFXZone syntax accomplishes all the same functionality in only 5 lines!
+
+Now, if we want to add a modifier, we add the next block of text shown below. Very similar layout, except there is one more row, with the addition of the **FXWidgetModifiers Shift** line. This says, show FXParam 5, "DC Bal", on Shift+Rotary1 and the corresponding Shift-Displays.
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 9      1     2      3     6    7      0     8
+     FXParamNames             HdRoom Input Thresh Ratio Knee Output Meter WetDry
+     FXValueWidgets           Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+
+     FXParams                 5
+     FXParamNames             "DC Bal"
+     FXValueWidgets           Rotary1
+     FXParamNameDisplays      DisplayUpper1
+     FXParamValueDisplays     DisplayLower1
+     FXWidgetModifiers        Shift
+ZoneEnd
+```
+
+Now, how do we deal with stepped params, encoder acceleration, step sizes, colors, etc.? We add those to a new block of text at the bottom and define them on a per-parameter basis. 
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 9      1     2      3     6    7      0     8
+     FXParamNames             HdRoom Input Thresh Ratio Knee Output Meter WetDry
+     FXValueWidgets           Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+
+     FXParams                 5
+     FXParamNames             "DC Bal"
+     FXValueWidgets           Rotary1
+     FXParamNameDisplays      DisplayUpper1
+     FXParamValueDisplays     DisplayLower1
+     FXWidgetModifiers        Shift
+
+     FXParams                 11
+     FXValueWidgets           RotaryPush8
+
+     Left                     FXParamsBank -1
+     Right                    FXParamsBank 1
+
+     DefaultAcceleration      0.001 0.002 0.003 0.004 0.005 0.006 0.0075 0.01 0.02 0.035 0.05   
+     FXParamAcceleration 7    0.001 0.002 0.003 0.004 0.005 0.006 0.0075 0.01 0.02 0.025 0.03 
+     FXParamStepSize     0    0.5
+     FXParamStepValues   1    0.0 0.05 0.11 0.16 0.21 0.26 0.32 0.37 0.42 0.47 0.53 0.58 0.63 0.68 0.74 0.79 0.84 0.89 0.95 1.0
+     FXParamStepValues   3    0.0 0.20 0.40 0.60 0.80 1.0 
+     FXParamStepValues   9    0.0 0.17 0.33 0.50 0.67 0.83 1.0
+     FXParamTickCounts   3    3
+     FXWidgetModes       1    BoostCut
+     FXWidgetModes       7    BoostCut  
+     FXParamColors       11   #00ff00ff #ff0000ff    
+ZoneEnd
+```
+So let's look at the new additions: what happens if you have more than 8 FXParams you want to assign to your 8-channel unit? You can continue adding additional FXParams in lines 2 and 3, then CSI will allow you to bank to the next FXParam via the **FXParamsBank** actions.
+
+**DefaultAcceleration** is optional, but allows you to set a custom acceleration curve to all encoders (there are per-parameter curves as well). 
+
+The next set of actions are all on per-parameter basis. So you can further still create parameter-level custom acceleration curves using the **FXParamAcceleration** action. **FXParamStepSize** is used to set the step size for an encoder tick on a FX Param. **FXParamStepValues** is used for stepped params. **FXParamTickCounts** sets the number of encoder ticks CSI must receive before advancing the FXParamValue. **FXWidgetModes** allow you to set display [[WidgetModes]] on a per-parameter baseis. Lastly, **FXParamColors** can be used by supported surfaces to send RGBA colors (in hex format) to a supported widget. **Note:** CSI will be moving away from RGB to Hex everywhere.
+
+At the time of this writing, the following actions have been implemented
+```
+FXParams
+FXParamNames
+FXValueWidgets
+FXParamNameDisplays
+FXParamValueDisplays
+
+FXParamAcceleration
+FXParamRange
+FXParamStepSize
+FXParamStepValues
+FXParamTickCounts
+```
+
+The following actions are coming soon.
+```
+FXParamsBank
+FXWidgetModes
+FXParamColors
+DefaultAcceleration
+```
+
+## New Implementation for Track, Folder, VCA Modes (CycleTrackVCAFolderModes) With New Actions
+There is a new implementation, and set of corresponding zones (see the X-Touch folder in the CSI Support Files for examples), of Folder and VCA modes as they correspond to the CycleTrackVCAFolderModes action. When in Track mode, there's no change. When cycled to Folder mode, only Reaper's Folder tracks become visible, and you can press the Select [or any user-defined] button to drill down into the folder. After drilling down, the parent folder track is the first track on the left, and child tracks are on the right. There's an identical implementation for VCA leaders and followers.
+
+So just a refresher, the new zones get activated via the CycleTrackVCAFolderModes action, which you'd want in your buttons.zon
+```
+Zone "Buttons"
+    nameValue    CycleTrackVCAFolderModes
+ZoneEnd
+```
+
+The new actions for these modes are:
+```
+    TrackVCALeaderDisplay
+    TrackFolderParentDisplay
+    TrackToggleVCASpill
+    TrackToggleFolderSpill
+```
+
+And here is an example of the new Folder.zon:
+```
+Zone "Folder"
+    DisplayUpper|                  TrackNameDisplay
+    Fader|Touch+DisplayLower|      TrackVolumeDisplay
+    DisplayLower|                  TrackFolderParentDisplay
+    Shift+DisplayLower|            TrackAutoModeDisplay
+    Toggle+DisplayLower|           TrackPanAutoRightDisplay
+    Alt+DisplayLower|              TrackInputMonitorDisplay
+    VUMeter|                       TrackOutputMeterMaxPeakLR
+    Fader|                         TrackVolume 
+    Flip+Fader|                    TrackPan 
+    Rotary|                        TrackPanAutoLeft
+    Rotary|                        WidgetMode Dot
+    Toggle+Rotary|                 TrackPanAutoRight
+    Toggle+Rotary|                 WidgetMode Dot
+    RotaryPush|                    ToggleChannel
+    Shift+RotaryPush|              TrackPan [ 0.5 ]
+    Option+RotaryPush|             TrackPanWidth [ 1.0 ]
+    Alt+RotaryPush|                CycleTrackInputMonitor
+    RecordArm|                     TrackRecordArm
+    Shift+RecordArm|               CycleTrackAutoMode
+    Solo|                          TrackSolo
+    Mute|                          TrackMute
+    Select|                        TrackToggleFolderSpill
+    Shift+Select|                  TrackRangeSelect
+    Control+Select|                TrackSelect
+                                   
+    BankLeft                       FolderBank -8
+    BankRight                      FolderBank 8
+    ChannelLeft                    FolderBank -1
+    ChannelRight                   FolderBank 1
+
+ZoneEnd
+```
+
+And here's a sample VCA.zon:
+```
+Zone "VCA"
+    DisplayUpper|               TrackNameDisplay
+    Fader|Touch+DisplayLower|   TrackVolumeDisplay
+    DisplayLower|               TrackVCALeaderDisplay
+    Shift+DisplayLower|         TrackAutoModeDisplay
+    Toggle+DisplayLower|        TrackPanAutoRightDisplay
+    Alt+DisplayLower|           TrackInputMonitorDisplay
+    VUMeter|                    TrackOutputMeterMaxPeakLR
+    Fader|                      TrackVolume 
+    Flip+Fader|                 TrackPan 
+    Rotary|                     TrackPanAutoLeft
+    Rotary|                     WidgetMode Dot
+    Toggle+Rotary|              TrackPanAutoRight
+    Toggle+Rotary|              WidgetMode Dot
+    RotaryPush|                 ToggleChannel
+    Shift+RotaryPush|           TrackPan [ 0.5 ]
+    Option+RotaryPush|          TrackPanWidth [ 1.0 ]
+    Alt+RotaryPush|             CycleTrackInputMonitor
+    RecordArm|                  TrackRecordArm
+    Shift+RecordArm|            CycleTrackAutoMode
+    Solo|                       TrackSolo
+    Mute|                       TrackMute
+    Select|                     TrackToggleVCASpill
+    Shift+Select|               TrackRangeSelect
+    Control+Select|             TrackSelect
+
+    BankLeft                    VCABank -8
+    BankRight                   VCABank 8
+    ChannelLeft                 VCABank -1
+    ChannelRight                VCABank 1
+
+ZoneEnd
+```
+
 # August 31, 2022
 
 ## Bug Fixes for Zone On/Off Colors on OSC, Track Selection, ScrollLink
