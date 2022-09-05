@@ -36,7 +36,7 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
 ZoneEnd
 ```
 
-Now, let's say I want RotaryPush8 to toggle the FX Bypass state, but it's the only toggly-style action I need. You can simply add another block, with that specific instruction.
+Now, let's say I want RotaryPush8 to toggle the FX Bypass state, but it's the only toggly-style action I need and I don't necessarily need to see that on a display. You can simply add another block, with that specific instruction.
 ```
 Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParams                 9      1     2      3     6    7      0     8
