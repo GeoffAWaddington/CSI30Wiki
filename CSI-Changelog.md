@@ -91,7 +91,7 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamColors       11   #00ff00ff #ff0000ff    
 ZoneEnd
 ```
-So let's look at the new additions: what happens if you have more than 8 FXParams you want to assign to your 8-channel unit? You can continue adding additional FXParams in lines 2 and 3, then CSI will allow you to bank to the next FXParam via the **FXParamsBank** actions.
+So let's look at the new additions: what happens if you have more than 8 FXParams you want to assign to your 8-channel unit? You can continue adding additional FXParams in lines 2 and 3, then CSI will allow you to bank to the next FXParam via the **FXParamsBank** actions. Banking will also allow for mapping fx on 1-fader surfaces.
 
 **DefaultAcceleration** is optional, but allows you to set a custom acceleration curve to all encoders (there are per-parameter curves as well). 
 
