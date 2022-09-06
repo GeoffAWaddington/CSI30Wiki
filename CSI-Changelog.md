@@ -1,7 +1,7 @@
 # September 6, 2022 - EXP Builds
 This is what is currently floating around in the CSI Exp builds as of September 5th, 2022. 
 
-## Two-Way Encoder Behavior for Reaper Actions
+## Two-Way Encoder Behavior
 Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). We do this via the Decrease and Increase modifiers. Note: these modifiers only work with Encoders. 
 
 ```
@@ -232,6 +232,9 @@ Zone "VCA"
 
 ZoneEnd
 ```
+
+## Depreciated CycleTrackVCAFolderModes Action
+With the addition of the GoTrack, GoVCA, GoFolder actions, the CycleTrackVCAFolderModes was removed. Please transition to using the new zones and zone activation actions.
 
 ## Hex Color Support
 CSI has been expanded to support Hex colors on actions. One can currently use RGB (legacy) or Hex (do not mix and match). For instance, if you wanted a particular button on your OSC surface to change colors based on whether or not the new VCA zone was active, you could do that as shown below.
