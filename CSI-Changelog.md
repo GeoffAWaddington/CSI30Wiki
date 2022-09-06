@@ -35,12 +35,12 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamNameDisplays      DisplayUpper|
      FXParamValueDisplays     DisplayLower|
 
-     FXParams		       5	 -1 -1 -1 -1 -1 -1 4
-     FXParamNames	       "DC Bal" "" "" "" "" "" "" SidChn
-     FXValueWidgets  	       Rotary|
-     FXParamNameDisplays       DisplayUpper|
-     FXParamValueDisplays      DisplayLower|
-     FXWidgetModifiers	       Shift
+     FXParams		      5	 -1 -1 -1 -1 -1 -1 4
+     FXParamNames	      "DC Bal" "" "" "" "" "" "" SidChn
+     FXValueWidgets  	      Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+     FXWidgetModifiers	      Shift
 ZoneEnd
 ```
 
@@ -53,12 +53,12 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamNameDisplays      DisplayUpper|
      FXParamValueDisplays     DisplayLower|
 
-     FXParams		       5	 -1 -1 -1 -1 -1 -1 4
-     FXParamNames	       "DC Bal" "" "" "" "" "" "" SidChn
-     FXValueWidgets  	       Rotary|
-     FXParamNameDisplays       DisplayUpper|
-     FXParamValueDisplays      DisplayLower|
-     FXWidgetModifiers	       Shift
+     FXParams		      5	 -1 -1 -1 -1 -1 -1 4
+     FXParamNames	      "DC Bal" "" "" "" "" "" "" SidChn
+     FXValueWidgets  	      Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+     FXWidgetModifiers	      Shift
 
      FXParams                 11
      FXValueWidgets           RotaryPush8
@@ -74,12 +74,12 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamNameDisplays      DisplayUpper|
      FXParamValueDisplays     DisplayLower|
 
-     FXParams		        5	 -1 -1 -1 -1 -1 -1 4
-     FXParamNames		"DC Bal" "" "" "" "" "" "" SidChn
-     FXValueWidgets  	        Rotary|
-     FXParamNameDisplays  	DisplayUpper|
-     FXParamValueDisplays 	DisplayLower|
-     FXWidgetModifiers	        Shift
+     FXParams		      5	 -1 -1 -1 -1 -1 -1 4
+     FXParamNames	      "DC Bal" "" "" "" "" "" "" SidChn
+     FXValueWidgets  	      Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+     FXWidgetModifiers	      Shift
 
      FXParams                 11
      FXValueWidgets           RotaryPush8
