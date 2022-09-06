@@ -9,6 +9,25 @@ Now you can assign two different Reaper actions to a single encoder based on whi
     Increase+Jogwheel      Reaper 41325
 ```
 
+The following native CSI actions support this same syntax:
+```
+TrackBank
+VCABank
+FolderBank
+SelectedTrackSendBank
+SelectedTrackReceiveBank
+SelectedTrackFXMenuBank
+TrackSendBank
+TrackReceiveBank
+TrackFXMenuBank
+```
+
+Example:
+```
+    Decrease+Jogwheel      TrackBank -1
+    Increase+Jogwheel      TrackBank  1
+```
+
 ## EZFXZones: New FX Zone Syntax Option
 **Note: consider this feature extra-experimental. This is not ready for production projects yet. Also, some actions described below are currently still being coded.**
 
