@@ -5,9 +5,9 @@ This is what is currently floating around in the CSI Exp builds as of September 
 Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). We do this via the Decrease and Increase modifiers. Note: these modifiers only work with Encoders. 
 
 ```
-Zone "Buttons"
-    Decrease+Jogwheel      Reaper 41326
-    Increase+Jogwheel      Reaper 41325
+Zone "Zoom"
+    Decrease+Jogwheel      Reaper 41326   // Decrease track height
+    Increase+Jogwheel      Reaper 41325   // Increase track height
 ZoneEnd
 ```
 
