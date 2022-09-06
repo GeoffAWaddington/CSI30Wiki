@@ -69,7 +69,7 @@ WidgetEnd
 
 # AnyPress
 AnyPress is Message Generator for use with surfaces whose buttons alternate between a press message (7f) on press, and on second press, a release message (00). Use AnyPress widgets for these types of surfaces. 
-```` 
+```
 Widget Solo1
     AnyPress   90 2e 7f
 WidgetEnd
@@ -80,7 +80,7 @@ This can also be used for OSC devices that may require an AnyPress widget (this 
 Widget Solo1
     AnyPress  /solosw/01
 WidgetEnd
-````
+```
 
 In case you're still not sure about when to use Press versus AnyPress, try this:
 
