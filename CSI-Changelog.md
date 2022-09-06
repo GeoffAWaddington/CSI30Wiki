@@ -1,5 +1,13 @@
-# September 5, 2022 - EXP Builds
+# September 6, 2022 - EXP Builds
 This is what is currently floating around in the CSI Exp builds as of September 5th, 2022. 
+
+## Two-Way Encoder Behavior for Reaper Actions
+Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). You have to use very specific bracketed text after the reaper action as shown below.
+
+```
+    Jogwheel      Reaper 41326 [ -2.0>1.0 ] // decrement (CCW)
+    Jogwheel      Reaper 41325 [  0.0>2.0 ] // increment (CW)
+```
 
 ## EZFXZones: New FX Zone Syntax Option
 **Note: consider this feature extra-experimental. This is not ready for production projects yet. Also, some actions described below are currently still being coded.**
@@ -18,7 +26,7 @@ ZoneEnd
 ```
 **Note:** using the legacy FX.zon syntax, this simple mapping would've required something like 40 lines of code. The new EZFXZone syntax accomplishes all the same functionality in only 5 lines! If you wanted, you could stop right there; that could be an entire fx.zon!
 
-Now, if we want to add a modifier, we add the next block of text shown below. Very similar layout, except there is one more row, with the addition of the **FXWidgetModifiers Shift** line. This says, show FXParam 5, "DC Bal", on Shift+Rotary1 and the corresponding Shift-Displays.
+Now, if we want to add a modifier, we add the next block of text shown below. Very similar layout, except there is one more row, with the addition of the **FXWidgetModifiers Shift** line. This says, show FXParam 5, "DC Bal", on Shift+Rotary1 and the corresponding Shift-Displays. Then you see a series of -1 entries in the FXParams row and double quotes in the corresponding FXParamNames rows. This tells CSI, "No Action here and clear out the displays".
 ```
 Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParams                 9      1     2      3     6    7      0     8
@@ -27,12 +35,12 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamNameDisplays      DisplayUpper|
      FXParamValueDisplays     DisplayLower|
 
-     FXParams                 5
-     FXParamNames             "DC Bal"
-     FXValueWidgets           Rotary1
-     FXParamNameDisplays      DisplayUpper1
-     FXParamValueDisplays     DisplayLower1
-     FXWidgetModifiers        Shift
+     FXParams		       5	 -1 -1 -1 -1 -1 -1 4
+     FXParamNames	       "DC Bal" "" "" "" "" "" "" SidChn
+     FXValueWidgets  	       Rotary|
+     FXParamNameDisplays       DisplayUpper|
+     FXParamValueDisplays      DisplayLower|
+     FXWidgetModifiers	       Shift
 ZoneEnd
 ```
 
@@ -45,12 +53,12 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamNameDisplays      DisplayUpper|
      FXParamValueDisplays     DisplayLower|
 
-     FXParams                 5
-     FXParamNames             "DC Bal"
-     FXValueWidgets           Rotary1
-     FXParamNameDisplays      DisplayUpper1
-     FXParamValueDisplays     DisplayLower1
-     FXWidgetModifiers        Shift
+     FXParams		       5	 -1 -1 -1 -1 -1 -1 4
+     FXParamNames	       "DC Bal" "" "" "" "" "" "" SidChn
+     FXValueWidgets  	       Rotary|
+     FXParamNameDisplays       DisplayUpper|
+     FXParamValueDisplays      DisplayLower|
+     FXWidgetModifiers	       Shift
 
      FXParams                 11
      FXValueWidgets           RotaryPush8
@@ -66,12 +74,12 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamNameDisplays      DisplayUpper|
      FXParamValueDisplays     DisplayLower|
 
-     FXParams                 5
-     FXParamNames             "DC Bal"
-     FXValueWidgets           Rotary1
-     FXParamNameDisplays      DisplayUpper1
-     FXParamValueDisplays     DisplayLower1
-     FXWidgetModifiers        Shift
+     FXParams		        5	 -1 -1 -1 -1 -1 -1 4
+     FXParamNames		"DC Bal" "" "" "" "" "" "" SidChn
+     FXValueWidgets  	        Rotary|
+     FXParamNameDisplays  	DisplayUpper|
+     FXParamValueDisplays 	DisplayLower|
+     FXWidgetModifiers	        Shift
 
      FXParams                 11
      FXValueWidgets           RotaryPush8
@@ -88,12 +96,12 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamTickCounts   3    3
      FXWidgetModes       1    BoostCut
      FXWidgetModes       7    BoostCut  
-     FXParamColors       11   #00ff00ff #ff0000ff    
+     FXParamColors       11   #ff0000 #00ff007f
 ZoneEnd
 ```
 So let's look at the new additions: what happens if you have more than 8 FXParams you want to assign to your 8-channel unit? You can continue adding additional FXParams in lines 2 and 3, then CSI will allow you to bank to the next FXParam via the **FXParamsBank** actions. Banking will also allow for mapping fx on 1-fader surfaces.
 
-**DefaultAcceleration** is optional, but allows you to set a custom acceleration curve to all encoders (there are per-parameter curves as well). 
+**DefaultAcceleration** is optional but allows you to set a custom acceleration curve to all encoders (there are per-parameter curves as well). 
 
 The next set of actions are all on per-parameter basis. Notice how the syntax is the action type, the FXParam #, then the instructions with no need for brackets as used in traditional fx.zon files. So you can further still create parameter-level custom acceleration curves using the **FXParamAcceleration** action. **FXParamStepSize** is used to set the step size for an encoder tick on a FX Param. **FXParamStepValues** is used for stepped params. **FXParamTickCounts** sets the number of encoder ticks CSI must receive before advancing the FXParamValue. **FXWidgetModes** allow you to set display [[WidgetModes|WidgetMode]] on a per-parameter baseis. Lastly, **FXParamColors** can be used by supported surfaces to send RGBA colors (in hex format) to a supported widget. **Note:** CSI will be moving away from RGB to Hex everywhere.
 
@@ -110,28 +118,24 @@ FXParamRange
 FXParamStepSize
 FXParamStepValues
 FXParamTickCounts
+FXParamColors (now uses Hex colors)
+DefaultAcceleration
 ```
 
 The following actions are coming soon.
 ```
 FXParamsBank
 FXWidgetModes
-FXParamColors (including changing over to Hex values for RGBA)
-DefaultAcceleration
 ```
 
 ## New Implementation for Track, Folder, VCA Modes (CycleTrackVCAFolderModes) With New Actions
-There is a new implementation, and set of corresponding zones (see the X-Touch folder in the CSI Support Files for examples), of Folder and VCA modes as they correspond to the CycleTrackVCAFolderModes action. When in Track mode, there's no change. When cycled to Folder mode, only Reaper's Folder tracks become visible, and you can press the Select [or any user-defined] button to drill down into the folder. After drilling down, the parent folder track is the first track on the left, and child tracks are on the right. There's an identical implementation for VCA leaders and followers.
-
-So just a refresher, the new zones get activated via the CycleTrackVCAFolderModes action, which you'd want in your buttons.zon
-```
-Zone "Buttons"
-    nameValue    CycleTrackVCAFolderModes
-ZoneEnd
-```
+There is a new implementation and set of corresponding zones (see the X-Touch folder in the CSI Support Files for examples), of Folder and VCA modes. Track is your basic Track.zon, there's no change there. When you use a GoFolder action to activate Folder mode, only Reaper's Folder tracks become visible, and you can press the Select [or any user-defined] button to drill down into the folder. After drilling down, the parent folder track is the first track on the left, and child tracks are on the right. There's an identical implementation for VCA leaders and followers via the GoVCA navigation action.
 
 The new actions for these modes are:
 ```
+    GoTrack
+    GoVCA
+    GoFolder
     TrackVCALeaderDisplay
     TrackFolderParentDisplay
     TrackToggleVCASpill
@@ -209,6 +213,9 @@ Zone "VCA"
 
 ZoneEnd
 ```
+
+## AnyPress Widget Now Available for OSC Surfaces
+[[AnyPress|Message-Generators#anypress] is now available to be used in .ost files for OSC surfaces such as the Behringer X32.
 
 # August 31, 2022
 
