@@ -2,11 +2,11 @@
 This is what is currently floating around in the CSI Exp builds as of September 5th, 2022. 
 
 ## Two-Way Encoder Behavior for Reaper Actions
-Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). You have to use very specific bracketed text after the reaper action as shown below.
+Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). We do this via the Decrease and Increase modifiers. Note: these modifiers only work with Encoders. 
 
 ```
-    Jogwheel      Reaper 41326 [ -2.0>1.0 ] // decrement (CCW)
-    Jogwheel      Reaper 41325 [  0.0>2.0 ] // increment (CW)
+    Decrease+Jogwheel      Reaper 41326
+    Increase+Jogwheel      Reaper 41325
 ```
 
 ## EZFXZones: New FX Zone Syntax Option
