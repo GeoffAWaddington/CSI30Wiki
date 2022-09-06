@@ -128,7 +128,7 @@ FXParamsBank
 FXWidgetModes
 ```
 
-## New Implementation for Track, Folder, VCA Modes (CycleTrackVCAFolderModes) With New Actions
+## New Implementation for Track, Folder, VCA Modes With New Actions
 There is a new implementation and set of corresponding zones (see the X-Touch folder in the CSI Support Files for examples), of Folder and VCA modes. Track is your basic Track.zon, there's no change there. When you use a GoFolder action to activate Folder mode, only Reaper's Folder tracks become visible, and you can press the Select [or any user-defined] button to drill down into the folder. After drilling down, the parent folder track is the first track on the left, and child tracks are on the right. There's an identical implementation for VCA leaders and followers via the GoVCA navigation action.
 
 The new actions for these modes are:
