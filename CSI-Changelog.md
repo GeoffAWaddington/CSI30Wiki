@@ -5,8 +5,10 @@ This is what is currently floating around in the CSI Exp builds as of September 
 Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). We do this via the Decrease and Increase modifiers. Note: these modifiers only work with Encoders. 
 
 ```
+Zone "Buttons"
     Decrease+Jogwheel      Reaper 41326
     Increase+Jogwheel      Reaper 41325
+ZoneEnd
 ```
 
 The following native CSI actions support this same syntax:
@@ -24,8 +26,10 @@ TrackFXMenuBank
 
 Example:
 ```
+Zone "Buttons"
     Decrease+Jogwheel      TrackBank -1
     Increase+Jogwheel      TrackBank  1
+ZoneEnd
 ```
 
 ## EZFXZones: New FX Zone Syntax Option
