@@ -2,7 +2,7 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 
 
 * [[Press|Message-Generators#press]] - a simple generator that sends a single MIDI message on press, and optionally sends another message when released. Often, but not limited to, a button.
-* [[AnyPress|Message-Generators#anypress]] - a variation of Press needed for some devices.
+* [[AnyPress|Message-Generators#anypress]] - a variation of Press needed for some devices. 
 * [[Fader7Bit|Message-Generators#fader7bit]] - sends a MIDI message in a range specifying the current absolute value of the control. Used for faders and knobs with defined start and points.
 * [[Fader14Bit|Message-Generators#fader14bit]] - like Fader7Bit, but has a larger (or more fine grained) set of values.
 * [[Control|Message-Generators#control]] - used for OSC controls
@@ -69,10 +69,16 @@ WidgetEnd
 
 # AnyPress
 AnyPress is Message Generator for use with surfaces whose buttons alternate between a press message (7f) on press, and on second press, a release message (00). Use AnyPress widgets for these types of surfaces. 
-
 ```` 
-Widget BankLeft
-	AnyPress 90 2e 7f
+Widget Solo1
+    AnyPress   90 2e 7f
+WidgetEnd
+```
+
+This can also be used for OSC devices that may require an AnyPress widget (this was added to support the Behringer X32). 
+```
+Widget Solo1
+    AnyPress  /solosw/01
 WidgetEnd
 ````
 
