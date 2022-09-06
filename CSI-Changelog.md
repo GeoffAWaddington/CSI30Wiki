@@ -26,7 +26,7 @@ ZoneEnd
 ```
 **Note:** using the legacy FX.zon syntax, this simple mapping would've required something like 40 lines of code. The new EZFXZone syntax accomplishes all the same functionality in only 5 lines! If you wanted, you could stop right there; that could be an entire fx.zon!
 
-Now, if we want to add a modifier, we add the next block of text shown below. Very similar layout, except there is one more row, with the addition of the **FXWidgetModifiers Shift** line. This says, show FXParam 5, "DC Bal", on Shift+Rotary1 and the corresponding Shift-Displays. Then you see a series of -1 entries in the FXParams row and double quotes in the corresponding FXParamNames rows. This tells CSI, "No Action here and clear out the displays".
+Now, if we want to add a modifier, we add the next block of text shown below. Very similar layout, except there is one more row, with the addition of the **FXWidgetModifiers Shift** line. This says, show FXParam 5, "DC Bal", on Shift+Rotary1 and the corresponding Shift-Displays. Also note that "DC Bal" is in quotes - these are only required because there is a space in what we want to appear on the display. Next, if you continue reading across, you see a series of -1 entries in the FXParams row and double quotes in the corresponding FXParamNames rows. This tells CSI, "No Action here and clear out the displays".
 ```
 Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParams                 9      1     2      3     6    7      0     8
