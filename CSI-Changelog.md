@@ -214,6 +214,12 @@ Zone "VCA"
 ZoneEnd
 ```
 
+## Hex Color Support
+CSI has been expanded to support Hex colors on actions. One can currently use RGB (legacy) or Hex (do not mix and match). For instance, if you wanted a particular button on your OSC surface to change colors based on whether or not the new VCA zone was active, you could do that as shown below.
+```
+     ButtonM31     GoVCA      { #6437017f #FA95017f }
+```
+
 ## AnyPress Widget Now Available for OSC Surfaces
 [[AnyPress|Message-Generators#anypress] is now available to be used in .ost files for OSC surfaces such as the Behringer X32.
 
