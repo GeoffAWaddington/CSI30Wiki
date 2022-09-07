@@ -75,7 +75,7 @@ Widget Solo1
 WidgetEnd
 ```
 
-This can also be used for OSC devices that may require an AnyPress widget (this was added to support the Behringer X32). 
+This can also be used for OSC devices that may require an AnyPress widget (this was added to support the Behringer X32/Midas Series). 
 ```
 Widget Solo1
     AnyPress  /solosw/01
