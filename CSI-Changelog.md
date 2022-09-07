@@ -247,7 +247,7 @@ CSI has been expanded to support Hex colors on actions. One can currently use RG
 ```
 
 ## AnyPress Widget Now Available for OSC Surfaces
-The [[AnyPress|Message-Generators#anypress] Message Generator is now available to be used in .ost files for OSC surfaces such as the Behringer X32/Midas series.
+The [[AnyPress|Message-Generators#anypress]] Message Generator is now available to be used in .ost files for OSC surfaces such as the Behringer X32/Midas series.
 
 # August 31, 2022
 
