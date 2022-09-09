@@ -32,7 +32,7 @@ The first time you install CSI, you will need to additionally add a CSI folder t
 Now that you have successfully installed CSI and the Support Files, the next step is to setup your devices for the first time.
 
 1. In Reaper, go to Options>Preferences (or just Ctrl+P) (a new window will appear).
-2. Go to **Preferences>Audio>MIDI Devices** and make sure any MIDI-based control surfaces you plan on using in CSI show their "Mode" as "disabled" in both the Inputs and Outputs section. CSI needs access to these MIDI ports to function properly. Stay on the Preferences screen. **This is probably the #1 cause of CSI first-time setup errors.**
+2. Go to **Preferences>Audio>MIDI Devices** and make sure any MIDI-based control surfaces you plan on using in CSI show their "Mode" as "disabled" in both the Inputs and Outputs section. CSI needs access to these MIDI ports to function properly. Stay on the Preferences screen. **Skipping this step is probably the #1 cause of CSI first-time setup errors.**
 3. Next, go to **Preferences>Control/OSC/web**. **Note:** while on this screen, it is recommended to uncheck the box next to "Close control surface devices when stopped and not active application" as this will disconnect CSI when Reaper is not the focused application (unless that's what you want).
 4. Now, while still on the Control/OSC/Web preferences window, click on "Add" (a new window will open).
 5. Click on the empty dropdown beside "control surface mode" and select "Control Surface Integrator" - this will now show the settings for CSI. **Note:** you should never have more than one instance of CSI configured simultaneously.
