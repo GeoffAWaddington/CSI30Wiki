@@ -2,7 +2,7 @@
 This is what is currently floating around in the CSI Exp builds as of September 5th, 2022. 
 
 ## Two-Way Encoder Behavior (Requires Updates to Your JogWheel in the .mst File)
-Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). We do this via the Decrease and Increase modifiers. Note: these modifiers only work with Encoders. 
+Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). We do this via the Decrease and Increase modifiers. Note: these modifiers only work with Encoders. The examples below all show the JogWheel but this functionality will work with any encoder.
 
 ```
 Zone "Zoom"
@@ -11,7 +11,7 @@ Zone "Zoom"
 ZoneEnd
 ```
 
-**Note:** for this to work on your JogWheel, you will need to update your .mst file. If you're coming from a prior version of CSI, you probably have two or more separate Jogwheel widgets, and those widgets probably are defined using Press instead of Encoder. So replace your JogWheel widgets to look like this (assuming MCU-style surface):
+**Important Note:** for this to work on your JogWheel, you will need to update your .mst file. If you're coming from a prior version of CSI, you probably have two or more separate Jogwheel widgets, and those widgets probably are defined using Press instead of Encoder. So replace your JogWheel widgets to look like this (assuming MCU-style surface):
 ```
 Widget JogWheel 
 	Encoder b0 3c 7f
