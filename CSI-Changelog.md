@@ -6,8 +6,8 @@ Now you can assign two different Reaper actions to a single encoder based on whi
 
 ```
 Zone "Zoom"
-    Decrease+Jogwheel      Reaper 41326   // Decrease track height
-    Increase+Jogwheel      Reaper 41325   // Increase track height
+    Decrease+JogWheel      Reaper 41326   // Decrease track height
+    Increase+JogWheel      Reaper 41325   // Increase track height
 ZoneEnd
 ```
 
