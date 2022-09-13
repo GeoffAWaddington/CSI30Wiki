@@ -1,7 +1,7 @@
 # September 6, 2022 - EXP Builds
 This is what is currently floating around in the CSI Exp builds as of September 5th, 2022. 
 
-## Two-Way Encoder Behavior
+## Two-Way Encoder Behavior (Requires Updates to Your JogWheel in the .mst File)
 Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). We do this via the Decrease and Increase modifiers. Note: these modifiers only work with Encoders. 
 
 ```
@@ -9,6 +9,13 @@ Zone "Zoom"
     Decrease+JogWheel      Reaper 41326   // Decrease track height
     Increase+JogWheel      Reaper 41325   // Increase track height
 ZoneEnd
+```
+
+**Note:** for this to work your JogWheel encoder should look like this in the .mst file. If you're coming from a prior version of CSI, that will need updating.
+```
+Widget JogWheel 
+	Encoder b0 3c 7f
+WidgetEnd
 ```
 
 The following native CSI actions support this same syntax:
@@ -27,8 +34,8 @@ TrackFXMenuBank
 Example:
 ```
 Zone "Buttons"
-    Decrease+Jogwheel      TrackBank -1
-    Increase+Jogwheel      TrackBank  1
+    Decrease+JogWheel      TrackBank -1
+    Increase+JogWheel      TrackBank  1
 ZoneEnd
 ```
 
