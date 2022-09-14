@@ -87,7 +87,7 @@ Zone "Zoom"
 ZoneEnd
 ```
 
-**Important Note:** for this to work on your JogWheel, you will need to update your .mst file. If you're coming from a prior version of CSI, you probably have two or more separate Jogwheel widgets, and those widgets probably are defined using Press instead of Encoder. So replace your JogWheel widgets to look like this (assuming MCU-style surface):
+**Important Note:** for this to work on your JogWheel, you will need to update your .mst file. If you're coming from a prior version of CSI, you probably have two or more separate JogWheel widgets, and those widgets probably are defined using Press instead of Encoder. So replace your JogWheel widgets to look like this (assuming MCU-style surface):
 ```
 Widget JogWheel 
 	Encoder b0 3c 7f
