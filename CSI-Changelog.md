@@ -34,7 +34,7 @@ ZoneEnd
 ```
 
 ## New Action: ClearAllModifiers
-This action was designed to allow a way to easily clear all CSI global modifiers (e.g. Shift, Alt, Option, Control) with a single button press or automatically based on a certain trigger using [[Virtual Widgets]]. For example, a user may want to clear all modifiers whenever the Home.zon is activated:
+This action was designed to allow a way to easily clear all CSI global modifiers (e.g. Shift, Alt, Option, Control) with a single button press or automatically based on a certain trigger using [[Virtual Widgets]]. For example, a user may want to clear all modifiers whenever the Home Zone is activated:
 ```
 Zone "Home"
     OnZoneActivation     ClearAllModifiers
