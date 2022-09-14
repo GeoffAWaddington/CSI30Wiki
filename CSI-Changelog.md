@@ -1,5 +1,81 @@
-# September 6, 2022 - EXP Builds
+# September 13, 2022 - EXP Builds
 This is what is currently floating around in the CSI Exp builds as of September 5th, 2022. 
+
+## New Modifiers: Marker, Nudge, Scrub, and Zoom
+CSI has added new modifiers designed to allow for expanded functionality with MCU-style surfaces. For instance, in the below example, Marker, Nudge and Zoom modifiers are being used with the arrow buttons to expand how they function in a logical way, without the need for separate sub-zones for these tasks. If you prefer to use SubZones in lieu of these modifiers, you can still continue to.
+
+```
+Zone "Buttons"
+    
+    Marker                      Marker
+    Nudge                       Nudge
+    Zoom                        Zoom
+    
+    Up                          Reaper _XENAKIOS_TVPAGEUP              // Xenakios/SWS: Scroll track view up (page)
+    Down                        Reaper _XENAKIOS_TVPAGEDOWN            // Xenakios-SWS: Scroll track view down 
+    Left                        Reaper _SWS_SCROLL_L10                 // SWS: Scroll left 10%
+    Right                       Reaper _SWS_SCROLL_R10                 // SWS: Scroll right 10%                                                                 
+    
+    Zoom+Up                     Reaper 40111                           // Zoom in vertical                                            
+    Zoom+Down                   Reaper 40112                           // Zoom out vertical                                                       
+    Zoom+Right                  Reaper 1012                            // Zoom in horizontal                                      
+    Zoom+Left                   Reaper 1011                            // Zoom out horizontal                                     
+
+    Marker+Up                   Reaper 40613                           // Delete marker near cursor                         
+    Marker+Down                 Reaper 40157                           // Insert marker at current or edit position                           
+    Marker+Right                Reaper 40173                           // Go to next marker or project end                           
+    Marker+Left                 Reaper 40172                           // Go to previous marker or project start
+
+    Nudge+Up                    Reaper 41925                           // Item: Nudge items volume +1dB
+    Nudge+Down                  Reaper 41924                           // Item: Nudge items volume -1dB
+    Nudge+Left                  Reaper 41279                           // Item edit: Nudge left by saved nudge dialog settings 1
+    Nudge+Right                 Reaper 41275                           // Item edit: Nudge right by saved nudge dialog settings 1
+ZoneEnd                                                               
+```
+
+## New Action: ClearAllModifiers
+This action was designed to allow a way to easily clear all CSI global modifiers (e.g. Shift, Alt, Option, Control) with a single button press or automatically based on a certain trigger using [[Virtual Widgets]]. For example, a user may want to clear all modifiers whenever the Home.zon is activated:
+```
+Zone "Home"
+    OnZoneActivation     ClearAllModifiers
+     IncludedZones
+          "Buttons"
+          "SelectedTrack"
+          "MasterTrack"
+     IncludedZonesEnd
+     AssociatedZones
+          "SelectedTrackSend"
+          "SelectedTrackReceive"   
+     AssociatedZonesEnd
+ZoneEnd
+Zone
+```
+
+## New Action: GlobalModeDisplay and Global Modifier
+GlobalModeDisplay will display the current mode a surface is set to (Track, VCA, Folder) and is designed for MCU-style surfaces. In the example below we see the GlobalModeDisplay on the MCU AssignmentDisplay widget, and we also see how the new Global modifier can be used to load the "Track" variants of the various zone types.
+```
+Zone "Buttons"
+    SubZones
+        "Zoom"
+    SubZonesEnd
+    
+//  Encoder Assign Buttons
+
+    Track                       GoHome
+    Pan                         GoVCA
+    EQ                          GoFolder
+    Send                        GoSelectedTrackSend
+    Global+Send                 GoTrackSend
+    Plugin                      GoSelectedTrackFXMenu
+    Global+Plugin               GoTrackFXMenu
+    Instrument                  GoSelectedTrackReceive
+    Global+Instrument           GoTrackReceive
+
+    nameValue                   Global
+    AssignmentDisplay           GlobalModeDisplay 
+```
+
+# September 12, 2022
 
 ## Two-Way Encoder Behavior (Requires Updates to Your JogWheel in the .mst File)
 Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). We do this via the Decrease and Increase modifiers. Note: these modifiers only work with Encoders. The examples below all show the JogWheel but this functionality will work with any encoder.
