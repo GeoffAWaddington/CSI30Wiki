@@ -33,24 +33,6 @@ Zone "Buttons"
 ZoneEnd                                                               
 ```
 
-## New Action: ClearAllModifiers
-This action was designed to allow a way to easily clear all CSI global modifiers (e.g. Shift, Alt, Option, Control) with a single button press or automatically based on a certain trigger using [[Virtual Widgets]]. For example, a user may want to clear all modifiers whenever the Home Zone is activated:
-```
-Zone "Home"
-    OnZoneActivation     ClearAllModifiers
-     IncludedZones
-          "Buttons"
-          "SelectedTrack"
-          "MasterTrack"
-     IncludedZonesEnd
-     AssociatedZones
-          "SelectedTrackSend"
-          "SelectedTrackReceive"   
-     AssociatedZonesEnd
-ZoneEnd
-Zone
-```
-
 ## New GlobalModeDisplay Action and Global Modifier
 GlobalModeDisplay will display the current mode a surface is set to (Track, VCA, Folder) and is designed for MCU-style surfaces. In the example below we see the GlobalModeDisplay on the MCU AssignmentDisplay widget, and we also see how the new Global modifier can be used to load the "Track" variants of the various zone types.
 ```
@@ -73,6 +55,24 @@ Zone "Buttons"
 
     nameValue                   Global
     AssignmentDisplay           GlobalModeDisplay 
+```
+
+## New Action: ClearAllModifiers
+This action was designed to allow a way to easily clear all CSI global modifiers (e.g. Shift, Alt, Option, Control) with a single button press or automatically based on a certain trigger using [[Virtual Widgets]]. For example, a user may want to clear all modifiers whenever the Home Zone is activated:
+```
+Zone "Home"
+    OnZoneActivation     ClearAllModifiers
+     IncludedZones
+          "Buttons"
+          "SelectedTrack"
+          "MasterTrack"
+     IncludedZonesEnd
+     AssociatedZones
+          "SelectedTrackSend"
+          "SelectedTrackReceive"   
+     AssociatedZonesEnd
+ZoneEnd
+Zone
 ```
 
 # September 12, 2022
