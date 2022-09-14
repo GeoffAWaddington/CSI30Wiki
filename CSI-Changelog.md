@@ -2,7 +2,7 @@
 This is what is currently floating around in the CSI Exp builds as of September 13th, 2022. 
 
 ## New Modifiers: Marker, Nudge, Scrub, and Zoom
-CSI has added new modifiers designed to allow for expanded functionality with MCU-style surfaces. For instance, in the below example, Marker, Nudge and Zoom modifiers are being used with the arrow buttons to expand how they function in a logical way, without the need for separate sub-zones for these tasks. If you prefer to use SubZones in lieu of these modifiers, you can still continue to.
+CSI has added new modifiers designed to allow for expanded functionality with MCU-style surfaces. For instance, in the below example, Marker, Nudge and Zoom modifiers are being used with the arrow buttons to expand how they function in a logical way, without the need for separate sub-zones for these tasks. If you prefer to use SubZones in lieu of these modifiers, you may still continue to do so - the new modifiers are entirely optional. The new modifiers are also not limited to the arrow keys and could of course be used elsewhere.
 
 ```
 Zone "Buttons"
