@@ -2,7 +2,9 @@
 This is what is currently floating around in the CSI Exp builds as of September 13th, 2022. 
 
 ## New Modifiers: Marker, Nudge, Scrub, and Zoom
-CSI has added new modifiers designed to allow for expanded functionality with MCU-style surfaces. For instance, in the below example, Marker, Nudge and Zoom modifiers are being used with the arrow buttons to expand how they function in a logical way, without the need for separate sub-zones for these tasks. If you prefer to use SubZones in lieu of these modifiers, you may still continue to do so - the new modifiers are entirely optional. The new modifiers are also not limited to the arrow keys and could of course be used elsewhere.
+CSI has added new "radio-button style" modifiers designed to allow for expanded functionality with MCU-style surfaces. By radio-button style, that means you cannot combine these modifiers like you can Global Modifiers (e.g. you can't combine Zoom+Scrub, but you can combine Zoom+Shift). 
+
+In the below example, Marker, Nudge and Zoom modifiers are being used with the arrow buttons to expand how they function in a logical way, without the need for separate sub-zones for these tasks. If you prefer to use SubZones in lieu of these modifiers, you may still continue to do so - the new modifiers are entirely optional. The new modifiers are also not limited to the arrow keys and could of course be used elsewhere.
 
 ```
 Zone "Buttons"
@@ -50,7 +52,7 @@ Zone "Buttons"
     Instrument                  GoSelectedTrackReceive
     Global+Instrument           GoTrackReceive
 
-    nameValue                   Global
+    GlobalView                  Global
     AssignmentDisplay           GlobalModeDisplay 
 ```
 
