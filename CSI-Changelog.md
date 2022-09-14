@@ -37,10 +37,7 @@ ZoneEnd
 GlobalModeDisplay will display the current mode a surface is set to (Track, VCA, Folder) and is designed for MCU-style surfaces. In the example below we see the GlobalModeDisplay on the MCU AssignmentDisplay widget, and we also see how the new Global modifier can be used to load the "Track" variants of the various zone types.
 ```
 Zone "Buttons"
-    SubZones
-        "Zoom"
-    SubZonesEnd
-    
+
 //  Encoder Assign Buttons
 
     Track                       GoHome
