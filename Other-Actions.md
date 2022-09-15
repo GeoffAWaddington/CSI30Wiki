@@ -155,6 +155,24 @@ Zone "Track"
 ZoneEnd
 ```
 This functionality can also be used in FX.zon's to group like-parameters (example: you can flip between the Frequency and Q control on an EQ plugin).
+```
+Zone "VST: ReaEQ (Cockos)" "ReaEQ"
+
+DisplayUpper1   		FXParamNameDisplay 0 "Frq_1"
+DisplayLower1   		FXParamValueDisplay 0
+Toggle+DisplayUpper1   	        FXParamNameDisplay 2 "Q_1"
+Toggle+DisplayLower1   	        FXParamValueDisplay 2
+Rotary1         		FXParam 0	[ (0.0003,0.0006,0.001,0.002,0.003,0.008,0.04) ]
+Toggle+Rotary1         	        FXParam 2
+RotaryPush1     		ToggleChannel
+Record1         		NoAction
+Solo1           		NoAction
+Mute1           		FXParam 13 [ 0.0 1.0 ]
+Select1         		NoAction
+Fader1          		NoAction
+....
+ZoneEnd
+```
 
 ## WidgetMode, SetWidgetMode
 See [[WidgetMode]] for more details on this unique set of actions.
