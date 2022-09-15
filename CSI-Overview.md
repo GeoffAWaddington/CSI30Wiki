@@ -6,9 +6,12 @@ Note: CSI requires access to the MIDI Devices and needs them disabled in Reaper'
 
 * Works with any MIDI, MCU or OSC device
 * Allows multiple surfaces to work as an integrated system
-* Support files include starting points for many common surfaces
-* Highly customizable (text based surface files have a relatively small learning curve)
-* Mac and PC support
+* Control Reaper and plugins
+* Support files include starting points for many common surfaces and example FX mappings
+* Highly customizable (text-based surface files have a relatively small learning curve)
+* Includes color support on X-Touch, FaderPort8/16, MIDI Fighter Twister, and OSC surfaces
+* Can create custom encoder response curves
+* Mac and PC support (no Linux)
 * Open-source project (contributions accepted)
 
 ## High-level Concepts
