@@ -2,6 +2,15 @@ The Control Surface Integrator (CSI) is a Reaper plugin that aims to let you int
 
 Note: CSI requires access to the MIDI Devices and needs them disabled in Reaper's Preferences>Audio>MIDI Devices. For this reason, CSI may not be ideal for use with MIDI Controller Keyboards that will require notes to be passed along to Reaper in addition to the control functions. However, users have successfully implemented work arounds by using BOME MIDI Translator to split out note versus control data and creating a virtual MIDI port for use with CSI and the control data.
 
+## Benefits of CSI
+
+* Works with any MIDI, MCU or OSC device
+* Allows multiple surfaces to work as an integrated system
+* Support files include starting points for many common surfaces
+* Highly customizable (text based surface files have a relatively small learning curve)
+* Mac and PC support
+* Open-source project (contributions accepted)
+
 ## High-level Concepts
 
 ### Pages
@@ -11,7 +20,7 @@ Within CSI you can define one or more [[Pages|Pages]], with each Page containing
 Each Surface within your page is represented by 2 major pieces:
 
 * [[mst/ost file|Defining Control Surface Capabilities]]- the Surface Template file, which specifies the Surface's capabilities. ie. what elements it contains (eg. buttons, faders, encoders, lights, displays, etc), and what MIDI/OSC messages it sends and expects to receive.
-* [[Zone files|Defining Control Surface Behavior]] - Zone files can define a couple of different behaviours:
+* [[Zone files|Defining Control Surface Behavior]] - Zone files can define a couple of different behaviors:
   * [[Controlling Reaper|Zones]] - how the Surface elements defined in the mst/ost file are mapped to Actions
   * [[Controlling Plugins|FX-and-Instrument-Mapping]] - how the Surface elements defined in the mst/ost file will map to parameters in your VST plugins
 
