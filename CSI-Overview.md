@@ -20,11 +20,11 @@ Note: CSI requires access to the MIDI Devices and needs them disabled in Reaper'
 Within CSI you can define one or more [[Pages|Pages]], with each Page containing the configuration information for whatever Surfaces and Actions you want CSI to recognise. Only one Page can be active in Reaper at any time, but you can switch between [[Pages|Pages#paging-actions]] easily. So for example, you might have a Recording Page and a Mixing Page, with the physical elements on your Surfaces (eg. buttons, faders, etc) mapped to different actions in each. You can have surfaces included, left out, or even defined completely differently on each different Page.
 
 ### Surfaces
-Each Surface within your page is represented by 2 major pieces:
+Each Surface within your Page is represented by 2 major pieces:
 
 * The Surface Template file: [[mst/ost file|Defining Control Surface Capabilities]]
   * The MIDI Surface Template (.mst) and OSC Surface Template (.ost) files define the control surface capabilities
-  * Each control and display (a.k.a. [[Message Generators]]) on the surface is represented as a "Widget"
+  * Each control (a.k.a. [[Message Generators]]) and/or Display on the surface is represented as a "Widget"
   * Each Widget defines what messages CSI expects to receive from the surface and
   * [[Feedback Processors]] in the Widget tell CSI which messages to send to the surface
 * [[Zone files|Defining Control Surface Behavior]]
