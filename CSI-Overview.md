@@ -22,8 +22,13 @@ Within CSI you can define one or more [[Pages|Pages]], with each Page containing
 ### Surfaces
 Each Surface within your page is represented by 2 major pieces:
 
-* [[mst/ost file|Defining Control Surface Capabilities]]- the Surface Template file, which specifies the Surface's capabilities. ie. what elements it contains (eg. buttons, faders, encoders, lights, displays, etc), and what MIDI/OSC messages it sends and expects to receive.
-* [[Zone files|Defining Control Surface Behavior]] - Zone files can define a couple of different behaviors:
+* The Surface Template file: [[mst/ost file|Defining Control Surface Capabilities]]
+  * The MIDI Surface Template (.mst) and OSC Surface Template (.ost) files define the control surface capabilities
+  * Each control and display (a.k.a. [[Message Generators]]) on the surface is represented as a "Widget"
+  * Each Widget defines what messages CSI expects to receive from the surface and
+  * [[Feedback Processors]] in the Widget tell CSI which messages to send to the surface
+* [[Zone files|Defining Control Surface Behavior]]
+  * Dictate how the Control Surface is expected to map to Reaper elements and/or FX/Instrument plugins
   * [[Controlling Reaper|Zones]] - how the Surface elements defined in the mst/ost file are mapped to Actions
   * [[Controlling Plugins|FX-and-Instrument-Mapping]] - how the Surface elements defined in the mst/ost file will map to parameters in your VST plugins
 
