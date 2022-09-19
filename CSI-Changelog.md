@@ -1,6 +1,6 @@
 # September 19, 2022
 
-## MIDI Surface Template File Updates
+## MIDI Surface Template (.mst) File Updates
 Several changes in this build pertain to work happening around EZFXZones and helping build up to auto-mapping of FX. As a result, there are some changes that can be made to MIDI Surface Template (mst) files to streamline how encoders are used in EZFXZones, creating some default behaviors, and eventually help allow for auto-mapping FX. **Note:** these changes are optional and fully backwards compatible with prior .mst files so no changes are required.
 
 ### RotaryWidgetClass and JogWheelWidgetClass
