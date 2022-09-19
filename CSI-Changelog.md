@@ -24,7 +24,7 @@ WidgetEnd
 ### Defining "StepSize" for All Encoders in the RotaryWidgetClass
 Now that the RotaryWidgetClass and/or JogWheelWidgetClass is defined for our encdoers, we can set the encoder StepSize globally by adding this to the top of the .mst file. This represents how fine the resolution will be for each encoder "tick". A value of 0.001 will be very fine and move parameters one-tenth of one-percent, which is very fine. If you find that resolution a little too fine, resulting in slow encoders, you may have better luck with a value of 0.003 or some other higher value. It will really depend on your hardware surfaces and preferences.
 
-Here is an example from the X-Touch.mst showing both class types, and a StepSize of 0.003 for both.
+Here is an example from the X-Touch.mst showing both class types, each using a StepSize of 0.003.
 ```
 StepSize
     RotaryWidgetClass   0.003
@@ -32,7 +32,7 @@ StepSize
 StepSizeEnd
 ```
 
-The encoders on MIDI Fighter Twister are very sensitive, so I use a StepSize of 0.001 for that surface.
+The encoders on MIDI Fighter Twister are very sensitive, so I might use a StepSize of 0.001 for that surface.
 ```
 StepSize
     RotaryWidgetClass 0.001
