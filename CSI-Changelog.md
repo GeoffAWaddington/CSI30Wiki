@@ -50,7 +50,7 @@ AccelerationValues
     RotaryWidgetClass Val 0.001  0.002 0.003 0.004 0.005 0.006 0.0075 0.01  0.02  0.03  0.04
 AccelerationValuesEnd
 ```
-So in the past, my MFTEncoder widgets looked like this...
+So in the past, each of my MFTEncoder widgets looked like the this...
 ```
 Widget RotaryA1
 	MFTEncoder b0 00 7f [ < 3f 3e 3d 3c 3b 3a 39 38 36 33 2f > 41 42 43 44 45 46 47 48 4a 4d 51 ]
@@ -71,7 +71,7 @@ AccelerationValues
 AccelerationValuesEnd
 ```
 
-And the encoder widgets all look like this (Note: MFTEncoder has been replaced with the standard Encoder widget since all the instructions are now up top).
+And the encoder widgets look like this (Note: MFTEncoder has been replaced with the standard Encoder widget since all the instructions are now up top).
 ```
 Widget RotaryA1 RotaryWidgetClass
     Encoder b0 00 7f
