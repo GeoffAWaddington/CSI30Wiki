@@ -1,5 +1,215 @@
-# September 13, 2022 - EXP Builds
-This is what is currently floating around in the CSI Exp builds as of September 13th, 2022. 
+# September 19, 2022
+
+## MIDI Surface Template File Updates
+Several changes in this build pertain to work happening around EZFXZones and helping build up to auto-mapping of FX. As a result, there are some changes that can be made to MIDI Surface Template (mst) files to streamline how encoders are used in EZFXZones, creating some default behaviors, and eventually help allow for auto-mapping FX. **Note:** these changes are optional and fully backwards compatible with prior .mst files so no changes are required.
+
+### RotaryWidgetClass and JogWheelWidgetClass
+RotaryWidgetClass is designed to help streamline how encoders are defined in .mst files and tell CSI which widgets are encoders. There are multiple elements to how this is used in an .mst file. 
+
+First, by putting the word RotaryWidgetClass after the widget name in the .mst file, you are telling CSI, "this widget belongs in the rotary widget class" (as shown below). In a moment, we'll show you what that allows for.
+```
+Widget RotaryA1 RotaryWidgetClass
+    Encoder b0 00 7f
+    FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+The same can be done with your JogWheel using the new JogWheelWidgetClass.
+```
+Widget JogWheel JogWheelWidgetClass
+	Encoder b0 3c 7f
+WidgetEnd
+```
+
+### Defining "StepSize" for All Encoders in the RotaryWidgetClass
+Now that the RotaryWidgetClass is defined for our encdoers, we can set the encoder StepSize globally by adding this to the top of the .mst file. This represents how fine the resolution will be for each encoder "tick". A value of 0.001 will be very fine and move parameters one-tenth of one-percent, which is very fine. If you find that resolution a little too fine, resulting in slow encoders, you may have better luck with a value of 0.003. It will really depend on your hardware surfaces and preferences.
+```
+StepSize
+    RotaryWidgetClass 0.001
+StepSizeEnd
+```
+
+Or another example from the X-Touch.mst showing both classes:
+```
+StepSize
+    RotaryWidgetClass   0.003
+    JogWheelWidgetClass 0.003
+StepSizeEnd
+```
+
+### AccelerationValues
+Next, we can then remove the Encoder Acceleration step values from each individual widget and just create a global set of acceleration values at the top of the .mst file. The benefit of this approach is that rather than being required to define the Encoder Acceleration in each EZFXZone, CSI can now use a default for all encoders in the RotaryWidgetClass. 
+
+Here we are defining the Decrease values ("Dec") from slowest encoder turns to fastest, and the same for the Increase ("Inc") values. Below that, you will find one encoder acceleration value ("Val") for each encoder acceleration step. The actual values used will depend on what your encoder transmits. The values below are from a MIDI Fighter Twister and my own personal acceleration curve.
+```
+AccelerationValues
+    RotaryWidgetClass Dec 3f     3e    3d    3c    3b    3a    39     38    36    33    2f     
+    RotaryWidgetClass Inc 41     42    43    44    45    46    47     48    4a    4d    51
+    RotaryWidgetClass Val 0.001  0.002 0.003 0.004 0.005 0.006 0.0075 0.01  0.02  0.03  0.04
+AccelerationValuesEnd
+```
+So in the past, my MFTEncoder widgets looked like this...
+```
+Widget RotaryA1
+	MFTEncoder b0 00 7f [ < 3f 3e 3d 3c 3b 3a 39 38 36 33 2f > 41 42 43 44 45 46 47 48 4a 4d 51 ]
+	FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+Now we've got this text at the top of the .mst
+```
+StepSize
+    RotaryWidgetClass 0.001
+StepSizeEnd
+
+AccelerationValues
+    RotaryWidgetClass Dec 3f     3e    3d    3c    3b    3a    39     38    36    33    2f      
+    RotaryWidgetClass Inc 41     42    43    44    45    46    47     48    4a    4d    51
+    RotaryWidgetClass Val 0.001  0.002 0.003 0.004 0.005 0.006 0.0075 0.01  0.02  0.03  0.04
+AccelerationValuesEnd
+```
+
+And the encoder widgets all look like this (Note: MFTEncoder has been replaced with the standard Encoder widget since all the instructions are now up top).
+```
+Widget RotaryA1 RotaryWidgetClass
+    Encoder b0 00 7f
+    FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+Here is an example from the X-Touch.mst where the step size is 0.003 and the AccelerationValues line up with MCU-style devices.
+```
+StepSize
+    RotaryWidgetClass   0.003
+    JogWheelWidgetClass 0.003
+StepSizeEnd
+
+AccelerationValues
+    RotaryWidgetClass   Dec 41     42    43    44    45    46    47  
+    RotaryWidgetClass   Inc 01     02    03    04    05    06    07  
+    RotaryWidgetClass   Val 0.0006 0.001 0.002 0.003 0.008 0.04  0.08 
+
+    JogWheelWidgetClass Dec 41     42    43    44    45    46    47  
+    JogWheelWidgetClass Inc 01     02    03    04    05    06    07  
+    JogWheelWidgetClass Val 0.0006 0.001 0.002 0.003 0.008 0.04  0.08 
+AccelerationValuesEnd
+```
+
+### EWidget (or "Eligible Widgets")
+Another feature instituted now as part of the roadmap to auto-mapping FX is the addition of the "Ewidget" option in .mst files. This will eventually be used to tell CSI which widgets you'd like automatically included for automatic FX.zon mapping and which widgets you'd like excluded from that. Anything defined as an EWidget will be eligible for mapping. Here are some examples from an X-Touch.mst where we are using Displays, Rotarypush, Rotary, and Faders for FX mapping.
+
+```
+EWidget DisplayUpper1
+	FB_XTouchDisplayUpper 0
+EWidgetEnd
+```
+
+```
+EWidget Fader1
+	Fader14Bit e0 7f 7f
+	FB_Fader14Bit e0 7f 7f
+	Touch 90 68 7f 90 68 00
+EWidgetEnd
+```
+
+```
+EWidget RotaryPush1
+	Press 90 20 7f 90 20 00
+EWidgetEnd
+```
+
+```
+EWidget Rotary1 RotaryWidgetClass
+	Encoder b0 10 7f
+	FB_Encoder b0 10 7f
+EWidgetEnd
+```
+
+## ZoneStepSizes and .stp Files
+The CSI Support Files now include a "ZoneStepSizes" sub-folder within the Zones folder. These files will be used by CSI in EZFXZones to determine which FX Parameters are stepped, how many steps each parameter has, and what the exact step values are. Again, this is another feature meant to simplify EZFXZone creation.
+
+For now, just be aware that this exists. If you'd like to create some .stp files for your own use, you can add the below "AutoScan" line to your CSI.ini. Note: this is an experimental feature and works better on Mac right now. If you run into issues, I'd encourage you to turn the AutoScan off by commenting out that line.
+```
+Version 2.0
+
+AutoScan
+
+MidiSurface "XTouchOne" 7 9 
+MidiSurface "MFTwister" 6 8 
+OSCSurface "iPad Pro" 8003 9003 10.0.0.146
+OSCSurface "TouchOSCLocal" 8002 9002 10.0.0.100
+MidiSurface "CMC-QC" 23 24 
+
+Page "HomePage"
+"XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_FB" 
+"MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterMenu" 
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu" 
+"TouchOSCLocal" 8 0 "FXTwister.ost" "FXTwisterMenu" 
+"CMC-QC" 0 0 "Stienberg_CMC-QC-2.mst" "Steinberg_CMC-QC-2" 
+```
+
+## EZFXZone Changes
+If you've got Step Files for your FX, and made the changes outlined above, EZFXZones get much easier. The block of text at the bottom dictating the default acceleration and FX Step sizes are no longer required.
+
+Before...
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 1            2         3               7             4           6           9        8
+     FXParamNames             "Input Gain" Threshold "Time Constant" "Output Gain" "SC Filter" "DC Thresh" Headroom Mix
+     FXValueWidgets           RotaryA|
+     FXParamNameDisplays      DisplayUpperA|
+     FXParamValueDisplays     DisplayLowerA|
+
+     FXParams                 5     0       -1     -1     -1      -1     -1     12 
+     FXParamNames             Bal   Meter   ""     ""     ""      ""     ""     Wet
+     FXValueWidgets           RotaryB|
+     FXParamNameDisplays      DisplayUpperB|
+     FXParamValueDisplays     DisplayLowerB|
+
+     FXParams                 -1   -1   -1   -1   -1   -1   -1     -1
+     FXParamNames             ""   ""   ""   ""   ""   ""   ""     "" 
+     FXValueWidgets           RotaryPushA|
+     FXParamNameDisplays      DisplayRotaryPushA|
+
+     FXParams                 -1   -1   -1   -1   -1   -1   13     11
+     FXParamNames             ""   ""   ""   ""   ""   ""   Delta  Bypass
+     FXValueWidgets           RotaryPushB|
+     FXParamNameDisplays      DisplayRotaryPushB|
+
+     DefaultAcceleration      0.001 0.002 0.003 0.004 0.005 0.006 0.0075 0.01 0.02 0.035 0.04     
+     FXParamStepValues   0    0.0 0.50 1.0
+     FXParamStepValues   1    0.0 0.05 0.11 0.16 0.21 0.26 0.32 0.37 0.42 0.47 0.53 0.58 0.63 0.68 0.74 0.79 0.84 0.89 0.95 1.0
+     FXParamStepValues   3    0.0 0.20 0.40 0.60 0.80 1.0 
+     FXParamStepValues   9    0.0 0.17 0.33 0.50 0.67 0.83 1.0
+ZoneEnd
+```
+
+After...
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 1            2         3               7             4           6           9        8
+     FXParamNames             "Input Gain" Threshold "Time Constant" "Output Gain" "SC Filter" "DC Thresh" Headroom Mix
+     FXValueWidgets           RotaryA|
+     FXParamNameDisplays      DisplayUpperA|
+     FXParamValueDisplays     DisplayLowerA|
+
+     FXParams                 5     0       -1     -1     -1      -1     -1     12 
+     FXParamNames             Bal   Meter   ""     ""     ""      ""     ""     Wet
+     FXValueWidgets           RotaryB|
+     FXParamNameDisplays      DisplayUpperB|
+     FXParamValueDisplays     DisplayLowerB|
+
+     FXParams                 -1   -1   -1   -1   -1   -1   -1     -1
+     FXParamNames             ""   ""   ""   ""   ""   ""   ""     "" 
+     FXValueWidgets           RotaryPushA|
+     FXParamNameDisplays      DisplayRotaryPushA|
+
+     FXParams                 -1   -1   -1   -1   -1   -1   13     11
+     FXParamNames             ""   ""   ""   ""   ""   ""   Delta  Bypass
+     FXValueWidgets           RotaryPushB|
+     FXParamNameDisplays      DisplayRotaryPushB|
+ZoneEnd
+```
 
 ## New Modifiers: Marker, Nudge, Scrub, and Zoom
 CSI has added new "radio-button style" modifiers designed to allow for expanded functionality with MCU-style surfaces. By radio-button style, that means you cannot combine these modifiers like you can Global Modifiers (e.g. you can't combine Zoom+Scrub, but you can combine Zoom+Shift). 
