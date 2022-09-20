@@ -215,8 +215,9 @@ WidgetEnd
 ### Encoder7Bit
 Encoder7Bit exists because some encoders, like those in the X-Touch Compact and X-Touch Mini devices, can be configured as [absolute] rotary knobs that continue to send messages when turned beyond their maximum ranges. The encoders will continue to send 00 messages when at minimum and turned counter-clockwise, and 7f messages when at maximum and turned clockwise. In between, it sends standard absolute MIDI messages for the full 0-127 range. This effectively allows them to function as both traditional knobs and encoders. Use this widget type to enable that behavior.
 ```
-Widget Rotary1
-    Encoder7Bit ba 01 7f
+Widget RotaryA1
+	Encoder7Bit 	b0 0a 7f
+        FB_Encoder      b0 0a 7f
 WidgetEnd
 ```
 
