@@ -248,7 +248,9 @@ ZoneEnd
 ```
 
 ## New "GlobalModeDisplay" Action and "Global" Modifier
-GlobalModeDisplay will display the current mode a surface is set to (Track, VCA, Folder) and is designed for MCU-style surfaces. In the example below we see the GlobalModeDisplay on the MCU AssignmentDisplay widget, and we also see how the new Global modifier can be used to load the "Track" variants of the various zone types.
+GlobalModeDisplay will display the current state of the new Global modifier. When the modifier is off, it will show "SE" for "Selected Track" and when the modifier is enabled, it will show "GL" for "Global". It is designed with MCU-style surfaces in mind so that when you see the Plugin button lit, indicating you are in an FXMenu zone, the SE/GL text will let you know if you're using the SelectedTrack or Track (aka "Global") variant. 
+
+In the example below we see the GlobalModeDisplay on the MCU AssignmentDisplay widget, and we also see how the new Global modifier can be used to load the "Track/Global" variants of the various zone types.
 ```
 Zone "Buttons"
 
