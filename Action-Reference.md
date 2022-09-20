@@ -154,16 +154,17 @@
 * [[Toggle|Other Actions#togglechannel]]
 
 ## Reaper Actions
+If you want to trigger Reaper actions from CSI, use the syntax shown below:
 ```    
-Button1 Reaper "40454"    
-Button2 Reaper "_0e5b196e7f67994bab6de09c49f05926"    
-Button3 Reaper "_SWSTL_SHOWALL"    
+Button1 Reaper 40454 
+Button2 Reaper _0e5b196e7f67994bab6de09c49f05926    
+Button3 Reaper _SWSTL_SHOWALL    
 ```
-Invokes the Reaper Action (custom or built in) specified by the ID in the argument. The syntax is the word Reaper followed by the Command ID. How do you get the Command ID? Open the Reaper Action List, right-click on the action name, and select "Copy selected action command ID" which copies it to your clipboard. Paste the Command ID into the .zon file at the appropriate location. 
+Invokes the Reaper Action (custom or built in) specified by the Reaper Command ID in the argument. The syntax is the Widbet name, followed by the word Reaper, followed by the Command ID. How do you get the Command ID? Open the Reaper Action List, right-click on the action name, and select "Copy selected action command ID" which copies it to your clipboard. Paste the Command ID into the .zon file at the appropriate location. 
 
 As a best practice, you can label the command ID in your .zon using two forward slashes to leave trailing comments like this:
 ```    
-Button1 "_S&M_FXBYPLAST"     // Bypasses last touched FX on the selected track
+Button1 _S&M_FXBYPLAST     // Bypasses last touched FX on the selected track
 ```
 
 
