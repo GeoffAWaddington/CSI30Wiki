@@ -271,6 +271,22 @@ Zone "Buttons"
 ```
 Note: the new Global modifier is a "Global Modifier" like Shift, Control, and Alt, and not a "radio-button style" modifier like Marker and Zoom.
 
+Below, we also see the Global modifier being used on the automation buttons to indicate whether you're changing the SelectedTrack (SE) variant of those actions or the Global Automation Modes.
+```
+    Read                        TrackAutoMode 1
+    Write                       TrackAutoMode 3
+    Trim                        TrackAutoMode 0
+    Touch                       TrackAutoMode 2
+    Latch                       TrackAutoMode 4
+    Group                       TrackAutoMode 5
+    Global+Read                 GlobalAutoMode 1
+    Global+Write                GlobalAutoMode 3
+    Global+Trim                 GlobalAutoMode 0
+    Global+Touch                GlobalAutoMode 2
+    Global+Latch                GlobalAutoMode 4  
+    Global+Group                GlobalAutoMode 5   
+```
+
 ## New Action: ClearAllModifiers
 This action was designed to allow a way to easily clear all CSI global modifiers (e.g. Shift, Alt, Option, Control) with a single button press or automatically based on a certain trigger using [[Virtual Widgets]]. This action will not clear the Toggle modifier (or Touch - which makes sense if you're currently touching something). One example use-case for this new action: a user may want to clear all modifiers whenever the Home Zone is activated as shown below...
 ```
