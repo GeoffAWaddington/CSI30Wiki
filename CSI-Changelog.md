@@ -150,6 +150,11 @@ Page "HomePage"
 "CMC-QC" 0 0 "Stienberg_CMC-QC-2.mst" "Steinberg_CMC-QC-2" 
 ```
 
+When a .stp file exists for a plugin, things like the below example are no longer required in EZFXZones. CSI will already know the step values and will automatically create a curve for your surface to move through each step if that parameter is assigned to an encoder. 
+```
+     FXParamStepValues   1    0.0 0.05 0.11 0.16 0.21 0.26 0.32 0.37 0.42 0.47 0.53 0.58 0.63 0.68 0.74 0.79 0.84 0.89 0.95 1.0
+```
+
 ## EZFXZone Changes
 If you've got Step Files for your FX, and made the changes outlined above, EZFXZones get much easier. The block of text at the bottom dictating the default acceleration and FX Step sizes are no longer required.
 
