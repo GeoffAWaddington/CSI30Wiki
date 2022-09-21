@@ -1,7 +1,7 @@
 # September 21, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
 
-## Preliminary Support for the X32/M32/XAir Series of Behringer/MIDAS Consoles via OSC
+## Support for the X32/M32/XAir Series of Behringer/MIDAS Consoles via OSC
 Thanks to absolutely huge contributions from Reaper forum user jacksoonbrowne, the Behringer X32 is now supported in CSI via OSC. These devices have a very unique OSC implementation that required substantial code contributions.
 
 For these to work:
