@@ -1,3 +1,25 @@
+# September 21, 2022 Exp Builds
+This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
+
+## Support for the X32/M32/XAir Series of Behringer/MIDAS Consoles via OSC
+Thanks to absolutely huge contributions from Reaper forum user jacksoonbrowne, the Behringer X32 is now supported in CSI via OSC. These devices have a very unique OSC implementation that required substantial code contributions.
+
+For these to work:
+1. Add a new OSC device as per the Installation and Setup instructions.
+2. In the CSI Device setup, the "CSI sends to port" and "CSI recieves on port" must **both** be set to port 10023 for the X32/M32 or port 10024 for the XAir series.
+3. Surface names must contain either "X32" or "x32" somewhere in the .ost filename. 
+
+Examples:
+```
+X32Surface.ost
+SurfaceX32.ost
+Surface_x32Intance1.ost
+SurfaceX32Intance2.ost
+```
+
+## Fix for Reaper Tracks Not Scrolling Into View When Selected on Surface
+If the number of channels in Reaper was fewer than the number of tracks on your surface, selecting a track on the surface would not scroll that track into view in Reaper. This should fix that problem.
+
 # September 19, 2022
 
 ## MIDI Surface Template (.mst) File Updates
