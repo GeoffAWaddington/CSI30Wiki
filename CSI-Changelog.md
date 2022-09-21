@@ -1,4 +1,4 @@
-# September 21, 2022 Exp Builds
+# September 21, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
 
 ## Support for the X32/M32/XAir Series of Behringer/MIDAS Consoles via OSC
