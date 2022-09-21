@@ -11,11 +11,14 @@ For these to work:
 
 Examples:
 ```
+BehringerX32.ost
 X32Surface.ost
 SurfaceX32.ost
 Surface_x32Intance1.ost
 SurfaceX32Intance2.ost
 ```
+
+A set of files for the Behringer X32 will be added to the CSI Support Files.
 
 ## Fix for Reaper Tracks Not Scrolling Into View When Selected on Surface
 If the number of channels in Reaper was fewer than the number of tracks on your surface, selecting a track on the surface would not scroll that track into view in Reaper. This should fix that problem.
