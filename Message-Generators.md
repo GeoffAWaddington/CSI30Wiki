@@ -9,6 +9,7 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 * [[Encoders|Message-Generators#encoders]] - unlike the Faders, an Encoder sends a relative value (increase/decrease) 
 * [[MFTEncoder|Message-Generators#mftencoder]] - a special encoder only found on the MIDI Fighter Twister controller
 * [[Encoder7Bit|Message-Generators#encoder7bit]] - another special encoder for the X-Touch Compact and X-Touch Mini.
+* [[MotorizedFaderWithoutTouch|Message-Generators#motorizedfaderwithouttouch]] - added for the Behringer X32/xAir/MIDAS series consoles which have motirized faders with no touch sensitivity
 
 If you need to define a new .mst file, because one does not exist for your surface, the general idea here is to use the Reaper action **CSI Toggle Show Raw Input from Surfaces** to observe what values are sent when each control is manipulated. So for example, when I press one of the buttons on my controller, I see this:
 
@@ -222,6 +223,21 @@ WidgetEnd
 ```
 
 Thanks to [mschnell](https://forum.cockos.com/member.php?u=60721) for contributing a script that directly led to the development of this message generator.
+
+### MotorizedFaderWithoutTouch
+The MotorizedFaderWithoutTouch Message Generator was added to support surfaces like the X32, xAIR, MIDAS series consoles where the faders are motorized but lack touch sensitivity. Below is an example from the BehringerX32.ost file showing how these would be used (note: these are OSC surfaces, not MIDI):
+```
+Widget MasterFader	
+    MotorizedFaderWithoutTouch    /main/st/mix/fader
+    FB_Processor                  /main/st/mix/fader
+WidgetEnd
+
+
+Widget Fader1
+    MotorizedFaderWithoutTouch    /ch/01/mix/fader
+    FB_Processor                  /ch/01/mix/fader
+WidgetEnd
+```
 
 ## Encoder Customization
 
