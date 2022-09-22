@@ -52,9 +52,16 @@ FXParamValueDisplay
 
 FXParam is used to control the parameter and map it to a widget. FXParamNameDisplay can be used on a surface with displays to show the name of the parameter. Note: if the parameter name is too long, you may want to use FixedTextDisplay followed by an alias in quotes. You'll see that used throughout this example. FXParamValueDisplay shows the value of the parameter.
 
-## Creating FX and Instrument Zone Files
+# Creating FX and Instrument Zone Files - 2 Types
+There are now two options when it comes to FX Zones: 1) Classic FX Zones, and 2) EZ FX Zones. When mapping new FX, you have the option of using either type. CSI will be able to parse out which type is in use. You cannot however mix and match types in a single fx.zon. 
 
-### An Example FX.Zon
+**Classic FX Zones** follow a similar syntax to surface zone files in that there is one assignment per row following a "WidgetName, Action, Additional Instructions" type of syntax from left to right. They can be read from left to right, top down. The benefits of classic FX zones are that they are very flexible, and easy to read. Cons are that they can get very lengthy and have lots of duplicated instructions.
+
+**EZ FX Zones (aka EZFXZones)** are an alternative syntax for FX Zones that requires far fewer lines, saving a lot of the tedious repetition of the Classic FX Zone format. EZFXZones follow a spreadhseet-like format where you read both across and down. When combined with a properly setup .mst file, EZFXZones can utilize user-created defaults for encoder resolution (aka "step size") and encoder acceleration, rather than having to add each of these instructions on a per-row basis like in Classic FX Zones. EZFXZones are a first step in the roadmap to auto-mapping of fx in CSI. 
+
+## Classic FX Zones
+
+### An Example Classic FX Zone
 Let’s begin by reviewing a simple fx.zon file and breaking it down to its component parts, then working backwards as to how we got there. I’m using the UAD Teletronix LA-2A Silver plugin here, mapped to the widgets on a MCU/X-Touch Universal-style device. This example may look a little scary at first, but you'll see that it's actually pretty easy to understand when you break it down line by line.
 
 ```
@@ -248,5 +255,336 @@ RotaryA2      FXParam 38 "HF Lim Frequency"
 RotaryA3      FXParam 36 "HF Lim Range"
 RotaryA4      FXParam 41 "HF Lim Dry Amt"
 /
+ZoneEnd
+```
+
+## EZ FX Zones
+
+Diving right into a real-world example, the first and last lines of any fx.zon remain unchanged. After that, the first block of text starting with "FXParams" is saying FXParam 9, which, reading down, we are giving the alias "HeadRoom", gets assigned to Rotary1. You will see the FXParamName on DisplayUpper1, and you will see the FXParamValue on DisplayLower1. Reading across on line 2 again, FXParam 1, "Input", will get assigned to Rotary2 (we're reading down again), with the FXParamName name showing up on DisplayUpper2 and FXParamValueName on DisplayLower2. And on and on.
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 9      1     2      3     6    7      0     8
+     FXParamNames             HdRoom Input Thresh Ratio Knee Output Meter WetDry
+     FXValueWidgets           Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+ZoneEnd
+```
+**Note:** using the legacy FX.zon syntax, this simple mapping would've required something like 40 lines of code. The new EZFXZone syntax accomplishes all the same functionality in only 5 lines! If you wanted, you could stop right there; that could be an entire fx.zon!
+
+Now, if we want to add a modifier, we add the next block of text shown below. Very similar layout, except there is one more row, with the addition of the **FXWidgetModifiers Shift** line. This says, show FXParam 5, "DC Bal", on Shift+Rotary1 and the corresponding Shift-Displays. Also note that "DC Bal" is in quotes - these are only required because there is a space in what we want to appear on the display. Next, if you continue reading across, you see a series of -1 entries in the FXParams row and double quotes in the corresponding FXParamNames rows. This tells CSI, "No Action here and clear out the displays".
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 9      1     2      3     6    7      0     8
+     FXParamNames             HdRoom Input Thresh Ratio Knee Output Meter WetDry
+     FXValueWidgets           Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+
+     FXParams		      5	 -1 -1 -1 -1 -1 -1 4
+     FXParamNames	      "DC Bal" "" "" "" "" "" "" SidChn
+     FXValueWidgets  	      Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+     FXWidgetModifiers	      Shift
+ZoneEnd
+```
+
+Now, let's say I want RotaryPush8 to toggle the FX Bypass state, but it's the only toggle-style action I need and I don't necessarily need to see that on a display. You can simply add another block with that specific instruction on the one widget:
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 9      1     2      3     6    7      0     8
+     FXParamNames             HdRoom Input Thresh Ratio Knee Output Meter WetDry
+     FXValueWidgets           Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+
+     FXParams		      5	 -1 -1 -1 -1 -1 -1 4
+     FXParamNames	      "DC Bal" "" "" "" "" "" "" SidChn
+     FXValueWidgets  	      Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+     FXWidgetModifiers	      Shift
+
+     FXParams                 11
+     FXValueWidgets           RotaryPush8
+ZoneEnd
+```
+
+Now, how do we deal with stepped params, encoder acceleration, step sizes, colors, etc.? We simply add those to a new block of text at the bottom and define them on a per-parameter basis (except DefaultAcceleration, which is not at a per-parameter level). 
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 9      1     2      3     6    7      0     8
+     FXParamNames             HdRoom Input Thresh Ratio Knee Output Meter WetDry
+     FXValueWidgets           Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+
+     FXParams		      5	 -1 -1 -1 -1 -1 -1 4
+     FXParamNames	      "DC Bal" "" "" "" "" "" "" SidChn
+     FXValueWidgets  	      Rotary|
+     FXParamNameDisplays      DisplayUpper|
+     FXParamValueDisplays     DisplayLower|
+     FXWidgetModifiers	      Shift
+
+     FXParams                 11
+     FXValueWidgets           RotaryPush8
+
+     Left                     FXParamsBank -1
+     Right                    FXParamsBank 1
+
+     DefaultAcceleration      0.001 0.002 0.003 0.004 0.005 0.006 0.0075 0.01 0.02 0.035 0.05   
+     FXParamAcceleration 7    0.001 0.002 0.003 0.004 0.005 0.006 0.0075 0.01 0.02 0.025 0.03 
+     FXParamStepSize     0    0.5
+     FXParamStepValues   1    0.0 0.05 0.11 0.16 0.21 0.26 0.32 0.37 0.42 0.47 0.53 0.58 0.63 0.68 0.74 0.79 0.84 0.89 0.95 1.0
+     FXParamStepValues   3    0.0 0.20 0.40 0.60 0.80 1.0 
+     FXParamStepValues   9    0.0 0.17 0.33 0.50 0.67 0.83 1.0
+     FXParamTickCounts   3    3
+     FXWidgetModes       1    BoostCut
+     FXWidgetModes       7    BoostCut  
+     FXParamColors       11   #ff0000 #00ff007f
+ZoneEnd
+```
+So let's look at the new additions: what happens if you have more than 8 FXParams you want to assign to your 8-channel unit? You can continue adding additional FXParams in lines 2 and 3, then CSI will allow you to bank to the next FXParam via the **FXParamsBank** actions. Banking will also allow for mapping fx on 1-fader surfaces.
+
+**DefaultAcceleration** is optional but allows you to set a custom acceleration curve to all encoders (there are per-parameter curves as well). 
+
+The next set of actions are all on per-parameter basis. Notice how the syntax is the action type, the FXParam #, then the instructions with no need for brackets as used in traditional fx.zon files. So you can further still create parameter-level custom acceleration curves using the **FXParamAcceleration** action. **FXParamStepSize** is used to set the step size for an encoder tick on a FX Param. **FXParamStepValues** is used for stepped params. **FXParamTickCounts** sets the number of encoder ticks CSI must receive before advancing the FXParamValue. **FXWidgetModes** allow you to set display [[WidgetModes|WidgetMode]] on a per-parameter baseis. Lastly, **FXParamColors** can be used by supported surfaces to send RGBA colors (in hex format) to a supported widget. **Note:** CSI will be moving away from RGB to Hex everywhere.
+
+At the time of this writing, the following actions have been implemented
+```
+FXParams
+FXParamNames
+FXValueWidgets
+FXParamNameDisplays
+FXParamValueDisplays
+
+FXParamAcceleration
+FXParamRange
+FXParamStepSize
+FXParamStepValues
+FXParamTickCounts
+FXParamColors (now uses Hex colors)
+DefaultAcceleration
+```
+
+The following actions are coming soon.
+```
+FXParamsBank
+FXWidgetModes
+```
+
+### RotaryWidgetClass and JogWheelWidgetClass
+To facilitate better use of encoders in EZFXZones, a few .mst changes have been implemented. The first of those we will discuss is RotaryWidgetClass. RotaryWidgetClass is designed to help streamline how encoders are defined in .mst files and tell CSI which widgets are encoders. There are multiple elements to how this is used in an .mst file. 
+
+First, by putting the word RotaryWidgetClass after the widget name in the .mst file, you are telling CSI, "this widget belongs in the rotary widget class" (as shown below). In a moment, we'll show you what that allows for.
+```
+Widget RotaryA1 RotaryWidgetClass
+    Encoder b0 00 7f
+    FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+The same can be done with your JogWheel using the new JogWheelWidgetClass.
+```
+Widget JogWheel JogWheelWidgetClass
+	Encoder b0 3c 7f
+WidgetEnd
+```
+
+### Defining "StepSize" for All Encoders in the RotaryWidgetClass
+Now that the RotaryWidgetClass and/or JogWheelWidgetClass is defined for our encdoers, we can set the encoder StepSize globally by adding this to the top of the .mst file. This represents how fine the resolution will be for each encoder "tick". A value of 0.001 will be very fine and move parameters one-tenth of one-percent, which is very fine. If you find that resolution a little too fine, resulting in slow encoders, you may have better luck with a value of 0.003 or some other higher value. It will really depend on your hardware surfaces and preferences.
+
+Here is an example from the X-Touch.mst showing both class types, each using a StepSize of 0.003.
+```
+StepSize
+    RotaryWidgetClass   0.003
+    JogWheelWidgetClass 0.003
+StepSizeEnd
+```
+
+The encoders on MIDI Fighter Twister are very sensitive, so I might use a StepSize of 0.001 for that surface.
+```
+StepSize
+    RotaryWidgetClass 0.001
+StepSizeEnd
+```
+
+### AccelerationValues
+Next, we can then remove the Encoder Acceleration step values from each individual widget and just create a global set of acceleration values at the top of the .mst file. The benefit of this approach is that rather than being required to define the Encoder Acceleration in each EZFXZone, CSI can now use a default for all encoders in the RotaryWidgetClass. 
+
+Here we are defining the Decrease values ("Dec") from slowest encoder turns to fastest, and the same for the Increase ("Inc") values. Below that, you will find one encoder acceleration value ("Val") for each encoder acceleration step. The actual values used will depend on what your encoder transmits. The values below are from a MIDI Fighter Twister and my own personal acceleration curve.
+```
+AccelerationValues
+    RotaryWidgetClass Dec 3f     3e    3d    3c    3b    3a    39     38    36    33    2f     
+    RotaryWidgetClass Inc 41     42    43    44    45    46    47     48    4a    4d    51
+    RotaryWidgetClass Val 0.001  0.002 0.003 0.004 0.005 0.006 0.0075 0.01  0.02  0.03  0.04
+AccelerationValuesEnd
+```
+So in the past, each of my MFTEncoder widgets looked like the this...
+```
+Widget RotaryA1
+	MFTEncoder b0 00 7f [ < 3f 3e 3d 3c 3b 3a 39 38 36 33 2f > 41 42 43 44 45 46 47 48 4a 4d 51 ]
+	FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+Now we've got this text at the top of the .mst
+```
+StepSize
+    RotaryWidgetClass 0.001
+StepSizeEnd
+
+AccelerationValues
+    RotaryWidgetClass Dec 3f     3e    3d    3c    3b    3a    39     38    36    33    2f      
+    RotaryWidgetClass Inc 41     42    43    44    45    46    47     48    4a    4d    51
+    RotaryWidgetClass Val 0.001  0.002 0.003 0.004 0.005 0.006 0.0075 0.01  0.02  0.03  0.04
+AccelerationValuesEnd
+```
+
+And the encoder widgets look like this (Note: MFTEncoder has been replaced with the standard Encoder widget since all the instructions are now up top).
+```
+Widget RotaryA1 RotaryWidgetClass
+    Encoder b0 00 7f
+    FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+Here is an example from the X-Touch.mst where the step size is 0.003 and the AccelerationValues line up with MCU-style devices.
+```
+StepSize
+    RotaryWidgetClass   0.003
+    JogWheelWidgetClass 0.003
+StepSizeEnd
+
+AccelerationValues
+    RotaryWidgetClass   Dec 41     42    43    44    45    46    47  
+    RotaryWidgetClass   Inc 01     02    03    04    05    06    07  
+    RotaryWidgetClass   Val 0.0006 0.001 0.002 0.003 0.008 0.04  0.08 
+
+    JogWheelWidgetClass Dec 41     42    43    44    45    46    47  
+    JogWheelWidgetClass Inc 01     02    03    04    05    06    07  
+    JogWheelWidgetClass Val 0.0006 0.001 0.002 0.003 0.008 0.04  0.08 
+AccelerationValuesEnd
+```
+
+### EWidget (or "Eligible Widgets")
+Another feature instituted now as part of the roadmap to auto-mapping FX is the addition of the "Ewidget" option in .mst files. This will eventually be used to tell CSI which widgets you'd like automatically included for automatic FX.zon mapping and which widgets you'd like excluded from that. Anything defined as an EWidget will be eligible for mapping. Here are some examples from an X-Touch.mst where we are using Displays, Rotarypush, Rotary, and Faders for FX mapping.
+
+```
+EWidget DisplayUpper1
+	FB_XTouchDisplayUpper 0
+EWidgetEnd
+```
+
+```
+EWidget Fader1
+	Fader14Bit e0 7f 7f
+	FB_Fader14Bit e0 7f 7f
+	Touch 90 68 7f 90 68 00
+EWidgetEnd
+```
+
+```
+EWidget RotaryPush1
+	Press 90 20 7f 90 20 00
+EWidgetEnd
+```
+
+```
+EWidget Rotary1 RotaryWidgetClass
+	Encoder b0 10 7f
+	FB_Encoder b0 10 7f
+EWidgetEnd
+```
+
+## ZoneStepSizes and .stp Files
+The CSI Support Files now include a "ZoneStepSizes" sub-folder within the Zones folder. These files will be used by CSI in EZFXZones to determine which FX Parameters are stepped, how many steps each parameter has, and what the exact step values are. Again, this is another feature meant to simplify EZFXZone creation. Once a ZoneStepFile exists for a plugin, it shouldn't need to change (unless the developer adds new automation parameters) and can be shared. The CSI Support Files currently include ZoneFXFiles for almost 500 FX to get users started.
+
+If you'd like to create some .stp files for your own use, you can add the below "AutoScan" line to your CSI.ini. The AutoScan process only attempts to create the .stp files for fx you already have a .zon for. It will not create .stp files for all FX. Note: this is an experimental feature and works better on Mac right now. If you run into issues, I'd encourage you to turn the AutoScan off by commenting out that line. When the AutoScan is complete and ZoneStepSize files created, you should also comment out (with a forward slash) or delete that line in your CSI.
+```
+Version 2.0
+
+AutoScan
+
+MidiSurface "XTouchOne" 7 9 
+MidiSurface "MFTwister" 6 8 
+OSCSurface "iPad Pro" 8003 9003 10.0.0.146
+OSCSurface "TouchOSCLocal" 8002 9002 10.0.0.100
+MidiSurface "CMC-QC" 23 24 
+
+Page "HomePage"
+"XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_FB" 
+"MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterMenu" 
+"iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu" 
+"TouchOSCLocal" 8 0 "FXTwister.ost" "FXTwisterMenu" 
+"CMC-QC" 0 0 "Stienberg_CMC-QC-2.mst" "Steinberg_CMC-QC-2" 
+```
+
+When a .stp file exists for a plugin, things like the below example are no longer required in EZFXZones. CSI will already know the step values and will automatically create a curve for your surface to move through each step if that parameter is assigned to an encoder. 
+```
+     FXParamStepValues   1    0.0 0.05 0.11 0.16 0.21 0.26 0.32 0.37 0.42 0.47 0.53 0.58 0.63 0.68 0.74 0.79 0.84 0.89 0.95 1.0
+```
+
+## EZFXZone Changes
+If you've got Step Files for your FX, and made the changes outlined above, EZFXZones get much easier. The block of text at the bottom dictating the default acceleration and FX Step sizes are no longer required.
+
+Before...
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 1            2         3               7             4           6           9        8
+     FXParamNames             "Input Gain" Threshold "Time Constant" "Output Gain" "SC Filter" "DC Thresh" Headroom Mix
+     FXValueWidgets           RotaryA|
+     FXParamNameDisplays      DisplayUpperA|
+     FXParamValueDisplays     DisplayLowerA|
+
+     FXParams                 5     0       -1     -1     -1      -1     -1     12 
+     FXParamNames             Bal   Meter   ""     ""     ""      ""     ""     Wet
+     FXValueWidgets           RotaryB|
+     FXParamNameDisplays      DisplayUpperB|
+     FXParamValueDisplays     DisplayLowerB|
+
+     FXParams                 -1   -1   -1   -1   -1   -1   -1     -1
+     FXParamNames             ""   ""   ""   ""   ""   ""   ""     "" 
+     FXValueWidgets           RotaryPushA|
+     FXParamNameDisplays      DisplayRotaryPushA|
+
+     FXParams                 -1   -1   -1   -1   -1   -1   13     11
+     FXParamNames             ""   ""   ""   ""   ""   ""   Delta  Bypass
+     FXValueWidgets           RotaryPushB|
+     FXParamNameDisplays      DisplayRotaryPushB|
+
+     DefaultAcceleration      0.001 0.002 0.003 0.004 0.005 0.006 0.0075 0.01 0.02 0.035 0.04     
+     FXParamStepValues   0    0.0 0.50 1.0
+     FXParamStepValues   1    0.0 0.05 0.11 0.16 0.21 0.26 0.32 0.37 0.42 0.47 0.53 0.58 0.63 0.68 0.74 0.79 0.84 0.89 0.95 1.0
+     FXParamStepValues   3    0.0 0.20 0.40 0.60 0.80 1.0 
+     FXParamStepValues   9    0.0 0.17 0.33 0.50 0.67 0.83 1.0
+ZoneEnd
+```
+
+After...
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
+     FXParams                 1            2         3               7             4           6           9        8
+     FXParamNames             "Input Gain" Threshold "Time Constant" "Output Gain" "SC Filter" "DC Thresh" Headroom Mix
+     FXValueWidgets           RotaryA|
+     FXParamNameDisplays      DisplayUpperA|
+     FXParamValueDisplays     DisplayLowerA|
+
+     FXParams                 5     0       -1     -1     -1      -1     -1     12 
+     FXParamNames             Bal   Meter   ""     ""     ""      ""     ""     Wet
+     FXValueWidgets           RotaryB|
+     FXParamNameDisplays      DisplayUpperB|
+     FXParamValueDisplays     DisplayLowerB|
+
+     FXParams                 -1   -1   -1   -1   -1   -1   -1     -1
+     FXParamNames             ""   ""   ""   ""   ""   ""   ""     "" 
+     FXValueWidgets           RotaryPushA|
+     FXParamNameDisplays      DisplayRotaryPushA|
+
+     FXParams                 -1   -1   -1   -1   -1   -1   13     11
+     FXParamNames             ""   ""   ""   ""   ""   ""   Delta  Bypass
+     FXValueWidgets           RotaryPushB|
+     FXParamNameDisplays      DisplayRotaryPushB|
 ZoneEnd
 ```
