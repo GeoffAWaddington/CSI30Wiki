@@ -19,7 +19,7 @@ SurfaceX32.ost
 Surface_x32Intance1.ost
 SurfaceX32Intance2.ost
 ```
-An additional special thanks to thanks to Patrick-Gilles Maillot for having documented the X32 OSC protocol [here.](https://drive.google.com/file/d/1Snbwx3m6us6L1qeP1_pD6s8hbJpIpD0a/view)
+An additional special thanks goes out to Patrick-Gilles Maillot for having documented the X32 OSC protocol [here.](https://drive.google.com/file/d/1Snbwx3m6us6L1qeP1_pD6s8hbJpIpD0a/view)
 
 ## Fix for Reaper Tracks Not Scrolling Into View When Selected on Surface
 If the number of channels in Reaper was fewer than the number of tracks on your surface, selecting a track on the surface would not scroll that track into view in Reaper. This should fix that problem.
