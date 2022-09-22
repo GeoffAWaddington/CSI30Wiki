@@ -259,6 +259,7 @@ ZoneEnd
 ```
 
 ## EZ FX Zones
+As mentioned above, EZFXZones are designed to allow for almost all the same mapping of a Classic FX Zone, but they utilize a spreadsheet-like syntax to accomplish it in far fewer lines. This can greatly simplify the process of creating FX zones. 
 
 Diving right into a real-world example, the first and last lines of any fx.zon remain unchanged. After that, the first block of text starting with "FXParams" is saying FXParam 9, which, reading down, we are giving the alias "HeadRoom", gets assigned to Rotary1. You will see the FXParamName on DisplayUpper1, and you will see the FXParamValue on DisplayLower1. Reading across on line 2 again, FXParam 1, "Input", will get assigned to Rotary2 (we're reading down again), with the FXParamName name showing up on DisplayUpper2 and FXParamValueName on DisplayLower2. And on and on.
 ```
