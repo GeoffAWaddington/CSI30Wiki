@@ -4,7 +4,7 @@ This is what's currently floating around in the CSI Exp builds. Exp builds, whil
 ## Support for the X32/M32/XAir Series of Behringer/MIDAS Consoles via OSC
 Thanks to absolutely huge contributions from Reaper forum user jacksoonbrowne, the Behringer X32 is now supported in CSI via OSC. These devices have a very unique OSC implementation that required substantial code contributions.
 
-The X32 implementation is an on-going work in progress and many more features will be added ot the support files.
+The X32 implementation is an on-going work in progress and many more features will be added to the support files.
 
 For these to work:
 1. Add a new OSC device as per the Installation and Setup instructions.
