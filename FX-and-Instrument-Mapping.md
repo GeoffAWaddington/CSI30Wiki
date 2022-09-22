@@ -52,7 +52,7 @@ FXParamValueDisplay
 
 FXParam is used to control the parameter and map it to a widget. FXParamNameDisplay can be used on a surface with displays to show the name of the parameter. Note: if the parameter name is too long, you may want to use FixedTextDisplay followed by an alias in quotes. You'll see that used throughout this example. FXParamValueDisplay shows the value of the parameter.
 
-# Creating FX and Instrument Zone Files - 2 Types: Classic FX Zones, and EZ FX Zones
+# 2 Types of FX Zones: Classic FX Zones and EZ FX Zones
 There are now two options when it comes to FX Zones: 1) Classic FX Zones, and 2) EZ FX Zones. When mapping new FX, you have the option of using either type. CSI will be able to parse out which type is in use. You cannot however mix and match types in a single fx.zon. 
 
 **Classic FX Zones** follow a similar syntax to surface zone files in that there is one assignment per row following a "WidgetName, Action, Additional Instructions" type of syntax from left to right. They can be read from left to right, top down. The benefits of classic FX zones are that they are very flexible, and easy to read. Cons are that they can get very lengthy and have lots of duplicated instructions.
