@@ -188,7 +188,7 @@ The last step of course is to save the .zon file. Remember, these are just plain
 
 Those are the basics to creating an fx.zon file. See the [[FX Parameter Mapping Actions|FX-Parameter-Mapping-Actions]] page for details on all the pertinent mapping actions.
 
-## FX SubZones
+### FX SubZones
 FX Sub Zones are useful when you are trying to map an FX that has more parameters than your surface has controls for, or maybe the plugin has multiple FX types or modes and you'd like to put them into different zones you can switch between. This could even be useful for mapping instruments if you wanted to have filter controls on one zone, oscillator controls in another, envelopes and LFO's in another, etc. The sky is the limit with FX sub zones.
 
 For FX Sub Zones to work you basically need a few key elements:
@@ -201,7 +201,7 @@ For FX Sub Zones to work you basically need a few key elements:
 
 4. GoSubZone actions in all of the .zon files so CSI knows how to move from zone to zone.
 
-### FX SubZone Example
+#### FX SubZone Example
 In this example, I've mapped Limiter 6 GE from Tokyo Dawn Labs across 3 different zones. The primary [plugin].zon has the Compressor controls, the first Sub Zone has the Peak Limiter controls, and the second Sub Zone has the High Frequency Limiter, Clip and Output controls.
 
 I have dedicated banking buttons on my surface (BankA, BankB, and BankC) that I will use to switch between each zone. You can see that each zone includes the GoSubZone  action to jump to the other Banks. You could of course assign different buttons to switch between zones.
@@ -498,7 +498,7 @@ EWidget Rotary1 RotaryWidgetClass
 EWidgetEnd
 ```
 
-## ZoneStepSizes and .stp Files
+### ZoneStepSizes and .stp Files
 The CSI Support Files now include a "ZoneStepSizes" sub-folder within the Zones folder. These files will be used by CSI in EZFXZones to determine which FX Parameters are stepped, how many steps each parameter has, and what the exact step values are. Again, this is another feature meant to simplify EZFXZone creation. Once a ZoneStepFile exists for a plugin, it shouldn't need to change (unless the developer adds new automation parameters) and can be shared. The CSI Support Files currently include ZoneFXFiles for almost 500 FX to get users started.
 
 If you'd like to create some .stp files for your own use, you can add the below "AutoScan" line to your CSI.ini. The AutoScan process only attempts to create the .stp files for fx you already have a .zon for. It will not create .stp files for all FX. Note: this is an experimental feature and works better on Mac right now. If you run into issues, I'd encourage you to turn the AutoScan off by commenting out that line. When the AutoScan is complete and ZoneStepSize files created, you should also comment out (with a forward slash) or delete that line in your CSI.
@@ -526,8 +526,8 @@ When a .stp file exists for a plugin, things like the below example are no longe
      FXParamStepValues   1    0.0 0.05 0.11 0.16 0.21 0.26 0.32 0.37 0.42 0.47 0.53 0.58 0.63 0.68 0.74 0.79 0.84 0.89 0.95 1.0
 ```
 
-## EZFXZone Changes
-If you've got Step Files for your FX, and made the changes outlined above, EZFXZones get much easier. The block of text at the bottom dictating the default acceleration and FX Step sizes are no longer required.
+### EZFXZones With RotaryWidgetClass, Default Acceleration, Step Size, and Zone Step Sizes
+If you've made the .mst changes above for step size and default acceleration, as well as having Zone Step Size files for your fx, EZFXZones get much easier. The block of text at the bottom dictating the default acceleration and FX Step sizes are no longer required.
 
 Before...
 ```
@@ -588,3 +588,4 @@ Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fair660"
      FXParamNameDisplays      DisplayRotaryPushB|
 ZoneEnd
 ```
+This example mapping may have taken up hundreds of lines of text in a Classic FX Zone. 
