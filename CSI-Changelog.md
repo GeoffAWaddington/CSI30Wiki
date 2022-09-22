@@ -4,6 +4,8 @@ This is what's currently floating around in the CSI Exp builds. Exp builds, whil
 ## Support for the X32/M32/XAir Series of Behringer/MIDAS Consoles via OSC
 Thanks to absolutely huge contributions from Reaper forum user jacksoonbrowne, the Behringer X32 is now supported in CSI via OSC. These devices have a very unique OSC implementation that required substantial code contributions.
 
+The X32 implementation is an on-going work in progress and many more features will be added ot the support files.
+
 For these to work:
 1. Add a new OSC device as per the Installation and Setup instructions.
 2. In the CSI Device setup, the "CSI sends to port" and "CSI recieves on port" must **both** be set to port 10023 for the X32/M32 or port 10024 for the XAir series.
@@ -17,6 +19,7 @@ SurfaceX32.ost
 Surface_x32Intance1.ost
 SurfaceX32Intance2.ost
 ```
+An additional special thanks to thanks to Patrick-Gilles Maillot for having documented the X32 OSC protocol [here.](https://drive.google.com/file/d/1Snbwx3m6us6L1qeP1_pD6s8hbJpIpD0a/view)
 
 ## Fix for Reaper Tracks Not Scrolling Into View When Selected on Surface
 If the number of channels in Reaper was fewer than the number of tracks on your surface, selecting a track on the surface would not scroll that track into view in Reaper. This should fix that problem.
