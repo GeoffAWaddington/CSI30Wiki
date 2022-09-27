@@ -26,8 +26,8 @@ An additional special thanks goes out to Patrick-Gilles Maillot for having docum
 // Reaper CSI X32/Xair/Midas32 support files installation notes.
 //-----------------------------------------------------------------------------------------
 
-Go to: [[url]https://www.dropbox.com/scl/fo/upw6bjujgm8wp1gjz3bel/h?dl=0&rlkey=n3japvturdtzbeqjyob5e69d2[/url]
-and retrieve the most recent versions of support files and place them in the CSI file structure appropriately.
+Go to the below URL to download and retrieve the most recent versions of support files and place them in the CSI file structure appropriately:
+https://www.dropbox.com/scl/fo/upw6bjujgm8wp1gjz3bel/h?dl=0&rlkey=n3japvturdtzbeqjyob5e69d2
 
 Having done that, load the X32 scene file from "CSI\Behringer X32 Scene\CSI-X32-Config.scn", and place it on a USB thumb drive that is 32Gbytes or less, and formatted as "FAT32".
 Follow the instructions from Behringer web site for the X32 on how to download a scene from a USB stick and install the scene.
