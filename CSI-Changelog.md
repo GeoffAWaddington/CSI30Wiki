@@ -21,6 +21,20 @@ SurfaceX32Intance2.ost
 ```
 An additional special thanks goes out to Patrick-Gilles Maillot for having documented the X32 OSC protocol [here.](https://drive.google.com/file/d/1Snbwx3m6us6L1qeP1_pD6s8hbJpIpD0a/view)
 
+```
+//-----------------------------------------------------------------------------------------
+// Reaper CSI X32/Xair/Midas32 support files installation notes.
+//-----------------------------------------------------------------------------------------
+
+Go to: [[url]https://www.dropbox.com/scl/fo/upw6bjujgm8wp1gjz3bel/h?dl=0&rlkey=n3japvturdtzbeqjyob5e69d2[/url]
+and retrieve the most recent versions of support files and place them in the CSI file structure appropriately.
+
+Having done that, load the X32 scene file from "CSI\Behringer X32 Scene\CSI-X32-Config.scn", and place it on a USB thumb drive that is 32Gbytes or less, and formatted as "FAT32".
+Follow the instructions from Behringer web site for the X32 on how to download a scene from a USB stick and install the scene.
+And then load that scene on the X32.
+This scene will configure the "Assignable sections: rotaries and buttons" to control the "Transport" as per the current X32 .ost and .zon files.
+```
+
 ## Fix for Reaper Tracks Not Scrolling Into View When Selected on Surface
 If the number of channels in Reaper was fewer than the number of tracks on your surface, selecting a track on the surface would not scroll that track into view in Reaper. This should fix that problem.
 
