@@ -1,5 +1,26 @@
-# September 21, 2022 Exp Build
+# September 25, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
+
+## New Feature: Local Modifiers
+Previously, modifiers such as Shift, Alt, Control, and Option were strictly "Global Modifiers": engaging the modifier on one surface, would enable that modifier on all devices. Now, a new CSI.ini preference has been added that will allow surfaces to set their modifiers locally (i.e. modifiers will not impact any other surface than the one where they were engaged). To make the change, add the word **LocalModifiers** prior to the surface name under each Page where you'd like to enable local modifiers.
+```
+Version 2.0
+
+MidiSurface "XTouchOne" 7 9 
+MidiSurface "MFTwister" 6 8 
+OSCSurface "iPad Pro" 8003 9003 10.0.0.146
+OSCSurface "TouchOSCLocal" 8002 9002 10.0.0.100
+MidiSurface "CMC-QC" 23 24 
+
+Page "HomePage"
+LocalModifiers "XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_FB" 
+"MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterFocusedFX" 
+"iPad Pro" 8 0 "MCU-Pad.ost" "MCU" 
+"TouchOSCLocal" 8 0 "FXTwister.ost" "FXTwisterFocusedFX" 
+"CMC-QC" 0 0 "Stienberg_CMC-QC-2.mst" "Steinberg_CMC-QC-2" 
+```
+
+# September 23, 2022
 
 ## Support for the X32/M32/XAir Series of Behringer/MIDAS Consoles via OSC
 Thanks to absolutely huge contributions from Reaper forum user jacksoonbrowne, the Behringer X32 is now supported in CSI via OSC. These devices have a very unique OSC implementation that required substantial code contributions.
