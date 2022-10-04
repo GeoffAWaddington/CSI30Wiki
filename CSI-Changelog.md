@@ -1,5 +1,129 @@
-# September 25, 2022 Exp Build
+# October 4th, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
+
+## New Action: SendOSCMessage
+SendOSCMessage is designed to send arbitrary OSC messages to the address specified in the action. 
+
+```
+    OnInitialization SendOSCMessage "/Displays/UpperDisplay1 aString" 
+    OnInitialization SendOSCMessage "/Displays/LowerDisplay1 -123" 
+    OnInitialization SendOSCMessage "/Displays/ValueDisplay1 24.98"
+```
+
+## New Feedback Processor: FB_Speak
+FB_Speak is a new feedback processor designed for users with vision impairments using CSI with OSARA. It's designed to specifically limit the frequency at which messages are read to the user. This would replace other feedback processors in your widgets. 
+
+Looking at the below example, the standard display feedback processor has been replaced with FB_Speak. The nnumber 2000 is the time in milliseconds that CSI will wait before annunciating the next message. This is to stop the cascade of messages that result from an action like moving the Fader. So, for example, this....
+```
+    ...
+Widget DisplayUpper7
+	FB_Speak 2000
+WidgetEnd
+
+Widget DisplayUpper8
+	FB_Speak 2000
+WidgetEnd
+
+Widget DisplayLower1
+	FB_Speak 2000
+WidgetEnd
+
+Widget DisplayLower2
+	FB_Speak 2000
+WidgetEnd
+    ...
+```
+
+...replaces this...
+```
+    ...
+Widget DisplayUpper7
+	FB_MCUDisplayUpper 6
+WidgetEnd
+
+Widget DisplayUpper8
+	FB_MCUDisplayUpper 7
+WidgetEnd
+
+Widget DisplayLower1
+	FB_MCUDisplayLower 0
+WidgetEnd
+
+Widget DisplayLower2
+	FB_MCUDisplayLower 1
+WidgetEnd
+    ...
+```
+
+Right now FB_Speak announces:
+Track name
+Zone Name
+Action name (parameter name if the Zone is a VST)
+Action value
+
+## Default Step Size and Default Encoder Acceleration Can Be Used in All Zones
+If you're using a MIDI surface with encoders, you can now define the default StepSize (resolution) and Acceleration in your .mst file and these settings will be carried into all Zone types. This allows you to define these values once, and avoid having to repeatedly define them in zone files.
+
+A refresher on what this might look like in an .mst...
+```
+StepSize
+    RotaryWidgetClass 0.003
+StepSizeEnd
+
+AccelerationValues
+    RotaryWidgetClass Dec 41     42    43    44    45    46    47     48
+    RotaryWidgetClass Inc 01     02    03    04    05    06    07     08
+    RotaryWidgetClass Val 0.005  0.01  0.02  0.04  0.05  0.06  0.08   0.1
+AccelerationValuesEnd
+
+/...
+
+Widget Rotary1 RotaryWidgetClass
+	Encoder b0 10 7f
+	FB_Encoder b0 10 7f
+WidgetEnd
+
+Widget Rotary2 RotaryWidgetClass
+	Encoder b0 11 7f
+	FB_Encoder b0 11 7f
+WidgetEnd
+
+Widget Rotary3 RotaryWidgetClass
+	Encoder b0 12 7f
+	FB_Encoder b0 12 7f
+WidgetEnd
+
+Widget Rotary4 RotaryWidgetClass
+	Encoder b0 13 7f
+	FB_Encoder b0 13 7f
+WidgetEnd
+
+Widget Rotary5 RotaryWidgetClass
+	Encoder b0 14 7f
+	FB_Encoder b0 14 7f
+WidgetEnd
+
+Widget Rotary6 RotaryWidgetClass
+	Encoder b0 15 7f
+	FB_Encoder b0 15 7f
+WidgetEnd
+
+Widget Rotary7 RotaryWidgetClass
+	Encoder b0 16 7f
+	FB_Encoder b0 16 7f
+WidgetEnd
+
+Widget Rotary8 RotaryWidgetClass
+	Encoder b0 17 7f
+	FB_Encoder b0 17 7f
+WidgetEnd
+```
+
+## New Feature: Auto-Tick-Count Generation for Encoders+Stepped Parameters
+If you're utilizing the new [ZoneStepSizes](https://github.com/GeoffAWaddington/CSIWiki/wiki/CSI-Changelog#zonestepsizes-and-stp-files) feature, CSI will automatically create a tick-count list for comfortably cycling through stepped parameters so they're not going by too quickly to be useful or too slowly to be enjoyable. First, you need to define your encoders using the RotaryWidgetClass, StepSize, and DefaultAcceleration features in the .mst. Once you have that, you just need a .stp file (ZoneStepFile) for any fx you map. CSI does the rest!
+
+## Fixes for FXZone Crash and DisplayMode Spread
+Bug fixes for an EZFXZone crash when parsing an incorrect syntax and a fix for the DisplayMode "Spread" setting not working as expected.
 
 ## New Feature: Local Modifiers
 Previously, modifiers such as Shift, Alt, Control, and Option were strictly "Global Modifiers": engaging the modifier on one surface, would enable that modifier on all devices. Now, a new CSI.ini preference has been added that will allow surfaces to set their modifiers locally (i.e. modifiers will not impact any other surface than the one where they were engaged). To make the change, add the word **LocalModifiers** prior to the surface name under each Page where you'd like to enable local modifiers.
