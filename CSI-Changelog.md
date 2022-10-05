@@ -2,7 +2,7 @@
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
 
 ## New Action: SendOSCMessage
-SendOSCMessage is designed to send arbitrary OSC messages to the address specified in the action. The syntax is [Widget/Virtual Widget] SendOSCMessage "[OSC address] [Value]" as shown in the examples below...
+SendOSCMessage is designed to send arbitrary OSC messages to the address specified in the action. The syntax is **[Widget/Virtual Widget] SendOSCMessage "[OSC address] [Value]"** as shown in the examples below...
 
 ```
     OnInitialization SendOSCMessage "/Displays/UpperDisplay1 aString" 
