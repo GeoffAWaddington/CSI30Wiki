@@ -11,7 +11,7 @@ SendOSCMessage is designed to send arbitrary OSC messages to the address specifi
 ```
 
 ## New Feedback Processor: FB_Speak
-FB_Speak is a new feedback processor designed for users with vision impairments using CSI with OSARA. It's designed to specifically limit the frequency at which messages are read to the user. This would replace other feedback processors in your widgets. 
+FB_Speak is a new feedback processor designed for users with vision impairments using CSI with OSARA. It's designed to specifically limit the frequency at which messages are read to the user. This would replace other feedback processors in your display widgets [only]. 
 
 Looking at the below example, the standard display feedback processor has been replaced with FB_Speak. The number 2000 is the time in milliseconds that CSI will wait before annunciating the next message. This is to stop the cascade of messages that result from an action like moving the fader. So, for example, this....
 ```
