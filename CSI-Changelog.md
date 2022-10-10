@@ -1,5 +1,36 @@
-# October 4th, 2022 Exp Build
+# October 10th, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
+
+## New Actions: SpeakFXMenuName, SpeakTrackSendDestination, SpeakTrackReceiveSource
+The following new actions were added for OSARA users in order to allow CSI to speak the FX Menu Name of a plugin (SpeakFXMenuName) in the menu, or the track send destination (SpeakTrackSendDestination), or the receive source (SpeakTrackReceiveSource). These can be assigned to widgets to trigger when these actions take place.
+
+```
+Zone "SelectedTrackFXMenu"
+    RecArm     SpeakFXMenuName
+...
+```
+
+```
+Zone "SelectedTrackSend"
+    RecArm     SpeakTrackSendDestination
+...
+```
+
+```
+Zone "SelectedTrackReceive"
+    RecArm     SpeakTrackReceiveSource
+...
+```
+
+## Hex Colors for OSC
+Users can now transmit colors to OSC surfaces using the standard Hex color format. These messages are transmitted to **OSCAddress + "/Color"** and formatted as #rrggbbaa. You will need to have your OSC widget setup to receive and respond to colors at that address. Note: as of the time of this writing, TouchOSC support for Hex colors with the hash characters is currently in beta (build 149). 
+
+## Turn Off MIDI Fighter Twister Button LEDs by Sending 0 0 0 Color Message
+Thanks to Reaper forum user Diesel, users of the MIDI Fighter Twister can turn off LED button lights on the device by sending RGB messages of 0 0 0 to the device. Thanks Diesel!
+
+```
+RotaryPushB5 FXParam 999 { 0 0 0 }
+```
 
 ## New Action: SendOSCMessage
 SendOSCMessage is designed to send arbitrary OSC messages to the address specified in the action. The syntax is **[Widget/Virtual Widget] SendOSCMessage "[OSC address] [Value]"** as shown in the examples below...
@@ -9,57 +40,6 @@ SendOSCMessage is designed to send arbitrary OSC messages to the address specifi
     OnInitialization SendOSCMessage "/Displays/LowerDisplay1 -123" 
     OnInitialization SendOSCMessage "/Displays/ValueDisplay1 24.98"
 ```
-
-## New Feedback Processor: FB_Speak
-FB_Speak is a new feedback processor designed for users with vision impairments using CSI with OSARA. It's designed to specifically limit the frequency at which messages are read to the user. This would replace other feedback processors in your display widgets [only]. 
-
-Looking at the below example, the standard display feedback processor has been replaced with FB_Speak. The number 2000 is the time in milliseconds that CSI will wait before annunciating the next message. This is to stop the cascade of messages that result from an action like moving the fader. So, for example, this....
-```
-    ...
-Widget DisplayUpper7
-	FB_Speak 2000
-WidgetEnd
-
-Widget DisplayUpper8
-	FB_Speak 2000
-WidgetEnd
-
-Widget DisplayLower1
-	FB_Speak 2000
-WidgetEnd
-
-Widget DisplayLower2
-	FB_Speak 2000
-WidgetEnd
-    ...
-```
-
-...replaces this...
-```
-    ...
-Widget DisplayUpper7
-	FB_MCUDisplayUpper 6
-WidgetEnd
-
-Widget DisplayUpper8
-	FB_MCUDisplayUpper 7
-WidgetEnd
-
-Widget DisplayLower1
-	FB_MCUDisplayLower 0
-WidgetEnd
-
-Widget DisplayLower2
-	FB_MCUDisplayLower 1
-WidgetEnd
-    ...
-```
-
-Right now FB_Speak announces:
-Track name
-Zone Name
-Action name (parameter name if the Zone is a VST)
-Action value
 
 ## Default Step Size and Default Encoder Acceleration Can Be Used in All Zones
 If you're using a MIDI surface with encoders, you can now define the default StepSize (resolution) and Acceleration in your .mst file and these settings will be carried into all Zone types. This allows you to define these values once, and avoid having to repeatedly define them in zone files.
