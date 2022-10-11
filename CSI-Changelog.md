@@ -1,5 +1,8 @@
-# October 10th, 2022 Exp Build
+# October 11th, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
+
+## Possible Fix for CSI Speaking Twice with Some Screen Readers
+There is a possible fix for an issue with CSI speaking twice when using certain screen readers. 
 
 ## New Actions: SpeakFXMenuName, SpeakTrackSendDestination, SpeakTrackReceiveSource
 The following new actions were added for OSARA users in order to allow CSI to speak the FX Menu Name of a plugin (SpeakFXMenuName) in the menu, or the track send destination (SpeakTrackSendDestination), or the receive source (SpeakTrackReceiveSource). These can be assigned to widgets to trigger when these actions take place.
