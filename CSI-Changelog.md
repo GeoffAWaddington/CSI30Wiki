@@ -20,7 +20,7 @@ The Zoom modifier was broken in a recent build. This has been fixed.
 The Touch modifier recently stopped working outside of Track Zones. So for example, Touch would do nothing when used as a modifier in an FX.zon. This has ben resolved.
 
 ## Fix for Negative Measure Displays
-Fix for the MCUTimeDisplay action incorrectly displaying negative measures when in Bars/Beats/Ticks mode.
+Fix for the MCUTimeDisplay action incorrectly displaying negative measures when in Bars/Beats/Ticks mode. Thanks to Reaper forum user StereoDidi for the code contribution for this fix!
 
 ## Added Track Number to SpeakTrackSendDestination and SpeakTrackReceiveSource Actions
 For visually impaired users, SpeakTrackSendDestination and SpeakTrackReceiveSource actions will now also speak the Track #. 
