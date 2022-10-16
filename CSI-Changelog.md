@@ -2,7 +2,13 @@
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
 
 ## New Navigation Action: GoMasterTrack
-GoMasterTrack was added to activate the MasterTrack zone for fader surfaces that do not have a dedicated master track fader.
+GoMasterTrack was added to activate the MasterTrack zone for fader surfaces that do not have a dedicated master track fader. Be sure to include this as an AssociatedZone in your Home.zon.
+
+```
+Zone "Buttons"
+    SomeButton    GoMasterTrack
+ZoneEnd
+```
 
 ## Fix for TrackBank Not Updating Channel Count to Account for Hidden Tracks
 After hiding a track in Reaper, CSI was not updating it's internal track count to adjust for hidden tracks. This has been resolved.
