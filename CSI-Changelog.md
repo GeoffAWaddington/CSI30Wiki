@@ -1,5 +1,23 @@
-# October 11th, 2022 Exp Build
+# October 16th, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
+
+## New Navigation Action: GoMasterTrack
+GoMasterTrack was added to activate the MasterTrack zone for fader surfaces that do not have a dedicated master track fader.
+
+## Fix for TrackBank Not Updating Channel Count to Account for Hidden Tracks
+After hiding a track in Reaper, CSI was not updating it's internal track count to adjust for hidden tracks. This has been resolved.
+
+## Fix for Zoom Modifier
+The Zoom modifier was broken in a recent build. This has been fixed.
+
+## Fix for Touch Modifier Not Working Outside of Track Zones
+The Touch modifier recently stopped working outside of Track Zones. So for example, Touch would do nothing when used as a modifier in an FX.zon. This has ben resolved.
+
+## Fix for Negative Measure Displays
+Fix for the MCUTimeDisplay action incorrectly displaying negative measures when in Bars/Beats/Ticks mode.
+
+## Added Track Number to SpeakTrackSendDestination and SpeakTrackReceiveSource Actions
+For visually impaired users, SpeakTrackSendDestination and SpeakTrackReceiveSource actions will now also speak the Track #. 
 
 ## Possible Fix for CSI Speaking Twice with Some Screen Readers
 There is a possible fix for an issue with CSI speaking twice when using certain screen readers. 
