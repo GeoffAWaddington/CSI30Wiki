@@ -1,5 +1,5 @@
 ## Minimum System Requirements
-CSI version 2.0 requires Reaper version 6.28 or later.
+CSI version 2.0 requires Reaper version 6.28 or later. **Troubleshooting note:** thie minimum Reaper version for CSI is subject to change and could be impacted by changes in Reaper builds, as well as operating system updates, and/or CSI changes. If you're following the installation instructions below to the letter but still not seeing CSI in the Control/OSC/Web "Add surface" dropdown, then a good first troubleshooting step would be to upgrade to the latest version of Reaper if you haven't already and try again.
 
 **Windows:** 64-bit version of Windows. Additionally, the Microsoft Visual C++ 2019 runtime is required. You may already have this installed on your system, but if you successfully install CSI and do not see the CSI option in Reaper's control surface preferences you will need to [download and install the 64bit version of the C++ runtime.](https://aka.ms/vs/16/release/VC_redist.x64.exe)
 
