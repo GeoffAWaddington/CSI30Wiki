@@ -27,7 +27,7 @@ This is a big topic with a lot of possible solutions, but the first thing to che
 
 Expected Result: 
 
-a. You should see a Reaconsole window open up as soon as you move something on the BCR. If Reaconsole doesn't open, that points to a problem with CSI's ability to receive input from the hardware. First, **make sure your device is DISABLED in Reaper's Preferences -> Audio -> MIDI Devices**. That may sound counter-intuitive but CSI needs to be able to access your MIDI ports and if Reaper is using them, CSI cannot access them. Also, make sure some other program isn't already using the ports and they're available. 
+a. You should see a Reaconsole window open up as soon as you move something on the control surface. If Reaconsole doesn't open, that points to a problem with CSI's ability to receive input from the hardware. First, **make sure your device is DISABLED in Reaper's Preferences -> Audio -> MIDI Devices**. That may sound counter-intuitive but CSI needs to be able to access your MIDI ports and if Reaper is using them, CSI cannot access them. Also, make sure some other program isn't already using the ports and they're available. 
 
 b. If you _do_ see the Reaconsole window, you're hoping to see something like this...
 ```
