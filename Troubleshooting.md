@@ -10,8 +10,6 @@ If you're not seeing CSI in the dropdown when you go to add a surface in Reaper.
 
 If none of these apply to your situation and you're still having trouble, please post in the [the main CSI thread](https://forum.cockos.com/showthread.php?t=183143) in the Reaper Control Surface's sub-forum.
 
-## My device is setup in CSI but is not recognized
-
 ## I can't find surface files for my device
 First, check the CSI Support Files to check if your device is one of the included files. The CSI support files can be found [here.](https://stash.reaper.fm/v/44740/CSI%20Support%20Files.zip)
 
@@ -19,7 +17,7 @@ If your device is not included, does it support MCU? If yes, the MCU or X-Touch 
 
 If your device is not included in that list, you have two options: 1) post in the [CSI Device Setup thread](https://forum.cockos.com/showthread.php?t=245280) in the Reaper forums and ask if anyone else with the surface has files they can share or 2) read the [[Message Generators]] page and create your own .mst file for your surface. It's a one-time job. Once you've mapped all the controls on your surface, read the [[Zones]] page for information on how to map those controls. Post in the [CSI Device Setup thread](https://forum.cockos.com/showthread.php?t=245280) if you need additional help.
 
-## I have an .mst and a set of Zone files but they're still not working...
+## My device is setup in CSI but is still not being recognized
 This is a big topic with a lot of possible solutions, but the first thing to check is to make sure that CSI and your control surface are talking to each other. To do that...
 
 1. Open Reaper
