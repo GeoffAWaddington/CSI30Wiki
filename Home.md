@@ -32,6 +32,7 @@ PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supp
   * [[Modifiers]]
   * [[Invoking Multiple Actions (Macro Actions)]]
   * [[Broadcast and Receive|Broadcast-and-Receive]]
+* [[Troubleshooting]]
 * [[Tips and Tricks|Tips-and-Tricks]]
 * Step By Step Guides
   * [[Setting Up Your Phone or Tablet as an OSC Device in CSI ]]
