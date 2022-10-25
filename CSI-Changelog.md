@@ -1,5 +1,33 @@
-# October 16th, 2022 Exp Build
+# October 22nd, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
+
+## Added special case logic for X32 Select button
+Code changes deployed to get the Select buttons working correctly on the X32/MIDAS series consoles. Thanks to forum user jacksoonbrowne for the code.
+
+## EZFXZones now support Fixed Text for -1 param number
+Using the new EZFXZones, you can now have fixed text appear in a display with no parameter assigned to it (FX Param -1). See the example below...
+
+```
+Zone "VST: UAD Fairchild 660 (Universal Audio, Inc.)" "Fairchild 660"
+     FXParams                 1            2         3               7             4           6           9        8
+     FXParamNames             "Input Gain" Threshold "Time Constant" "Output Gain" "SC Filter" "DC Thresh" Headroom Mix
+     FXValueWidgets           RotaryA|
+     FXParamNameDisplays      DisplayUpperA|
+     FXParamValueDisplays     DisplayLowerA|
+
+     FXParams                 5     0       -1      -1     -1         -1      -1     12 
+     FXParamNames             Bal   Meter   "Fixed" "Text" "Example"  "Here"  ""     Wet
+     FXValueWidgets           RotaryB|
+     FXParamNameDisplays      DisplayUpperB|
+     FXParamValueDisplays     DisplayLowerB|
+ZoneEnd
+```
+
+## Removed string feedback for GoVCA and GoFolder, FXBypassDisplay and FXOfflineDisplay provide string feedback
+Changes to feedback on OSC to prevent issues with two messages of different types being sent simultaneousy.
+
+## Fixed bug in negative measures display
+Small change to further improve negative measure display on TimeDisplay widgets in Measure mode.
 
 ## New Navigation Action: GoMasterTrack
 GoMasterTrack was added to activate the MasterTrack zone for fader surfaces that do not have a dedicated master track fader. Be sure to include this as an AssociatedZone in your Home.zon.
