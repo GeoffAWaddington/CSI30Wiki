@@ -108,10 +108,10 @@ Widget Fader1
 WidgetEnd
 ```
 
-Next, you will need to actually create the touch modifier in your .zon file. The modifier name is not actually **Touch**; it's variable. The syntax for a touch modifier is **[WidgetName]Touch**. So the widget name in the above example was Fader1 and therefore, the modifier name for the touch message is:
+Next, you will need to actually create the touch modifier in your .zon file. 
 
 ```
-Fader1Touch+DisplayLower1
+Touch+DisplayLower1
 ```
 
 Which in the context of a SelectedTrackNavigator could allow us to do something like this where the track pan display always appears on the lower display, unless you're actually touching the fader, at which point, the track volume display will appear in the lower display.
@@ -121,22 +121,24 @@ Zone "SelectedChannel"
      SelectedTrackNavigator
      DisplayUpper1                      TrackNameDisplay
      DisplayLower1                      TrackPanDisplay
-     Fader1Touch+DisplayLower1          TrackVolumeDisplay
+     Touch+DisplayLower1                TrackVolumeDisplay
      Fader1                             TrackVolume
 ZoneEnd
 ```
 
-Touch modifiers also work with the | character in a TrackNavigator context if you want all channels in the .zon to respond similarly. Here's the same zone as above with a TrackNavigator. Notice that the modifier is now **Fader|Touch**.
+Touch modifiers also work in a TrackNavigator context if you want all channels in the .zon to respond similarly. Here's the same zone as above with a TrackNavigator. 
 
 ```
 Zone "Channel"
      TrackNavigator
      DisplayUpper|                      TrackNameDisplay
      DisplayLower|                      TrackPanDisplay
-     Fader|Touch+DisplayLower|          TrackVolumeDisplay
+     Touch+DisplayLower|                TrackVolumeDisplay
      Fader|                             TrackVolume
 ZoneEnd
 ```
+
+Similarly, Touch can be used in other .zon files/types, including fx.zon's!
 
 ## InvertFB 
 Up is down, down is up, on is off, and off is on. Example: Reaper EQ FX bypass On means control surface EQ Active light should be Off.
