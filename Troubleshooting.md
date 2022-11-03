@@ -61,3 +61,14 @@ If you are running an Exp build, and a brand-new feature still isn't working as 
 
 ## Something I saw on this wiki isn't accurate or isn't working
 Please post in [the main CSI thread](https://forum.cockos.com/showthread.php?t=183143) to report the issue. It could be as simple as the wiki not being up to date or it could be a bug. 
+
+## Other Troubleshooting Tips
+Some other troubleshooting tips...
+
+* **Simplify:** if you have a problem where a feature in a .zon is not working as expected, try eliminating everything else, and see if the feature or .zon file works by itself. If yes, then start slowly adding things back until it stops working. That should help narrow down where the problem is. 
+
+* **Start from scratch with a portable install.** Reaper has a "Portable Installation" option that allows you to install Reaper into another folder. You can try setting up CSI from scratch with a portable install to see if that solves your problem. If yes, the issue could be in your User Plugins folder, or with some Reaper setting.
+
+* **Check for old .zon files or .dll's - clear them out!** Maybe you've got an old version of CSI in your user plugins folder called "reaper_csurf_integrator64.dll.bak" causing a conflict that Reaper is still picking up. Or a "buttons.zon.old" file. Clear that stuff out! When it comes to .zon files, CSI scans all .zon files within your Zone folder on launch. 
+
+* **Maybe it's just me?** If a particular feature or something isn't working for you, but you know it's working on other people's setups, then trust that as long as you meet the minimum system requirements, it's not you. There's something amiss somewhere in your CSI setup. Check for multiple versions of zon files, installation paths, make sure your using the correct version of the .mst, proper .zon syntax, don't have old versions of things littered about. If you still need help, post in the [CSI Device Setup thread](https://forum.cockos.com/showthread.php?t=245280). It may all look right on the surface, but chances are there's some small quirk out there that's causing issues. It may just take some help and persistence to find the cause. Could be a bug too :) ! 
