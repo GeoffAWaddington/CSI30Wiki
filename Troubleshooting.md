@@ -63,7 +63,7 @@ If you are running an Exp build, and a brand-new feature still isn't working as 
 Please post in [the main CSI thread](https://forum.cockos.com/showthread.php?t=183143) to report the issue. It could be as simple as the wiki not being up to date or it could be a bug. 
 
 ## Other Troubleshooting Tips
-Some other troubleshooting tips...
+Some additional troubleshooting tips...
 
 * **Simplify:** if you have a problem where a feature in a .zon is not working as expected, try eliminating everything else, and see if the feature or .zon file works by itself. If yes, then start slowly adding things back until it stops working. That should help narrow down where the problem is. 
 
