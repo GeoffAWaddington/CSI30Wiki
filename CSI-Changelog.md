@@ -1,6 +1,68 @@
-# October 22nd, 2022 Exp Build
+# November 22nd, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
 
+## BREAKING CHANGES: WidgetMode and Property+NoFeedback Replaced With New Syntax
+Previously, WidgetMode was used to set the encoder ring style and FaderPort display types. In addition, Property+NoFeedback was used for disabling feedback. This old implementation required multiple lines for these additional commands. 
+
+New functionality has been implemented to replace WidgetMode and Property+NoFeedback, keeping everything on a single line. For example, this has been replaced [old]...
+```
+    Rotary|          	  	TrackPanAutoLeft
+    Rotary|			WidgetMode Dot
+```
+
+...with just this [new]...
+```
+Rotary|  TrackPanAutoLeft RingStyle=Dot
+```
+
+This [old]...
+```
+    Up              Reaper _XENAKIOS_TVPAGEUP                  // Xenakios/SWS: Scroll track view up (page)
+    Property+Up     NoFeedback
+```
+
+Has been replaced with this [new]...
+```
+    Up              Reaper _XENAKIOS_TVPAGEUP Feedback=No     // Xenakios/SWS: Scroll track view up (page)
+
+```
+The new functionality is similarly dependent on the type of feedback processor used in your .mst. 
+
+If using **FB_Encoder**, then the available options are:
+```
+RingStyle=Dot
+RingStyle=BoostCut
+RingStyle=Fill
+RingStyle=Spread
+```
+
+If using **FB_FaderportValueBar**, then the available options are"
+```
+BarStyle=Normal
+BarStyle=BiPolar
+BarStyle=Fill
+BarStyle=Spread
+```
+
+If using **FB_FP8ScribbleStripMode**, then the available options are:
+```
+Mode=0
+Mode=1
+Mode=2
+....
+Mode=8
+```
+
+If using **FB_FP8ScribbleLine1**, etc., then the available options are:
+```
+TextAlign=Center
+TextAlign=Left
+TextAlign=Right
+
+TextInvert=Yes
+TextInvert=No
+```
+# November 1st, 2022 Build
 ## Added special case logic for X32 Select button
 Code changes deployed to get the Select buttons working correctly on the X32/MIDAS series consoles. Thanks to forum user jacksoonbrowne for the code.
 
