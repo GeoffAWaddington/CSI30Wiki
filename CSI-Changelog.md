@@ -4,29 +4,32 @@ This is what's currently floating around in the CSI Exp builds. Exp builds, whil
 ## BREAKING CHANGES: WidgetMode and Property+NoFeedback Replaced With New Syntax
 Previously, WidgetMode was used to set the encoder ring style and FaderPort display types. In addition, Property+NoFeedback was used for disabling feedback. This old implementation required multiple lines for these additional commands. 
 
-New functionality has been implemented to replace WidgetMode and Property+NoFeedback, keeping everything on a single line. For example, this has been replaced [old]...
+New functionality has been implemented to replace WidgetMode and Property+NoFeedback, keeping everything on a single line. Because of this new syntax, existing .zon files will need to be updated to function properly.
+
+For example, this [old syntax] has been replaced...
 ```
     Rotary|          	  	TrackPanAutoLeft
     Rotary|			WidgetMode Dot
 ```
 
-...with just this [new]...
+...with just this [new syntax]:
 ```
 Rotary|  TrackPanAutoLeft RingStyle=Dot
 ```
 
-This [old]...
+This [old syntax]...
 ```
     Up              Reaper _XENAKIOS_TVPAGEUP                  // Xenakios/SWS: Scroll track view up (page)
     Property+Up     NoFeedback
 ```
 
-Has been replaced with this [new]...
+Has been replaced with this [new syntax]:
 ```
     Up              Reaper _XENAKIOS_TVPAGEUP Feedback=No     // Xenakios/SWS: Scroll track view up (page)
 
 ```
-The new functionality is similarly dependent on the type of feedback processor used in your .mst. 
+
+The new functionality is similarly dependent on the type of feedback processor used in your .mst for a given widget.
 
 If using **FB_Encoder**, then the available options are:
 ```
