@@ -156,9 +156,9 @@ RotaryPushB5 FXParam 999 { 0 0 0 }
 SendOSCMessage is designed to send arbitrary OSC messages to the address specified in the action. The syntax is **[Widget/Virtual Widget] SendOSCMessage "[OSC address] [Value]"** as shown in the examples below...
 
 ```
-    OnInitialization SendOSCMessage "/Displays/UpperDisplay1 aString" 
-    OnInitialization SendOSCMessage "/Displays/LowerDisplay1 -123" 
-    OnInitialization SendOSCMessage "/Displays/ValueDisplay1 24.98"
+    OnInitialization SendOSCMessage "/Displays/UpperDisplay1 aString".   // String 
+    OnInitialization SendOSCMessage "/Displays/LowerDisplay1 -123"       // 32-bit integer
+    OnInitialization SendOSCMessage "/Displays/ValueDisplay1 24.98".     // Float
 ```
 
 ## Default Step Size and Default Encoder Acceleration Can Be Used in All Zones
