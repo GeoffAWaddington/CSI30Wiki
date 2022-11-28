@@ -9,6 +9,7 @@
 * [[WidgetMode|WidgetMode]]
 * [[SetWidgetMode|WidgetMode#setwidgetmode]]
 * [[SendMIDIMessage|Other Actions#sendmidimessage]]
+* [[SendOSCMessage|Other Actions#sendoscmessage]]
 * [[SetXTouchDisplayColors|Other Actions#setxtouchdisplaycolors-restorextouchdisplaycolors]]
 * [[RestoreXTouchDisplayColors|Other Actions#setxtouchdisplaycolors-restorextouchdisplaycolors]]
 * [[Speak|Other Actions#speak]]
@@ -205,6 +206,13 @@ Zone "Buttons"
     SommeButton     SendMIDIMessage "B5 0E 04"     // Makes button B8 strobe on play start
 ZoneEnd
 ```
+
+## SendOSCMessage
+SendOSCMessage is designed to send arbitrary OSC messages to the address specified in the action. The syntax is** [Widget/Virtual Widget] SendOSCMessage "[OSC address] [Value]"** as shown in the examples below...
+
+    OnInitialization SendOSCMessage "/Displays/UpperDisplay1 aString".   // String 
+    OnInitialization SendOSCMessage "/Displays/LowerDisplay1 -123"       // 32-bit integer
+    OnInitialization SendOSCMessage "/Displays/ValueDisplay1 24.98".     // Float
 
 ## SetXTouchDisplayColors, RestoreXTouchDisplayColors
 SetXTouchDisplayColors and RestoreXTouchDisplayColors are highly specialized actions for the X-Touch Universal and X-Touch Extenders to set the colors of all displays at once. When combined with the new OnZoneActivation, OnZoneDeactivation virtual widgets, these allow you to set all of the surface displays to the same color when you enter a SelectedTrackFXMenu zone and restore the prior colors when you exit that Zone...
