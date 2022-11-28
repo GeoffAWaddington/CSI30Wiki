@@ -137,6 +137,7 @@
 * [[WidgetMode|WidgetMode]]
 * [[SetWidgetMode|WidgetMode#setwidgetmode]]
 * [[SendMIDIMessage|Other Actions#sendmidimessage]]
+* [[SendOSCMessage|Other Actions#sendoscmessage]]
 * [[SetXTouchDisplayColors|Other Actions#SetXTouchDisplayColors]]
 * [[RestoreXTouchDisplayColors|Other Actions#restorextouchdisplaycolors]]
 * [[Speak|Other Actions#speak]]
