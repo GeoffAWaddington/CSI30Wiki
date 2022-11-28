@@ -208,7 +208,7 @@ ZoneEnd
 ```
 
 ## SendOSCMessage
-SendOSCMessage is designed to send arbitrary OSC messages to the address specified in the action. The syntax is** [Widget/Virtual Widget] SendOSCMessage "[OSC address] [Value]"** as shown in the examples below...
+SendOSCMessage is designed to send arbitrary OSC messages to the address specified in the action. The syntax is [Widget/Virtual Widget] SendOSCMessage "[OSC address] [Value]" as shown in the examples below...
 
     OnInitialization SendOSCMessage "/Displays/UpperDisplay1 aString".   // String 
     OnInitialization SendOSCMessage "/Displays/LowerDisplay1 -123"       // 32-bit integer
