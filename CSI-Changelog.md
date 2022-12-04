@@ -1,5 +1,43 @@
-# November 22nd, 2022 Exp Build
+# December 4th, 2022 Exp Build
 This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
+
+## BREAKING CHANGES: EZFXZones Removed
+The code for EZFXZones has been removed in order to keep just a single way of creating FX.zon's. While the EZFXZones used less syntax in some instances, the benefit of the alternate syntax doesn't seem great enough to warrant maintaining.
+
+## "Only the First Action in a Series Provides Feedback to the Widget" Constraint Has Been Removed
+Prior builds have CSI have had a workaround in the code to prevent runaway feedback when multiple actions were assigned to the same widget. The workaround was to impose a limitation that only the first action would provide feedback to the widget. Example:
+
+```
+    SomeButton SomeAction     // only this action would provide feedback to the widget
+    SomeButton AnotherAction  // this action would not provide feedback
+```
+
+While this worked reasonably well, you were out of luck if you wanted SomeAction to occur before AnotherAction, but wanted the feedback from AnotherAction.
+
+Now, with feedback available on a per Action basis you can do this:
+
+```
+    SomeButton SomeAction Feedback=No
+    SomeButton AnotherAction
+```
+
+...or even something like this:
+```
+    SomeButton SomeAction Feedback=No
+    SomeButton AnotherAction 
+    SomeButton YetAnotherAction Feedback=No
+```
+As a result, that "only the first action provides feedback" constraint is no longer necessary.
+
+## "CSI Toggle Show Input from Surfaces" Action Now Shows Zone File Path
+To help facilitate troubleshooting of .zon files, particularly when you may have multiple zone folders or aren't sure which zone is currently active, the "CSI Toggle Show Input from Surfaces" action in Reaper will now show the full zone file path in addition to the action. 
+
+Example:
+```
+IN <- XTouchOne Play 1.000000
+Zone -- C:\Users\[UserName]\AppData\Roaming\REAPER/CSI/Zones/X-Touch_One_FB/Buttons.zon
+```
+...looking at this, I can see the full path to the zone file that was active when I pressed the Play button. 
 
 ## BREAKING CHANGES: WidgetMode and Property+NoFeedback Replaced With New Syntax
 Previously, WidgetMode was used to set the encoder ring style and FaderPort display types. In addition, Property+NoFeedback was used for disabling feedback. This old implementation required multiple lines for these additional commands. 
