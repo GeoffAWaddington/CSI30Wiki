@@ -13,7 +13,7 @@ CSI allows you to map plugin parameters to your control surface. See [[FX-and-In
 * [[ToggleEnableFocusedFXParamMapping|FX Parameter Mapping Actions#ToggleEnableFocusedFXParamMapping]]
 * [[ToggleFXBypass|FX Parameter Mapping Actions#ToggleFXBypass]]
 * [[FXBypassDisplay|FX Parameter Mapping Actions#FXBypassDisplay]]
-* [[ToggleFXOffline|FX Parameter Mapping Actions#togglefxoffline]]
+* [[ToggleFXOffline|FX Parameter Mapping Actions#togglefxoffline-fxofflinedisplay]]
 * [[FXOfflineDisplay|FX Parameter Mapping Actions#togglefxoffline-fxofflinedisplay]]
 * [[FXGainReductionMeter|FX Parameter Mapping Actions#FXGainReductionMeter]]
 * [[GoFXSlot|FX-Parameter-Mapping-Actions#gofxslot]]
