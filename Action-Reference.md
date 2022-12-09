@@ -80,6 +80,7 @@
 * [[ToggleFXBypass|FX Parameter Mapping Actions#ToggleFXBypass]]
 * [[FXBypassDisplay|FX Parameter Mapping Actions#FXBypassDisplay]]
 * [[ToggleFXOffline|FX Parameter Mapping Actions#togglefxoffline]]
+* [[FXOfflineDisplay|FX Parameter Mapping Actions#togglefxoffline-fxofflinedisplay]]
 * [[FXGainReductionMeter|FX Parameter Mapping Actions#FXGainReductionMeter]]
 * [[GoFXSlot|FX-Parameter-Mapping-Actions#gofxslot]]
 
