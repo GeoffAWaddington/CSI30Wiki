@@ -14,6 +14,7 @@ CSI allows you to map plugin parameters to your control surface. See [[FX-and-In
 * [[ToggleFXBypass|FX Parameter Mapping Actions#ToggleFXBypass]]
 * [[FXBypassDisplay|FX Parameter Mapping Actions#FXBypassDisplay]]
 * [[ToggleFXOffline|FX Parameter Mapping Actions#togglefxoffline]]
+* [[FXOfflineDisplay|FX Parameter Mapping Actions#togglefxoffline-fxofflinedisplay]]
 * [[FXGainReductionMeter|FX Parameter Mapping Actions#FXGainReductionMeter]]
 * [[GoFXSlot|FX-Parameter-Mapping-Actions#gofxslot]]
 
@@ -160,13 +161,13 @@ Zone "TrackFXMenu"
 ZoneEnd
 ```
 
-## ToggleFXOffline
-Use ToggleFXOffline to change the FX status to "offline" in Reaper. Offline FX is similar to Bypass, but it removes the plugin from memory and additional processing. In the below example, it's assigned to Shift+Mute. **Note:** This one CSI action is both an action AND a display. Notice the Shift+DisplayLower| line!
+## ToggleFXOffline, FXOfflineDisplay
+Use ToggleFXOffline to change the FX status to "offline" in Reaper. Offline FX is similar to Bypass, but it removes the plugin from memory and additional processing. In the below example, it's assigned to Shift+Mute. The corresponding display action is FXOfflineDisplay.
 ```
 Zone "SelectedTrackFXMenu"
         DisplayUpper|         FXMenuNameDisplay
         DisplayLower|         FXBypassDisplay
-        Shift+DisplayLower|   ToggleFXOffline
+        Shift+DisplayLower|   FXOfflineDisplay
         Rotary|               NoAction
         RotaryPush|           GoFXSlot
         Mute|                 ToggleFXBypass
