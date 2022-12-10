@@ -9,7 +9,6 @@ The full list of available modifiers is:
 * [[InvertFB|Modifiers#InvertFB]]
 * [[Hold|Modifiers#Hold]]
 * [[Flip|Modifiers#Flip]]
-* [[Property|Modifiers#Property]]
 * [[Toggle|Other Actions#togglechannel]]
 
 # Global Modifiers
@@ -162,15 +161,6 @@ Zone "Track"
     Rotary|                     MCUTrackPan
     Fader|                   	TrackVolume 
     Flip+Fader|                	TrackPan 
-```
-
-## Property
-Property is a special kind of modifier that only works on specific surfaces like the SCE-24 or the [[NoFeedback|Other Actions#NoFeedback]] action. The below example shows how you would use Property to turn off the feedback on the Marker button in an X-Touch control surface. This is the most common use-case for the Property modifier (see [[NoFeedback|Other Actions#NoFeedback]] for more information). 
-```
-Zone "Buttons"
-     Marker                     Reaper 40171     // Insert marker at current or edit position
-     Property+Marker            NoFeedback       // Turns off feedback
-ZoneEnd
 ```
 
 If using Property on a modified widget, the Property+ needs to be the very first word in the syntax for that line. Here's the same example above, just using a modifier to illustrate the example: 
