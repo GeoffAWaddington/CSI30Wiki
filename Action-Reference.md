@@ -131,7 +131,6 @@
 * [[FixedTextDisplay|Other Actions#FixedTextDisplay]]
 * [[FixedRGBColorDisplay|Other Actions#FixedRGBColorDisplay]]
 * [[ClearAllSolo|Other Actions|ClearAllSolo]]
-* [[NoFeedback|Other Actions#NoFeedback]]
 * [[Broadcast|Broadcast and Receive]]
 * [[Receive|Broadcast and Receive]]
 * [[ToggleChannel|Other Actions#togglechannel]]
