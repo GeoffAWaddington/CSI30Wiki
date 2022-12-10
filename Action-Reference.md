@@ -135,8 +135,6 @@
 * [[Broadcast|Broadcast and Receive]]
 * [[Receive|Broadcast and Receive]]
 * [[ToggleChannel|Other Actions#togglechannel]]
-* [[WidgetMode|WidgetMode]]
-* [[SetWidgetMode|WidgetMode#setwidgetmode]]
 * [[SendMIDIMessage|Other Actions#sendmidimessage]]
 * [[SendOSCMessage|Other Actions#sendoscmessage]]
 * [[SetXTouchDisplayColors|Other Actions#SetXTouchDisplayColors]]
