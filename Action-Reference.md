@@ -152,7 +152,6 @@
 * [[InvertFB|Modifiers#InvertFB]]
 * [[Hold|Modifiers#Hold]]
 * [[Flip|Modifiers#Flip]]
-* [[Property|Modifiers#Property]]
 * [[Toggle|Other Actions#togglechannel]]
 
 ## Reaper Actions
