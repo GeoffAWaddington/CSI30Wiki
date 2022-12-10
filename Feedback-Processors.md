@@ -615,6 +615,8 @@ Widget FPScribbleLower1
 WidgetEnd
 ```
 
+Note: to change FaderPort Display modes and Scribble modes, see [[Widget Modes]].
+
 **Note:** FB_FP8Display and FB_FP16Display are legacy feedback processors that now correspond to FB_FP8DisplayUpper and FB_FP16DisplayUpper respectively. The legacy versions will continue working for any .mst files where they already exist, but if you're creating a new set of files, you are encouraged to use the newer feedback processors.
 
 
