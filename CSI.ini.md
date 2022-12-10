@@ -67,14 +67,15 @@ Page "FocusedFXPage"
 "iPad Pro" 8 0 "FXTwister.ost" "FXTwisterFocusedFX"
 ```
 
-## Page Configuration Options
+## Page and Surface Configuration Options
 There are some additional options one can add in the csi.ini to modify functionality of CSI on a per-[[Page|Pages]] level. These are entirely optional, and in no means required but exist solely to override the default behavior. These are:
 
 * **FollowTCP** - By default CSI follows the track visibility of Reaper's MCP view. Use Follow TCP to override the default functionality.
 * **UseScrollLink** - This turns on scroll linking between the surface and Reaper (Reaper follows CSI). The default is off.
 * **NoSynchPages** - With this disabled, each page will have independent banking. The default is on.
+* **LocalModifiers** - When using LocalModifiers, modifiers engaged on a given are local to that surface only. The default is that modifier behavior will be global and impact all surfaces. 
 
-From a syntax perspective, these belong immediately following the Page name for any Pages where you are looking to override the default behavior. 
+From a syntax perspective, Page options belong immediately following the Page name for any Pages where you are looking to override the default behavior. The syntax for LocalModifiers places this text before the surface name in the csi.ini under each Page.
 
 ```
 Version 2.0
@@ -84,7 +85,7 @@ MidiSurface "MFTwister" 6 8
 OSCSurface "iPad Pro" 8003 9003 10.0.0.146 
 
 Page "HomePage" FollowTCP UseScrollLink NoSynchPages
-"XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
+LocalModifiers "XTouchOne" 1 0 "X-Touch_One.mst" "X-Touch_One_SelectedTrack"
 "MFTwister" 8 0 "MIDIFighterTwisterEncoder.mst" "FXTwisterMenu"
 "iPad Pro" 8 0 "FXTwister.ost" "FXTwisterMenu"
 ```
