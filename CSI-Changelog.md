@@ -1,5 +1,4 @@
 # December 10th, 2022
-This is what's currently floating around in the CSI Exp builds. Exp builds, while experimental, are generally stable and can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip). 
 
 ## Crash Fix When Using GoFolder in Project With "Orphaned Folders"
 If you had a Reaper project where tracks that have been left as "last track in folder" when the original folder no longer exists (i.e. "orphaned folder tracks"), Reaper would crash when using CSI's GoFolder action. This crash condition has been resolved.
