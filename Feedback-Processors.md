@@ -121,6 +121,7 @@ Widget Rotary1
 	FB_Encoder b0 10 00
 WidgetEnd
 ```
+If you would like to change the "Ring Style" of an FB_Encoder, say between a Dot and Fill Mode, please see [[Widget Modes]] for instructions.
 
 ## FB_Processor
 FB_Processor is the standard OSC feedback processor type. This feedback processor type will transmit strings, integers, floats, volume, pan, etc. and generally "just work" for most OSC-related use cases. The syntax is the word FB_Processor followed by the OSC address for the message. Below is an example that corresponds to a TrackNameDisplay1 widget on the Mixer page of this hypothetical OSC surface.
