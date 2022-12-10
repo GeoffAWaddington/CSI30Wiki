@@ -10,6 +10,9 @@
 * [[SetXTouchDisplayColors|Other Actions#setxtouchdisplaycolors-restorextouchdisplaycolors]]
 * [[RestoreXTouchDisplayColors|Other Actions#setxtouchdisplaycolors-restorextouchdisplaycolors]]
 * [[Speak|Other Actions#speak]]
+* [[SpeakFXMenuName|Other Actions#speakfxmenuname-speaktracksenddestination-speaktrackreceivesource]]
+* [[SpeakTrackSendDestination|Other Actions#speakfxmenuname-speaktracksenddestination-speaktrackreceivesource]]
+* [[SpeakTrackReceiveSource|Other Actions#speakfxmenuname-speaktracksenddestination-speaktrackreceivesource]]
 
 ## NoAction
 The cunningly named NoAction action, does nothing. I'll just pause for a second while that sinks in. Now, contrary to what you might be thinking, this can be really useful. 
