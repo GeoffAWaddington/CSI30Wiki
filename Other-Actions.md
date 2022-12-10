@@ -5,8 +5,6 @@
 * [[Broadcast|Broadcast and Receive]]
 * [[Receive|Broadcast and Receive]]
 * [[ToggleChannel|Other Actions#togglechannel]]
-* [[WidgetMode|WidgetMode]]
-* [[SetWidgetMode|WidgetMode#setwidgetmode]]
 * [[SendMIDIMessage|Other Actions#sendmidimessage]]
 * [[SendOSCMessage|Other Actions#sendoscmessage]]
 * [[SetXTouchDisplayColors|Other Actions#setxtouchdisplaycolors-restorextouchdisplaycolors]]
@@ -118,10 +116,8 @@ ToggleChannel allows you to define a widget, such as RotaryPush, to toggle funct
 Zone "Track"
     RotaryPush|                 ToggleChannel
 
-    Rotary|                     TrackPanAutoLeft
-    Rotary|			WidgetMode Dot
-    Toggle+Rotary|              TrackPanAutoRight
-    Toggle+Rotary|		WidgetMode Dot
+    Rotary|                     TrackPanAutoLeft RingStyle=Dot
+    Toggle+Rotary|              TrackPanAutoRight RingStyle=Dot
 
     DisplayLower|      		TrackPanAutoLeftDisplay
     Toggle+DisplayLower|   	TrackPanAutoRightDisplay
@@ -146,9 +142,6 @@ Fader1          		NoAction
 ....
 ZoneEnd
 ```
-
-## WidgetMode, SetWidgetMode
-See [[WidgetMode]] for more details on this unique set of actions.
 
 ## SendMIDIMessage
 SendMIDIMessage allows you to send arbitrary MIDI message to any CSI device based on whatever conditions you'd like to setup. This is great for devices like the MIDIFighterTwister, the Launch Pads, and other MIDI surfaces that will change colors or functionality based on MIDI messages they receive. For example, I'm doing this in my Home.zon to turn on strobing and change colors of buttons on my MIDI Fighter Twister based on the playback and record states in Reaper.
