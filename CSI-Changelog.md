@@ -109,7 +109,7 @@ TextInvert=No
 ## Added special case logic for X32 Select button
 Code changes deployed to get the Select buttons working correctly on the X32/MIDAS series consoles. Thanks to forum user jacksoonbrowne for the code.
 
-## EZFXZones now support Fixed Text for -1 param number
+## EZFXZones now support Fixed Text for -1 param number [EZFXZones Have Been Deprecated]
 Using the new EZFXZones, you can now have fixed text appear in a display with no parameter assigned to it (FX Param -1). See the example below...
 
 ```
@@ -262,7 +262,7 @@ WidgetEnd
 ## New Feature: Auto-Tick-Count Generation for Encoders+Stepped Parameters
 If you're utilizing the new [ZoneStepSizes](https://github.com/GeoffAWaddington/CSIWiki/wiki/CSI-Changelog#zonestepsizes-and-stp-files) feature, CSI will automatically create a tick-count list for comfortably cycling through stepped parameters so they're not going by too quickly to be useful or too slowly to be enjoyable. First, you need to define your encoders using the RotaryWidgetClass, StepSize, and DefaultAcceleration features in the .mst. Once you have that, you just need a .stp file (ZoneStepFile) for any fx you map. CSI does the rest!
 
-## Fixes for FXZone Crash and DisplayMode Spread
+## Fixes for FXZone Crash and DisplayMode Spread [EZFXZones Have Been Deprecated]
 Bug fixes for an EZFXZone crash when parsing an incorrect syntax and a fix for the DisplayMode "Spread" setting not working as expected.
 
 ## New Feature: Local Modifiers
@@ -480,7 +480,7 @@ When a .stp file exists for a plugin, things like the below example are no longe
      FXParamStepValues   1    0.0 0.05 0.11 0.16 0.21 0.26 0.32 0.37 0.42 0.47 0.53 0.58 0.63 0.68 0.74 0.79 0.84 0.89 0.95 1.0
 ```
 
-## EZFXZone Changes
+## EZFXZone Changes [EZFXZones Have Been Deprecated]
 If you've got Step Files for your FX, and made the changes outlined above, EZFXZones get much easier. The block of text at the bottom dictating the default acceleration and FX Step sizes are no longer required.
 
 Before...
@@ -675,7 +675,7 @@ Zone "Buttons"
 ZoneEnd
 ```
 
-## EZFXZones: New FX Zone Syntax Option
+## EZFXZones: New FX Zone Syntax Option [EZFXZones Have Been Deprecated]
 **Note: consider this feature extra-experimental. This is not ready for production projects yet. Also, some actions described below are currently still being coded.**
 
 EZFXZones are a new way of writing FX Zones that uses far fewer lines, and saves a lot of the tedious repetition of the legacy fx.zon format (which is not going away). These new FX zones follow a spreadhseet-like format where you read both across and down.
