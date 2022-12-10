@@ -105,6 +105,7 @@
 * [[GoSelectedTrackReceive|Navigation Actions#goselectedtrackreceive]]
 * [[GoSelectedTrackFXMenu|Navigation Actions#goselectedtrackfxmenu]]
 * [[GoSelectedTrackFX|Navigation Actions#goselectedtrackfx]]
+* [[GoMasterTrack|Navigation Actions#gomastertrack]]
 * [[GoPage|Navigation Actions#gopage-nextpage-pagenamedisplay]]
 * [[NextPage|Navigation Actions#gopage-nextpage-pagenamedisplay]]
 * [[PageNameDisplay|Navigation Actions#gopage-nextpage-pagenamedisplay]]
