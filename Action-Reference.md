@@ -140,6 +140,9 @@
 * [[SetXTouchDisplayColors|Other Actions#SetXTouchDisplayColors]]
 * [[RestoreXTouchDisplayColors|Other Actions#restorextouchdisplaycolors]]
 * [[Speak|Other Actions#speak]]
+* [[SpeakFXMenuName|Other Actions#speakfxmenuname]]
+* [[SpeakTrackSendDestination|Other Actions#speaktracksenddestination]]
+* [[SpeakTrackReceiveSource|Other Actions#speaktrackreceivesource]]
 
 ### Modifiers
 * [[Shift|Modifiers#global-modifiers]]
