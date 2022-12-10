@@ -18,6 +18,7 @@
 * [[GoSelectedTrackReceive|Navigation Actions#goselectedtrackreceive]]
 * [[GoSelectedTrackFXMenu|Navigation Actions#goselectedtrackfxmenu]]
 * [[GoSelectedTrackFX|Navigation Actions#goselectedtrackfx]]
+* [[GoMasterTrack|Navigation Actions#gomastertrack]]
 * [[GoPage|Navigation Actions#gopage-nextpage-pagenamedisplay]]
 * [[NextPage|Navigation Actions#gopage-nextpage-pagenamedisplay]]
 * [[PageNameDisplay|Navigation Actions#gopage-nextpage-pagenamedisplay]]
@@ -279,6 +280,14 @@ OnTrackSelection GoSelectedTrackFX
           "SelectedTrack"
           "Buttons"
      IncludedZonesEnd
+ZoneEnd
+```
+
+## GoMasterTrack
+Use GoMasterTrack to active the master track zone for surfaces that don't have a dedicated master track fader.
+```
+Zone "Buttons"
+    SomeButton    GoMasterTrack
 ZoneEnd
 ```
 
