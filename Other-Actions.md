@@ -403,3 +403,24 @@ Zone "Help"
     Footswitch2                 Speak "Start recording"     
 ZoneEnd
 ```
+
+## SpeakFXMenuName, SpeakTrackSendDestination, SpeakTrackReceiveSource
+The following new actions were added for OSARA users in order to allow CSI to speak the FX Menu Name of a plugin (SpeakFXMenuName) in the menu, or the track send destination (SpeakTrackSendDestination), or the receive source (SpeakTrackReceiveSource). These can be assigned to widgets to trigger when these actions take place. Note: SpeakTrackSendDestination and SpeakTrackReceiveSource will include the track number when speaking.
+
+```
+Zone "SelectedTrackFXMenu"
+    RecArm     SpeakFXMenuName
+...
+```
+
+```
+Zone "SelectedTrackSend"
+    RecArm     SpeakTrackSendDestination
+...
+```
+
+```
+Zone "SelectedTrackReceive"
+    RecArm     SpeakTrackReceiveSource
+...
+```
