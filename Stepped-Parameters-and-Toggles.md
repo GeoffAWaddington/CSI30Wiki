@@ -1,4 +1,6 @@
-This page will cover mapping toggles and stepped parameters to buttons. Visit the [Encoders](https://github.com/GeoffAWaddington/CSIWiki/wiki/Message-Generators#Encoders) page for details on how to map stepped parameters to an endless rotary encoder.
+This page will cover manually mapping toggles and stepped parameters to buttons. Visit the [Encoders](https://github.com/GeoffAWaddington/CSIWiki/wiki/Message-Generators#Encoders) page for details on how to map stepped parameters to an endless rotary encoder.
+
+Before you go further however, it's important you also be aware of [[ZoneStepSize files|FX-and-Instrument-Mapping#zonestepsizes-and-stp-files]] because they may negate the need for the manual effort required to manually define step sizes.
 
 # Toggles [ Two Steps ]
 
