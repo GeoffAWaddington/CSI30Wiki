@@ -10,6 +10,8 @@ Message Generators allow you to define what MIDI messages the surface sends to C
 * [[Encoder7Bit|Message-Generators#encoder7bit]] - another special encoder for the X-Touch Compact and X-Touch Mini.
 * [[MotorizedFaderWithoutTouch|Message-Generators#motorizedfaderwithouttouch]] - added for the Behringer X32/xAir/MIDAS series consoles which have motirized faders with no touch sensitivity
 
+
+## Widgets
 If you need to define a new .mst file, because one does not exist for your surface, the general idea here is to use the Reaper action **CSI Toggle Show Raw Input from Surfaces** to observe what values are sent when each control is manipulated. So for example, when I press one of the buttons on my controller, I see this:
 
 ```
@@ -22,6 +24,23 @@ The first line showed up when I pressed, the second one when I let go, so a reas
 ```
 Press 90 5b 7f 90 5b 00
 ```
+
+You would then define the syntax in the .mst file by using the following syntax
+```
+Widget [Name Of Control]
+
+     [Message GeneratorType] [Message Generator Address]
+WidgetEnd
+```
+
+Example:
+```
+Widget Play
+	Press 90 5e 7f
+WidgetEnd
+```
+
+If you plan on using a control for FX mapping in the future, you should also be aware of [[Ewidgets|FX-and-Instrument-Mapping#ewidget-or-eligible-widgets]]. 
 
 # Press
 Press is typically used for message generators that send a message when pressed, and optionally send another message when released. 
