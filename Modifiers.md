@@ -73,6 +73,9 @@ ZoneEnd
 
 Modifiers are global to a page, and as long as they are defined in a zone somewhere in that page, they can be used anywhere.
 
+## Local Modifiers
+You can configure any Global Modifiers to impact only the local surface by setting up "Local Modifiers" in your CSI.ini. See [[Page and Surface Configuration Options|CSI.ini#page-and-surface-configuration-options]] for instructions.
+
 ## Latching Modifiers
 If your surface sends release messages on button press, then you can do a quick press and release to "latch" a modifier. Example: let's say you want to use a few actions that require a Shift modifier. Quickly pressing and releasing the Shift button will engage the latch mode, which is the same as continuing to hold down the Shift button. A quick press and release turns the latching off.
 
