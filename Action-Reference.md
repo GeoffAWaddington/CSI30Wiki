@@ -154,8 +154,8 @@
 * [[Hold|Modifiers#Hold]]
 * [[Flip|Modifiers#Flip]]
 * [[Toggle|Other Actions#togglechannel]]
-* [[Increase|Modifiers#Increase]]
-* [[Decrease|Modifiers#Decrease]]
+* [[Increase|Modifiers#Increase-Decrease]]
+* [[Decrease|Modifiers#Increase-Decrease]]
 
 ## Reaper Actions
 If you want to trigger Reaper actions from CSI, use the syntax shown below:
