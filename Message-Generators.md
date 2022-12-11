@@ -1,5 +1,4 @@
-Message Generators allow you to define what MIDI messages the surface sends to CSI. The following types of Message Generators exist in CSI, and which you use will depend on your the control and your surface:
-
+Message Generators allow you to define what MIDI messages the surface sends to CSI. The following types of Message Generators exist in CSI, and which you use will depend on the type of control and your surface:
 
 * [[Press|Message-Generators#press]] - a simple generator that sends a single MIDI message on press, and optionally sends another message when released. Often, but not limited to, a button.
 * [[AnyPress|Message-Generators#anypress]] - a variation of Press needed for some devices. 
@@ -56,8 +55,8 @@ The Shift Widget has been declared with a Release message -- good for Buttons yo
 
 For information on how to assign buttons using Press widgets to toggles and stepped parameters in a Zone file, see [Stepped Params and Toggles.](https://github.com/GeoffAWaddington/CSIWiki/wiki/Stepped-Parameters-and-Toggles)
 
-## Using Press for jogwheels
-Additionally, press messages can be used to split up a jogwheel into clockwise (CW) and counter-clockwise (CCW) turns which can then be assigned to different actions in your CSI zone files. See the example below from a typical MCU device:
+## Using Press for jogwheels (Legacy)
+Jogwheels can now be defined using a single Encoder widget, but there may be instances where you still want to use the legacy approach of defining each jogwheel message as a press and have different widgets for clockwise (CW) and counter-clockwise (CCW) turns which can then be assigned to different actions in your CSI zone files. See the example below from a typical MCU device:
 ```
 Widget JogWheelRotaryCW
 	Press b0 3c 01
@@ -173,6 +172,8 @@ Widget Rotary1
 WidgetEnd
 ```
 
+Note: see the section regarding [[Default Encoder Customization]] section for instructions on how to cut down on the required syntax in your .mst files for the encoder acceleration steps.  
+
 ### Non-MCU Encoders, no acceleration
 Use this syntax only if your hardware encoder transmits a single-value for clockwise and counter-clockwise turns. Because each surface may be different, replace the "41" and "01" messages with the correct values for your hardware.
 
@@ -184,6 +185,8 @@ Widget Rotary1
 WidgetEnd
 ```
 
+Note: see the section regarding [[Default Encoder Customization]] section for instructions on how to cut down on the required syntax in your .mst files for the encoder acceleration steps.  
+
 ### Encoders with discrete acceleration steps
 Use this syntax when surface transmits different acceleration values for increment (CW) and decrement (CCW) turns. However, your surface may skip values (notice 48 and 49 are missing as are 08 09).
 ```
@@ -192,6 +195,8 @@ Widget Rotary1
 	FB_Encoder b0 10 7f
 WidgetEnd
 ```
+
+Note: see the section regarding [[Default Encoder Customization]] section for instructions on how to cut down on the required syntax in your .mst files for the encoder acceleration steps.  
 
 ### Encoders with a continuous acceleration range
 Use this syntax when your encoder transmits a continuous range of acceleration values between a defined start and end range with no breaks or jumps in the data. 
@@ -203,6 +208,8 @@ Widget Rotary1
 WidgetEnd
 ```
 
+Note: see the section regarding [[Default Encoder Customization]] section for instructions on how to cut down on the required syntax in your .mst files for the encoder acceleration steps.  
+
 ### MFTEncoder
 The MIDI Fighter Twister by DJ Tech Tools can be configured to work as an Encoder with **Velocity Acceleration**. However, because it uses a non-standard set of values when turning the knob clockwise and counter-clockwise, a special widget was developed for the MIDI Fighter Twister. The correct syntax for a MFTwister encoder is shown below, including the full set of acceleration steps when using the Velocity Sensitive encoder setting. As you can see, there are 11 acceleration levels in each direction.
 
@@ -212,6 +219,8 @@ Widget RotaryA1
 	FB_Fader7Bit b0 00 00
 WidgetEnd
 ```
+
+Note: see the section regarding [[Default Encoder Customization]] section for instructions on how to cut down on the required syntax in your .mst files for the encoder acceleration steps.  
 
 ### Encoder7Bit
 Encoder7Bit exists because some encoders, like those in the X-Touch Compact and X-Touch Mini devices, can be configured as [absolute] rotary knobs that continue to send messages when turned beyond their maximum ranges. The encoders will continue to send 00 messages when at minimum and turned counter-clockwise, and 7f messages when at maximum and turned clockwise. In between, it sends standard absolute MIDI messages for the full 0-127 range. This effectively allows them to function as both traditional knobs and encoders. Use this widget type to enable that behavior.
@@ -239,7 +248,105 @@ Widget Fader1
 WidgetEnd
 ```
 
-## Encoder Customization
+## Default Encoder Customization
+CSI allows you to store default encoder customization curves, as well as default "tick" sizes (the step size for each encoder "tick") in your .mst file rather than being required to define this in each zone file. This approach is recommended to cut down on the complexity required for smooth acceleration curves in FX.zon files, which cuts down on the complexity and the amount of syntax required.
+
+### RotaryWidgetClass and JogWheelWidgetClass
+RotaryWidgetClass is designed to help streamline how encoders are defined in .mst files and tell CSI which widgets are encoders. There are multiple elements to how this is used in an .mst file. 
+
+First, by putting the word RotaryWidgetClass after the widget name in the .mst file, you are telling CSI, "this widget belongs in the rotary widget class" (as shown below). In a moment, we'll show you what that allows for.
+```
+Widget RotaryA1 RotaryWidgetClass
+    Encoder b0 00 7f
+    FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+The same can be done with your JogWheel using the new JogWheelWidgetClass.
+```
+Widget JogWheel JogWheelWidgetClass
+	Encoder b0 3c 7f
+WidgetEnd
+```
+
+### Defining "StepSize" for All Encoders in the RotaryWidgetClass
+Now that the RotaryWidgetClass and/or JogWheelWidgetClass is defined for our encdoers, we can set the encoder StepSize globally by adding this to the top of the .mst file. This represents how fine the resolution will be for each encoder "tick". A value of 0.001 will be very fine and move parameters one-tenth of one-percent, which is very fine. If you find that resolution a little too fine, resulting in slow encoders, you may have better luck with a value of 0.003 or some other higher value. It will really depend on your hardware surfaces and preferences.
+
+Here is an example from the X-Touch.mst showing both class types, each using a StepSize of 0.003.
+```
+StepSize
+    RotaryWidgetClass   0.003
+    JogWheelWidgetClass 0.003
+StepSizeEnd
+```
+
+The encoders on MIDI Fighter Twister are very sensitive, so I might use a StepSize of 0.001 for that surface.
+```
+StepSize
+    RotaryWidgetClass 0.001
+StepSizeEnd
+```
+
+### AccelerationValues
+Next, we can then remove the Encoder Acceleration step values from each individual widget and just create a global set of acceleration values at the top of the .mst file. The benefit of this approach is that rather than being required to define the Encoder Acceleration in each EZFXZone, CSI can now use a default for all encoders in the RotaryWidgetClass. 
+
+Here we are defining the Decrease values ("Dec") from slowest encoder turns to fastest, and the same for the Increase ("Inc") values. Below that, you will find one encoder acceleration value ("Val") for each encoder acceleration step. The actual values used will depend on what your encoder transmits. The values below are from a MIDI Fighter Twister and my own personal acceleration curve.
+```
+AccelerationValues
+    RotaryWidgetClass Dec 3f     3e    3d    3c    3b    3a    39     38    36    33    2f     
+    RotaryWidgetClass Inc 41     42    43    44    45    46    47     48    4a    4d    51
+    RotaryWidgetClass Val 0.001  0.002 0.003 0.004 0.005 0.006 0.0075 0.01  0.02  0.03  0.04
+AccelerationValuesEnd
+```
+So in the past, each of my MFTEncoder widgets looked like the this...
+```
+Widget RotaryA1
+	MFTEncoder b0 00 7f [ < 3f 3e 3d 3c 3b 3a 39 38 36 33 2f > 41 42 43 44 45 46 47 48 4a 4d 51 ]
+	FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+Now we've got this text at the top of the .mst
+```
+StepSize
+    RotaryWidgetClass 0.001
+StepSizeEnd
+
+AccelerationValues
+    RotaryWidgetClass Dec 3f     3e    3d    3c    3b    3a    39     38    36    33    2f      
+    RotaryWidgetClass Inc 41     42    43    44    45    46    47     48    4a    4d    51
+    RotaryWidgetClass Val 0.001  0.002 0.003 0.004 0.005 0.006 0.0075 0.01  0.02  0.03  0.04
+AccelerationValuesEnd
+```
+
+And the encoder widgets look like this (Note: MFTEncoder has been replaced with the standard Encoder widget since all the instructions are now up top).
+```
+Widget RotaryA1 RotaryWidgetClass
+    Encoder b0 00 7f
+    FB_Fader7Bit b0 00 00
+WidgetEnd
+```
+
+Here is an example from the X-Touch.mst where the step size is 0.003 and the AccelerationValues line up with MCU-style devices.
+```
+StepSize
+    RotaryWidgetClass   0.003
+    JogWheelWidgetClass 0.003
+StepSizeEnd
+
+AccelerationValues
+    RotaryWidgetClass   Dec 41     42    43    44    45    46    47  
+    RotaryWidgetClass   Inc 01     02    03    04    05    06    07  
+    RotaryWidgetClass   Val 0.0006 0.001 0.002 0.003 0.008 0.04  0.08 
+
+    JogWheelWidgetClass Dec 41     42    43    44    45    46    47  
+    JogWheelWidgetClass Inc 01     02    03    04    05    06    07  
+    JogWheelWidgetClass Val 0.0006 0.001 0.002 0.003 0.008 0.04  0.08 
+AccelerationValuesEnd
+```
+
+## Custom Encoder Customization
+The below types of customizations can be used where no default customization has been defined, or where you want to override default values.
 
 ### Default Range, Default Step Size, Default Acceleration
 If you would rather rely on CSI's default values for encoders, just map your FX Parameter or CSI action to your encoder widget exactly like you normally would any CSI action. The full 0.0 to 1.0 parameter range will be used, as will the default CSI delta, with absolutely no acceleration. 
