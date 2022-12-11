@@ -10,6 +10,8 @@ The full list of available modifiers is:
 * [[Hold|Modifiers#Hold]]
 * [[Flip|Modifiers#Flip]]
 * [[Toggle|Other Actions#togglechannel]]
+* [[Increase|Modifiers#Increase-Decrease]]
+* [[Decrease|Modifiers#Increase-Decrease]]
 
 # Global Modifiers
 
@@ -173,3 +175,41 @@ ZoneEnd
 
 ## Toggle
 See [[ToggleChannel|Other Actions#togglechannel]] for details on how to use the toggle modifier.
+
+## Increase, Decrease
+Now you can assign two different Reaper actions to a single encoder based on which way the encoder is being turned, Counter-Clockwise (CCW) or Clockwise (CW). We do this via the Decrease and Increase modifiers. Note: these modifiers only work with Encoders. The examples below all show the JogWheel but this functionality will work with any encoder.
+
+```
+Zone "Zoom"
+    Decrease+JogWheel      Reaper 41326   // Decrease track height
+    Increase+JogWheel      Reaper 41325   // Increase track height
+ZoneEnd
+```
+
+**Important Note:** for this to work on your JogWheel, you will need to update your .mst file. If you're coming from a prior version of CSI, you probably have two or more separate JogWheel widgets and those widgets probably are defined using Press instead of Encoder. So replace your JogWheel widgets to look like this (assuming MCU-style surface):
+```
+Widget JogWheel JogwheelWidgetClass
+	Encoder b0 3c 7f
+WidgetEnd
+```
+
+The following native CSI actions support this same syntax:
+```
+TrackBank
+VCABank
+FolderBank
+SelectedTrackSendBank
+SelectedTrackReceiveBank
+SelectedTrackFXMenuBank
+TrackSendBank
+TrackReceiveBank
+TrackFXMenuBank
+```
+
+Example:
+```
+Zone "Buttons"
+    Decrease+JogWheel      TrackBank -1
+    Increase+JogWheel      TrackBank  1
+ZoneEnd
+```
