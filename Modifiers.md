@@ -9,6 +9,10 @@ The full list of available modifiers is:
 * [[InvertFB|Modifiers#InvertFB]]
 * [[Hold|Modifiers#Hold]]
 * [[Flip|Modifiers#Flip]]
+* [[Marker|Modifiers#Marker]
+* [[Nudge|Modifiers#Nudge]
+* [[Scrub|Modifiers#Scrub]
+* [[Zoom|Modifiers#Zoom]
 * [[Toggle|Other Actions#togglechannel]]
 * [[Increase|Modifiers#Increase-Decrease]]
 * [[Decrease|Modifiers#Increase-Decrease]]
@@ -168,12 +172,38 @@ Zone "Track"
     Flip+Fader|                	TrackPan 
 ```
 
-If using Property on a modified widget, the Property+ needs to be the very first word in the syntax for that line. Here's the same example above, just using a modifier to illustrate the example: 
+## Marker
+The Marker modifier was designed for MCU-style surfaces with a "Marker" button, allowing you to combine that button to create a range of marker-related actions similar to the examples below. 
 ```
-Zone "Buttons"
-     Shift+Marker                     Reaper 40171     // Insert marker at current or edit position
-     Property+Shift+Marker            NoFeedback       // Turns off feedback
-ZoneEnd
+    Marker+Up                   Reaper 40613       // Delete marker near cursor                         
+    Marker+Down                 Reaper 40157       // Insert marker at current or edit position                  
+    Marker+Right                Reaper 40173       // Go to next marker or project end                      
+    Marker+Left                 Reaper 40172       // Go to previous marker or project start
+```
+
+## Nudge
+The Nudge modifier was designed for MCU-style surfaces with a "Nudge" button, allowing you to combine that button to create a range of nudge-related actions similar to the examples below. 
+```
+    Nudge+Up                    Reaper 41925     // Item: Nudge items volume +1dB
+    Nudge+Down                  Reaper 41924     // Item: Nudge items volume -1dB
+    Nudge+Left                  Reaper 41279     // Item edit: Nudge left by saved nudge dialog settings 1
+    Nudge+Right                 Reaper 41275     // Item edit: Nudge right by saved nudge dialog settings 1
+```
+
+## Scrub
+The Scrub modifier was designed for MCU-style surfaces with a "Scrub" button, allowing you to combine that button to create a range of scrub-related actions similar to the examples below. 
+```
+    Decrease+Scrub+Jogwheel     Reaper 40084     // Transport: Rewind a little bit
+    Increase+Scrub+Jogwheel     Reaper 40085     // Transport: Fast forward a little bit
+```
+
+## Zoom
+The Zoom modifier was designed for MCU-style surfaces with a "Zoom" button, allowing you to combine that button to create a range of zoom-related actions similar to the examples below. 
+```
+    Zoom+Up                     Reaper 40111     // Zoom in vertical                                            
+    Zoom+Down                   Reaper 40112     // Zoom out vertical                                                       
+    Zoom+Right                  Reaper 1012      // Zoom in horizontal                                      
+    Zoom+Left                   Reaper 1011      // Zoom out horizontal         
 ```
 
 ## Toggle
