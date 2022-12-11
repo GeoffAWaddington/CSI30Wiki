@@ -13,7 +13,7 @@ The full list of available modifiers is:
 * [[Increase|Modifiers#Increase-Decrease]]
 * [[Decrease|Modifiers#Increase-Decrease]]
 
-# Global Modifiers
+## Global Modifiers
 
 To avoid creating dependencies between zone files (where a control specified in one is referenced in another), there are a set of global modifiers available:
  
