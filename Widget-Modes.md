@@ -36,7 +36,7 @@ RingStyle=Spread
 ```
 
 ### BarStyle (For Use With FaderPort8/16 Value Bars)
-If using **FB_FaderportValueBar**, then the available options are"
+If using **FB_FaderportValueBar**, then the available options are:
 ```
 BarStyle=Normal
 BarStyle=BiPolar
