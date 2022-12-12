@@ -59,6 +59,9 @@ The Exp builds can be found [here](https://stash.reaper.fm/v/42044/CSI%20Exp.zip
 
 If you are running an Exp build, and a brand-new feature still isn't working as expected, please post in the main CSI thread in the Reaper Control Surface's sub-forum. You may have found a bug.
 
+## I'm Seeing Strange Behavior With Button Lights on My Surface
+If you're seeing strange behavior with button lights, like blinking lights, or lights remaining on when you don't expect them to, but you've confirmed everything else looks good, then see the [[Widget Modes]] page for information on how to turn Feedback off for a particular action or actions.  
+
 ## Other Troubleshooting Tips
 Some additional troubleshooting tips...
 
