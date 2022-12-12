@@ -709,7 +709,7 @@ ZoneEnd
 ```` 
 
 ## FB_XTouchDisplayUpper
-FB_XTouchDisplayUpper is used for controlling colors on the displays for the X-Touch Universal and X-Touch Extender controllers. **This feedback processor should exist in the UpperDisplay1 widget only and will control the colors for all 8 displays on the unit.** The remaining displays should be FB_MCUDisplayUpper as shown in the example below. Note: the same is applicable to X-Touch Extenders.
+FB_XTouchDisplayUpper is used for controlling colors on the displays for the X-Touch Universal and X-Touch Extender controllers. **This feedback processor should exist in the UpperDisplay1 widget only and will control the colors for all 8 displays on the unit.** The remaining displays should be FB_MCUDisplayUpper as shown in the example below. Note: the same is applicable to X-Touch Extenders. You'll also note: there is no FB_XTouchDisplayLower; use FB_MCUDisplayLower for those displays.
 ```
 Widget DisplayUpper1
 	FB_XTouchDisplayUpper 0
