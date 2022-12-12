@@ -9,7 +9,7 @@ Example:
     SomeButton SomeAction Feedback=No
 ```
 
-...or even something like this:
+...or even something like this if you have a macro action but only want to see the feedback from the middle one, not the others:
 ```
     SomeButton SomeAction Feedback=No
     SomeButton AnotherAction 
