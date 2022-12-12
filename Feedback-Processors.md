@@ -1,6 +1,6 @@
 Feedback Processors allow you to define how your Widget will display feedback from CSI to the user. A simple example may be lighting up an LED to indicate the Mute/Solo state of a track. Another may be positioning a motorised fader to the correct position for Track Volume. 
 
-It is important to understand how this works in practise.
+It is important to understand how this works in practice.
 
 Let's say we have a button defined in our [[MST file|Defining Control Surface Capabilities]] that has an LED light to indicate its status.    
 ```
