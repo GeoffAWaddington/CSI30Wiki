@@ -36,6 +36,9 @@ Example 4. Erroneous definition. In this case only the 3rd Action gets feedback.
 ## Fixes for Extraneous Messages Being Sent / Flickering
 The above referenced change to the feedback behavior should also resolve any problems with extraneous messages being sent or button flickering.
 
+## New CSI Support Files Posted
+The CSI support files were updated to reflect some of the latest changes.
+
 # December 10th, 2022
 
 ## Crash Fix When Using GoFolder in Project With "Orphaned Folders"
