@@ -3,7 +3,7 @@
 ## Changes to Feedback behavior and Widget Mode
 CSI now ignores feedback for Reaper Actions that do not properly report their status in the Action List (these are actions that do not show "on" or "off" in the Reaper action list). The Feedback [[Widget Mode|Widget Modes]] behavior was now changed as a result, so that you no longer have to enter "Feedback=No" to disable feedback in those instances.
 
-Instead, CSI will default to only providing feedback for the first action in a CSI macro action (one button assigned to trigger more than action). Now, if you want to report the feedback state of anything other than the first action in a macro list, you simply add the word "Feedback" to the end of the action you want to provide the feedback.
+CSI will default to only providing feedback for the first action in a CSI macro action (i.e. one button assigned to trigger more than action). If you want to report the feedback state of anything other than the first action in a macro list, you simply add the word "Feedback" to the end of the action you want to provide the feedback. There can only be one of these for each CSI macro action or the last in the list will be used.
 
 Example 1. I only want feedback on the first action (default behaviour - no additional syntax required)....
 ```
