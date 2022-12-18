@@ -86,7 +86,7 @@ ZoneEnd
 ```
 
 ## Want to See the Active Zone or Mapping In Reaper?
-Big thanks to Reaper forum user Manwë for this incredible tip! Would you like to see the active zone name, or even the active mapping appear on screen wthin Reaper itself? You can do this by leveraging the “SWS/S&M: Resources - Show image, slot” actions and combining those with custom images.
+Big thanks to Reaper forum user Manwë for this incredible tip! Would you like to see the active zone name, or even have the active mapping appear on screen within Reaper itself? You can do this by leveraging the “SWS/S&M: Resources - Show image, slot” actions and combining those with custom images.
 
 ![CSI-IMAGE-DEMO](https://user-images.githubusercontent.com/52307138/208313310-881d091e-dfc1-44f3-a4d9-25dc9afe7dc8.gif)
 
@@ -121,7 +121,7 @@ Zone "Buttons"
      F1                        Reaper _S&M_SHOW_IMG1
 ```
 
-Repeat this as needed for other zones.
+Repeat this as needed for other zones and image slots.
 
 ### Step 5: Setup the Window in Reaper as desired
 You may want to dock the image window, you may prefer a floating window, you may want it on another screen. May be a good idea to include it in screen sets. 
