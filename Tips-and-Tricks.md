@@ -90,7 +90,7 @@ Big thanks to Reaper forum user Manwë for this incredible tip! Would you like t
 
 ![CSI-IMAGE-DEMO](https://user-images.githubusercontent.com/52307138/208313310-881d091e-dfc1-44f3-a4d9-25dc9afe7dc8.gif)
 
-Pre-Conditions: You must have SWS extensions installed. 
+**Pre-Condition:** You must have SWS extensions installed. 
 
 ### Step 1: Increase the Number of Show Image Slots
 By default, only 4 “Show Image Slots” exist. So if you want to extend the number of these, you need to open the S&M.ini, locate the line "S&M_SHOW_IMG=___", then change the number, resave the S&M.ini, and restart Reaper. 
