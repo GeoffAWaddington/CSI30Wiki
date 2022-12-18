@@ -92,16 +92,16 @@ Big thanks to Reaper forum user Manwë for this incredible tip! Would you like t
 
 Pre-Conditions: You must have SWS extensions installed. 
 
-### Step 1, Increase the Number of Show Image slots.
+### Step 1: Increase the Number of Show Image Slots
 By default, only 4 “Show Image Slots” exist. So if you want to extend the number of these, you need to open the S&M.ini, locate the line "S&M_SHOW_IMG=___", then change the number, resave the S&M.ini, and restart Reaper. 
 
-### Step 2, Make .png template files for your zone names and/or mappings
+### Step 2: Make .png template files for your zone names and/or mappings
 Make a PNG template for your zones [you can use pixlr.com] and add them to your Images resources in your SWS Extensions menu. 
 
 To make it easier, Manwë has already provided image files for the most common zone names which can be found here:
 [CSI ZONE PNGs.zip](https://github.com/GeoffAWaddington/CSIWiki/files/10254403/CSI.ZONE.PNGs.zip)
 
-### Step 3, Add your images in SWS Extensions
+### Step 3: Add your images in SWS Extensions
 Now that we have images we want to use, we must assign those to the S&M Image Slots in Reaper.
 
 1.	Open Reaper’s Action List
@@ -110,7 +110,7 @@ Now that we have images we want to use, we must assign those to the S&M Image Sl
 4.	Locate the image file you’d like to assign to the S&M Show Image Slot 1 action
 5.	Repeat this for other slots/images as required
 
-### Step 4, Add the S&M Show Image Slot Actions to Your Zone Activation Buttons
+### Step 4: Add the S&M Show Image Slot Actions to Your Zone Activation Buttons
 Now you just need to add the images in the corresponding slots to the zone activation buttons (or OnZoneActivation virtual widget) within CSI.
 
 Example: if I have Image Slot 1 assigned to show the Home.zon, and use the F1 button on my surface to go Home, I can do this to make “Home” appear in Reaper whenever I GoHome.
@@ -123,5 +123,38 @@ Zone "Buttons"
 
 Repeat this as needed for other zones.
 
-### Step 5 Setup the Window in Reaper as desired
+### Step 5: Setup the Window in Reaper as desired
 You may want to dock the image window, you may prefer a floating window, you may want it on another screen. May be a good idea to include it in screen sets. 
+
+### What if I Forget My Mapping? Can I Use it for That Too?
+Yes, you can also use this to display images for your mapping, including creating a toggle using Cycle Actions to flip between the zone name image and the mapping image as shown below.
+
+![CSI-TOGGLE-DEMO](https://user-images.githubusercontent.com/52307138/208313520-813d0015-51d5-4fba-94d6-6795d827cff9.gif)
+
+To set this type of behavior up, first, make 2 new custom actions for the 2 images you want to use for the selected zone like the following:
+
+```
+///First custom action for the Surface mapping image. I named mine "CSI HOME MAPPING--> UNDOCK"
+
+SWS/S&M: Resources - Show image, slot __
+Dock/undock currently focused window
+```
+
+Second custom action...
+```
+///Second custom action to return to the docked CSI zone image. I named mine "CSI HOME ZONE-->DOCK"
+
+SWS/S&M: Resources - Show image, slot __
+Dock/undock currently focused window
+```
+
+Now, create an SWS Cycle Action with toggle enabled like the following:
+```
+(custom action command ID)          Custom: CSI HOME MAPPING-->UNDOCK
+!                                   -----Step-----
+(custom action command ID)          Custom: CSI HOME ZONE-->DOCK
+```
+
+Dock your Zone image where you'd like it, map your Cycle Action to a surface button in your zone and press, resize/locate your Mapping image where you'd like it and done!
+
+The only downside is you would need to have the Zone image docked before activating another zone. Otherwise the Zone image and projection image are swapped. Quick fix though!
