@@ -84,3 +84,44 @@ Zone "Track"
     Fader|Touch+MainDisplay|       TrackNameDisplay
 ZoneEnd
 ```
+
+## Want to See the Active Zone or Mapping In Reaper?
+Big thanks to Reaper forum user Manwë for this incredible tip! Would you like to see the active zone name, or even the active mapping appear on screen wthin Reaper itself? You can do this by leveraging the “SWS/S&M: Resources - Show image, slot” actions and combining those with custom images.
+
+![CSI-IMAGE-DEMO](https://user-images.githubusercontent.com/52307138/208313310-881d091e-dfc1-44f3-a4d9-25dc9afe7dc8.gif)
+
+Pre-Conditions: You must have SWS extensions installed. 
+
+### Step 1, Increase the Number of Show Image slots.
+By default, only 4 “Show Image Slots” exist. So if you want to extend the number of these, you need to open the S&M.ini, locate the line "S&M_SHOW_IMG=___", then change the number, resave the S&M.ini, and restart Reaper. 
+
+### Step 2, Make .png template files for your zone names and/or mappings
+Make a PNG template for your zones [you can use pixlr.com] and add them to your Images resources in your SWS Extensions menu. 
+
+To make it easier, Manwë has already provided image files for the most common zone names which can be found here:
+[CSI ZONE PNGs.zip](https://github.com/GeoffAWaddington/CSIWiki/files/10254403/CSI.ZONE.PNGs.zip)
+
+### Step 3, Add your images in SWS Extensions
+Now that we have images we want to use, we must assign those to the S&M Image Slots in Reaper.
+
+1.	Open Reaper’s Action List
+2.	Run the action “SWS/S&M: Open/close Resources window (images)”
+3.	Right click on the empty space under the word slot and select “Add Slot”
+4.	Locate the image file you’d like to assign to the S&M Show Image Slot 1 action
+5.	Repeat this for other slots/images as required
+
+### Step 4, Add the S&M Show Image Slot Actions to Your Zone Activation Buttons
+Now you just need to add the images in the corresponding slots to the zone activation buttons (or OnZoneActivation virtual widget) within CSI.
+
+Example: if I have Image Slot 1 assigned to show the Home.zon, and use the F1 button on my surface to go Home, I can do this to make “Home” appear in Reaper whenever I GoHome.
+```
+Zone "Buttons"
+
+     F1                        GoHome
+     F1                        Reaper _S&M_SHOW_IMG1
+```
+
+Repeat this as needed for other zones.
+
+### Step 5 Setup the Window in Reaper as desired
+You may want to dock the image window, you may prefer a floating window, you may want it on another screen. May be a good idea to include it in screen sets. 
