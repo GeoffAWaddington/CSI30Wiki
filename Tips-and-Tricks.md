@@ -63,7 +63,7 @@ Similar to the pan reset trick above, you can reset the Track Volume of a channe
 Control+Select      TrackVolume 	 [ 0.716 ]
 ```
 
-...in this case, I'm using a combination of the Control modifier plus the channel Select button to reset the track volume to unity gain (which is what the 0.716 represents).
+...in this case, I'm using a combination of the Control modifier plus the channel Select button to reset the track volume to unity gain (which is what the 0.716 represents). **Note:** The unity-gain track volume level can vary a bit from Reaper install to Reaper install as it's dependent on the "Volume Fader Range" setting found in Reaper's Preferences -> Appearance -> Track Control Panels. So start with 0.716 and adjust that number up or down as needed to get the fader to reset to 0.0db.
 
 ## Exclusive Solo
 This suggestion comes from Reaper forum user M4TU. If you want Exclusive Solo functionality (i.e. only one track solo'd at a time), you could do something like this in your TrackZone...
