@@ -135,19 +135,19 @@ ZoneEnd
 ```
 
 ```
-SubZone "Zoom"
-     Up                      Reaper "40111"     // Zoom in vertical
-     Down                    Reaper "40112"     // Zoom out vertical
-     Left                    Reaper "1011"      // Zoom out horizontal
-     Right                   Reaper "1012"      // Zoom in horizontal
+Zone "Zoom"
+     Up                      Reaper 40111     // Zoom in vertical
+     Down                    Reaper 40112     // Zoom out vertical
+     Left                    Reaper 1011      // Zoom out horizontal
+     Right                   Reaper 1012      // Zoom in horizontal
      
-     Shift+Up                Reaper "40113"     // View: Toggle track zoom to maximum height
-     Shift+Down              Reaper "40110"     // View: Toggle track zoom to minimum height
-     Shift+Left              Reaper "40295"     // View: Zoom out project
-     Shift+Right             Reaper "41190"     // View: Set horizontal zoom to default project setting
+     Shift+Up                Reaper 40113     // View: Toggle track zoom to maximum height
+     Shift+Down              Reaper 40110     // View: Toggle track zoom to minimum height
+     Shift+Left              Reaper 40295     // View: Zoom out project
+     Shift+Right             Reaper 41190     // View: Set horizontal zoom to default project setting
 
      Zoom LeaveSubZone
-SubZoneEnd
+ZoneEnd
 ```
 
 SubZones are also commonly used in FX, for example, where a mastering suite plugin may have lots of different sections and more automation than you have on your surface. In those instances, you could create a "compressor" SubZone, and a "limiter" SubZone, etc.
