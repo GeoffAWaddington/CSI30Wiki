@@ -126,14 +126,20 @@ The Home.zon would also include any [[Broadcast and Receive|Broadcast-and-Receiv
 FX zone file names can be whatever you'd like them to, but the FX zone name in the .zon file itself must match the plugin name in Reaper exactly. See [FX Zones](https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki/FX-Zones) for more information on how to create an FX.zon.
 
 ## SubZones
-If you need to create a custom zone, like a "Zoom" zone, or a "FocusedFXParam" zone, these must be created as SubZones and called by the action GoSubZone. Example:
+SubZones are custom zones that can be called up from their parent zone. They have no fixed naming convention like the AssociatedZones. If your SubZone name includes a space, wrapping the name in quotes is required (e.g. if your zone name is "Mix Zone"), however, it's a common CSI practice to include quotes in all zone names, though technically not required. 
 
+First, the SubZones need to be defined and within the parent zone (lines 2-4 below). You also need a way to activate the SubZone using the [[GoSubZone|Navigation-Actions#gosubzone-leavesubzone]] action (in this case, the Zoom button). Here is one example where a "Zoom" subzone is being called from the buttons.zon:
 ```
 Zone "Buttons"
+    SubZones
+       "Zoom"
+    SubZonesEnd
+
     Zoom        GoSubZone "Zoom"
 ZoneEnd
 ```
 
+The SubZone itself would look like any other standalone .zon file. Below is our Zoom.zon example. Also note that once we are in one of those custom SubZones, we need a way to exit the SubZone. You may want to use the same button you used to activate the SubZone and assign that to the [[LeaveSubZone|Navigation-Actions#gosubzone-leavesubzone]] action in order for it to behave like a toggle. 
 ```
 Zone "Zoom"
      Up                      Reaper 40111     // Zoom in vertical
