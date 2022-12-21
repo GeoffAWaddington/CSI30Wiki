@@ -86,8 +86,10 @@ Here's what that looks like in a Buttons.zon
     Busses                      GoTrackFXMenu
 ````
 
-## Home Zone
-Every surface in CSI requires a Home zone. The types of zones defined in "IncludedZones" will dictate the starting (or "home") state of the surface. Additionally, CSI version 2 introduced the concept of AssociatedZones. These are zones like Sends, Receives, and FX Menus that are not activated as part of the home.zon, but will be called from this zone.
+## Home Zone, IncludedZones, AssociatedZones
+Every surface in CSI requires a Home zone. This sets the default state for your surface via IncludedZones and AssociatedZones, which we will explain shortly. If you require one surface to sync up with, or dictate the behavior of another, you'd define the required [[Broadcast and Receive|Broadcast-and-Receive]] behavior in the Home.zon. It's also not uncommon to include actions assigned to [[Virtual Widgets]] in the Home zone to set the state of the surface when initializing the surface or "going" Home.
+
+The types of zones defined in "IncludedZones" will dictate the starting (or "home") state of the surface. Example: it's common to have a Track zone combined with a Master Track and Buttons zone in an MCU-style surface because we want the faders, rotaries and buttons all functional and defined in a predictable way when going Home. Additionally, CSI version 2 introduced the concept of AssociatedZones. These are zones like Sends, Receives, and FX Menus that are not activated as part of the home.zon, but will be called from this zone. Example: when I activate the Send zone, I want the Sends mapped to faders and rotaries until I go Home again where they control tracks - that makes the Send zone a typical use-case for AssociatedZones. AssociatedZones behave like radio buttons, with only one being activated at a given time. 
 
 Below is an example of a typical MCU-style home.zon. The "Track" zone will use the displays and widgets when the Home zone is active, but if you want to call up an FX menu, Sends, or Receives to then takeover over some of the widgets, they need to be listed as AssociatedZones as shown below. When configured like this, the AssociatedZones function as "radio-button" style zones, where only one can be active at a given time (example: SelectedTrackSends or SelectedTrackReceives - not both simultaneously).
 ```
