@@ -25,7 +25,7 @@ PC (64 bit) and Mac systems(Catalina or later, including Apple Silicon) are supp
   * [[Zones]]
   * [[Send Zones]]
   * [[Receive Zones|Receive-Zones]]
-  * [[FX Menu Zones|FX-Zone-Activation-(FocusedFX,-TrackFXMenu,-SelectedTrackFXMenu,-SelectedTrack)#overview-four-different-activation-methods]]
+  * [[FX Zone Activation Methods|FX-Zone-Activation-(FocusedFX,-TrackFXMenu,-SelectedTrackFXMenu,-SelectedTrackFX)]]
   * [[FX and Instrument Zones|FX-and-Instrument-Mapping]]
   * [[Stepped Parameters and Toggles|Stepped Parameters and Toggles]]
   * [[Action Reference]]
