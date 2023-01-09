@@ -160,7 +160,7 @@ Dock your Zone image where you'd like it, map your Cycle Action to a surface but
 The only downside is you would need to have the Zone image docked before activating another zone. Otherwise the Zone image and projection image are swapped. Quick fix though!
 
 ## I Want a Button Assigned to a Reaper Action to Remain Lit
-Imagine you've got a Reaper Action assigned to a button and that Reaper Action does not provide feedback so the button light is permanently off. But you'd prefer the opposite. You want the button light to remain on at all times. You can try using the Feedback=Yes widget mode combined with InvertFB modifier as shown below... 
+Thanks to MT4U for this one! Imagine you've got a Reaper Action assigned to a button and that Reaper Action does not provide feedback so the button light is permanently off. But you'd prefer the opposite. You want the button light to remain on at all times. You can try using the Feedback=Yes widget mode combined with InvertFB modifier as shown below... 
 
 ```
      InvertFB+Drop          Reaper 41665 Feedback=Yes   //Show/hide children of selected tracks
